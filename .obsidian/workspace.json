@@ -11,13 +11,14 @@
             "id": "a503cddb358d952f",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "未命名 1.base",
-                "viewName": "表格"
+                "file": "math/拓扑.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "未命名 1"
+              "icon": "lucide-file",
+              "title": "拓扑"
             }
           }
         ]
@@ -195,8 +196,11 @@
   },
   "active": "a503cddb358d952f",
   "lastOpenFiles": [
-    "神经网络/索引.md",
+    "未命名.canvas",
+    "2026-01-12.md",
+    "未命名 2.base",
     "未命名 1.base",
+    "神经网络/索引.md",
     "shipany-rich-editor/docs/MIGRATION_SUMMARY.md",
     "未命名.base",
     "神经网络/models/VAE.md",
@@ -209,7 +213,6 @@
     "mini-spring/version2/target/classes/META-INF",
     "mini-spring/version1/target/classes/logback.xml",
     "HMDP-Redis/hm-dianping/target/classes/unlock.lua",
-    "HMDP-Redis/hm-dianping/target/classes/seckill.lua",
     "神经网络/implementations/README.md",
     "神经网络/README.md",
     "神经网络/modules/ContrastiveLearning.md",
@@ -228,7 +231,6 @@
     "神经网络/papers/README.md",
     "神经网络/models/CLIP.md",
     "神经网络/models/Diffusion.md",
-    "神经网络/modules/Tokenization.md",
-    "神经网络/modules/ReparameterizationTrick.md"
+    "神经网络/modules/Tokenization.md"
   ]
 }
