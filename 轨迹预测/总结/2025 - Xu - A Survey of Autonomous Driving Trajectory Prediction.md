@@ -12,19 +12,11 @@ source_pdf: 轨迹预测/论文/machines-13-00818-v2.pdf
 
 # 2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction
 
-> PDF：[[轨迹预测/论文/machines-13-00818-v2.pdf]]
-
-## 0. Citation
-- Title: A Survey of Autonomous Driving Trajectory Prediction: Methodologies, Challenges, and Future Prospects
-- Authors: Miao Xu, Zhi Liu, Bingyi Wang, Shengyan Li
-- Journal: Machines 2025, 13, 818
-- DOI: 10.3390/machines13090818
-
 ## 1. 一句话
 - 这是一篇面向**自动驾驶多智能体轨迹预测**的综述：给定历史轨迹 + HD Map + 场景上下文，系统梳理传统方法与深度学习方法（含 Transformer / 生成式 / Diffusion / LLM 相关进展），并总结 5 个核心挑战与未来方向。
 
 ## 2. 这篇综述的“分类框架”（我觉得最可复用的部分）
-作者提出的多维分类框架核心是 4 个维度：
+作多维分类框架核心是 4 个维度：
 
 ### 2.1 输入表示（Core Input Element）
 - Dynamic information：目标车及周围交通体的历史轨迹/状态（位置、速度、加速度、航向等），偏短期预测关键；来源：车载传感器、V2X 等。

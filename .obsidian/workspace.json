@@ -196,6 +196,11 @@
   },
   "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "轨迹预测/论文/agentawaretransformer.pdf",
+    "轨迹预测/论文/Scenetransformer.pdf",
+    "轨迹预测/论文/2106.08417v3.pdf",
+    "轨迹预测/总结/总结.md",
+    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "轨迹预测/论文/2103.14023v3.pdf",
     "轨迹预测/论文/machines-13-00818-v2.pdf",
     "轨迹预测/总结/machines-13-00818-v2.pdf",
@@ -211,10 +216,7 @@
     "未命名 2.base",
     "未命名 1.base",
     "shipany-rich-editor/docs/MIGRATION_SUMMARY.md",
-    "未命名.base",
     "神经网络/models/VAE.md",
-    "META-INF/spring.factories",
-    "META-INF",
     "HMDP-Redis/docs/spring-factories-mechanism.md",
     "神经网络/examples/VAE_TensorLevelExample.md",
     "神经网络/implementations/README.md",
@@ -230,8 +232,6 @@
     "神经网络/experiments/_TEMPLATE.md",
     "神经网络/experiments/README.md",
     "神经网络/implementations/_TEMPLATE.md",
-    "神经网络/papers/_TEMPLATE.md",
-    "神经网络/papers/README.md",
-    "神经网络/models/CLIP.md"
+    "神经网络/papers/_TEMPLATE.md"
   ]
 }
