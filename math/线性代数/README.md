@@ -24,6 +24,7 @@
 - `math/线性代数/概念图.md`：概念关系图（依赖链/常用路线）
 
 横切模块（解题与应用工具箱）：
+- `math/线性代数/modules/Linearity.md`
 - `math/线性代数/modules/PSD.md`
 - `math/线性代数/modules/KernelMethods.md`
 

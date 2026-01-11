@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "561b304ecdcd163b",
+    "type": "split",
+    "children": [
+      {
+        "id": "12d816241b02e942",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a503cddb358d952f",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "未命名 1.base",
+                "viewName": "表格"
+              },
+              "icon": "lucide-table",
+              "title": "未命名 1"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7e9e0aaaff73340d",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd9868ed16e55adc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c0dd6c6168e19e8f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b2f5d957564ae7a0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "95f2d16007b2c353",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "49f3e4bd09f511b1",
+    "type": "split",
+    "children": [
+      {
+        "id": "e00d8ca80565a623",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a5440d3f9e2fd320",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "神经网络/models/VAE.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "VAE 的反向链接列表"
+            }
+          },
+          {
+            "id": "48bc5c6857d8775e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "神经网络/models/VAE.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "VAE 的出链列表"
+            }
+          },
+          {
+            "id": "fa07ed5bddb1bf56",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "175e57cb43144620",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "7b2d6ece20001772",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "神经网络/models/VAE.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "VAE 的大纲"
+            }
+          },
+          {
+            "id": "ba372ebe80244abe",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "a503cddb358d952f",
+  "lastOpenFiles": [
+    "神经网络/索引.md",
+    "未命名 1.base",
+    "shipany-rich-editor/docs/MIGRATION_SUMMARY.md",
+    "未命名.base",
+    "神经网络/models/VAE.md",
+    "META-INF/spring.factories",
+    "META-INF",
+    "HMDP-Redis/docs/spring-factories-mechanism.md",
+    "HMDP-Redis/docs",
+    "神经网络/examples/VAE_TensorLevelExample.md",
+    "mini-spring/version2/target/classes/META-INF/spring.handlers",
+    "mini-spring/version2/target/classes/META-INF",
+    "mini-spring/version1/target/classes/logback.xml",
+    "HMDP-Redis/hm-dianping/target/classes/unlock.lua",
+    "HMDP-Redis/hm-dianping/target/classes/seckill.lua",
+    "神经网络/implementations/README.md",
+    "神经网络/README.md",
+    "神经网络/modules/ContrastiveLearning.md",
+    "神经网络/modules/Attention.md",
+    "神经网络/models/CVAE.md",
+    "神经网络/models/AE.md",
+    "神经网络/models/BERT.md",
+    "神经网络/models/_TEMPLATE.md",
+    "神经网络/概念图.md",
+    "神经网络/exercises/Exercises.md",
+    "神经网络/examples/Examples.md",
+    "神经网络/experiments/_TEMPLATE.md",
+    "神经网络/experiments/README.md",
+    "神经网络/implementations/_TEMPLATE.md",
+    "神经网络/papers/_TEMPLATE.md",
+    "神经网络/papers/README.md",
+    "神经网络/models/CLIP.md",
+    "神经网络/models/Diffusion.md",
+    "神经网络/modules/Tokenization.md",
+    "神经网络/modules/ReparameterizationTrick.md"
+  ]
+}

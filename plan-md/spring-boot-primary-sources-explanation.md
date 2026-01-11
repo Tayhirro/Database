@@ -116,6 +116,223 @@ public class HmDianPingApplication {
 }
 ```
 
+## Spring Boot 完整启动流程
+
+### 1. 入口方法调用链
+
+当你调用 `SpringApplication.run()` 时，实际执行流程：
+
+```java
+// 你的代码
+SpringApplication.run(HmDianPingApplication.class, args);
+
+// 内部调用链
+public static ConfigurableApplicationContext run(Class<?> primarySource, String... args) {
+    return run(new Class<?>[] { primarySource }, args);
+}
+
+public static ConfigurableApplicationContext run(Class<?>[] primarySources, String[] args) {
+    return (new SpringApplication(primarySources)).run(args);  // 关键！
+}
+```
+
+1. `new SpringApplication(primarySources)` - 创建 SpringApplication 实例
+2. `.run(args)` - 启动应用并返回 `ConfigurableApplicationContext`
+
+### 2. SpringApplication 构造过程
+
+```java
+public SpringApplication(Class<?>... primarySources) {
+    this(null, primarySources);
+}
+
+public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
+    // 1. 保存主配置源
+    this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
+    
+    // 2. 推断应用类型（SERVLET、REACTIVE、NONE）
+    this.webApplicationType = WebApplicationType.deduceFromClasspath();
+    
+    // 3. 加载初始化器（从 META-INF/spring.factories）
+    setInitializers(getSpringFactoriesInstances(ApplicationContextInitializer.class));
+    
+    // 4. 加载监听器
+    setListeners(getSpringFactoriesInstances(ApplicationListener.class));
+    
+    // 5. 推断主方法所在类
+    this.mainApplicationClass = deduceMainApplicationClass();
+}
+```
+
+### 3. run() 方法 - 核心启动流程
+
+```java
+public ConfigurableApplicationContext run(String... args) {
+    StopWatch stopWatch = new StopWatch();
+    stopWatch.start();
+    
+    ConfigurableApplicationContext context = null;
+    
+    // 1. 配置 Headless 属性
+    configureHeadlessProperty();
+    
+    // 2. 获取运行监听器
+    SpringApplicationRunListeners listeners = getRunListeners(args);
+    listeners.starting();  // 发布 ApplicationStartingEvent
+    
+    try {
+        // 3. 封装命令行参数
+        ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+        
+        // 4. 准备环境（加载 application.yml 等配置）
+        ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
+        
+        // 5. 打印 Banner
+        Banner printedBanner = printBanner(environment);
+        
+        // 6. 创建 ApplicationContext（关键！）
+        context = createApplicationContext();
+        
+        // 7. 准备上下文
+        prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+        
+        // 8. 刷新上下文（核心！调用 refresh()）
+        refreshContext(context);
+        
+        // 9. 刷新后处理
+        afterRefresh(context, applicationArguments);
+        
+        stopWatch.stop();
+        
+        // 10. 发布 ApplicationStartedEvent
+        listeners.started(context);
+        
+        // 11. 调用 Runner（CommandLineRunner、ApplicationRunner）
+        callRunners(context, applicationArguments);
+    }
+    catch (Throwable ex) {
+        handleRunFailure(context, listeners, ex);
+        throw new IllegalStateException(ex);
+    }
+    
+    // 12. 发布 ApplicationReadyEvent
+    listeners.running(context);
+    
+    return context;  // 返回创建好的上下文
+}
+```
+
+### 4. createApplicationContext() - 创建上下文
+
+```java
+protected ConfigurableApplicationContext createApplicationContext() {
+    return this.applicationContextFactory.create(this.webApplicationType);
+}
+
+// 根据应用类型创建不同的上下文实现
+public ConfigurableApplicationContext create(WebApplicationType webApplicationType) {
+    switch (webApplicationType) {
+        case SERVLET:
+            return new AnnotationConfigServletWebServerApplicationContext();  // Web应用
+        case REACTIVE:
+            return new AnnotationConfigReactiveWebServerApplicationContext(); // 响应式应用
+        case NONE:
+            return new AnnotationConfigApplicationContext();  // 普通应用
+    }
+}
+```
+
+**注意**：
+- 返回类型是**接口** `ConfigurableApplicationContext`
+- 实际创建的是**具体实现类**（如 `AnnotationConfigServletWebServerApplicationContext`）
+- 这就是多态的体现！
+
+### 5. refreshContext() - 刷新上下文
+
+```java
+private void refreshContext(ConfigurableApplicationContext context) {
+    refresh(context);
+}
+
+protected void refresh(ConfigurableApplicationContext applicationContext) {
+    applicationContext.refresh();  // 调用 Spring 的核心 refresh() 方法
+}
+```
+
+`refresh()` 是 Spring 容器初始化的核心，执行 12 个步骤：
+
+```java
+public void refresh() {
+    // 1. prepareRefresh()          - 准备刷新
+    // 2. obtainFreshBeanFactory()  - 获取 BeanFactory
+    // 3. prepareBeanFactory()      - 准备 BeanFactory
+    // 4. postProcessBeanFactory()  - BeanFactory 后处理
+    // 5. invokeBeanFactoryPostProcessors() - 执行 BeanFactoryPostProcessor
+    // 6. registerBeanPostProcessors()      - 注册 BeanPostProcessor
+    // 7. initMessageSource()       - 初始化消息源
+    // 8. initApplicationEventMulticaster() - 初始化事件多播器
+    // 9. onRefresh()               - 刷新特殊 Bean（如启动内嵌 Tomcat）
+    // 10. registerListeners()      - 注册监听器
+    // 11. finishBeanFactoryInitialization() - 实例化所有单例 Bean
+    // 12. finishRefresh()          - 完成刷新，发布事件
+}
+```
+
+### 6. 完整流程图
+
+```
+main()
+  │
+  ▼
+SpringApplication.run(HmDianPingApplication.class, args)
+  │
+  ├─► new SpringApplication(primarySources)
+  │     ├── 保存 primarySources
+  │     ├── 推断应用类型 (SERVLET/REACTIVE/NONE)
+  │     ├── 加载 ApplicationContextInitializer
+  │     ├── 加载 ApplicationListener
+  │     └── 推断主类
+  │
+  └─► application.run(args)
+        │
+        ├── 1. 获取 RunListeners
+        ├── 2. 发布 ApplicationStartingEvent
+        ├── 3. 准备 Environment
+        ├── 4. 打印 Banner
+        ├── 5. createApplicationContext() ──────► AnnotationConfigServletWebServerApplicationContext
+        ├── 6. prepareContext()
+        │       ├── 设置 Environment
+        │       ├── 应用 Initializers
+        │       └── 注册 primarySources 为 BeanDefinition
+        ├── 7. refreshContext() ──────────────► refresh() 12步初始化
+        │       └── onRefresh() 启动内嵌 Tomcat
+        ├── 8. 发布 ApplicationStartedEvent
+        ├── 9. 调用 CommandLineRunner / ApplicationRunner
+        ├── 10. 发布 ApplicationReadyEvent
+        │
+        └──► return ConfigurableApplicationContext (应用启动完成！)
+```
+
+### 7. primarySources 在流程中的使用
+
+`primarySources`（如 `HmDianPingApplication.class`）在启动过程中被使用的关键位置：
+
+```java
+// prepareContext() 中
+private void prepareContext(...) {
+    // ...
+    // 将 primarySources 加载为 BeanDefinition
+    Set<Object> sources = getAllSources();  // 包含 primarySources
+    load(context, sources.toArray(new Object[0]));
+    // ...
+}
+```
+
+这意味着：
+1. `HmDianPingApplication.class` 会被注册为一个 Bean
+2. 它上面的 `@SpringBootApplication` 注解会被解析
+3. 触发组件扫描和自动配置
+
 ## 总结
 
 **`HmDianPingApplication.class` 作为主配置源的意义：**
