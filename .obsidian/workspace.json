@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8ffbdb5b28c2b6f7",
+        "id": "8cd6b88effdd2b5d",
         "type": "tabs",
         "children": [
           {
-            "id": "9f30ec1b37d94a9d",
+            "id": "1e7c9b2ce1d1513d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "神经网络/索引.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "索引"
             }
           }
         ]
@@ -190,10 +194,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f30ec1b37d94a9d",
+  "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
-    "神经网络/概念图.md",
     "神经网络/索引.md",
+    "神经网络/概念图.md",
     "神经网络/modules/PrototypicalLearning.md",
     "math/拓扑.md",
     "未命名.canvas",
