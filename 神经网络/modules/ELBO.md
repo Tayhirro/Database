@@ -19,6 +19,17 @@
 等价分解（常用来理解为什么是“下界”）：
 - `log p(x) = ELBO(x) + KL(q(z|x) || p(z|x))`
 
+### 2.2 为什么要引入并训练 `q(z|x)`？
+- 你当然可以写出 `p(x) = ∫ p(z)p(x|z) dz`，但问题是：这个积分（以及它的梯度）在高维时通常不可解析/不可直接算。
+- 引入 `q(z|x)` 的一个直观方式是“重要性采样改写”（对任意 `q` 都成立，只要覆盖 `p` 的支持集）：
+  - `p(x) = ∫ q(z|x) * (p(z)p(x|z)/q(z|x)) dz = E_{q(z|x)}[p(z)p(x|z)/q(z|x)]`
+  - 但 `log p(x) = log E_q[...]` 仍然难优化（log 在期望外面）。
+- ELBO 的关键是用 Jensen 把 log “搬进来”，得到一个可算下界：
+  - `log p(x) = log E_q[p(z)p(x|z)/q(z|x)] >= E_q[log p(z)p(x|z) - log q(z|x)] = ELBO(x)`
+- 所以训练时需要同时学：
+  - `p_θ(x|z)`（decoder/likelihood 参数 `θ`）
+  - `q_φ(z|x)`（encoder/variational posterior 参数 `φ`，让下界更紧、也让“给定 x 做推断”可用）
+
 ## 3. 在 VAE 里怎么用
 - 最大化 `ELBO` ⇔ 同时做两件事：  
   1) 重构项：`E_q[log p(x|z)]`（让生成器能复原 x）  
