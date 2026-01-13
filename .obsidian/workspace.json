@@ -196,6 +196,10 @@
   },
   "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
+    "神经网络/modules/FactorAnalysis.md",
+    "神经网络/modules/HiddenMarkovModel.md",
+    "神经网络/modules/GaussianMixtureModel.md",
+    "神经网络/modules/DimensionalityReduction.md",
     "轨迹预测/总结/总结.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "神经网络/examples/VAE_TensorLevelExample.md",
@@ -229,9 +233,6 @@
     "神经网络/models/_TEMPLATE.md",
     "神经网络/exercises/Exercises.md",
     "神经网络/examples/Examples.md",
-    "神经网络/experiments/_TEMPLATE.md",
-    "神经网络/experiments/README.md",
-    "神经网络/implementations/_TEMPLATE.md",
-    "神经网络/papers/_TEMPLATE.md"
+    "神经网络/experiments/_TEMPLATE.md"
   ]
 }
