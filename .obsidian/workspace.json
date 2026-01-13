@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/概念图.md",
+                "file": "math/泛函/概念图.md",
                 "mode": "source",
                 "source": false
               },
@@ -196,17 +196,20 @@
   },
   "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
-    "math/线性代数/README.md",
     "math/索引.md",
-    "神经网络/modules/DimensionalityReduction.md",
+    "math/离散/索引.md",
+    "未命名 1.canvas",
+    "轨迹预测/总结/总结.md",
+    "math/离散/modules/Relation.md",
     "math/概念图.md",
+    "math/线性代数/README.md",
+    "神经网络/modules/DimensionalityReduction.md",
     "math/README.md",
     "神经网络/models/VAE.md",
     "神经网络/索引.md",
     "神经网络/modules/FactorAnalysis.md",
     "神经网络/modules/HiddenMarkovModel.md",
     "神经网络/modules/GaussianMixtureModel.md",
-    "轨迹预测/总结/总结.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "神经网络/examples/VAE_TensorLevelExample.md",
     "轨迹预测/img/image.png",
@@ -231,8 +234,6 @@
     "神经网络/README.md",
     "神经网络/modules/ContrastiveLearning.md",
     "神经网络/modules/Attention.md",
-    "神经网络/models/CVAE.md",
-    "神经网络/models/AE.md",
-    "神经网络/models/BERT.md"
+    "神经网络/models/CVAE.md"
   ]
 }
