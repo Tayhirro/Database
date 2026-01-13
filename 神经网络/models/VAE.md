@@ -10,6 +10,8 @@
   2) 推断路（encoder）：`q_φ(z|x)` 近似难算的真实后验 `p(z|x)`（用 ELBO 把它们绑在一起训练）
 - 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/DimensionalityReduction.md](../modules/DimensionalityReduction.md)
 - `z -> x` 这步在不同语境的名字（decoder mapping / pushforward / 参数化）见：[modules/LatentToDataMapping.md](../modules/LatentToDataMapping.md)
+
+- 变分，ELBO ---- 拆分KL独立于θ ----
 - 训练 vs 生成的一句话：训练时用“跟样本绑定”的后验采样 `z~q_φ(z|x)`（CVAE 则是 `z~q_φ(z|x,y)`）分布（的采样） 来教 decoder 学会重构/解释数据，影响数据的频率来进行训练decoder，同时用 `KL(q||p)` 把 `q` 拉向生成时要用的先验 `p(z)`（或条件先验 `p(z|x)`）；生成时只需从 `p(z)` / `p(z|x)` 采样 `z`。 
 -`logpθ​(x)=L(x)+KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
 
