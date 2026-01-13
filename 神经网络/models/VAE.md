@@ -9,7 +9,6 @@
   1) 生成路（decoder）：`p_θ(x|z)` 能从 `z` 采样生成 `x`  
   2) 推断路（encoder）：`q_φ(z|x)` 近似难算的真实后验 `p(z|x)`（用 ELBO 把它们绑在一起训练）
 - 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/DimensionalityReduction.md](../modules/DimensionalityReduction.md)
-
 ## 3. 关键对象
 - 先验：`p(z)`（常用 `N(0,I)`）
 - 编码器/推断网络：`q_φ(z|x)`
