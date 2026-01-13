@@ -28,6 +28,10 @@
 ## 7. Tensor 级例子（图片 H×W×3）
 - RGB 图片的 shape 对齐与 loss 计算：[VAE_TensorLevelExample.md](../examples/VAE_TensorLevelExample.md)
 
+## 例子2：
+
+
+
 ## 8. 常见坑 & Debug
 - Posterior collapse（尤其是强解码器/文本任务）
 - KL 权重/退火（KL annealing）、β-VAE 等策略
