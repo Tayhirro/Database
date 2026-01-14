@@ -11,10 +11,14 @@
             "id": "1e7c9b2ce1d1513d",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "math/离散/structures/two-op/IntegralDomain.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "IntegralDomain"
             }
           }
         ]
