@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "文学/works/_TEMPLATE.md",
+                "file": "文学/structures/genres/Poetry.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_TEMPLATE"
+              "title": "Poetry"
             }
           }
         ]
@@ -196,6 +196,11 @@
   },
   "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
+    "文学/诗歌收藏/索引.md",
+    "文学/诗歌收藏/_TEMPLATE.md",
+    "文学/诗歌收藏/README.md",
+    "文学/诗歌收藏",
+    "文学/works/_TEMPLATE.md",
     "文学/modules/Irony.md",
     "文学/modules/Characterization.md",
     "文学/structures/_TEMPLATE.md",
@@ -211,7 +216,6 @@
     "文学/examples",
     "文学/authors/_TEMPLATE.md",
     "文学/authors",
-    "文学/works/_TEMPLATE.md",
     "文学/works",
     "math/泛函/exercises/Exercises.md",
     "math/泛函/概念图.md",
@@ -222,16 +226,12 @@
     "文学/modules/_TEMPLATE.md",
     "文学/modules/UnreliableNarrator.md",
     "文学/modules/NarrativePOV.md",
-    "文学/modules/Symbolism.md",
     "文学/modules",
-    "神经网络/examples/Examples.md",
-    "文学/README.md",
     "文学/structures/periods",
     "文学/structures/genres",
     "文学/structures/forms",
     "文学/structures",
     "文学",
-    "math/概率论/modules",
     "轨迹预测/img/image2.png",
     "轨迹预测/img/image copy.png",
     "未命名 1.canvas",
