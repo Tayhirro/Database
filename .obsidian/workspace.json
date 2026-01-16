@@ -13,10 +13,10 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "轨迹预测/论文/agentawaretransformer.pdf"
+                "file": "轨迹预测/论文/MTR.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "agentawaretransformer"
+              "title": "MTR"
             }
           },
           {
@@ -205,8 +205,12 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
-    "轨迹预测/论文/Scenetransformer.pdf",
+    "轨迹预测/论文/machines-13-00818-v2.pdf",
+    "轨迹预测/论文/MTR.pdf",
+    "轨迹预测/论文/LAformer.pdf",
     "轨迹预测/论文/AutoBot.pdf",
+    "轨迹预测/论文/agentawaretransformer.pdf",
+    "轨迹预测/论文/Scenetransformer.pdf",
     "神经网络/models/VAE.md",
     "math/概率论/modules/ConditionalExpectation.md",
     "math/概率论/modules/Expectation.md",
@@ -240,10 +244,6 @@
     "神经网络/神经网络索引.md",
     "文学/诗歌收藏/魏晋南北朝/王粲",
     "文学/诗歌收藏/魏晋南北朝",
-    "文学/诗歌收藏",
-    "文学/examples",
-    "文学/authors",
-    "文学/works",
     "轨迹预测/img/image2.png",
     "轨迹预测/img/image copy.png",
     "未命名 1.canvas",
