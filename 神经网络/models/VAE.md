@@ -26,10 +26,13 @@
 
 -------------------------------------------------------------
 
-- 如果直接q(z|x) --- p(z) : L(x) = E_q[log p(x|z)] logpθ​(x)=L(x)+KL(p(z)∥ pθ​(z∣x))
+- 如果直接q(z|x) --- p(z) : L(x) = E_q[log p(x|z)]   logpθ​(x)=L(x)+KL(p(z)∥ pθ​(z∣x))
 
 -E_q[log p(x|z)] 网络不依赖z ：pθ​(x∣z)=pθ​(x) 
+- `p(x)=∫ p(z)p(x|z)dz`
+- logp(x) = log∫ Epz p(x|z)dz >= ∫Epz logp(x|z) dz 值非常小
 - 退化为E(x)
+- z--->p(x|z) 
 
  -如果引入变分思想  
  - `p(x)=∫ p(z)p(x|z)dz`
