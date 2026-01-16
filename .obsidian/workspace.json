@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "math/概率论/modules/ConditionalExpectation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "ConditionalExpectation"
             }
           }
         ]
@@ -196,15 +196,19 @@
   },
   "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
+    "math/概率论/modules/Expectation.md",
+    "math/概率论/modules/ConditionalExpectation.md",
+    "math/概率论/modules/ChainRule.md",
+    "math/概率论/索引.md",
+    "math/概率论/README.md",
+    "math/概率论/概念图.md",
     "轨迹预测/总结/总结.md",
+    "math/概率论/modules/IteratedExpectation.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "轨迹预测/论文/AutoBot.pdf",
     "math/概率论/distributions/LaplaceDistribution.md",
     "轨迹预测/论文/STAR.pdf",
     "math/概率论/distributions/README.md",
-    "math/概率论/索引.md",
-    "math/概率论/概念图.md",
-    "math/概率论/README.md",
     "math/数学索引.md",
     "math/README.md",
     "math/拓扑.md",
@@ -214,7 +218,6 @@
     "math/概率论/distributions/_TEMPLATE.md",
     "math/概率论/distributions",
     "神经网络/神经网络索引.md",
-    "math/概率论/modules/ChainRule.md",
     "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
     "文学/诗歌收藏/索引.md",
     "文学/诗歌收藏/_TEMPLATE.md",
@@ -224,9 +227,6 @@
     "文学/文学索引.md",
     "math/泛函/索引.md",
     "神经网络/索引.md",
-    "math/索引.md",
-    "文学/索引.md",
-    "文学/structures/genres/Poetry.md",
     "文学/诗歌收藏",
     "文学/examples",
     "文学/authors",
