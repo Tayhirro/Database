@@ -11,14 +11,12 @@
             "id": "1e7c9b2ce1d1513d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "math/概率论/distributions/LaplaceDistribution.md",
-                "mode": "source",
-                "source": false
+                "file": "轨迹预测/论文/AutoBot.pdf"
               },
-              "icon": "lucide-file",
-              "title": "LaplaceDistribution"
+              "icon": "lucide-file-text",
+              "title": "AutoBot"
             }
           }
         ]
@@ -194,8 +192,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1e7c9b2ce1d1513d",
+  "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "math/概率论/distributions/LaplaceDistribution.md",
+    "轨迹预测/论文/AutoBot.pdf",
+    "轨迹预测/论文/STAR.pdf",
     "math/概率论/distributions/README.md",
     "math/概率论/索引.md",
     "math/概率论/概念图.md",
@@ -206,7 +207,6 @@
     "文学/诗歌收藏/README.md",
     "文学/README.md",
     "神经网络/modules/Initialization.md",
-    "math/概率论/distributions/LaplaceDistribution.md",
     "math/概率论/distributions/_TEMPLATE.md",
     "math/概率论/distributions",
     "神经网络/神经网络索引.md",
@@ -225,13 +225,10 @@
     "文学/structures/genres/Poetry.md",
     "文学/诗歌收藏",
     "文学/works/_TEMPLATE.md",
-    "文学/modules/Irony.md",
     "文学/examples",
     "文学/authors",
     "文学/works",
     "文学/modules",
-    "文学/structures/periods",
-    "文学/structures/genres",
     "轨迹预测/img/image2.png",
     "轨迹预测/img/image copy.png",
     "未命名 1.canvas",
