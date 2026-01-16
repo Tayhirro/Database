@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
+                "file": "math/概率论/概念图.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "赠蔡子笃"
+              "title": "概念图"
             }
           }
         ]
@@ -196,9 +196,11 @@
   },
   "active": "1e7c9b2ce1d1513d",
   "lastOpenFiles": [
+    "math/概率论/索引.md",
+    "math/概率论/modules/ChainRule.md",
+    "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
     "文学/诗歌收藏/索引.md",
     "文学/诗歌收藏/_TEMPLATE.md",
-    "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
     "曹植-送应氏.md",
     "文学/诗歌收藏/魏晋南北朝/王粲",
     "文学/诗歌收藏/魏晋南北朝",
@@ -223,8 +225,6 @@
     "文学/structures/genres/Fiction.md",
     "文学/structures/forms/StreamOfConsciousness.md",
     "文学/structures/forms/Sonnet.md",
-    "math/泛函/examples/Examples.md",
-    "文学/examples/Examples.md",
     "文学/examples",
     "文学/authors",
     "文学/works",
