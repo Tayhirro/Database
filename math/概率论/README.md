@@ -22,6 +22,9 @@
 结构页（“类/接口”风格：对象/公理/性质/例子）：
 - `math/概率论/structures/`（待逐步补全，模板见 `structures/_TEMPLATE.md`）
 
+分布页（单个分布的定义/性质/关系，按需扩展子目录）：
+- `math/概率论/distributions/`（入口见 [math/概率论/distributions/README.md](distributions/README.md)）
+
 例子与练习：
 - [math/概率论/examples/Examples.md](examples/Examples.md)
 - [math/概率论/exercises/Exercises.md](exercises/Exercises.md)
@@ -34,4 +37,3 @@
 - 期望与方差：线性性、协方差、常用不等式
 - 条件：条件概率/条件期望、Bayes、独立性
 - 收敛：依概率/几乎处处/分布收敛（与积分/期望交换的条件）
-
