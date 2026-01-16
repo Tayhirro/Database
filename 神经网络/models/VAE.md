@@ -18,7 +18,6 @@
 -
 
 -`logpθ​(x)=L(x)+KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
-- - pθ​(x∣z)=N(x; μθ​(z), σ^2I) 先验假设
 - Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
 - KL推导
 -`L(x) = E_q[log p(x|z)]-KL(q(z|x)||p(z))`
@@ -30,14 +29,13 @@
 
 -E_q[log p(x|z)] 网络不依赖z ：pθ​(x∣z)=pθ​(x) 
 - `p(x)=∫ p(z)p(x|z)dz`
+-  pθ​(x∣z)=N(x; μθ​(z), σ^2I) 先验假设
 - logp(x) = log∫ Epz p(x|z)dz >= ∫Epz logp(x|z) dz 值非常小
-- 退化为E(x)
-- z--->p(x|z) 
+- 由于比较难学，直接退化为E(x) 
 
  -如果引入变分思想  
  - `p(x)=∫ p(z)p(x|z)dz`
- - X-->得到z  qx|z  --->p(x|z)  则相关
- - 
+ - X-->得到z  qz|x(p(x|z))  --->p(x|z)  则相关
 
 
 - E_q[log p(x|z)]  让𝑧跟𝑥强相关——把概率质量放到那些能让当前𝑥重建得最好的𝑧上
