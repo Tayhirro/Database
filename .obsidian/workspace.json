@@ -11,12 +11,14 @@
             "id": "a00efa8c24b1f0b0",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "轨迹预测/论文/MTR.pdf"
+                "file": "轨迹预测/总结/总结.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "MTR"
+              "icon": "lucide-file",
+              "title": "总结"
             }
           },
           {
@@ -205,9 +207,9 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "轨迹预测/论文/MTR.pdf",
     "轨迹预测/论文/隐式编码道路信息",
     "轨迹预测/论文/machines-13-00818-v2.pdf",
-    "轨迹预测/论文/MTR.pdf",
     "轨迹预测/论文/LAformer.pdf",
     "轨迹预测/论文/AutoBot.pdf",
     "轨迹预测/论文/agentawaretransformer.pdf",
