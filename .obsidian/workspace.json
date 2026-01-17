@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "神经网络/modules/ContrastiveLearning.md",
+                "file": "轨迹预测/总结/总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ContrastiveLearning"
+              "title": "总结"
             }
           },
           {
@@ -207,6 +207,7 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "神经网络/modules/ContrastiveLearning.md",
     "轨迹预测/论文/VectorNet.pdf",
     "轨迹预测/论文/Scenetransformer.pdf",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
@@ -232,7 +233,6 @@
     "音乐/structures/README.md",
     "音乐/structures/instruments",
     "音乐/structures/genres",
-    "音乐/structures/forms",
     "音乐/modules/音乐-模块-混音.md",
     "音乐/modules/音乐-模块-音色.md",
     "音乐/listening/索引.md",
