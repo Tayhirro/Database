@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "音乐/音乐索引.md",
+                "file": "轨迹预测/总结/总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "音乐索引"
+              "title": "总结"
             }
           },
           {
@@ -207,6 +207,7 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "音乐/音乐索引.md",
     "轨迹预测/总结/总结.md",
     "神经网络/modules/ContrastiveLearning.md",
     "轨迹预测/论文/VectorNet.pdf",
@@ -242,7 +243,6 @@
     "音乐/modules/音乐-模块-节奏.md",
     "音乐/modules/音乐-模块-母带.md",
     "音乐/modules/音乐-模块-编曲.md",
-    "音乐/modules/音乐-模块-旋律.md",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
