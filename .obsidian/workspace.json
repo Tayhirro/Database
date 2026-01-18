@@ -11,10 +11,13 @@
             "id": "a00efa8c24b1f0b0",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "bases",
+              "state": {
+                "file": "未命名 4.base",
+                "viewName": "表格"
+              },
+              "icon": "lucide-table",
+              "title": "未命名 4"
             }
           },
           {
@@ -203,6 +206,7 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "未命名 4.base",
     "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
     "轨迹预测/论文/agentawaretransformer.pdf",
     "神经网络/神经网络索引.md",
@@ -238,7 +242,6 @@
     "音乐/modules/音乐-模块-混音.md",
     "音乐/modules/音乐-模块-音色.md",
     "音乐/listening/索引.md",
-    "音乐/works/README.md",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
