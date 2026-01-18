@@ -11,14 +11,12 @@
             "id": "a00efa8c24b1f0b0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
-                "mode": "source",
-                "source": false
+                "file": "轨迹预测/论文/STAR.pdf"
               },
-              "icon": "lucide-file",
-              "title": "总结"
+              "icon": "lucide-file-text",
+              "title": "STAR"
             }
           },
           {
@@ -207,9 +205,11 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "轨迹预测/论文/Scenetransformer.pdf",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "轨迹预测/论文/MTR.pdf",
     "轨迹预测/论文/machines-13-00818-v2.pdf",
+    "轨迹预测/总结/总结.md",
     "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/论文/LAformer.pdf",
     "轨迹预测/论文/AutoBot.pdf",
@@ -221,10 +221,8 @@
     "神经网络/神经网络索引.md",
     "神经网络/概念图.md",
     "math/概率论/README.md",
-    "轨迹预测/总结/总结.md",
     "音乐/音乐索引.md",
     "神经网络/modules/ContrastiveLearning.md",
-    "轨迹预测/论文/VectorNet.pdf",
     "音乐/structures/genres/音乐-体裁-爵士.md",
     "音乐/structures/instruments/音乐-乐器-钢琴.md",
     "音乐/structures/instruments/索引.md",
