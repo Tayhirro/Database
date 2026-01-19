@@ -14,7 +14,10 @@
 
 -p(x)=∫ p(z)p(x|z)dz 
 -最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
--
+-对一个固定样本 x，只有**极少数** z 会让 p(x∣z) 不小；但你用的是 **prior p(z)** 去采样，抽到这些“好 z”的概率非常低。
+-logp(x) = logEpz p(x|z) >= Epz logp(x|z) 值非常小
+
+
 
 
 -`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
@@ -30,7 +33,6 @@
 -E_q[log p(x|z)] 网络不依赖z ：pθ​(x∣z)=pθ​(x) 
 - `p(x)=∫ p(z)p(x|z)dz`
 -  pθ​(x∣z)=N(x; μθ​(z), σ^2I) 先验假设
-- logp(x) = logEpz p(x|z) >= Epz logp(x|z) 值非常小
 - 由于比较难学，直接退化为E(x) 
 
  -如果引入变分思想  
