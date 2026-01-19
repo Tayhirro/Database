@@ -56,6 +56,11 @@ $$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
 -引入变分思想
 -`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
 - 最大化elbo = 最小化负 elbo
+
+**重构项（Reconstruction Term）**：
+
+$$\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]$$
+
 - Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
 - KL推导
 
