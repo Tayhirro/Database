@@ -11,12 +11,14 @@
             "id": "a00efa8c24b1f0b0",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "轨迹预测/论文/VectorNet.pdf"
+                "file": "文学/authors/李泰.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "VectorNet"
+              "icon": "lucide-file",
+              "title": "李泰"
             }
           },
           {
@@ -205,6 +207,7 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
+    "轨迹预测/论文/VectorNet.pdf",
     "历史/概念图.md",
     "历史/figures/emperors/李泰.md",
     "历史/figures/emperors/_TEMPLATE.md",
@@ -240,7 +243,6 @@
     "音乐/structures/genres/索引.md",
     "音乐/structures/genres/README.md",
     "音乐/works/索引.md",
-    "音乐/works/_TEMPLATE.md",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
