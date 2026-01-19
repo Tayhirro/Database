@@ -56,7 +56,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -210,8 +210,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "79d675c6573deda8",
   "lastOpenFiles": [
+    "未命名 6.base",
+    "神经网络/models/VAE.md",
     "音乐/modules/music-theory/06-advanced/爵士和声.md",
     "音乐/modules/music-theory/05-form/二部曲式.md",
     "音乐/modules/music-theory/05-form/乐句乐段.md",
@@ -244,10 +246,7 @@
     "轨迹预测/总结/总结.md",
     "文学/authors/李泰.md",
     "轨迹预测/论文/VectorNet.pdf",
-    "历史/概念图.md",
-    "历史/figures/emperors/李泰.md",
     "历史/sources",
-    "历史/figures/scholars",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
