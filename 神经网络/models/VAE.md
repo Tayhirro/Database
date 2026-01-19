@@ -62,26 +62,37 @@ $$\log p_\theta(x) = \log p(z) + \log p_\theta(x|z) - \log p_\theta(z|x)$$
 **重构项（Reconstruction Term）**：
 $$\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]$$
 
+### 1) 引入 $q_\phi(z|x)$：不是为了改目标，而是为了"能对 z 做期望"
 
+我们把式 (1) 对一个"我们能采样/评估"的分布 $q_\phi(z|x)$ 取期望：
 
+$$\log p_\theta(x) = \mathbb{E}_{q_\phi(z|x)} \left[ \log p(z) + \log p_\theta(x|z) - \log p_\theta(z|x) \right] \tag{2}$$
 
+这一步没做近似，因为 $\log p_\theta(x)$ 与 $z$ 无关，期望不会改变它。
+
+### 2) 把"不可算的 $\log p_\theta(z|x)$"用 $q$ 的 KL 展开掉
+
+现在关键一步：在 (2) 里出现了 $\mathbb{E}_q[-\log p_\theta(z|x)]$。我们把它写成 KL 的形式。
+
+**KL 定义**：
+$$\text{KL}(q_\phi(z|x) \| p_\theta(z|x)) = \mathbb{E}_q \left[ \log q_\phi(z|x) - \log p_\theta(z|x) \right]$$
+
+**把它移项**：
+$$\mathbb{E}_q[-\log p_\theta(z|x)] = \text{KL}(q \| p_\theta(\cdot|x)) - \mathbb{E}_q[\log q_\phi(z|x)] \tag{3}$$
+
+**把 (3) 代回 (2)**：
+$$\log p_\theta(x) = \mathbb{E}_q[\log p(z) + \log p_\theta(x|z)] - \mathbb{E}_q[\log p_\theta(z|x)]$$
+$$= \mathbb{E}_q[\log p(z) + \log p_\theta(x|z)] - \left( \text{KL}(q \| p_\theta(\cdot|x)) - \mathbb{E}_q[\log q] \right)$$
+
+**整理**：
+$$\log p_\theta(x) = \underbrace{\mathbb{E}_q[\log p_\theta(x|z)] + \mathbb{E}_q[\log p(z)] - \mathbb{E}_q[\log q_\phi(z|x)]}_{\text{ELBO}} + \underbrace{\text{KL}(q_\phi(z|x) \| p_\theta(z|x))}_{\geq 0} \tag{4}$$
 
 - Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
 - KL推导
-
-
+ - 最大化ELBO： 1：KL最小化 2：最大化px
 
 
 -------------------------------------------------------------
-
-
- -如果引入变分思想  
- - `p(x)=∫ p(z)p(x|z)dz`
- - X-->得到z  qz|x(p(x|z))  --->p(x|z)  则相关
-
-
-
-
 ## 3. 关键对象
 - 先验：`p(z)`（常用 `N(0,I)`）
 - 编码器/推断网络：`q_φ(z|x)`
