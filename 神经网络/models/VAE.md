@@ -13,6 +13,9 @@
 
 
 -p(x)=∫ p(z)p(x|z)dz 
+-最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
+-
+
 
 -`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
 - 最大化elbo = 最小化负 elbo
