@@ -25,12 +25,14 @@
             "id": "79d675c6573deda8",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "agent/论文/SWE-agent.pdf"
+                "file": "study/springboot_init_analysis.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "SWE-agent"
+              "icon": "lucide-file",
+              "title": "springboot_init_analysis"
             }
           }
         ],
@@ -210,8 +212,8 @@
   },
   "active": "79d675c6573deda8",
   "lastOpenFiles": [
-    "未命名 6.base",
     "agent/论文/SWE-agent.pdf",
+    "未命名 6.base",
     "agent/论文",
     "agent",
     "轨迹预测/总结/总结.md",
