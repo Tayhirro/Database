@@ -13,10 +13,10 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "轨迹预测/论文/AutoBot.pdf"
+                "file": "轨迹预测/论文/VectorNet.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "AutoBot"
+              "title": "VectorNet"
             }
           },
           {
@@ -203,19 +203,19 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
-    "文学/authors/李泰.md",
-    "轨迹预测/论文/Scenetransformer.pdf",
     "轨迹预测/论文/STAR.pdf",
-    "轨迹预测/论文/AutoBot.pdf",
-    "轨迹预测/论文/LaneGCN.pdf",
-    "轨迹预测/论文/machines-13-00818-v2.pdf",
-    "轨迹预测/论文/MTR.pdf",
-    "轨迹预测/论文/VectorNet.pdf",
+    "轨迹预测/论文/Scenetransformer.pdf",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
-    "轨迹预测/总结/总结.md",
+    "轨迹预测/论文/MTR.pdf",
+    "轨迹预测/论文/machines-13-00818-v2.pdf",
+    "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/论文/LAformer.pdf",
+    "轨迹预测/论文/AutoBot.pdf",
+    "文学/authors/李泰.md",
+    "轨迹预测/论文/VectorNet.pdf",
+    "轨迹预测/总结/总结.md",
     "轨迹预测/论文/agentawaretransformer.pdf",
     "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
     "神经网络/神经网络索引.md",
@@ -240,7 +240,6 @@
     "音乐/structures/README.md",
     "音乐/modules/音乐-模块-混音.md",
     "音乐/modules/音乐-模块-音色.md",
-    "音乐/listening/索引.md",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
