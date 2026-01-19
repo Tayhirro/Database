@@ -4,6 +4,11 @@
 
 本文档基于真实的Spring Boot源码，深入分析了Spring Boot应用从启动入口（main方法）到完成整个应用上下文刷新的完整初始化流程。通过对源码的详细解读，我们将了解Spring Boot是如何从程序启动到Bean容器准备就绪的全过程。
 
+## 相关概念速查
+
+- Spring Boot 总览（含 `spring.factories`、`ApplicationContext`/`ConfigurableApplicationContext`）：[study/springboot_intro.md](springboot_intro.md)
+- 运行流程骨架（含启动哲学与 refresh 直觉）：[study/spring_runtime_flow.md](spring_runtime_flow.md)
+
 ## 典型的Spring Boot启动类
 
 在HMDP-Redis项目中，我们看到了一个典型的Spring Boot应用启动类：
