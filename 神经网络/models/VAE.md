@@ -18,11 +18,43 @@
 -Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
 
 -且本身为负（维度越高，负的越多）
-以下为推导的证明：
 
+### 推导证明：高斯似然下 $\mathbb{E}_{p(z)}[\log p(x|z)]$ 为何常为负
 
+**前提假设**：
+- 设 $x \in \mathbb{R}^D$（D 维数据）
+- decoder 采用各向同性高斯：$p(x|z) = \mathcal{N}(x; \mu_\theta(z), \sigma^2 I)$
 
+**Step 1：写出 log-likelihood 闭式**
 
+由高斯分布的概率密度函数：
+
+$$\log p(x|z) = -\frac{D}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\|x - \mu_\theta(z)\|^2$$
+
+- 第一项：维度线性项（常数）
+- 第二项：重建误差项（非负）
+
+**Step 2：对 $p(z)$ 取期望**
+
+$$\mathbb{E}_{p(z)}[\log p(x|z)] = -\frac{D}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\mathbb{E}_{p(z)}\|x - \mu_\theta(z)\|^2$$
+
+**Step 3：推出严格上界**
+
+注意第二项 $\geq 0$（平方范数的期望非负），因此：
+
+$$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
+
+**Step 4：分析为何为负**
+
+- 只要 $2\pi\sigma^2 > 1$（常见 $\sigma$ 不太小），右边就是**负的**
+- 且随 $D$（维度）**线性变负**
+- 再加上重建误差那项（必为负），就会**更负**
+
+> **严谨来源**：即使你把重建误差做到 0，上面那个 $-\frac{D}{2}\log(2\pi\sigma^2)$ 也会随维度把它压得很低；而用先验采样时重建误差通常不可能接近 0，所以会更负。
+
+> （补充：如果 $\sigma$ 极小，$\log(2\pi\sigma^2)$ 可能为负，从而第一项变正——但 VAE 里常见的是固定/不太小的 $\sigma$，实践上就会体现"很负"。）
+
+---
 
 -`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
 - 最大化elbo = 最小化负 elbo
