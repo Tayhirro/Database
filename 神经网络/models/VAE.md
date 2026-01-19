@@ -18,6 +18,7 @@
 -Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
 
 -且本身为负（维度越高，负的越多）
+-z则直接学成E(x)
 ### 推导证明：高斯似然下 $\mathbb{E}_{p(z)}[\log p(x|z)]$ 为何常为负
 
 **前提假设**：
@@ -51,9 +52,8 @@ $$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
 
 > **严谨来源**：即使你把重建误差做到 0，上面那个 $-\frac{D}{2}\log(2\pi\sigma^2)$ 也会随维度把它压得很低；而用先验采样时重建误差通常不可能接近 0，所以会更负。
 
-
 ---
-
+-引入变分思想
 -`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
 - 最大化elbo = 最小化负 elbo
 - Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
@@ -64,22 +64,10 @@ $$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
 
 -------------------------------------------------------------
 
-- 如果直接q(z|x) --- p(z) : L(x) = E_q[log p(x|z)]   logpθ​(x)=L(x)+KL(p(z)∥ pθ​(z∣x))
-
--E_q[log p(x|z)] 网络不依赖z ：pθ​(x∣z)=pθ​(x) 
-- `p(x)=∫ p(z)p(x|z)dz`
--  pθ​(x∣z)=N(x; μθ​(z), σ^2I) 先验假设
-- 由于比较难学，直接退化为E(x) 
 
  -如果引入变分思想  
  - `p(x)=∫ p(z)p(x|z)dz`
  - X-->得到z  qz|x(p(x|z))  --->p(x|z)  则相关
-
--为什么取log
-- e^-（x-μ）  分布 ，概率分布，接近中间概率 --学的越好
-
-
-
 
 
 
@@ -91,6 +79,7 @@ $$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
 
 ## 4. 训练目标（ELBO）
 - 入口：`modules/ELBO.md`
+- ERM 视角：VAE 在做“无监督的 ERM”，把 `u` 取为 `x`，把 `loss` 取为 `-ELBO(x)`（见：[modules/Loss.md](../modules/Loss.md)）
 - 常写成：重构项 `E_q[log p(x|z)]` + 正则项 `-KL(q(z|x)||p(z))`
 
 ### 4.1 数字级例子：为什么 KL 会“整理潜空间”（但不改变真实结构）
