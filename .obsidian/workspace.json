@@ -13,10 +13,10 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "轨迹预测/论文/Scenetransformer.pdf"
+                "file": "轨迹预测/论文/AutoBot.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "Scenetransformer"
+              "title": "AutoBot"
             }
           },
           {
@@ -205,8 +205,8 @@
   },
   "active": "a00efa8c24b1f0b0",
   "lastOpenFiles": [
-    "轨迹预测/论文/STAR.pdf",
     "轨迹预测/论文/Scenetransformer.pdf",
+    "轨迹预测/论文/STAR.pdf",
     "轨迹预测/论文/AutoBot.pdf",
     "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/论文/machines-13-00818-v2.pdf",
