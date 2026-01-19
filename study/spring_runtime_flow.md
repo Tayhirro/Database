@@ -1,6 +1,7 @@
-# Spring / Spring Boot 运行流程（启动链路 + 上下文哲学）
+# Spring / Spring Boot 运行流程
 
-> 这份笔记用于搭“框架”：先给一张能导航的流程图，再把 **启动哲学** 和 **ApplicationContext（上下文）** 的设计动机补齐。深入源码细节放在关联文档里。
+> 迁移提示：更完整的“从运行到结束”全链路主线已迁移到 `springboot/flows/运行全链路.md`，本页保留为草稿。
+
 
 ## 0. 先记住两句话
 
@@ -127,4 +128,3 @@ refresh()
 - 如果你关心 `spring.factories` 的机制与排查：`HMDP-Redis/docs/spring-factories-mechanism.md`
 - 如果你要对照真实 Boot 源码逐行走：`study/real_springboot_init_analysis.md`
 - 如果你想从 mini-spring 反推框架设计：`study/springboot_init_analysis.md`
-

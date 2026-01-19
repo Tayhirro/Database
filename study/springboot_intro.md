@@ -1,5 +1,7 @@
 # Spring Boot 介绍：启动、`spring.factories`、`ApplicationContext`
 
+> 迁移提示：Spring Boot“出书式”整理已迁移到顶层目录 `springboot/`。本页保留为早期笔记；新入口见 `springboot/README.md`。
+
 > 目标：把 Spring Boot 的“启动链路 + 扩展点发现机制 + 上下文类型”用一套统一的概念讲清楚，方便在阅读源码/排查问题时定位。
 
 ## 1. Spring Boot 在做什么
@@ -86,6 +88,6 @@ Boot 启动时典型会从 `spring.factories` 加载：
 
 ## 4. 相关阅读（更详细的源码/机制）
 
-- `study/spring_runtime_flow.md`：一张图看懂“启动骨架 + 上下文哲学”
+- `springboot/flows/运行全链路.md`：从启动到结束的主线框架（当前先写启动）
 - `study/real_springboot_init_analysis.md`：真实 Boot 启动链路的源码级梳理
 - `HMDP-Redis/docs/spring-factories-mechanism.md`：`spring.factories` 的机制、场景与排查 checklist

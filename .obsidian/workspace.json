@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/springboot_intro.md",
+                "file": "study/spring_runtime_flow.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "springboot_intro"
+              "title": "spring_runtime_flow"
             }
           }
         ],
@@ -212,8 +212,17 @@
   },
   "active": "79d675c6573deda8",
   "lastOpenFiles": [
-    "study/spring_runtime_flow.md",
+    "springboot/modules/ApplicationContext.md",
+    "springboot/flows/运行全链路.md",
+    "springboot/概念图.md",
+    "springboot/索引.md",
+    "springboot/README.md",
+    "springboot/modules",
+    "springboot/flows",
+    "springboot",
     "study/springboot_init_analysis.md",
+    "study/spring_runtime_flow.md",
+    "study/real_springboot_init_analysis.md",
     "study/springboot_intro.md",
     "agent/论文/SWE-agent.pdf",
     "未命名 6.base",
@@ -236,18 +245,9 @@
     "音乐/modules/music-theory/04-melody/旋律线条.md",
     "音乐/modules/music-theory/04-melody/音域.md",
     "音乐/modules/music-theory/03-rhythm/复节奏.md",
-    "音乐/modules/music-theory/03-rhythm/切分音.md",
-    "音乐/modules/music-theory/03-rhythm/节奏型.md",
-    "音乐/modules/music-theory/03-rhythm/拍号.md",
-    "音乐/modules/music-theory/02-harmony/转调.md",
-    "音乐/modules/music-theory/02-harmony/和声功能.md",
-    "音乐/modules/music-theory/02-harmony/和弦进行.md",
     "音乐/modules/music-theory/06-advanced",
     "音乐/modules/music-theory/05-form",
     "音乐/modules/music-theory/04-melody",
-    "音乐/modules/music-theory/03-rhythm",
-    "音乐/modules/music-theory/02-harmony",
-    "音乐/modules/music-theory/01-basics",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",

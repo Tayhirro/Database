@@ -6,8 +6,8 @@
 
 ## 相关概念速查
 
-- Spring Boot 总览（含 `spring.factories`、`ApplicationContext`/`ConfigurableApplicationContext`）：[study/springboot_intro.md](springboot_intro.md)
-- 运行流程骨架（含启动哲学与 refresh 直觉）：[study/spring_runtime_flow.md](spring_runtime_flow.md)
+- Spring Boot 总览（早期笔记）：[study/springboot_intro.md](springboot_intro.md)
+- 运行全链路（从启动到结束，主线入口）：[springboot/flows/运行全链路.md](../springboot/flows/运行全链路.md)
 
 ## 典型的Spring Boot启动类
 
