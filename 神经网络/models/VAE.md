@@ -15,7 +15,7 @@
 -p(x)=∫ p(z)p(x|z)dz 
 -最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
 -logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
--Ep(z)​[logp(x∣z)] 负的多 --->KL大---> pz和p(z|x)分布不同
+-Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
 -对一个固定样本 x，只有**极少数** z 会让 p(x∣z) 不小；但你用的是 **prior p(z)** 去采样，抽到这些“好 z”的概率非常低。
 
 
