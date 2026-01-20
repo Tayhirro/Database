@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "49f3e4bd09f511b1",
@@ -212,11 +212,25 @@
   },
   "active": "f881972b2f464fd3",
   "lastOpenFiles": [
+    "Pasted image 20260120192530.png",
+    "未命名 3.base",
+    "未命名 2.base",
     "未命名 1.md",
+    "未命名 2.canvas",
+    "未命名 1.base",
+    "未命名.canvas",
+    "未命名 1.canvas",
+    "未命名.base",
+    "未命名.md",
+    "曹植-送应氏.md",
+    "2026-01-12.md",
+    "未命名 6.canvas",
+    "Pasted image 20260120163629.png",
+    "未命名 8.base",
     "轨迹预测/总结/总结.md",
+    "未命名 7.base",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "神经网络/models/VAE.md",
-    "Pasted image 20260120163629.png",
     "神经网络/models/CVAE.md",
     "agent/论文/SWE-agent.pdf",
     "study/spring_runtime_flow.md",
@@ -231,9 +245,6 @@
     "study/springboot_init_analysis.md",
     "study/real_springboot_init_analysis.md",
     "study/springboot_intro.md",
-    "未命名 6.base",
-    "agent/论文",
-    "agent",
     "神经网络/modules/Loss.md",
     "音乐/modules/music-theory/06-advanced/配器法.md",
     "音乐/modules/music-theory/06-advanced/调式互换.md",
@@ -242,21 +253,11 @@
     "音乐/modules/music-theory/05-form/回旋曲式.md",
     "音乐/modules/music-theory/05-form/三部曲式.md",
     "音乐/modules/music-theory/04-melody/对位法.md",
-    "音乐/modules/music-theory/04-melody/动机发展.md",
-    "音乐/modules/music-theory/06-advanced/爵士和声.md",
-    "音乐/modules/music-theory/05-form/二部曲式.md",
-    "音乐/modules/music-theory/05-form/乐句乐段.md",
-    "音乐/modules/music-theory/06-advanced",
-    "音乐/modules/music-theory/05-form",
-    "音乐/modules/music-theory/04-melody",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
-    "未命名 2.canvas",
     "轨迹预测/img/image2.png",
     "轨迹预测/img/image copy.png",
-    "未命名 1.canvas",
-    "轨迹预测/img/image.png",
-    "未命名.canvas"
+    "轨迹预测/img/image.png"
   ]
 }
