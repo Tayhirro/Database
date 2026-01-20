@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "总结"
             }
+          },
+          {
+            "id": "f881972b2f464fd3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "未命名 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "未命名 1"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -195,10 +210,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "556a0f95c3453984",
+  "active": "f881972b2f464fd3",
   "lastOpenFiles": [
-    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
+    "未命名 1.md",
     "轨迹预测/总结/总结.md",
+    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "神经网络/models/VAE.md",
     "Pasted image 20260120163629.png",
     "神经网络/models/CVAE.md",
@@ -230,7 +246,6 @@
     "音乐/modules/music-theory/06-advanced/爵士和声.md",
     "音乐/modules/music-theory/05-form/二部曲式.md",
     "音乐/modules/music-theory/05-form/乐句乐段.md",
-    "音乐/modules/music-theory/04-melody/旋律线条.md",
     "音乐/modules/music-theory/06-advanced",
     "音乐/modules/music-theory/05-form",
     "音乐/modules/music-theory/04-melody",
