@@ -1,7 +1,5 @@
-# Exercises（微积分：主框架 + 插件）
+# Exercises（微积分）
 
-1) （主框架）计算 `f(x)=e^x` 的 `f'(x)`，并计算 `∫_0^1 e^x dx`。  
-2) （主框架）写出 `f(x)=sin(x)` 在 `x=0` 的二阶 Taylor 多项式。  
-3) （插件）计算 `f(x,y)=sin(x)+cos(y)` 的 `∇f`。  
-4) （插件）对 `v(x,y)=(x^2, xy)` 计算 `∇·v` 与 `curl(v)`（二维标量旋度口径）。
-
+1) 计算 `f(x)=e^x` 的 `f'(x)`，并计算 `∫_0^1 e^x dx`。  
+2) 写出 `f(x)=sin(x)` 在 `x=0` 的二阶 Taylor 多项式。  
+3) 计算 `f(x,y)=sin(x)+cos(y)` 的 `\\nabla f`。  

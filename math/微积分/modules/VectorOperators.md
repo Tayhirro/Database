@@ -1,36 +1,28 @@
-# 向量分析算子（插件）：梯度 / 散度 / 旋度 / 拉普拉斯
+# 向量分析算子（Vector Operators）
 
-## 0. 插件定位
-- 本页属于“场/向量分析”插件：把位置 `x` 当输入的函数（场）上最常用的一套微分算子。
-- 对应对象：见 `structures/fields/ScalarField.md` 与 `structures/fields/VectorField.md`。
-
-## 1. 统一记号（先把类型搞清楚）
-- 标量场：`f: Ω -> R`
-- 向量场：`v: Ω -> R^n`，`v=(v_1,...,v_n)`
+## 1. 统一记号
+- 标量场：`f: \\Omega \\to \\mathbb{R}`
+- 向量场：`v: \\Omega \\to \\mathbb{R}^n`，`v=(v_1,...,v_n)`
 - 变量：`x=(x_1,...,x_n)`
 
-## 2. 梯度（gradient）：标量场 -> 向量场
-若 `f ∈ C^1`，定义
-- `∇f = (∂f/∂x_1, ..., ∂f/∂x_n)`
+## 2. 梯度（gradient）
+若 `f \\in C^1`，定义
+- `\\nabla f = (\\partial f/\\partial x_1, ..., \\partial f/\\partial x_n)`
 
-## 3. 散度（divergence）：向量场 -> 标量场
-若 `v ∈ C^1`，定义
-- `∇·v = Σ_{i=1}^n ∂v_i/∂x_i`
+## 3. 散度（divergence）
+若 `v \\in C^1`，定义
+- `\\nabla\\cdot v = \\sum_{i=1}^n \\partial v_i/\\partial x_i`
 
-## 4. 旋度（curl）：向量场 -> 向量场/标量
+## 4. 旋度（curl）
 ### 4.1 三维（`n=3`）
-若 `v=(v_1,v_2,v_3) ∈ C^1`，定义
-- `∇×v = ( ∂v_3/∂x_2 - ∂v_2/∂x_3,  ∂v_1/∂x_3 - ∂v_3/∂x_1,  ∂v_2/∂x_1 - ∂v_1/∂x_2 )`
+若 `v=(v_1,v_2,v_3) \\in C^1`，定义
+- `\\nabla\\times v = ( \\partial v_3/\\partial x_2 - \\partial v_2/\\partial x_3,  \\partial v_1/\\partial x_3 - \\partial v_3/\\partial x_1,  \\partial v_2/\\partial x_1 - \\partial v_1/\\partial x_2 )`
 
-### 4.2 二维（`n=2`，常用“标量旋度”）
+### 4.2 二维（`n=2`，常用标量旋度）
 对 `v=(v_1,v_2)`，常定义一个标量
-- `curl(v) := ∂v_2/∂x_1 - ∂v_1/∂x_2`
+- `curl(v) := \\partial v_2/\\partial x_1 - \\partial v_1/\\partial x_2`
 
-## 5. 拉普拉斯（Laplacian）：标量场 -> 标量场
-若 `f ∈ C^2`，定义
-- `Δf = ∇·∇f = Σ_{i=1}^n ∂^2 f/∂x_i^2`
-
-## 6. 常用组合关系（接口级）
-- `Δf = ∇·(∇f)`
-- 若 `v = ∇f`（梯度场），在光滑条件下常有 `∇×v = 0`
+## 5. 拉普拉斯（Laplacian）
+若 `f \\in C^2`，定义
+- `\\Delta f = \\nabla\\cdot\\nabla f = \\sum_{i=1}^n \\partial^2 f/\\partial x_i^2`
 
