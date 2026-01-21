@@ -11,12 +11,14 @@
             "id": "556a0f95c3453984",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "轨迹预测/论文/MTR.pdf"
+                "file": "轨迹预测/总结/总结.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "MTR"
+              "icon": "lucide-file",
+              "title": "总结"
             }
           },
           {
@@ -209,6 +211,7 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "轨迹预测/论文/MTR.pdf",
     "轨迹预测/总结/总结.md",
     "math/微积分/structures/functions/ScalarFunction.md",
     "math/微积分/索引.md",
@@ -242,7 +245,6 @@
     "英语/词汇/themes/Technology.md",
     "英语/词汇/themes/Business.md",
     "英语/词汇/themes/Academic.md",
-    "英语/examples/README.md",
     "英语/examples",
     "英语/语法/modules",
     "屏幕截图 2026-01-20 193843.png",
