@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "总结"
             }
+          },
+          {
+            "id": "908e6d6cd7b450bb",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "轨迹预测/论文/LaneGCN.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "LaneGCN"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -195,8 +208,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "556a0f95c3453984",
+  "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
+    "轨迹预测/总结/总结.md",
     "神经网络/exercises/Exercises.md",
     "英语/词汇/README.md",
     "神经网络/README.md",
@@ -222,7 +236,6 @@
     "英语/词汇/structures/Roots.md",
     "英语/词汇/modules/WordFormation.md",
     "英语/词汇/modules/Mnemonics.md",
-    "英语/词汇/modules/Collocations.md",
     "对抗性攻击",
     "轨迹预测/论文/MTR.pdf",
     "math/微积分/structures/geometry",
