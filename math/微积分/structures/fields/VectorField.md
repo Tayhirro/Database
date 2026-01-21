@@ -1,11 +1,11 @@
 # 向量场（Vector Field）
 
 ## 1. 一句话
-- 向量场就是“每个位置一个向量”：本质是函数 `v: Ω -> R^n`。
+- 向量场就是“每个位置一个向量”：本质是函数 `v: Ω -> R^n`（可视为 `VectorValuedFunction` 的一个常用特化：把定义域解释成空间位置）。
 
 ## 2. 接口：数据 + 约束（像类型签名）
 - 定义域：`Ω ⊆ R^n`
-- 值域：`R^n`（更几何的说法：每点的切空间 `T_xΩ`）
+- 值域：`R^n`
 - 分量表示：`v(x) = (v_1(x),...,v_n(x))`
 - 正则性（常用）：
   - 连续：`v ∈ C(Ω;R^n)`
@@ -16,16 +16,12 @@
 - 工程对照（CV）：光流/位移场 `f(u,v) = (Δu(u,v), Δv(u,v))`
 - 来自标量场的梯度场：`v=∇f`
 
-## 4. 你能对它做什么（最常用操作）
-- 代数运算（逐点）：
-  - `(v+w)(x)=v(x)+w(x)`，`(av)(x)=a v(x)`
-- 微分运算（需要 `C^1`）：
-  - Jacobian：`J_v(x) = [∂v_i/∂x_j]`
-  - 散度：`∇·v = Σ_i ∂v_i/∂x_i`
-  - 旋度：`∇×v`（3D 给向量；2D 常给标量“旋量”）
-  - 入口：见 [math/微积分/modules/Operators.md](../../modules/Operators.md)
+## 4. 你能对它做什么（插件：场/向量分析）
+- Jacobian：`J_v(x) = [∂v_i/∂x_j]`
+- 散度：`∇·v = Σ_i ∂v_i/∂x_i`
+- 旋度：`∇×v`（3D 给向量；2D 常给标量）
+- 入口：见 [math/微积分/modules/VectorOperators.md](../../modules/VectorOperators.md)
 
-## 5. “流线/积分曲线”（向量场的动态解释）
-- 把 `v` 当作速度场，轨迹满足常微分方程：`x'(t)=v(x(t))`。
-- 这条线把“向量场”连到动力系统/PDE（后续可扩展）。
+## 5. 与主框架的关系（插件化）
+- 作为向量值函数对象：见 [math/微积分/structures/functions/VectorValuedFunction.md](../functions/VectorValuedFunction.md)
 
