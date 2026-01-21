@@ -11,14 +11,12 @@
             "id": "556a0f95c3453984",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
-                "mode": "source",
-                "source": false
+                "file": "轨迹预测/论文/MTR.pdf"
               },
-              "icon": "lucide-file",
-              "title": "总结"
+              "icon": "lucide-file-text",
+              "title": "MTR"
             }
           },
           {
@@ -211,13 +209,13 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "轨迹预测/总结/总结.md",
     "math/微积分/structures/functions/ScalarFunction.md",
     "math/微积分/索引.md",
     "math/微积分/README.md",
     "math/微积分/概念图.md",
     "math/微积分/structures/functions/VectorValuedFunction.md",
     "未命名 1.md",
-    "轨迹预测/总结/总结.md",
     "math/微积分/modules/VectorOperators.md",
     "math/微积分/modules/ODE.md",
     "math/微积分/modules/Series.md",
