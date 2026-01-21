@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "math/离散/modules/FieldTheory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "FieldTheory"
             }
           },
           {
@@ -209,8 +209,18 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "math/离散/概念图.md",
+    "math/离散/索引.md",
+    "math/离散/README.md",
+    "math/离散/modules/Morphism.md",
+    "math/离散/structures/one-op/Monoid.md",
+    "math/离散/structures/one-op/Semigroup.md",
+    "英语/examples",
+    "英语/语法/modules",
+    "英语/语法",
+    "轨迹预测/总结/总结.md",
     "英语/词汇/modules/Collocations.md",
     "英语/词汇/modules/WordFormation.md",
     "英语/词汇/modules/Mnemonics.md",
@@ -235,10 +245,7 @@
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
-    "未命名 3.base",
-    "未命名 2.base",
     "未命名 2.canvas",
-    "未命名 1.base",
     "未命名.canvas",
     "未命名 1.canvas",
     "未命名.md",
@@ -246,15 +253,8 @@
     "2026-01-12.md",
     "未命名 6.canvas",
     "Pasted image 20260120163629.png",
-    "轨迹预测/总结/总结.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "神经网络/models/VAE.md",
-    "神经网络/models/CVAE.md",
-    "study/spring_runtime_flow.md",
-    "springboot/modules/ApplicationContext.md",
-    "springboot/flows/运行全链路.md",
-    "springboot/概念图.md",
-    "springboot/索引.md",
     "未命名 5.canvas",
     "未命名 4.canvas",
     "未命名 3.canvas",
