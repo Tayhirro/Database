@@ -14,5 +14,5 @@
 - 圆：$\gamma(t)=(\cos t, \sin t)$（二维）
 
 ## 4. 与主线模块的连接
-- 速度/切向量：`\\gamma'(t)`（见 [math/微积分/modules/Differentiation.md](../../modules/Differentiation.md)）
+- 速度/切向量：$\gamma'(t)$（见 [math/微积分/modules/Differentiation.md](../../modules/Differentiation.md)）
 - 积分：见 [math/微积分/modules/Integration.md](../../modules/Integration.md)

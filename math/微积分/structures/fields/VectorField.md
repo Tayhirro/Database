@@ -6,13 +6,13 @@
 ## 2. 接口：数据 + 约束（像类型签名）
 - 定义域：$\Omega \subseteq \mathbb{R}^n$
 - 值域：$\mathbb{R}^n$
-- 分量表示：`v(x) = (v_1(x),...,v_n(x))`
+- 分量表示：$v(x) = (v_1(x),...,v_n(x))$
 - 正则性（常用）：
   - 连续：$v \in C(\Omega;\mathbb{R}^n)$
   - 可微：$v \in C^1(\Omega;\mathbb{R}^n)$
 
 ## 3. 例子
-- 风场/速度场：`v(x,y) = (v_x(x,y), v_y(x,y))`
+- 风场/速度场：$v(x,y) = (v_x(x,y), v_y(x,y))$
 - 梯度场：$v = \nabla f$
 
 ## 4. 常用操作（向量分析）

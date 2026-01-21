@@ -6,7 +6,7 @@
 ## 2. 接口：数据 + 约束（像类型签名）
 - 定义域：$D \subseteq \mathbb{R}^n$
 - 值域：$\mathbb{R}^m$
-- 分量表示：`g(x) = (g_1(x),...,g_m(x))`
+- 分量表示：$g(x) = (g_1(x),...,g_m(x))$
 - 正则性（常用）：
   - 连续：$g \in C(D;\mathbb{R}^m)$
   - 可微：$g \in C^1(D;\mathbb{R}^m)$（能谈 Jacobian）

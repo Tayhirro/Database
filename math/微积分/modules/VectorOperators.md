@@ -2,8 +2,8 @@
 
 ## 1. 统一记号
 - 标量场：$f:\Omega \to \mathbb{R}$
-- 向量场：$v:\Omega \to \mathbb{R}^n$，`v=(v_1,...,v_n)`
-- 变量：`x=(x_1,...,x_n)`
+- 向量场：$v:\Omega \to \mathbb{R}^n$，$v=(v_1,...,v_n)$
+- 变量：$x=(x_1,...,x_n)$
 
 ## 2. 梯度（gradient）
 若 $f \in C^1$，定义

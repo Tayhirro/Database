@@ -12,9 +12,9 @@
 - [math/微积分/概念图.md](概念图.md)：概念关系图（对象与模块）
 
 结构页（像“类文档”，一概念一页）：
-- [math/微积分/structures/functions/ScalarFunction.md](structures/functions/ScalarFunction.md)：标量函数 `f: D -> R`
-- [math/微积分/structures/functions/VectorValuedFunction.md](structures/functions/VectorValuedFunction.md)：向量值函数 `g: D -> R^m`
-- [math/微积分/structures/geometry/ParametricCurve.md](structures/geometry/ParametricCurve.md)：参数曲线 `γ: I -> R^n`
+- [math/微积分/structures/functions/ScalarFunction.md](structures/functions/ScalarFunction.md)：标量函数 $f:D \to \mathbb{R}$
+- [math/微积分/structures/functions/VectorValuedFunction.md](structures/functions/VectorValuedFunction.md)：向量值函数 $g:D \to \mathbb{R}^m$
+- [math/微积分/structures/geometry/ParametricCurve.md](structures/geometry/ParametricCurve.md)：参数曲线 $\gamma:I \to \mathbb{R}^n$
 
 模块（对对象做的操作/定理接口）：
 - [math/微积分/modules/Limits.md](modules/Limits.md)：极限/连续（ε-δ）
@@ -26,4 +26,3 @@
 例子与练习：
 - [math/微积分/examples/Examples.md](examples/Examples.md)
 - [math/微积分/exercises/Exercises.md](exercises/Exercises.md)
-
