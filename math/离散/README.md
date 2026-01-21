@@ -31,6 +31,7 @@
 - [math/离散/modules/Subobject.md](modules/Subobject.md)：子结构（子群/子环/理想/正规子群）
 - [math/离散/modules/Quotient.md](modules/Quotient.md)：同余关系、陪集、商群/商环
 - [math/离散/modules/IsomorphismTheorems.md](modules/IsomorphismTheorems.md)：三大同构定理的“统一表述 + 群版 + 环版”
+- [math/离散/modules/FieldTheory.md](modules/FieldTheory.md)：域扩张/极小多项式/分裂域/Galois（域论主线）
 
 例子与练习（只放“最小工作例子”，用来对照定义）：
 - [math/离散/examples/Examples.md](examples/Examples.md)
