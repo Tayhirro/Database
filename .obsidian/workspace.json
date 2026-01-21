@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/微积分/概念图.md",
+                "file": "轨迹预测/总结/总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "概念图"
+              "title": "总结"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未命名 1.md",
+                "file": "math/微积分/structures/functions/ScalarFunction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名 1"
+              "title": "ScalarFunction"
             }
           }
         ]
@@ -211,7 +211,22 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "math/微积分/structures/functions/ScalarFunction.md",
     "math/微积分/索引.md",
+    "math/微积分/README.md",
+    "math/微积分/概念图.md",
+    "math/微积分/structures/functions/VectorValuedFunction.md",
+    "未命名 1.md",
+    "轨迹预测/总结/总结.md",
+    "math/微积分/modules/VectorOperators.md",
+    "math/微积分/modules/ODE.md",
+    "math/微积分/modules/Series.md",
+    "math/微积分/modules/Integration.md",
+    "math/微积分/modules/Differentiation.md",
+    "math/微积分/modules/Limits.md",
+    "math/微积分/structures/geometry/ParametricCurve.md",
+    "math/微积分/structures/geometry",
+    "math/微积分/structures/functions",
     "math/离散/modules/FieldTheory.md",
     "math/微积分/structures/fields/ScalarField.md",
     "math/微积分/structures/fields/VectorField.md",
@@ -219,9 +234,7 @@
     "math/微积分/modules/Operators.md",
     "math/微积分/structures/fields",
     "math/微积分/examples/Examples.md",
-    "math/微积分/概念图.md",
     "math/微积分/structures",
-    "math/微积分/README.md",
     "math/微积分/modules",
     "math/微积分/exercises",
     "math/微积分/examples",
@@ -232,21 +245,8 @@
     "英语/词汇/themes/Business.md",
     "英语/词汇/themes/Academic.md",
     "英语/examples/README.md",
-    "英语/语法/modules/CommonErrors.md",
-    "英语/语法/modules/PhrasalVerbs.md",
-    "英语/语法/modules/Collocations.md",
-    "英语/语法/modules/Clauses.md",
-    "英语/语法/modules/Tenses.md",
-    "英语/语法/概念图.md",
-    "英语/语法/索引.md",
-    "英语/语法/README.md",
-    "math/离散/概念图.md",
-    "math/离散/索引.md",
-    "math/离散/README.md",
     "英语/examples",
     "英语/语法/modules",
-    "英语/语法",
-    "英语/词汇/exercises",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
