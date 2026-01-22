@@ -23,7 +23,7 @@ $$
 - 列空间/行空间：$\operatorname{Col}(A)$，$\operatorname{Row}(A)$。
 - 核空间（零空间）：$\operatorname{Null}(A)=\{x:Ax=0\}$。
 - 秩-零化度定理（rank-nullity）：$n=\operatorname{rank}(A)+\dim(\operatorname{Null}(A))$（对 $A:\mathbb{F}^n\to\mathbb{F}^m$）。
-- 记号：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 见 [math/线性代数/modules/KernelImageNull.md](KernelImageNull.md)。
+- 记号：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 见 [math/线性代数/modules/Kernel.md](Kernel.md)、[math/线性代数/modules/Image.md](Image.md)、[math/线性代数/modules/NullSpace.md](NullSpace.md)（或汇总页 [math/线性代数/modules/FundamentalSubspaces.md](FundamentalSubspaces.md)）。
 
 ## 相关定理及其证明
 ### 秩-零化度定理（Rank–Nullity Theorem）
@@ -32,7 +32,7 @@ $$
 n=\operatorname{rank}(A)+\dim(\operatorname{Null}(A)).
 $$
 其中 $\operatorname{rank}(A)=\dim(\operatorname{Im}(A))$，$\operatorname{Null}(A)=\ker(A)$。
-记号补充：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 的定义见 [math/线性代数/modules/KernelImageNull.md](KernelImageNull.md)。
+记号补充：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 的定义见 [math/线性代数/modules/Kernel.md](Kernel.md)、[math/线性代数/modules/Image.md](Image.md)、[math/线性代数/modules/NullSpace.md](NullSpace.md)。
 
 **证明**：令 $K=\ker(A)$，取 $K$ 的一组基 $\{v_1,\ldots,v_k\}$，其中 $k=\dim K$。将其扩充为 $\mathbb{F}^n$ 的一组基
 $$
