@@ -23,6 +23,53 @@ $$
 - 列空间/行空间：$\operatorname{Col}(A)$，$\operatorname{Row}(A)$。
 - 核空间（零空间）：$\operatorname{Null}(A)=\{x:Ax=0\}$。
 - 秩-零化度定理（rank-nullity）：$n=\operatorname{rank}(A)+\dim(\operatorname{Null}(A))$（对 $A:\mathbb{F}^n\to\mathbb{F}^m$）。
+- 记号：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 见 [math/线性代数/modules/KernelImageNull.md](KernelImageNull.md)。
+
+## 相关定理及其证明
+### 秩-零化度定理（Rank–Nullity Theorem）
+设 $A:\mathbb{F}^n\to\mathbb{F}^m$ 为线性映射，则
+$$
+n=\operatorname{rank}(A)+\dim(\operatorname{Null}(A)).
+$$
+其中 $\operatorname{rank}(A)=\dim(\operatorname{Im}(A))$，$\operatorname{Null}(A)=\ker(A)$。
+记号补充：$\ker(A)$、$\operatorname{Im}(A)$ 与 $\operatorname{Null}(A)$ 的定义见 [math/线性代数/modules/KernelImageNull.md](KernelImageNull.md)。
+
+**证明**：令 $K=\ker(A)$，取 $K$ 的一组基 $\{v_1,\ldots,v_k\}$，其中 $k=\dim K$。将其扩充为 $\mathbb{F}^n$ 的一组基
+$$
+\{v_1,\ldots,v_k,v_{k+1},\ldots,v_n\}.
+$$
+考虑向量组 $\{A(v_{k+1}),\ldots,A(v_n)\}$。
+
+1) 其张成 $\operatorname{Im}(A)$：对任意 $x\in\mathbb{F}^n$，存在唯一系数 $c_1,\ldots,c_n$ 使
+$$
+x=\sum_{i=1}^n c_i v_i.
+$$
+线性性给出
+$$
+A(x)=\sum_{i=1}^n c_i A(v_i)=\sum_{i=k+1}^n c_i A(v_i),
+$$
+因为 $i\le k$ 时 $v_i\in\ker(A)$，从而 $A(v_i)=0$。因此任意像向量都被 $\{A(v_{k+1}),\ldots,A(v_n)\}$ 张成。
+
+2) 其线性无关：若
+$$
+\sum_{i=k+1}^n c_i A(v_i)=0,
+$$
+则 $A\!\left(\sum_{i=k+1}^n c_i v_i\right)=0$，从而 $\sum_{i=k+1}^n c_i v_i\in\ker(A)$。又因为 $\{v_1,\ldots,v_k\}$ 是 $\ker(A)$ 的基，存在系数 $d_1,\ldots,d_k$ 使
+$$
+\sum_{i=k+1}^n c_i v_i=\sum_{i=1}^k d_i v_i.
+$$
+移项得到
+$$
+\sum_{i=1}^k (-d_i) v_i+\sum_{i=k+1}^n c_i v_i=0.
+$$
+由于 $\{v_1,\ldots,v_n\}$ 是一组基，故其线性无关，进而 $c_{k+1}=\cdots=c_n=0$。
+
+由 1) 与 2) 可知 $\{A(v_{k+1}),\ldots,A(v_n)\}$ 是 $\operatorname{Im}(A)$ 的一组基，因此
+$$
+\operatorname{rank}(A)=\dim(\operatorname{Im}(A))=n-k.
+$$
+整理得 $n=\operatorname{rank}(A)+k=\operatorname{rank}(A)+\dim(\ker(A))=\operatorname{rank}(A)+\dim(\operatorname{Null}(A))$。
+证毕。
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：线性映射（把 $A$ 视作线性变换）。
@@ -31,4 +78,3 @@ $$
 
 ## 把新概念挂回框架（多级索引轨迹）
 math → 线性代数 → 对象（矩阵/线性映射）→ 子空间（像/核）→ 秩（rank）。
-
