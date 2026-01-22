@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/线性代数/modules/FundamentalSubspaces.md",
+                "file": "math/线性代数/modules/Rank.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FundamentalSubspaces"
+              "title": "Rank"
             }
           },
           {
@@ -223,13 +223,14 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
-    "math/线性代数/modules/Kernel.md",
-    "math/线性代数/modules/Image.md",
-    "math/线性代数/modules/KernelMethods.md",
-    "math/线性代数/modules/LowRankApproximation.md",
-    "math/线性代数/modules/Linearity.md",
+    "math/线性代数/modules/PSD.md",
     "math/线性代数/modules/NullSpace.md",
+    "math/线性代数/modules/LowRankApproximation.md",
+    "math/线性代数/modules/KernelMethods.md",
+    "math/线性代数/modules/Linearity.md",
+    "math/线性代数/modules/Kernel.md",
     "math/线性代数/modules/FundamentalSubspaces.md",
+    "math/线性代数/modules/Image.md",
     "math/线性代数/索引.md",
     "math/线性代数/概念图.md",
     "math/线性代数/modules/KernelImageNull.md",
@@ -255,7 +256,6 @@
     "math/微积分/structures/fields/ScalarField.md",
     "math/微积分/structures/fields/VectorField.md",
     "英语/词汇/themes/Academic.md",
-    "英语/词汇/themes/Daily.md",
     "对抗性攻击",
     "math/微积分/structures/geometry",
     "math/微积分/structures/functions",
