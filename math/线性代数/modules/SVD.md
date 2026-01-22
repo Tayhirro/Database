@@ -12,11 +12,33 @@
 $$
 A = U\Sigma V^\top.
 $$
+- 等价VAUT = Σ
+
 复数情形：$A\in\mathbb{C}^{m\times n}$ 时，$U,V$ 为酉矩阵，$V^\top$ 替换为 $V^*$。
+
 
 记奇异值为 $\sigma_1\ge \sigma_2\ge \cdots \ge 0$（按降序排列），则常用等价关系包括：
 - $A^\top A = V(\Sigma^\top \Sigma)V^\top$，$AA^\top = U(\Sigma\Sigma^\top)U^\top$，因此 $\sigma_i^2$ 是 $A^\top A$ 与 $AA^\top$ 的特征值。
 - $\operatorname{rank}(A)$ 等于非零奇异值的个数（见 [math/线性代数/modules/Rank.md](Rank.md)）。
+
+## 结构视角（输入/输出基 + 轴向缩放）
+**旋转输入坐标系，把坐标轴对齐到“这个变换真正的主伸缩方向”上**，对齐后自然就只剩对角缩放 
+
+把 $A:\mathbb{F}^n\to\mathbb{F}^m$ 看作线性映射，SVD 给出一种“在输入空间与输出空间各选一组正交基，使得 $A$ 在这对基下变成对角形”的表示。
+
+设 $V=[v_1,\ldots,v_n]$，$U=[u_1,\ldots,u_m]$ 分别为右/左奇异向量组成的正交（酉）矩阵，则对每个奇异三元组 $(u_i,\sigma_i,v_i)$ 有
+$$
+A v_i = \sigma_i u_i.
+$$
+可将 $A=U\Sigma V^\top$ 理解为三个步骤的复合：
+$$
+\mathbb{F}^n \xrightarrow{\,V^\top\,} \mathbb{F}^n \xrightarrow{\,\Sigma\,} \mathbb{F}^m \xrightarrow{\,U\,} \mathbb{F}^m,
+$$
+其中 $V^\top$ 与 $U$ 是正交变换（改变坐标/旋转反射），$\Sigma$ 在一组两边对齐的轴上做非负缩放（$\sigma_i$ 作为缩放系数）。
+
+等价的几何表述（以 $\lVert\cdot\rVert_2$ 为例）：单位球在 $A$ 作用下变成椭球，其主轴方向为 $u_i$，对应半轴长度为 $\sigma_i$。
+
+与“压缩/低秩”的连接：若奇异值序列在某个 $k$ 后显著变小，则 $A$ 在除 $\operatorname{span}\{v_1,\ldots,v_k\}$ 以外的输入方向上尺度很小；截断 SVD 用前 $k$ 个方向构造秩不超过 $k$ 的近似（见 [math/线性代数/modules/LowRankApproximation.md](LowRankApproximation.md)）。
 
 ## 接口：数据 + 约束
 - 数据：矩阵 $A\in\mathbb{F}^{m\times n}$。
@@ -35,4 +57,3 @@ $$
 
 ## 把新概念挂回框架（多级索引轨迹）
 math → 线性代数 → 工具（矩阵分解）→ SVD → 截断 SVD → 低秩近似。
-

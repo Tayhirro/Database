@@ -42,21 +42,21 @@ $$
 $$
 W=\operatorname{span}\{v_{k+1},\ldots,v_n\}.
 $$
-则 $V=K\oplus W$，并且 $K\cap W=\{0\}$（因为 $K$ 与 $W$ 分别由这组基的两部分张成）。
+则 $V=K\oplus W$，并且 $K\cap W=\{0\}$（因为 $K$ 与 $W$ 分别由这组基的两部分张成）。直和记号见 [math/线性代数/modules/DirectSum.md](DirectSum.md)。
 
 2) **映射层：限制到补空间后得到单射**  
 考虑限制映射 $A|_W:W\to \mathbb{F}^m$。若 $w\in W$ 且 $A(w)=0$，则 $w\in\ker(A)=K$；又 $w\in W$，因此 $w\in K\cap W=\{0\}$，从而 $w=0$。即
 $$
 \ker(A|_W)=\{0\},
 $$
-所以 $A|_W$ 是单射。
+所以 $A|_W$ 是单射（单射定义见 [math/线性代数/modules/InjectiveMap.md](InjectiveMap.md)）。
 
 3) **线性无关层：单射保持线性无关性**  
 对线性映射 $T:W\to W'$，若 $T$ 单射，则任意线性无关向量组 $\{w_i\}\subseteq W$ 的像 $\{T(w_i)\}$ 线性无关：若 $\sum_i \alpha_i T(w_i)=0$，则 $T(\sum_i \alpha_i w_i)=0$，由单射得 $\sum_i \alpha_i w_i=0$，再由 $\{w_i\}$ 线性无关得各 $\alpha_i=0$。  
 在本证明中，$\{v_{k+1},\ldots,v_n\}$ 是 $W$ 的一组基，因此线性无关；由 $A|_W$ 单射可推出 $\{A(v_{k+1}),\ldots,A(v_n)\}$ 线性无关。
 
 #### 抽象视角（可选）：商空间观点
-核空间给出商空间 $V/\ker(A)$；线性映射 $A$ 诱导出
+核空间给出商向量空间 $V/\ker(A)$（见 [math/线性代数/modules/QuotientVectorSpace.md](QuotientVectorSpace.md)）；线性映射 $A$ 诱导出
 $$
 \tilde{A}:V/\ker(A)\to \operatorname{Im}(A),\qquad [v]\mapsto A(v),
 $$
