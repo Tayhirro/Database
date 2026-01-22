@@ -22,6 +22,18 @@
             }
           },
           {
+            "id": "d998ec933d3bdf62",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.11.5"
+            }
+          },
+          {
             "id": "908e6d6cd7b450bb",
             "type": "leaf",
             "state": {
@@ -33,7 +45,8 @@
               "title": "Multimodal_Trajectory_Prediction_Conditioned_on_La"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,7 +220,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "556a0f95c3453984",
+  "active": "d998ec933d3bdf62",
   "lastOpenFiles": [
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "轨迹预测/总结/总结.md",
