@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "math/线性代数/modules/Rank.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "Rank"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "算法/算法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "算法"
             }
           },
           {
@@ -47,8 +47,7 @@
               "title": "Multimodal_Trajectory_Prediction_Conditioned_on_La"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -222,10 +221,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d998ec933d3bdf62",
+  "active": "556a0f95c3453984",
   "lastOpenFiles": [
-    "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
+    "math/线性代数/索引.md",
+    "math/数学索引.md",
+    "math/索引.md",
+    "math/拓扑.md",
+    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "轨迹预测/总结/总结.md",
+    "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
+    "算法/算法.md",
+    "算法",
     "agent/论文/EverMemOS.pdf",
     "agent/论文/未确认 757206.crdownload",
     "轨迹预测/论文/MTR.pdf",
@@ -250,15 +256,9 @@
     "英语/语法/modules/CommonErrors.md",
     "英语/examples/README.md",
     "英语/概念图.md",
-    "英语/词汇/索引.md",
-    "英语/词汇/structures/_TEMPLATE.md",
-    "英语/词汇/structures/Suffixes.md",
-    "英语/词汇/structures/Roots.md",
-    "英语/词汇/modules/WordFormation.md",
     "对抗性攻击",
     "math/微积分/structures/geometry",
     "math/微积分/structures/functions",
-    "math/微积分/structures/fields",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
