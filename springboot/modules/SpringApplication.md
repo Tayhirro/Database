@@ -10,7 +10,9 @@
 
 ## 接口：数据 + 约束
 - 输入：
-  - `primarySources`：启动源（通常包含 `@SpringBootApplication` 标注的配置类）
+  - `primarySources` / `sources`：Bean 定义的初始来源集合。
+    - **形式**：Java 配置类（`@Configuration`）、XML 配置文件路径（如 `classpath:context.xml`）、扫描包名（Package）。
+    - **作用**：被加载到 `ApplicationContext` 以注册 Bean 定义（load beans into context）。
   - `args`：命令行参数
 - 输出：
   - `ConfigurableApplicationContext`
@@ -49,9 +51,15 @@
 ### 启动源（Primary Sources）
 | 字段                     | 说明                      |
 | ---------------------- | ----------------------- |
-| `primarySources`       | 主启动源集合（`Set<Class<?>>`） |
+| `primarySources`       | 主启动源集合（`Set<Class<?>>`，通常为入口配置类） |
 | `sources`              | 额外源类名集合（`Set<String>`）  |
-| `mainApplicationClass` | 主应用类                    |
+| `mainApplicationClass` | 主应用类（推断得出的 main 方法所在类） |
+
+> **Source 形式与作用**：
+> 启动源（Sources）用于引导 `ApplicationContext` 的填充。支持三种形式：
+> 1. **类（Class）**：Java 配置类（Annotated Class）。
+> 2. **XML**：XML 配置文件路径。
+> 3. **包（Package）**：触发组件扫描的包名。
 
 ### 环境与上下文（Environment & Context）
 | 字段 | 说明 |
