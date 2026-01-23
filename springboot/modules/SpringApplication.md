@@ -71,6 +71,32 @@
 > Sources 是**启动输入种子**（Seed Inputs），仅作为 `ApplicationContext` 初始化的起点。
 > - **包含**：显式传入的配置类/XML/包名。
 > - **不包含**：由 `@ComponentScan` 扫描到的组件或 `@EnableAutoConfiguration` 导入的配置类（这些属于容器 refresh 过程中的内部扩张结果，不会回写到 sources 集合）。
+>
+> **典型追加场景（Additional Sources Use Cases）**：
+> 除了默认的主配置类，可通过 `getSources()` 或 `spring.main.sources` 追加额外源（Sources），常见于：
+> 1. **包扫描扩展**：添加包名字符串以扫描主包外的组件。
+>    ```java
+>    SpringApplication app = new SpringApplication(Main.class);
+>    app.getSources().add("com.legacy.module"); // 触发 ClassPathBeanDefinitionScanner
+>    ```
+> 2. **Legacy XML 集成**：添加 XML 路径以复用旧配置。
+>    ```java
+>    app.getSources().add("classpath:/legacy-context.xml"); // 触发 XmlBeanDefinitionReader
+>    ```
+> 3. **动态/插件化配置**：通过全限定类名字符串加载可选配置。
+>    ```java
+>    app.getSources().add("com.example.ExtraConfig"); // 触发 AnnotatedBeanDefinitionReader
+>    ```
+> 4. **外部化注入**：利用 `spring.main.sources` 属性在运行时动态追加源。
+>    ```bash
+>    java -jar app.jar --spring.main.sources=com.example.ExtraConfig,classpath:/context.xml
+>    ```
+> 5. **层级上下文**：使用 `SpringApplicationBuilder` 为 parent/child 上下文分别指定不同的 sources。
+>    ```java
+>    new SpringApplicationBuilder()
+>      .parent(ParentConfig.class)
+>      .child(WebConfig.class).run(args);
+>    ```
 
 ### 环境与上下文（Environment & Context）
 | 字段 | 说明 |
