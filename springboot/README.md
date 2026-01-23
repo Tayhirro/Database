@@ -14,6 +14,7 @@ tags:
 - 概念图（跨模块）：[概念图.md](概念图.md)
 
 ## 主题入口
+- 启动流程（从 `SpringApplication.run` 到 ready）：[flows/启动流程.md](flows/启动流程.md)
 - 运行全链路（从启动到结束）：[flows/运行全链路.md](flows/运行全链路.md)
 
 ## 参考
