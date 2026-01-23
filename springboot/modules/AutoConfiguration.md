@@ -1,5 +1,7 @@
 # 自动配置（Auto-Configuration）
 
+> **类型**：机制（Mechanism）
+
 ## 一句话
 自动配置是基于 classpath、`Environment` 与容器状态等条件，自动导入一组配置类以构建默认 Bean 图的机制（由 `@EnableAutoConfiguration` 触发）。
 

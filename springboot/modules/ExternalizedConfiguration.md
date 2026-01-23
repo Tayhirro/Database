@@ -1,5 +1,7 @@
 # 外部化配置（Externalized Configuration）
 
+> **类型**：机制（Mechanism）
+
 ## 一句话
 外部化配置是将来自多个配置源的配置项按优先级合并到 `Environment`，并供容器与自动配置在启动/运行阶段查询的机制集合。
 

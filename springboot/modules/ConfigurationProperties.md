@@ -1,5 +1,7 @@
 # 配置属性绑定（Configuration Properties Binding）
 
+> **类型**：机制（Mechanism）
+
 ## 一句话
 配置属性绑定把 `Environment` 中的键值对按规则映射到类型化对象（properties bean），用于在应用中以结构化方式消费配置。
 

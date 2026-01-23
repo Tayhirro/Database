@@ -1,5 +1,7 @@
 # Starter 依赖（Spring Boot Starters）
 
+> **类型**：依赖组织（Dependency）
+
 ## 一句话
 starter 依赖是一种依赖组织方式：用一个“聚合依赖”表达某类能力的依赖集合，并通过约定与自动配置在运行时形成默认行为。
 

@@ -1,5 +1,7 @@
 # 嵌入式 WebServer（Embedded Web Server）
 
+> **类型**：机制（Mechanism）
+
 ## 一句话
 嵌入式 WebServer 是 Spring Boot 在 Web 应用形态下对“服务器创建、生命周期托管与与 `ApplicationContext` 绑定”的集成机制。
 

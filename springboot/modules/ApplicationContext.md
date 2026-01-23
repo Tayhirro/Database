@@ -1,5 +1,7 @@
 # ApplicationContext（应用上下文）
 
+> **类型**：接口（Interface）
+
 ## 一句话
 `ApplicationContext` 是 Spring 应用的运行时容器：提供 Bean 装配、资源访问、事件发布、环境（`Environment`）与生命周期管理等能力的统一入口。
 
