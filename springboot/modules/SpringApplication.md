@@ -47,11 +47,11 @@
 |                                      |                      |     |
 
 ### 启动源（Primary Sources）
-| 字段 | 说明 |
-| --- | --- |
-| `primarySources` | 主启动源集合（`Set<Class<?>>`） |
-| `sources` | 额外源类名集合（`Set<String>`） |
-| `mainApplicationClass` | 主应用类 |
+| 字段                     | 说明                      |
+| ---------------------- | ----------------------- |
+| `primarySources`       | 主启动源集合（`Set<Class<?>>`） |
+| `sources`              | 额外源类名集合（`Set<String>`）  |
+| `mainApplicationClass` | 主应用类                    |
 
 ### 环境与上下文（Environment & Context）
 | 字段 | 说明 |
