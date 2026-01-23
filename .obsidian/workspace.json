@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/SpringFactories.md",
+                "file": "springboot/modules/SpringApplication.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SpringFactories"
+              "title": "SpringApplication"
             }
           },
           {
@@ -210,8 +210,8 @@
   "active": "d998ec933d3bdf62",
   "lastOpenFiles": [
     "springboot/flows/启动流程.md",
-    "springboot/modules/SpringApplication.md",
     "springboot/modules/SpringFactories.md",
+    "springboot/modules/SpringApplication.md",
     "算法/算法.md",
     "springboot/modules/Packaging.md",
     "springboot/flows/运行全链路.md",

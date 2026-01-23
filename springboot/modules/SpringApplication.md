@@ -115,10 +115,10 @@
 | `beanNameGenerator` | Bean 名称生成器 |
 
 ### 初始化器与监听器（Initializers & Listeners）
-| 字段 | 说明 |
-| --- | --- |
+| 字段             | 说明                                                  |
+| -------------- | --------------------------------------------------- |
 | `initializers` | 上下文初始化器列表（`List<ApplicationContextInitializer<?>>`） |
-| `listeners` | 应用监听器列表（`List<ApplicationListener<?>>`） |
+| `listeners`    | 应用监听器列表（`List<ApplicationListener<?>>`）             |
 
 > **扩展点设计哲学（Extension Mechanism）**：
 > Spring Boot 采用“SPI + 事件驱动”的插件化架构，允许在不修改 `run()` 核心逻辑的前提下介入启动流程：
