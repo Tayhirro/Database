@@ -66,6 +66,11 @@
 > 1. **构造器/静态入口**：`SpringApplication.run(Main.class)` 内部实例化时将参数存入 `primarySources`。
 > 2. **Builder 模式**：`new SpringApplicationBuilder().sources(...)` 指定。
 > 3. **API 追加**：`addPrimarySources(...)` 可在已有集合上追加（注：常规扩展推荐使用 `sources` 而非修改 primary）。
+>
+> **边界辨析（Seed vs Result）**：
+> Sources 是**启动输入种子**（Seed Inputs），仅作为 `ApplicationContext` 初始化的起点。
+> - **包含**：显式传入的配置类/XML/包名。
+> - **不包含**：由 `@ComponentScan` 扫描到的组件或 `@EnableAutoConfiguration` 导入的配置类（这些属于容器 refresh 过程中的内部扩张结果，不会回写到 sources 集合）。
 
 ### 环境与上下文（Environment & Context）
 | 字段 | 说明 |
