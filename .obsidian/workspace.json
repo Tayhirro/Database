@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/概念图.md",
+                "file": "springboot/flows/启动流程.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "概念图"
+              "title": "启动流程"
             }
           },
           {
@@ -223,6 +223,8 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "springboot/概念图.md",
+    "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
     "轨迹预测/modules/社交池化.md",
     "轨迹预测/modules/注意力交互.md",
     "轨迹预测/modules/智能体交互建模.md",
@@ -242,14 +244,12 @@
     "springboot/modules/SpringApplication.md",
     "springboot/flows/启动流程.md",
     "springboot/索引.md",
-    "springboot/概念图.md",
     "springboot/README.md",
     "math/线性代数/modules/SVD.md",
     "math/线性代数/modules/Rank.md",
     "math/线性代数/modules/PSD.md",
     "math/线性代数/modules/NullSpace.md",
     "math/线性代数/modules/LowRankApproximation.md",
-    "math/线性代数/modules/KernelMethods.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "算法",
     "agent/论文/EverMemOS.pdf",
