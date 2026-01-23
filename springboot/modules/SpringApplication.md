@@ -60,6 +60,12 @@
 > 1. **类（Class）**：Java 配置类（Annotated Class）。
 > 2. **XML**：XML 配置文件路径。
 > 3. **包（Package）**：触发组件扫描的包名。
+>
+> **设定链路（Origin & Setter）**：
+> `primarySources` 严格源于**代码侧**显式指定（Code-based），无法通过外部配置替换：
+> 1. **构造器/静态入口**：`SpringApplication.run(Main.class)` 内部实例化时将参数存入 `primarySources`。
+> 2. **Builder 模式**：`new SpringApplicationBuilder().sources(...)` 指定。
+> 3. **API 追加**：`addPrimarySources(...)` 可在已有集合上追加（注：常规扩展推荐使用 `sources` 而非修改 primary）。
 
 ### 环境与上下文（Environment & Context）
 | 字段 | 说明 |
