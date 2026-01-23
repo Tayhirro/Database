@@ -125,6 +125,8 @@
 > 1. **生命周期挂钩**：将启动过程切分为标准阶段（事件），通过 `ApplicationListener` 监听（如 Environment 准备完毕、Context 创建完毕）。
 > 2. **Context 定制**：通过 `ApplicationContextInitializer` 在 `refresh()` 之前直接对 `ConfigurableApplicationContext` 进行编程配置（如注册属性源、激活 Profile）。
 > 3. **无侵入发现**：基于 `SpringFactoriesLoader` 机制（`spring.factories` / `imports`），使得第三方 Starter 仅需在 classpath 声明即可自动生效，无需用户显式注册（见 [springboot/modules/SpringFactories.md](SpringFactories.md)）。
+>
+> 常见 SPI 清单（如 `EnvironmentPostProcessor`, `FailureAnalyzer` 等）见 **[springboot/modules/ExtensionPoints.md](ExtensionPoints.md)**。
 
 ### 启动行为开关（Startup Behavior Flags）
 | 字段 | 说明 |
