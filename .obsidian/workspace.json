@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/flows/运行全链路.md",
+                "file": "算法/算法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "运行全链路"
+              "title": "算法"
             }
           },
           {
@@ -223,6 +223,7 @@
   },
   "active": "556a0f95c3453984",
   "lastOpenFiles": [
+    "springboot/flows/运行全链路.md",
     "算法/算法.md",
     "springboot/flows/启动流程.md",
     "springboot/概念图.md",
@@ -249,7 +250,6 @@
     "math/线性代数/modules/SVD.md",
     "math/线性代数/modules/Rank.md",
     "math/线性代数/modules/PSD.md",
-    "math/线性代数/modules/NullSpace.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "算法",
     "agent/论文/EverMemOS.pdf",
