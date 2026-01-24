@@ -12,6 +12,22 @@
 
 > **核心价值**：它是“外部化配置”机制在运行时的**状态载体**和**查询入口**。
 
+## 继承与实现体系（Hierarchy）
+Environment 的设计采用了“读写分离”和“模板方法”模式：
+
+### 1. `ConfigurableEnvironment`（写能力接口）
+继承自 `Environment`，增加了**修改**配置的能力。
+- **作用**：允许在启动期间（Context refresh 之前）添加/移除 `PropertySource`、设置激活的 Profile。
+- **关键 API**：
+  - `getPropertySources()`：获取可变的源列表（`MutablePropertySources`）。
+  - `setActiveProfiles(String...)`：设置激活的环境。
+
+### 2. 主要实现类
+Spring Boot 根据应用类型（Web/非 Web）选择不同的实现：
+- **`StandardEnvironment`**：标准非 Web 环境。默认包含系统属性（System Properties）和环境变量（System Environment）。
+- **`StandardServletEnvironment`**：Servlet Web 环境。额外包含 `ServletConfig` 和 `ServletContext` 参数。
+- **`StandardReactiveWebEnvironment`**：Reactive Web 环境。
+
 ## 核心结构：两块信息
 
 ### 1. Profiles（环境隔离）
