@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/extension/ExtensionPoints.md",
+                "file": "springboot/modules/core/ApplicationLifecycleEvents.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ExtensionPoints"
+              "title": "ApplicationLifecycleEvents"
             }
           }
         ],
@@ -210,21 +210,21 @@
   },
   "active": "b79720831ca5c182",
   "lastOpenFiles": [
-    "springboot/modules/extension/SpringFactories.md",
-    "springboot/modules/extension/ExtensionPoints.md",
+    "springboot/modules/ops/Actuator.md",
+    "springboot/modules/ops/Packaging.md",
     "springboot/概念图.md",
+    "springboot/modules/core/ApplicationLifecycleEvents.md",
+    "springboot/modules/core/SpringApplication.md",
+    "springboot/modules/core/ApplicationContext.md",
+    "springboot/modules/extension/ExtensionPoints.md",
+    "springboot/modules/extension/Starters.md",
+    "springboot/modules/extension/SpringFactories.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "springboot/modules/ApplicationLifecycleEvents.md",
-    "springboot/modules/ops/Packaging.md",
-    "springboot/modules/ops/Actuator.md",
     "springboot/modules/web/EmbeddedWebServer.md",
-    "springboot/modules/extension/Starters.md",
     "springboot/modules/config/AutoConfiguration.md",
     "springboot/modules/config/ConfigurationProperties.md",
     "springboot/modules/config/ExternalizedConfiguration.md",
-    "springboot/modules/core/ApplicationLifecycleEvents.md",
-    "springboot/modules/core/ApplicationContext.md",
-    "springboot/modules/core/SpringApplication.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
