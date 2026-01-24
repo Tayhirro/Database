@@ -3,51 +3,60 @@
 > **类型**：机制（Mechanism）
 
 ## 一句话
-生命周期事件是对启动过程阶段边界的事件化表达，允许监听器在特定阶段接入并执行观察或变换逻辑。
+生命周期事件是 Spring Boot 启动全过程的**时间轴锚点**，涵盖了从 Run 开始、环境准备、容器刷新到最终就绪的所有关键节点。
 
-## 严格定义
-对一次 `SpringApplication.run(...)`，可以定义一组有序阶段 $\{P_i\}$（例如 starting/environmentPrepared/contextPrepared/started/ready/failed 等），并在阶段边界发布事件；监听器订阅事件类型并在事件发生时被调用。
+## 1. 事件体系分类（Taxonomy）
+> **静态视角**：根据继承关系，启动过程中的事件分为两大阵营。
 
-所有 Boot 启动事件均继承自抽象基类 `SpringApplicationEvent`（它是 `ApplicationEvent` 的子类），并通过 `ApplicationListener` 接收。它们按确定的时序依次触发，彼此互为“兄弟”关系。
+### A. Boot 启动事件（Bootstrap）
+- **基类**：`SpringApplicationEvent`
+- **来源**：由 `SpringApplication`（通过 `RunListener`）发布。
+- **特征**：携带 `String[] args` 和 `SpringApplication` 实例；贯穿 Context 创建前后的全过程。
 
-## 接口：数据 + 约束
-- 数据：
-  - 事件（event）类型：均继承自 `SpringApplicationEvent`（归属于 `org.springframework.boot.context.event` 包）。
-  - 载荷：`SpringApplication` 实例、`args`、以及阶段相关的 `Environment` 或 `ApplicationContext`。
-  - 监听器（listener）集合
-- 输出：
-  - 监听器被触发的调用序列
-- 约束：
-  - 具体事件类型集合与触发点与 Boot 版本相关；本页将其视为“阶段边界事件模型”。
+### B. Spring 标准事件（Standard）
+- **基类**：`ApplicationContextEvent`
+- **来源**：由 `ApplicationContext` 发布。
+- **特征**：仅在 Context 创建并 refresh 完成后触发；关注容器内部状态（如 Refreshed, Closed）。
 
-## 常用构造/操作（仅列出接口与符号）
-- 监听器接口：`ApplicationListener`
-- 启动过程中的发布点：见 [springboot/flows/启动流程.md](../../flows/启动流程.md)
+---
 
-## 事件时序清单（Key Events Sequence）
-按 `SpringApplication.run()` 执行顺序触发：
+## 2. 完整执行时序（Timeline）
+> **动态视角**：按 `run()` 方法的时间轴，Boot 事件与标准事件是**穿插执行**的。
 
-1. **`ApplicationStartingEvent`**
-   - **时机**：Run 一开始就发（最早）。
-   - **状态**：除了注册 listeners/initializers 外，上下文与环境均未准备好。
-   - **作用**：极早期钩子（如日志系统初始化）。
+| 序号 | 阶段 | 事件类型 | 归属体系 | 关键状态 |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | Run 开始 | `ApplicationStartingEvent` | **Boot** | 最早钩子，Environment/Context 均未创建。 |
+| **2** | 环境准备 | `ApplicationEnvironmentPreparedEvent` | **Boot** | Environment 已加载，配置文件已读取。 |
+| **3** | 上下文预备 | `ApplicationContextInitializedEvent` | **Boot** | Context 对象已创建，`Initializers` 已执行。 |
+| **4** | 加载完成 | `ApplicationPreparedEvent` | **Boot** | BeanDefinition 已加载（Class 已读入），**Refresh 之前**。 |
+| **5** | **容器刷新** | `ContextRefreshedEvent` | **Standard** | **核心分界点**：所有 Bean 单例实例化完成。 |
+| **6** | 启动完成 | `ApplicationStartedEvent` | **Boot** | Refresh 结束，`CommandLineRunner` 执行前。 |
+| **7** | 服务就绪 | `ApplicationReadyEvent` | **Boot** | 所有 Runner 执行完毕，应用完全可用。 |
 
-2. **`ApplicationEnvironmentPreparedEvent`**
-   - **时机**：`Environment` 已准备好，但 `ApplicationContext` 还没创建。
-   - **状态**：可以读取/修改配置（EnvironmentPostProcessor 在此阶段生效）。
+---
 
-3. **`ApplicationContextInitializedEvent`**
-   - **时机**：Context 已准备好且 Initializers 已执行，但 BeanDefinition 还没加载。
-   - **状态**：Context 结构已定，但 Bean 还没进场。
+## 3. 详细定义与接口
 
-## 辨析：启动事件 vs 标准事件
-- **Boot 启动事件**：继承自 `SpringApplicationEvent`，由 `SpringApplication` 调度，贯穿启动全流程（含 Context 创建前）。
-- **标准 Context 事件**：继承自 `ApplicationContextEvent`（如 `ContextRefreshedEvent`），由 `ApplicationContext` 调度，仅在 Context 建立后发生。
-> **注意**：启动完成后（`ApplicationReadyEvent` 之后），应用运行期间发布的通常是标准事件或业务自定义事件，**不再**继承自 `SpringApplicationEvent`。
+### 严格定义
+启动事件流是一组实现了 `ApplicationEvent` 接口的对象序列，通过 `SpringApplicationRunListener`（Boot 事件）或 `ApplicationContext`（标准事件）进行广播。所有 Boot 体系事件均继承自 `org.springframework.boot.context.event.SpringApplicationEvent`。
 
-## 关系：上级/下级/等价/特例/推广
-- 上级：事件驱动模型（event-driven）。
-- 相关：扩展点发现（监听器来源）、`SpringApplication`（发布者）、`ApplicationContext`（Spring 事件系统）。
+### 接口：数据 + 约束
+- **数据**：
+  - 载荷：当前阶段可用的核心对象（Environment, Context 等）。
+- **约束**：
+  - 监听器的执行顺序遵循 `@Order` 或 `Ordered` 接口。
+  - **早期限制**：在 `Context` 创建前的事件（如 Starting, EnvPrepared），无法注入 Bean，只能通过 `spring.factories` 注册的监听器捕获。
+
+## 4. 常用构造/操作
+- **监听器接口**：`ApplicationListener<E>`
+- **注册方式**：
+  - 早期事件：必须在 `META-INF/spring.factories` 注册（因为 Context 还没醒）。
+  - 晚期事件：可以是容器里的 `@Component` Bean。
+
+## 5. 关系：上级/下级/等价/特例/推广
+- **上级**：观察者模式（Observer Pattern）。
+- **包含**：`SpringApplicationEvent`（Boot 系）、`ApplicationContextEvent`（Standard 系）。
+- **消费方**：`SpringApplication`（发布者）、扩展点体系（监听者）。
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → modules → 生命周期事件 → 启动流程。
+springboot → modules → core → 生命周期事件 → （Boot系 / Standard系）。
