@@ -11,10 +11,14 @@
             "id": "d998ec933d3bdf62",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "springboot/modules/SpringApplication.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SpringApplication"
             }
           },
           {
@@ -205,14 +209,14 @@
   },
   "active": "d998ec933d3bdf62",
   "lastOpenFiles": [
-    "算法/算法.md",
-    "springboot/modules/SpringApplication.md",
     "springboot/modules/SpringFactories.md",
+    "springboot/modules/SpringApplication.md",
     "springboot/modules/Packaging.md",
+    "springboot/modules/ExtensionPoints.md",
+    "算法/算法.md",
     "springboot/modules/ExternalizedConfiguration.md",
     "未命名 9.base",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
-    "springboot/modules/ExtensionPoints.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
     "springboot/概念图.md",
