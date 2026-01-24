@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
+                "file": "study/real_springboot_init_analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EventPublishingRunListener"
+              "title": "real_springboot_init_analysis"
             }
           }
         ]
@@ -197,8 +197,10 @@
   },
   "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
-    "springboot/modules/core/bootstrap/SpringApplication.md",
+    "springboot/modules/extension/ExtensionPoints.md",
+    "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
+    "springboot/modules/core/bootstrap/SpringApplication.md",
     "springboot/modules/core/context/ApplicationContext.md",
     "springboot/modules/core/events/ApplicationLifecycleEvents.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
@@ -209,7 +211,6 @@
     "springboot/modules/core/ApplicationLifecycleEvents.md",
     "springboot/modules/core/SpringApplication.md",
     "springboot/modules/core/EventPublishingRunListener.md",
-    "springboot/modules/extension/ExtensionPoints.md",
     "springboot/modules/extension/SpringFactoriesLoader.md",
     "springboot/modules/extension/Starters.md",
     "study/real_springboot_init_analysis.md",
