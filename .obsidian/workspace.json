@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/context/Environment.md",
+                "file": "springboot/modules/extension/ExtensionPoints.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Environment"
+              "title": "ExtensionPoints"
             }
           }
         ]
@@ -197,8 +197,11 @@
   },
   "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
-    "springboot/modules/core/events/ApplicationListener.md",
+    "springboot/modules/config/ConfigurationOverview.md",
+    "springboot/modules/config/ConfigurationProperties.md",
+    "springboot/modules/config/AutoConfiguration.md",
     "springboot/modules/core/context/Environment.md",
+    "springboot/modules/core/events/ApplicationListener.md",
     "springboot/modules/config/ExternalizedConfiguration.md",
     "springboot/flows/启动流程.md",
     "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
@@ -221,12 +224,9 @@
     "study/springboot_init_analysis.md",
     "study/springboot_intro.md",
     "study/spring_runtime_flow.md",
-    "springboot/modules/config/AutoConfiguration.md",
     "springboot/modules/web/DispatcherServlet.md",
     "springboot/modules/web/DispatcherHandler.md",
     "springboot/modules/extension/SpringFactories.md",
-    "springboot/modules/ops/Actuator.md",
-    "springboot/modules/ops/Packaging.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
