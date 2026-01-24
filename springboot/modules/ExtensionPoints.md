@@ -23,8 +23,8 @@ Spring Boot 提供了一套基于 `spring.factories`（或 `imports`）的 SPI �
 | 接口 | 作用 | 注册 Key (spring.factories) |
 | :--- | :--- | :--- |
 | `ApplicationContextInitializer` | **上下文初始化**：在 refresh 前对 Context 进行编程式定制（如注册 BeanDefinition）。 | `org.springframework.context.ApplicationContextInitializer` |
-| `ApplicationListener` | **事件监听**：监听 Boot 启动阶段事件（Starting, EnvironmentPrepared 等）。 | `org.springframework.context.ApplicationListener` |
-| `SpringApplicationRunListener` | **生命周期钩子**：`run()` 方法内部步骤的回调接口（最底层的运行监听器，通常用于发布事件）。 | `org.springframework.boot.SpringApplicationRunListener` |
+| `ApplicationListener` | **事件监听**：监听 Boot 启动阶段事件（Starting, EnvironmentPrepared 等），强调早期注册。 | `org.springframework.context.ApplicationListener` |
+| `SpringApplicationRunListener` | **生命周期钩子**：`run()` 方法内部步骤的回调接口（每次 run 均新建实例，用于发布事件）。 | `org.springframework.boot.SpringApplicationRunListener` |
 
 ### C. 自动配置导入阶段（Auto-Configuration Import）
 > **注意**：此类接口用于**干预或观察**自动配置的导入决策，而非自动配置类本身。
@@ -42,6 +42,28 @@ Spring Boot 提供了一套基于 `spring.factories`（或 `imports`）的 SPI �
 ## 辨析：扩展点 vs 自动配置
 - **扩展点（Extensions）**：实现特定接口，由 Boot 基础设施回调，通常在容器生命周期之外或边缘工作（Key 为接口全名）。
 - **自动配置（Auto-Configuration）**：普通的 `@Configuration` 类，用于向容器贡献 Bean，由 Boot 导入机制加载（Key 为 `EnableAutoConfiguration` 或在 `imports` 文件中声明）。
+
+## 注册示例（Registration Example）
+
+一个 `spring.factories` 文件可同时注册多种类型的扩展点（这也是 `SpringFactoriesLoader` 的设计初衷）：
+
+```properties
+# 事件监听器
+org.springframework.context.ApplicationListener=\
+com.example.MyAppListener
+
+# 上下文初始化器
+org.springframework.context.ApplicationContextInitializer=\
+com.example.MyCtxInitializer
+
+# 环境后置处理
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.example.MyEnvPostProcessor
+
+# 自动配置过滤
+org.springframework.boot.autoconfigure.AutoConfigurationImportFilter=\
+com.example.MyAutoConfigFilter
+```
 
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：扩展点发现（见 [modules/SpringFactories.md](SpringFactories.md)）。
