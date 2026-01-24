@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/SpringApplication.md",
+                "file": "springboot/modules/ApplicationLifecycleEvents.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SpringApplication"
+              "title": "ApplicationLifecycleEvents"
             }
           },
           {
@@ -90,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 340.5069465637207
   },
   "right": {
     "id": "49f3e4bd09f511b1",
@@ -209,10 +209,13 @@
   },
   "active": "d998ec933d3bdf62",
   "lastOpenFiles": [
-    "springboot/modules/SpringFactories.md",
-    "springboot/modules/SpringApplication.md",
-    "springboot/modules/Packaging.md",
+    "springboot/modules/AutoConfiguration.md",
+    "springboot/modules/ApplicationLifecycleEvents.md",
+    "springboot/modules/ApplicationContext.md",
     "springboot/modules/ExtensionPoints.md",
+    "springboot/modules/SpringApplication.md",
+    "springboot/modules/SpringFactories.md",
+    "springboot/modules/Packaging.md",
     "算法/算法.md",
     "springboot/modules/ExternalizedConfiguration.md",
     "未命名 9.base",
@@ -231,8 +234,6 @@
     "springboot/modules/Actuator.md",
     "springboot/modules/Starters.md",
     "springboot/modules/EmbeddedWebServer.md",
-    "springboot/modules/ApplicationLifecycleEvents.md",
-    "springboot/modules/AutoConfiguration.md",
     "springboot/modules/ConfigurationProperties.md",
     "springboot/索引.md",
     "springboot/README.md",
