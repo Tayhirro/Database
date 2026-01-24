@@ -210,6 +210,7 @@
   },
   "active": "b79720831ca5c182",
   "lastOpenFiles": [
+    "springboot/modules/extension/SpringFactoriesLoader.md",
     "study/springboot_init_analysis.md",
     "study/springboot_intro.md",
     "study/spring_runtime_flow.md",
@@ -241,7 +242,6 @@
     "springboot/modules/ApplicationContext.md",
     "springboot/modules/ExtensionPoints.md",
     "springboot/modules/SpringApplication.md",
-    "springboot/modules/SpringFactories.md",
     "未命名 9.base",
     "轨迹预测/modules",
     "算法",
