@@ -16,7 +16,7 @@ Spring Boot 中常见入口为 `@ConfigurationProperties(prefix=...)` 与对应�
 
 ## 接口：数据 + 约束
 - 输入：
-  - `Environment`（见 [springboot/modules/config/ExternalizedConfiguration.md](ExternalizedConfiguration.md)）
+  - `Environment`（见 [springboot/modules/core/context/Environment.md](../core/context/Environment.md)）
   - 目标类型（字段/构造器形态、校验约束等）
 - 输出：
   - 类型化对象实例（或绑定失败信息）
