@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/extension/ExtensionPoints.md",
+                "file": "springboot/modules/web/DispatcherServlet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ExtensionPoints"
+              "title": "DispatcherServlet"
             }
           }
         ],
@@ -210,6 +210,8 @@
   },
   "active": "b79720831ca5c182",
   "lastOpenFiles": [
+    "springboot/modules/web/DispatcherHandler.md",
+    "springboot/modules/extension/ExtensionPoints.md",
     "springboot/modules/web/DispatcherServlet.md",
     "springboot/modules/extension/SpringFactories.md",
     "springboot/modules/core/ApplicationLifecycleEvents.md",
@@ -218,7 +220,6 @@
     "springboot/概念图.md",
     "springboot/modules/core/SpringApplication.md",
     "springboot/modules/core/ApplicationContext.md",
-    "springboot/modules/extension/ExtensionPoints.md",
     "springboot/modules/extension/Starters.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "springboot/modules/ApplicationLifecycleEvents.md",
@@ -242,7 +243,6 @@
     "未命名 9.base",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
-    "文学/诗歌收藏/魏晋南北朝/王粲/赠蔡子笃.md",
     "轨迹预测/modules",
     "算法",
     "agent/论文/EverMemOS.pdf",
