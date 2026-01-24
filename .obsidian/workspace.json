@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/flows/启动流程.md",
+                "file": "study/real_springboot_init_analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "启动流程"
+              "title": "real_springboot_init_analysis"
             }
           }
         ],
@@ -210,8 +210,12 @@
   },
   "active": "b79720831ca5c182",
   "lastOpenFiles": [
-    "springboot/modules/config/ExternalizedConfiguration.md",
+    "study/springboot_init_analysis.md",
+    "study/springboot_intro.md",
+    "study/spring_runtime_flow.md",
+    "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
+    "springboot/modules/config/ExternalizedConfiguration.md",
     "springboot/modules/config/AutoConfiguration.md",
     "springboot/modules/core/ApplicationContext.md",
     "springboot/modules/extension/ExtensionPoints.md",
@@ -238,11 +242,7 @@
     "springboot/modules/ExtensionPoints.md",
     "springboot/modules/SpringApplication.md",
     "springboot/modules/SpringFactories.md",
-    "springboot/modules/Packaging.md",
-    "算法/算法.md",
-    "springboot/modules/ExternalizedConfiguration.md",
     "未命名 9.base",
-    "springboot/flows/运行全链路.md",
     "轨迹预测/modules",
     "算法",
     "agent/论文/EverMemOS.pdf",
