@@ -1,32 +1,44 @@
-# 扩展点发现（SpringFactoriesLoader / 声明资源聚合）
+# SpringFactoriesLoader（SPI 加载工具）
 
-> **类型**：机制（Mechanism）
+> **类型**：工具类（Utility）/ 机制（Mechanism）
 
 ## 一句话
-扩展点发现是从 classpath 聚合“接口/键 → 实现类列表”声明资源并实例化/装配到启动过程中的机制集合。
+`SpringFactoriesLoader` 是 Spring 框架内部通用的 SPI（Service Provider Interface）加载工具，负责从 `META-INF/spring.factories` 文件中加载接口的实现类名并实例化。
 
 ## 严格定义
-在 Spring 生态中，`SpringFactoriesLoader` 以“声明资源文件 + 类加载器”为输入，输出某个工厂键（或接口类型）对应的实现类名序列，并按需完成加载与实例化。
+`org.springframework.core.io.support.SpringFactoriesLoader` 是一个 final 工具类。它约定在 classpath 下的所有 JAR 包中查找 `META-INF/spring.factories` 资源，解析其中的 Key-Value 对（Key=接口全限定名, Value=实现类全限定名列表），并提供实例化能力。
 
-## 接口：数据 + 约束
-- 输入：
-  - `ClassLoader`
-  - 声明资源（例如 `META-INF/spring.factories` 或 Boot 3.x 拆分后的 imports 资源）
-- 输出：
-  - 实现类名列表（或已实例化对象列表，视调用点而定）
-- 约束：
-  - 资源路径与键空间在不同框架/版本中不同；该页只描述“聚合机制”这一抽象层。
+## 核心 API（Static Methods）
 
-## 常用构造/操作（仅列出接口与符号）
-- Boot 2.x 常见资源：`META-INF/spring.factories`
-- Boot 3.x 常见资源：
-  - auto-configuration imports：`META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
-  - 其他类型仍可能使用 `SpringFactoriesLoader`（取决于调用点）
+### 1. 加载类名（Lightweight）
+```java
+public static List<String> loadFactoryNames(Class<?> factoryType, @Nullable ClassLoader classLoader)
+```
+- **作用**：仅获取实现类的**全限定类名**，不进行实例化。
+- **场景**：`@EnableAutoConfiguration` 的候选类过滤（在实例化之前先检查是否存在对应的依赖类）。
+
+### 2. 加载并实例化（Heavyweight）
+```java
+public static <T> List<T> loadFactories(Class<T> factoryType, @Nullable ClassLoader classLoader)
+```
+- **作用**：获取类名后，立即通过反射（无参构造器）实例化对象，并进行 `AnnotationAwareOrderComparator` 排序。
+- **场景**：加载 `ApplicationListener`、`ApplicationContextInitializer` 等启动期组件。
+
+## 配置文件格式
+`META-INF/spring.factories` 采用标准 Properties 格式，支持多值（逗号分隔）：
+
+```properties
+# Interface / Annotation
+org.springframework.context.ApplicationListener=\
+com.example.ListenerA,\
+com.example.ListenerB
+```
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：启动期扩展点装配。
-- 下级：`ApplicationListener` / `ApplicationContextInitializer` / auto-config 候选列表等（具体列表见各自模块页）。
-- 相关：启动流程中 “构造与扩展点装配” 阶段（见 [springboot/flows/启动流程.md](../../flows/启动流程.md)）。
+- **上级**：Java SPI（`ServiceLoader`）的 Spring 定制版。
+- **对比**：Java `ServiceLoader` 使用 `META-INF/services/`，Spring 使用 `META-INF/spring.factories`。
+- **应用**：被 `SpringApplication` 用于加载初始化器和监听器（见 [springboot/modules/core/SpringApplication.md](../core/SpringApplication.md)）。
+- **扩展**：扩展点体系清单见 [springboot/modules/extension/ExtensionPoints.md](ExtensionPoints.md)。
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → modules → 扩展点发现 →（listeners/initializers/auto-config 候选）。
+springboot → modules → extension → SpringFactoriesLoader → （loadFactories / spring.factories）。

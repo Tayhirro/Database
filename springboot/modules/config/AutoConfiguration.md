@@ -27,7 +27,7 @@
 - 候选列表资源：
   - Boot 2.x：`META-INF/spring.factories` 中的 `EnableAutoConfiguration` 键
   - Boot 3.x：`META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`（以及相关元数据）
-- 关联：候选列表的聚合机制见 [springboot/modules/extension/SpringFactories.md](../extension/SpringFactories.md)
+- 关联：候选列表的聚合机制见 [springboot/modules/extension/SpringFactoriesLoader.md](../extension/SpringFactoriesLoader.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：配置类导入（Spring 配置类解析阶段的一类输入）。

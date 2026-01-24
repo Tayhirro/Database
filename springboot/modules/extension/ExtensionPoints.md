@@ -67,7 +67,7 @@ com.example.MyAutoConfigFilter
 ```
 
 ## 关系：上级/下级/等价/特例/推广
-- **上级**：扩展点发现（见 [springboot/modules/extension/SpringFactories.md](SpringFactories.md)）。
+- **上级**：扩展点发现（见 [springboot/modules/extension/SpringFactoriesLoader.md](SpringFactoriesLoader.md)）。
 - **消费方**：`SpringApplication`（见 [springboot/modules/core/SpringApplication.md](../core/SpringApplication.md)）。
 - **执行时机**：见 [springboot/flows/启动流程.md](../../flows/启动流程.md)。
 
