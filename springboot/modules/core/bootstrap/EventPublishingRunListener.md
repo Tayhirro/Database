@@ -14,15 +14,15 @@
 ### 1. 映射关系
 它实现了 `SpringApplicationRunListener` 接口的所有回调方法，并一一映射为事件发布：
 
-| RunListener 回调方法 | 发布的事件 | 备注 |
-| :--- | :--- | :--- |
-| `starting()` | `ApplicationStartingEvent` | 此时 Context 未创建 |
-| `environmentPrepared(...)` | `ApplicationEnvironmentPreparedEvent` | 此时 Environment 已就绪 |
-| `contextPrepared(...)` | `ApplicationContextInitializedEvent` | Context 已创建，Initializer 已执行 |
-| `contextLoaded(...)` | `ApplicationPreparedEvent` | BeanDefinition 已加载 |
-| `started(...)` | `ApplicationStartedEvent` | Refresh 完成，Runner 执行前 |
-| `ready(...)` | `ApplicationReadyEvent` | 全部就绪 |
-| `failed(...)` | `ApplicationFailedEvent` | 启动异常 |
+| RunListener 回调方法           | 发布的事件                                 | 备注                          |
+| :------------------------- | :------------------------------------ | :-------------------------- |
+| `starting()`               | `ApplicationStartingEvent`            | 此时 Context 未创建              |
+| `environmentPrepared(...)` | `ApplicationEnvironmentPreparedEvent` | 此时 Environment 已就绪          |
+| `contextPrepared(...)`     | `ApplicationContextInitializedEvent`  | Context 已创建，Initializer 已执行 |
+| `contextLoaded(...)`       | `ApplicationPreparedEvent`            | BeanDefinition 已加载          |
+| `started(...)`             | `ApplicationStartedEvent`             | Refresh 完成，Runner 执行前       |
+| `ready(...)`               | `ApplicationReadyEvent`               | 全部就绪                        |
+| `failed(...)`              | `ApplicationFailedEvent`              | 启动异常                        |
 
 ### 2. 多播器（Multicaster）
 - 它在构造时会初始化一个 `SimpleApplicationEventMulticaster`。
@@ -43,7 +43,7 @@
 - **协作**：
   - 上游：`SpringApplication`（调用方）。
   - 下游：`ApplicationListener`（接收方）。
-  - 产物：`SpringApplicationEvent`（见 [modules/core/ApplicationLifecycleEvents.md](ApplicationLifecycleEvents.md)）。
+  - 产物：`SpringApplicationEvent`（见 [modules/core/events/ApplicationLifecycleEvents.md](../events/ApplicationLifecycleEvents.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → EventPublishingRunListener → （RunListener / Multicaster）。

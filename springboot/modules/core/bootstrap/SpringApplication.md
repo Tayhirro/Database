@@ -25,14 +25,14 @@
 
 ## 常用构造/操作（仅列出接口与符号）
 - 启动入口：`SpringApplication.run(...)`
-- 启动阶段化过程（概览）：见 [springboot/flows/启动流程.md](../../flows/启动流程.md)
-- 扩展点发现：见 [springboot/modules/extension/SpringFactoriesLoader.md](../extension/SpringFactoriesLoader.md)
-- 生命周期事件：见 [springboot/modules/core/ApplicationLifecycleEvents.md](ApplicationLifecycleEvents.md)
+- 启动阶段化过程（概览）：见 [springboot/flows/启动流程.md](../../../flows/启动流程.md)
+- 扩展点发现：见 [springboot/modules/extension/SpringFactoriesLoader.md](../../extension/SpringFactoriesLoader.md)
+- 生命周期事件：见 [springboot/modules/core/events/ApplicationLifecycleEvents.md](../events/ApplicationLifecycleEvents.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：应用生命周期（启动/运行/停止）。
 - 下级：外部化配置（`Environment`）、`ApplicationContext`、自动配置、生命周期事件。
-- 特例：Web 应用会创建并绑定嵌入式 WebServer（见 [springboot/modules/web/EmbeddedWebServer.md](../web/EmbeddedWebServer.md)）。
+- 特例：Web 应用会创建并绑定嵌入式 WebServer（见 [springboot/modules/web/EmbeddedWebServer.md](../../web/EmbeddedWebServer.md)）。
 
 ## 关键字段分层归纳
 
@@ -124,9 +124,9 @@
 > Spring Boot 采用“SPI + 事件驱动”的插件化架构，允许在不修改 `run()` 核心逻辑的前提下介入启动流程：
 > 1. **生命周期挂钩**：将启动过程切分为标准阶段（事件），通过 `ApplicationListener` 监听（如 Environment 准备完毕、Context 创建完毕）。
 > 2. **Context 定制**：通过 `ApplicationContextInitializer` 在 `refresh()` 之前直接对 `ConfigurableApplicationContext` 进行编程配置（如注册属性源、激活 Profile）。
-> 3. **无侵入发现**：基于 `SpringFactoriesLoader` 机制（`spring.factories` / `imports`），使得第三方 Starter 仅需在 classpath 声明即可自动生效，无需用户显式注册（见 [springboot/modules/extension/SpringFactoriesLoader.md](../extension/SpringFactoriesLoader.md)）。
+> 3. **无侵入发现**：基于 `SpringFactoriesLoader` 机制（`spring.factories` / `imports`），使得第三方 Starter 仅需在 classpath 声明即可自动生效，无需用户显式注册（见 [springboot/modules/extension/SpringFactoriesLoader.md](../../extension/SpringFactoriesLoader.md)）。
 >
-> 常见 SPI 清单（如 `EnvironmentPostProcessor`, `FailureAnalyzer` 等）见 **[springboot/modules/extension/ExtensionPoints.md](../extension/ExtensionPoints.md)**。
+> 常见 SPI 清单（如 `EnvironmentPostProcessor`, `FailureAnalyzer` 等）见 **[springboot/modules/extension/ExtensionPoints.md](../../extension/ExtensionPoints.md)**。
 
 ### 启动行为开关（Startup Behavior Flags）
 | 字段 | 说明 |

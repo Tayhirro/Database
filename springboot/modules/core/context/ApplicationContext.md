@@ -22,17 +22,17 @@
   - `ApplicationContext` 是接口；具体行为取决于实现类与其组合的底层容器（例如 `BeanFactory`、事件多播器等）。
 
 ## 常用构造/操作（仅列出接口与符号）
-- `refresh()`：将上下文从“已配置”推进到“可用”状态（refresh 流程见 [springboot/flows/启动流程.md](../../flows/启动流程.md)）。
-- `close()`：触发容器关闭与资源回收（关闭段见 [springboot/flows/运行全链路.md](../../flows/运行全链路.md)）。
+- `refresh()`：将上下文从“已配置”推进到“可用”状态（refresh 流程见 [springboot/flows/启动流程.md](../../../flows/启动流程.md)）。
+- `close()`：触发容器关闭与资源回收（关闭段见 [springboot/flows/运行全链路.md](../../../flows/运行全链路.md)）。
 - `getBean(...)`：按类型/名称获取 Bean（抽象接口）。
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：依赖注入容器（DI container）。
 - 相关：
-  - `SpringApplication`（创建并驱动 refresh）：见 [springboot/modules/core/SpringApplication.md](SpringApplication.md)
-  - 外部化配置（`Environment`）：见 [springboot/modules/config/ExternalizedConfiguration.md](../config/ExternalizedConfiguration.md)
-  - 自动配置：见 [springboot/modules/config/AutoConfiguration.md](../config/AutoConfiguration.md)
-- 特例：Web 应用会使用 Web 相关的 `ApplicationContext` 实现并绑定 WebServer（见 [springboot/modules/web/EmbeddedWebServer.md](../web/EmbeddedWebServer.md)）。
+  - `SpringApplication`（创建并驱动 refresh）：见 [springboot/modules/core/bootstrap/SpringApplication.md](../bootstrap/SpringApplication.md)
+  - 外部化配置（`Environment`）：见 [springboot/modules/config/ExternalizedConfiguration.md](../../config/ExternalizedConfiguration.md)
+  - 自动配置：见 [springboot/modules/config/AutoConfiguration.md](../../config/AutoConfiguration.md)
+- 特例：Web 应用会使用 Web 相关的 `ApplicationContext` 实现并绑定 WebServer（见 [springboot/modules/web/EmbeddedWebServer.md](../../web/EmbeddedWebServer.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → ApplicationContext → flows/启动流程。
