@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/real_springboot_init_analysis.md",
+                "file": "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "real_springboot_init_analysis"
+              "title": "SpringApplicationRunListener"
             }
           }
         ]
@@ -197,6 +197,8 @@
   },
   "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
+    "springboot/modules/core/events/ApplicationListener.md",
+    "study/real_springboot_init_analysis.md",
     "springboot/modules/extension/ExtensionPoints.md",
     "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
@@ -213,7 +215,6 @@
     "springboot/modules/core/EventPublishingRunListener.md",
     "springboot/modules/extension/SpringFactoriesLoader.md",
     "springboot/modules/extension/Starters.md",
-    "study/real_springboot_init_analysis.md",
     "study/springboot_init_analysis.md",
     "study/springboot_intro.md",
     "study/spring_runtime_flow.md",
@@ -226,7 +227,6 @@
     "springboot/modules/ops/Actuator.md",
     "springboot/modules/ops/Packaging.md",
     "springboot/概念图.md",
-    "springboot/modules/ApplicationLifecycleEvents.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
