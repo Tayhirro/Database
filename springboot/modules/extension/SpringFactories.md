@@ -26,8 +26,7 @@
 ## 关系：上级/下级/等价/特例/推广
 - 上级：启动期扩展点装配。
 - 下级：`ApplicationListener` / `ApplicationContextInitializer` / auto-config 候选列表等（具体列表见各自模块页）。
-- 相关：启动流程中 “构造与扩展点装配” 阶段（见 [springboot/flows/启动流程.md](../flows/启动流程.md)）。
+- 相关：启动流程中 “构造与扩展点装配” 阶段（见 [springboot/flows/启动流程.md](../../flows/启动流程.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → 扩展点发现 →（listeners/initializers/auto-config 候选）。
-

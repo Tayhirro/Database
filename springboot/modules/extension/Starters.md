@@ -19,7 +19,7 @@ starter 本身通常不要求提供代码入口，其作用是组织依赖与默
 
 ## 常用构造/操作（仅列出接口与符号）
 - 典型命名：`spring-boot-starter-*`
-- 与自动配置的连接：见 [springboot/modules/AutoConfiguration.md](AutoConfiguration.md)
+- 与自动配置的连接：见 [springboot/modules/config/AutoConfiguration.md](../config/AutoConfiguration.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：依赖管理与模块化。
@@ -27,4 +27,3 @@ starter 本身通常不要求提供代码入口，其作用是组织依赖与默
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → Starters → 自动配置 → 启动流程。
-

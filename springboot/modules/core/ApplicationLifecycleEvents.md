@@ -12,7 +12,8 @@
 
 ## 接口：数据 + 约束
 - 数据：
-  - 事件（event）类型与载荷（例如 `Environment`、`ApplicationContext`、异常等）
+  - 事件（event）类型：均继承自 `SpringApplicationEvent`（归属于 `org.springframework.boot.context.event` 包）。
+  - 载荷：`SpringApplication` 实例、`args`、以及阶段相关的 `Environment` 或 `ApplicationContext`。
   - 监听器（listener）集合
 - 输出：
   - 监听器被触发的调用序列
@@ -21,7 +22,7 @@
 
 ## 常用构造/操作（仅列出接口与符号）
 - 监听器接口：`ApplicationListener`
-- 启动过程中的发布点：见 [springboot/flows/启动流程.md](../flows/启动流程.md)
+- 启动过程中的发布点：见 [springboot/flows/启动流程.md](../../flows/启动流程.md)
 
 ## 事件时序清单（Key Events Sequence）
 按 `SpringApplication.run()` 执行顺序触发：
@@ -50,4 +51,3 @@
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → 生命周期事件 → 启动流程。
-

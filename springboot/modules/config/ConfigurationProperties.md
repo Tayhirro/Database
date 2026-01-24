@@ -16,7 +16,7 @@ Spring Boot 中常见入口为 `@ConfigurationProperties(prefix=...)` 与对应�
 
 ## 接口：数据 + 约束
 - 输入：
-  - `Environment`（见 [springboot/modules/ExternalizedConfiguration.md](ExternalizedConfiguration.md)）
+  - `Environment`（见 [springboot/modules/config/ExternalizedConfiguration.md](ExternalizedConfiguration.md)）
   - 目标类型（字段/构造器形态、校验约束等）
 - 输出：
   - 类型化对象实例（或绑定失败信息）
@@ -29,8 +29,7 @@ Spring Boot 中常见入口为 `@ConfigurationProperties(prefix=...)` 与对应�
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：外部化配置。
-- 相关：自动配置对配置属性的使用（见 [springboot/modules/AutoConfiguration.md](AutoConfiguration.md)）。
+- 相关：自动配置对配置属性的使用（见 [springboot/modules/config/AutoConfiguration.md](AutoConfiguration.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → 外部化配置 → 配置属性绑定。
-
