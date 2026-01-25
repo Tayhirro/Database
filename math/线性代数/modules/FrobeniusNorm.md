@@ -41,6 +41,14 @@ $$
     $$
     \langle A,B\rangle_F=\sum_{i=1}^m\sum_{j=1}^n \overline{a_{ij}}\,b_{ij}=\operatorname{tr}(A^*B).
     $$
+- 一个你会反复用到的“把双重求和写成 trace”的恒等式（实数情形）：
+  - 若 $W,D\in\mathbb{R}^{J\times T}$，则
+    $$
+    \operatorname{tr}(W^\mathsf{T}D)=\sum_{t=1}^T (W^\mathsf{T}D)_{tt}
+    =\sum_{t=1}^T\sum_{j=1}^J W_{jt}D_{jt}
+    =\langle W,D\rangle_F.
+    $$
+  - 复数情形同理：$\operatorname{tr}(W^*D)=\langle W,D\rangle_F$。
 - 与向量化的一致性：把矩阵当“长向量”后就是标准内积
   $$
   \langle A,B\rangle_F=\langle \operatorname{vec}(A),\operatorname{vec}(B)\rangle_2.
