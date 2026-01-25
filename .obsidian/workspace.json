@@ -209,6 +209,7 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
+    "轨迹预测/论文/Social_Attention_Modeling_Attention_in_Human_Crowds.pdf",
     "math/线性代数/modules/FrobeniusNorm.md",
     "math/线性代数/modules/FundamentalSubspaces.md",
     "math/线性代数/modules/InjectiveMap.md",
@@ -235,7 +236,6 @@
     "springboot/modules/config/ExternalizedConfiguration.md",
     "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
-    "springboot/modules/core/bootstrap/SpringApplication.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "springboot/modules/core/events",
     "springboot/modules/core/context",
