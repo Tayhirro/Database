@@ -11,6 +11,18 @@
             "id": "780130bf82432d1c",
             "type": "leaf",
             "state": {
+              "type": "pdf",
+              "state": {
+                "file": "轨迹预测/论文/LaneGCN.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "LaneGCN"
+            }
+          },
+          {
+            "id": "dd5afece1c0788db",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "轨迹预测/总结/总结.md",
@@ -20,20 +32,9 @@
               "icon": "lucide-file",
               "title": "总结"
             }
-          },
-          {
-            "id": "dd5afece1c0788db",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "轨迹预测/论文/LaneGCN.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "LaneGCN"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,7 +208,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "780130bf82432d1c",
+  "active": "dd5afece1c0788db",
   "lastOpenFiles": [
     "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/总结/总结.md",
