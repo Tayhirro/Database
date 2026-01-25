@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/线性代数/modules/SVD.md",
+                "file": "math/泛函/structures/spaces/NormedSpace.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SVD"
+              "title": "NormedSpace"
             }
           },
           {
@@ -209,8 +209,12 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
-    "math/线性代数/概念图.md",
+    "math/泛函/概念图.md",
+    "math/线性代数/索引.md",
+    "math/线性代数/modules/FundamentalSubspaces.md",
     "math/线性代数/modules/FrobeniusNorm.md",
+    "math/线性代数/概念图.md",
+    "math/线性代数/modules/SVD.md",
     "math/数学索引.md",
     "math/线性代数/modules/Kernel.md",
     "math/线性代数/modules/DirectSum.md",
@@ -233,13 +237,9 @@
     "springboot/modules/core/context/ApplicationContext.md",
     "springboot/modules/core/events/ApplicationLifecycleEvents.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
-    "springboot/modules/core/ApplicationContext.md",
     "springboot/modules/core/events",
     "springboot/modules/core/context",
     "springboot/modules/core/bootstrap",
-    "springboot/modules/core/ApplicationLifecycleEvents.md",
-    "springboot/modules/core/SpringApplication.md",
-    "springboot/modules/core/EventPublishingRunListener.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",

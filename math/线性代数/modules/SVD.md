@@ -12,7 +12,7 @@
 $$
 A = U\Sigma V^\top.
 $$
-- 等价VAUT = Σ
+- 等价UTAV = Σ
 
 复数情形：$A\in\mathbb{C}^{m\times n}$ 时，$U,V$ 为酉矩阵，$V^\top$ 替换为 $V^*$。
 
