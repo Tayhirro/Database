@@ -29,6 +29,37 @@ $$
 \qquad \lVert A\rVert_F=\sqrt{\langle A,A\rangle_F}.
 $$
 
+### Frobenius 内积（补充）
+把矩阵空间 $\mathbb{F}^{m\times n}$ 当成一个内积空间时，最常用的就是 Frobenius（Hilbert–Schmidt）内积。
+
+- 元素求和形式（最直观）：
+  - 实数域 $\mathbb{F}=\mathbb{R}$：
+    $$
+    \langle A,B\rangle_F=\sum_{i=1}^m\sum_{j=1}^n a_{ij}b_{ij}=\operatorname{tr}(A^\mathsf{T}B).
+    $$
+  - 复数域 $\mathbb{F}=\mathbb{C}$（注意共轭）：
+    $$
+    \langle A,B\rangle_F=\sum_{i=1}^m\sum_{j=1}^n \overline{a_{ij}}\,b_{ij}=\operatorname{tr}(A^*B).
+    $$
+- 与向量化的一致性：把矩阵当“长向量”后就是标准内积
+  $$
+  \langle A,B\rangle_F=\langle \operatorname{vec}(A),\operatorname{vec}(B)\rangle_2.
+  $$
+- 诱导的概念：
+  - 范数：$\lVert A\rVert_F=\sqrt{\langle A,A\rangle_F}$
+  - 角度/正交：$\cos\theta=\frac{\langle A,B\rangle_F}{\lVert A\rVert_F\lVert B\rVert_F}$，若 $\langle A,B\rangle_F=0$ 则称 $A\perp B$（矩阵正交）。
+- 常用性质（快速用）：
+  - 线性/共轭线性、对称性：$\langle A,B\rangle_F=\overline{\langle B,A\rangle_F}$
+  - 正定性：$\langle A,A\rangle_F\ge 0$，且等号当且仅当 $A=0$
+  - 正交/酉不变性：若 $U,V$ 为尺寸匹配的正交/酉矩阵，则
+    $$
+    \langle UAV,UBV\rangle_F=\langle A,B\rangle_F,\quad \lVert UAV\rVert_F=\lVert A\rVert_F.
+    $$
+- 在优化/矩阵微分里常用的“平方范数展开”（把它当作向量点积即可）：
+  $$
+  \lVert A-B\rVert_F^2=\lVert A\rVert_F^2+\lVert B\rVert_F^2-2\langle A,B\rangle_F.
+  $$
+
 ## 接口：数据 + 约束
 - 数据：矩阵 $A\in\mathbb{F}^{m\times n}$。
 - 输出：实数 $\lVert A\rVert_F\in\mathbb{R}_{\ge 0}$。
@@ -46,4 +77,3 @@ $$
 
 ## 把新概念挂回框架（多级索引轨迹）
 math → 线性代数 →（矩阵/线性算子）→ 矩阵范数 → Frobenius 范数（$\lVert\cdot\rVert_F$）。
-
