@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "math/线性代数/modules/FrobeniusNorm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "FrobeniusNorm"
             }
           },
           {
@@ -209,9 +209,14 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
+    "math/线性代数/modules/FundamentalSubspaces.md",
+    "math/泛函/structures/spaces/BanachSpace.md",
+    "神经网络/神经网络索引.md",
+    "神经网络/modules/RecurrentNeuralNetwork.md",
+    "神经网络/概念图.md",
+    "轨迹预测/总结/总结.md",
     "轨迹预测/论文/Social_Attention_Modeling_Attention_in_Human_Crowds.pdf",
     "math/线性代数/modules/FrobeniusNorm.md",
-    "math/线性代数/modules/FundamentalSubspaces.md",
     "math/线性代数/modules/InjectiveMap.md",
     "math/泛函/structures/spaces/NormedSpace.md",
     "math/泛函/概念图.md",
@@ -221,7 +226,6 @@
     "math/数学索引.md",
     "math/线性代数/modules/Kernel.md",
     "math/线性代数/modules/DirectSum.md",
-    "轨迹预测/总结/总结.md",
     "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "study/real_springboot_init_analysis.md",
@@ -233,9 +237,6 @@
     "springboot/modules/config/AutoConfiguration.md",
     "springboot/modules/core/context/Environment.md",
     "springboot/modules/core/events/ApplicationListener.md",
-    "springboot/modules/config/ExternalizedConfiguration.md",
-    "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
-    "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
     "轨迹预测/论文/Multimodal_Trajectory_Prediction_Conditioned_on_La.pdf",
     "springboot/modules/core/events",
     "springboot/modules/core/context",
@@ -244,7 +245,6 @@
     "springboot/modules/web",
     "springboot/modules/extension",
     "springboot/modules/config",
-    "springboot/modules/core",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
