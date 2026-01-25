@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a4c3ff3a2cb81db6",
+        "id": "44ba8fb5a6ac9fea",
         "type": "tabs",
         "children": [
           {
-            "id": "908e6d6cd7b450bb",
+            "id": "780130bf82432d1c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +19,18 @@
               },
               "icon": "lucide-file",
               "title": "总结"
+            }
+          },
+          {
+            "id": "dd5afece1c0788db",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "轨迹预测/论文/LaneGCN.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "LaneGCN"
             }
           }
         ]
@@ -195,10 +207,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "780130bf82432d1c",
   "lastOpenFiles": [
     "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/总结/总结.md",
+    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
@@ -226,13 +239,11 @@
     "springboot/modules/extension/Starters.md",
     "study/springboot_init_analysis.md",
     "study/springboot_intro.md",
-    "study/spring_runtime_flow.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
     "springboot/modules/config",
     "springboot/modules/core",
-    "未命名 9.base",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
