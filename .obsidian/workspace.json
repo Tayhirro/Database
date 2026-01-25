@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
+                "file": "math/线性代数/modules/SVD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总结"
+              "title": "SVD"
             }
           },
           {
@@ -209,8 +209,13 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
-    "轨迹预测/论文/LaneGCN.pdf",
+    "math/线性代数/概念图.md",
+    "math/线性代数/modules/FrobeniusNorm.md",
+    "math/数学索引.md",
+    "math/线性代数/modules/Kernel.md",
+    "math/线性代数/modules/DirectSum.md",
     "轨迹预测/总结/总结.md",
+    "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
@@ -235,10 +240,6 @@
     "springboot/modules/core/ApplicationLifecycleEvents.md",
     "springboot/modules/core/SpringApplication.md",
     "springboot/modules/core/EventPublishingRunListener.md",
-    "springboot/modules/extension/SpringFactoriesLoader.md",
-    "springboot/modules/extension/Starters.md",
-    "study/springboot_init_analysis.md",
-    "study/springboot_intro.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
