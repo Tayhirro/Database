@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "study/real_springboot_init_analysis.md",
+                "file": "轨迹预测/总结/总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "real_springboot_init_analysis"
+              "title": "总结"
             }
           }
         ]
@@ -197,6 +197,7 @@
   },
   "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
+    "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
     "springboot/modules/extension/ExtensionPoints.md",
@@ -207,7 +208,6 @@
     "springboot/modules/core/events/ApplicationListener.md",
     "springboot/modules/config/ExternalizedConfiguration.md",
     "springboot/modules/core/bootstrap/SpringApplicationRunListener.md",
-    "study/real_springboot_init_analysis.md",
     "springboot/modules/core/bootstrap/EventPublishingRunListener.md",
     "springboot/modules/core/bootstrap/SpringApplication.md",
     "springboot/modules/core/context/ApplicationContext.md",
