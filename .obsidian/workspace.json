@@ -11,14 +11,12 @@
             "id": "908e6d6cd7b450bb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "轨迹预测/总结/总结.md",
-                "mode": "source",
-                "source": false
+                "file": "轨迹预测/论文/LaneGCN.pdf"
               },
-              "icon": "lucide-file",
-              "title": "总结"
+              "icon": "lucide-file-text",
+              "title": "LaneGCN"
             }
           }
         ]
@@ -197,6 +195,7 @@
   },
   "active": "908e6d6cd7b450bb",
   "lastOpenFiles": [
+    "轨迹预测/总结/总结.md",
     "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
@@ -226,7 +225,6 @@
     "study/springboot_intro.md",
     "study/spring_runtime_flow.md",
     "springboot/modules/web/DispatcherServlet.md",
-    "springboot/modules/web/DispatcherHandler.md",
     "springboot/modules/ops",
     "springboot/modules/web",
     "springboot/modules/extension",
