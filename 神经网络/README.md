@@ -33,6 +33,7 @@
 常用的底座模块：
 - VAE 系：`modules/ELBO.md`、`modules/KLDivergence.md`、`modules/ReparameterizationTrick.md`
 - Transformer/BERT：`modules/Attention.md`、`modules/Tokenization.md`
+- 序列建模：`modules/RecurrentNeuralNetwork.md`
 - CLIP：`modules/ContrastiveLearning.md`
 - few-shot / 度量学习：`modules/PrototypicalLearning.md`
 
