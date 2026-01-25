@@ -33,8 +33,7 @@
               "title": "LaneGCN"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -208,11 +207,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8f61731f8e1e8a24",
+  "active": "e0ca67c69e583588",
   "lastOpenFiles": [
+    "轨迹预测/论文/LaneGCN.pdf",
     "轨迹预测/总结/总结.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
-    "轨迹预测/论文/LaneGCN.pdf",
     "study/real_springboot_init_analysis.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
