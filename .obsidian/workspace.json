@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/线性代数/modules/FrobeniusNorm.md",
+                "file": "轨迹预测/总结/总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FrobeniusNorm"
+              "title": "总结"
             }
           },
           {
@@ -209,12 +209,12 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
+    "math/线性代数/modules/FrobeniusNorm.md",
     "math/线性代数/modules/FundamentalSubspaces.md",
     "math/线性代数/modules/InjectiveMap.md",
     "math/泛函/structures/spaces/NormedSpace.md",
     "math/泛函/概念图.md",
     "math/线性代数/索引.md",
-    "math/线性代数/modules/FrobeniusNorm.md",
     "math/线性代数/概念图.md",
     "math/线性代数/modules/SVD.md",
     "math/数学索引.md",
