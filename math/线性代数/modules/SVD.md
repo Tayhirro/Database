@@ -48,7 +48,7 @@ $$
 ## 常用构造/操作（仅列接口与符号）
 - 经济型（thin/economy）SVD：$A=U_r\Sigma_r V_r^\top$，其中 $U_r\in\mathbb{F}^{m\times r}$，$V_r\in\mathbb{F}^{n\times r}$，$\Sigma_r\in\mathbb{R}^{r\times r}$，$r=\operatorname{rank}(A)$。
 - 截断 SVD（truncated SVD）：选定 $k<r$，用前 $k$ 个奇异值/奇异向量构造近似 $A_k=U_k\Sigma_kV_k^\top$（见 [math/线性代数/modules/LowRankApproximation.md](LowRankApproximation.md)）。
-- 谱范数与 Frobenius 范数：$\lVert A\rVert_2=\sigma_1$，$\lVert A\rVert_F^2=\sum_i \sigma_i^2$（常与截断误差一起使用）。
+- 谱范数与 Frobenius 范数：$\lVert A\rVert_2=\sigma_1$，$\lVert A\rVert_F^2=\sum_i \sigma_i^2$（Frobenius 见 [math/线性代数/modules/FrobeniusNorm.md](FrobeniusNorm.md)）。
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：矩阵分解（decomposition）。

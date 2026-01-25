@@ -9,6 +9,7 @@ $$
 \min_{B\in\mathbb{F}^{m\times n}}\ \lVert A-B\rVert\quad \text{s.t.}\ \operatorname{rank}(B)\le k,
 $$
 其中 $\lVert\cdot\rVert$ 是选定的矩阵范数（常见为谱范数 $\lVert\cdot\rVert_2$ 或 Frobenius 范数 $\lVert\cdot\rVert_F$）。
+其中 Frobenius 范数的定义与等价形式见 [math/线性代数/modules/FrobeniusNorm.md](FrobeniusNorm.md)。
 
 设 $A$ 的 SVD 为 $A=U\Sigma V^\top$，奇异值按 $\sigma_1\ge\sigma_2\ge\cdots\ge 0$ 排列。定义截断 SVD：
 $$
@@ -42,4 +43,3 @@ $$
 
 ## 把新概念挂回框架（多级索引轨迹）
 math → 线性代数 → 工具（矩阵分解）→ SVD → 截断 SVD → 低秩近似（Eckart–Young–Mirsky）。
-
