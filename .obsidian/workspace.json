@@ -37,12 +37,14 @@
             "id": "ae1ee4d3fbf3d86c",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "轨迹预测/论文/Social_Attention_Modeling_Attention_in_Human_Crowds.pdf"
+                "file": "神经网络/modules/GraphAttentionNetwork.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Social_Attention_Modeling_Attention_in_Human_Crowds"
+              "icon": "lucide-file",
+              "title": "GraphAttentionNetwork"
             }
           }
         ],
@@ -222,8 +224,14 @@
   },
   "active": "ae1ee4d3fbf3d86c",
   "lastOpenFiles": [
-    "轨迹预测/论文/STAR.pdf",
+    "神经网络/models/rnn/BiRNN.md",
+    "神经网络/models/rnn/GRU.md",
+    "神经网络/models/rnn/LSTM.md",
+    "神经网络/models/rnn/README.md",
+    "神经网络/models/rnn",
     "轨迹预测/论文/Social_Attention_Modeling_Attention_in_Human_Crowds.pdf",
+    "神经网络/modules/GraphAttentionNetwork.md",
+    "轨迹预测/论文/STAR.pdf",
     "轨迹预测/论文/agentawaretransformer.pdf",
     "轨迹预测/论文/AutoBot.pdf",
     "轨迹预测/论文/machines-13-00818-v2.pdf",
@@ -251,13 +259,7 @@
     "math/线性代数/modules/Kernel.md",
     "math/线性代数/modules/DirectSum.md",
     "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
-    "study/real_springboot_init_analysis.md",
-    "springboot/flows/启动流程.md",
-    "springboot/flows/运行全链路.md",
-    "springboot/modules/extension/ExtensionPoints.md",
     "springboot/modules/core/events",
-    "springboot/modules/core/context",
-    "springboot/modules/core/bootstrap",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",

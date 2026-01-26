@@ -29,11 +29,13 @@
 - Diffusion：`models/Diffusion.md`
 - BERT：`models/BERT.md`
 - CLIP：`models/CLIP.md`
+- RNN 变体（LSTM/GRU/BiRNN）：`models/rnn/README.md`
 
 常用的底座模块：
 - VAE 系：`modules/ELBO.md`、`modules/KLDivergence.md`、`modules/ReparameterizationTrick.md`
 - Transformer/BERT：`modules/Attention.md`、`modules/Tokenization.md`
 - 序列建模：`modules/RecurrentNeuralNetwork.md`
+- 图神经网络：`modules/GraphAttentionNetwork.md`
 - CLIP：`modules/ContrastiveLearning.md`
 - few-shot / 度量学习：`modules/PrototypicalLearning.md`
 
