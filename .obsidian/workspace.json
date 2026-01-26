@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "神经网络/modules/GraphAttentionNetwork.md",
+                "file": "math/线性代数/modules/FrobeniusNorm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GraphAttentionNetwork"
+              "title": "FrobeniusNorm"
             }
           }
         ],
@@ -224,13 +224,13 @@
   },
   "active": "ae1ee4d3fbf3d86c",
   "lastOpenFiles": [
+    "神经网络/modules/GraphAttentionNetwork.md",
     "神经网络/models/rnn/BiRNN.md",
     "神经网络/models/rnn/GRU.md",
     "神经网络/models/rnn/LSTM.md",
     "神经网络/models/rnn/README.md",
     "神经网络/models/rnn",
     "轨迹预测/论文/Social_Attention_Modeling_Attention_in_Human_Crowds.pdf",
-    "神经网络/modules/GraphAttentionNetwork.md",
     "轨迹预测/论文/STAR.pdf",
     "轨迹预测/论文/agentawaretransformer.pdf",
     "轨迹预测/论文/AutoBot.pdf",
