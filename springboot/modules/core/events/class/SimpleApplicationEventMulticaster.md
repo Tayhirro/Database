@@ -27,11 +27,11 @@
 - 分发：`multicastEvent(event[, eventType])`
 
 ## 关系：上级/下级/等价/特例/推广
-- 实现：`ApplicationEventMulticaster`（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
+- 实现：`ApplicationEventMulticaster`（见 [../interface/ApplicationEventMulticaster.md](../interface/ApplicationEventMulticaster.md)）。
 - 父类：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）。
 - 被使用：
   - Spring Framework：`AbstractApplicationContext` 缺省的 `applicationEventMulticaster`（若容器中未显式声明同名 Bean）。
-  - Spring Boot：`EventPublishingRunListener` 的 `initialMulticaster`（启动早期事件分发，见 [../bootstrap/EventPublishingRunListener.md](../bootstrap/EventPublishingRunListener.md)）。
+  - Spring Boot：`EventPublishingRunListener` 的 `initialMulticaster`（启动早期事件分发，见 [../../bootstrap/class/EventPublishingRunListener.md](../../bootstrap/class/EventPublishingRunListener.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → events → SimpleApplicationEventMulticaster →（Default Multicaster / Executor / ErrorHandler）。

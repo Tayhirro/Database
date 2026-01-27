@@ -43,9 +43,9 @@ public class MyRunListener implements SpringApplicationRunListener {
 ```
 
 ## 关系：上级/下级/等价/特例/推广
-- **实现**：`EventPublishingRunListener`（唯一内置实现，见 [EventPublishingRunListener.md](EventPublishingRunListener.md)）。
-- **调用方**：`SpringApplication`（见 [SpringApplication.md](SpringApplication.md)）。
-- **关联**：`SpringApplicationRunListeners`（作为分发器，见 [SpringApplicationRunListeners.md](SpringApplicationRunListeners.md)）。
+- **实现**：`EventPublishingRunListener`（唯一内置实现，见 [../class/EventPublishingRunListener.md](../class/EventPublishingRunListener.md)）。
+- **调用方**：`SpringApplication`（见 [../class/SpringApplication.md](../class/SpringApplication.md)）。
+- **关联**：`SpringApplicationRunListeners`（作为分发器，见 [../class/SpringApplicationRunListeners.md](../class/SpringApplicationRunListeners.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → bootstrap → SpringApplicationRunListener → （Interface / Listeners / Lifecycle Methods）。

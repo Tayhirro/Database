@@ -58,7 +58,7 @@
 - **约束**：
   - 监听器的执行顺序遵循 `@Order` 或 `Ordered` 接口。
   - **早期限制**：在 `Context` 创建前的事件（如 Starting, EnvPrepared），无法注入 Bean，只能通过 `spring.factories` 注册的监听器捕获。
-  - 分发为触发式（push）：`publishEvent(...)` 触发一次 `multicastEvent(...)`；默认同步调用，异步取决于多播器实现与其 `Executor` 配置（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)、[SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）。
+  - 分发为触发式（push）：`publishEvent(...)` 触发一次 `multicastEvent(...)`；默认同步调用，异步取决于多播器实现与其 `Executor` 配置（见 [../interface/ApplicationEventMulticaster.md](../interface/ApplicationEventMulticaster.md)、[../class/SimpleApplicationEventMulticaster.md](../class/SimpleApplicationEventMulticaster.md)）。
 
 ## 4. 常用构造/操作
 - **监听器接口**：`ApplicationListener<E>`
@@ -67,7 +67,7 @@
   - 晚期事件：可以是容器里的 `@Component` Bean。
 
 ## 5. 关系：上级/下级/等价/特例/推广
-- **上级**：观察者模式（Observer Pattern，见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)）。
+- **上级**：观察者模式（Observer Pattern，见 [../../../patterns/pattern/ObserverPattern.md](../../../patterns/pattern/ObserverPattern.md)）。
 - **包含**：`SpringApplicationEvent`（Boot 系）、`ApplicationContextEvent`（Standard 系）。
 - **消费方**：`SpringApplication`（发布者）、扩展点体系（监听者）。
 

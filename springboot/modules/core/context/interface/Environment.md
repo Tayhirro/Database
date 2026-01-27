@@ -72,7 +72,7 @@ Spring Boot 根据应用类型（Web/非 Web）选择不同的实现：
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：`PropertyResolver`。
 - **宿主**：`ApplicationContext`（实现了 `EnvironmentCapable`，持有一个 Environment 实例）。
-- **填充者**：外部化配置机制（见 [ExternalizedConfiguration.md](../../config/ExternalizedConfiguration.md)）。
+- **填充者**：外部化配置机制（见 [ExternalizedConfiguration.md](../../../config/mechanism/ExternalizedConfiguration.md)）。
 - **绑定**：`@ConfigurationProperties`（将 Environment 中的值绑定到对象）。
 
 ## 把新概念挂回框架（多级索引轨迹）

@@ -37,8 +37,8 @@ com.example.ListenerB
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：Java SPI（`ServiceLoader`）的 Spring 定制版。
 - **对比**：Java `ServiceLoader` 使用 `META-INF/services/`，Spring 使用 `META-INF/spring.factories`。
-- **应用**：被 `SpringApplication` 用于加载初始化器和监听器（见 [springboot/modules/core/SpringApplication.md](../core/SpringApplication.md)）。
-- **扩展**：扩展点体系清单见 [springboot/modules/extension/ExtensionPoints.md](ExtensionPoints.md)。
+- **应用**：被 `SpringApplication` 用于加载初始化器和监听器（见 [springboot/modules/core/bootstrap/class/SpringApplication.md](../../core/bootstrap/class/SpringApplication.md)）。
+- **扩展**：扩展点体系清单见 [springboot/modules/extension/mechanism/ExtensionPoints.md](ExtensionPoints.md)。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → extension → SpringFactoriesLoader → （loadFactories / spring.factories）。

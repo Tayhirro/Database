@@ -20,7 +20,7 @@ Spring Boot 的配置体系可以抽象为两条并行工作的线：
 > **误区澄清**：第三方 Starter（如 redis-starter）通常只负责**第 2 条线**（定义如何用配置创建 Bean），而不负责**第 1 条线**（它不会自动读取 jar 包内的 yml 作为配置源）。配置值通常由**应用侧**提供。
 
 ## 2. 核心对象：Environment
-`Environment` 是配置的**最终统一视图**，它是“覆盖规则”的本体。详情见 [Environment.md](../core/context/Environment.md)。
+`Environment` 是配置的**最终统一视图**，它是“覆盖规则”的本体。详情见 [Environment.md](../../core/context/interface/Environment.md)。
 - **查询逻辑**：按 `PropertySource` 列表顺序查找，**First Win（先命中者胜出）**。
 
 ## 3. 时间线：Env 前、中、后
@@ -63,7 +63,7 @@ Spring Boot 的配置体系可以抽象为两条并行工作的线：
 - 外部化配置机制：[ExternalizedConfiguration.md](ExternalizedConfiguration.md)
 - 属性绑定详解：[ConfigurationProperties.md](ConfigurationProperties.md)
 - 自动配置原理：[AutoConfiguration.md](AutoConfiguration.md)
-- 环境接口定义：[../core/context/Environment.md](../core/context/Environment.md)
+- 环境接口定义：[../../core/context/interface/Environment.md](../../core/context/interface/Environment.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → config → ConfigurationOverview → （Timeline / Sources / Consumption）。

@@ -30,10 +30,9 @@
 - 检索：`getApplicationListeners(event, eventType)`
 
 ## 关系：上级/下级/等价/特例/推广
-- 实现：`ApplicationEventMulticaster`（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
+- 实现：`ApplicationEventMulticaster`（见 [../interface/ApplicationEventMulticaster.md](../interface/ApplicationEventMulticaster.md)）。
 - 子类：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）。
-- 运行时接入：`ApplicationContext` 通过名为 `applicationEventMulticaster` 的组件持有并使用多播器（见 [../context/ApplicationContext.md](../context/ApplicationContext.md)）。
+- 运行时接入：`ApplicationContext` 通过名为 `applicationEventMulticaster` 的组件持有并使用多播器（见 [../../context/interface/ApplicationContext.md](../../context/interface/ApplicationContext.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → events → AbstractApplicationEventMulticaster →（Listener Registry / Matching / Cache）。
-

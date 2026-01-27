@@ -20,7 +20,7 @@
 
 ## 常用构造/操作（仅列出接口与符号）
 - 服务器工厂：`WebServerFactory`（概念接口）
-- 启动绑定位置：通常发生在 `ApplicationContext.refresh()` 前后的一段启动流程内（见 [springboot/flows/启动流程.md](../../flows/启动流程.md)）。
+- 启动绑定位置：通常发生在 `ApplicationContext.refresh()` 前后的一段启动流程内（见 [springboot/flows/启动流程.md](../../../flows/启动流程.md)）。
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：应用运行时（对外服务形态）。

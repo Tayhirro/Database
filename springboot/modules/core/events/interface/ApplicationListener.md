@@ -7,7 +7,7 @@
 
 ## 严格定义
 ### 1. 接口：`ApplicationListener<E>`
-它是基于观察者模式（Observer Pattern，见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)）的消费者接口，定义了单一的事件处理方法。
+它是基于观察者模式（Observer Pattern，见 [../../../patterns/pattern/ObserverPattern.md](../../../patterns/pattern/ObserverPattern.md)）的消费者接口，定义了单一的事件处理方法。
 
 ```java
 @FunctionalInterface
@@ -20,8 +20,8 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 与 `RunListener` 不同，`ApplicationListener` 没有对应的“复数类”（如 ~~ApplicationListeners~~）。它的组合与执行是由 **`ApplicationEventMulticaster`**（事件多播器）负责的。
 - **机制**：多播器维护一个监听器注册表，当事件发布时，它会遍历注册表，筛选出对该事件感兴趣的监听器并调用。
   - 入口：见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)
-  - 抽象注册表与匹配：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）
-  - 默认实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）
+  - 抽象注册表与匹配：`AbstractApplicationEventMulticaster`（见 [../class/AbstractApplicationEventMulticaster.md](../class/AbstractApplicationEventMulticaster.md)）
+  - 默认实现：`SimpleApplicationEventMulticaster`（见 [../class/SimpleApplicationEventMulticaster.md](../class/SimpleApplicationEventMulticaster.md)）
 
 ## 特性
 - **泛型过滤**：通过 `<E>` 指定感兴趣的事件类型（如 `ApplicationListener<ApplicationStartedEvent>`），Spring 会自动过滤。
@@ -33,11 +33,11 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
   1. **`spring.factories`**：用于监听 Boot **启动早期**事件（Context 创建前）。
   2. **`SpringApplication.addListeners(...)`**：编程式添加。
   3. **`@Component` / `@EventListener`**：用于监听 **Context 创建后**的事件（启动早期事件无法通过这种方式捕获，因为 Bean 还没扫描）。
-- 监听器注册与装配（写入多播器注册表）：见 [ApplicationListenerRegistration.md](ApplicationListenerRegistration.md)
+- 监听器注册与装配（写入多播器注册表）：见 [../mechanism/ApplicationListenerRegistration.md](../mechanism/ApplicationListenerRegistration.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：`java.util.EventListener`。
-- **对应**：`ApplicationEvent`（被监听的事件对象，见 [ApplicationLifecycleEvents.md](ApplicationLifecycleEvents.md)）。
+- **对应**：`ApplicationEvent`（被监听的事件对象，见 [../mechanism/ApplicationLifecycleEvents.md](../mechanism/ApplicationLifecycleEvents.md)）。
 - **管理者**：`ApplicationEventMulticaster`（负责广播，见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
 - **特例**：`SmartApplicationListener`（支持更复杂的匹配逻辑）。
 

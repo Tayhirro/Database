@@ -26,9 +26,8 @@
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：组合模式（Composite）。
-- 下级：`SpringApplicationRunListener`（被组合的接口，见 [SpringApplicationRunListener.md](SpringApplicationRunListener.md)）。
+- 下级：`SpringApplicationRunListener`（被组合的接口，见 [../interface/SpringApplicationRunListener.md](../interface/SpringApplicationRunListener.md)）。
 - 调用方：`SpringApplication`（启动编排入口，见 [SpringApplication.md](SpringApplication.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → bootstrap → SpringApplicationRunListeners →（Composite / RunListener Dispatch）。
-

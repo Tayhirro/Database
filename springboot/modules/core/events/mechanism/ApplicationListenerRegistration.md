@@ -17,7 +17,7 @@ $$
   - 监听器来源：
     - listener 对象：由 `addApplicationListener(listener)` 直接注册
     - listener beanName：由 `addApplicationListenerBean(beanName)` 注册（分发时可再解析实例）
-  - 注册表与匹配：由 `AbstractApplicationEventMulticaster` 维护（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）
+  - 注册表与匹配：由 `AbstractApplicationEventMulticaster` 维护（见 [../class/AbstractApplicationEventMulticaster.md](../class/AbstractApplicationEventMulticaster.md)）
 - 输入：
   - listener 对象 / beanName
   - 触发点（时点）：启动阶段方法调用或 `refresh()` 内部步骤
@@ -42,13 +42,13 @@ $$
 | Context refresh：注册监听器 Bean | `ApplicationListener` 类型 beanName 集合 | `applicationEventMulticaster.addApplicationListenerBean(beanName)` | `applicationEventMulticaster` |
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：观察者模式（Observer Pattern）：见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)
+- 上级：观察者模式（Observer Pattern）：见 [../../../patterns/pattern/ObserverPattern.md](../../../patterns/pattern/ObserverPattern.md)
 - 关联：
-  - `ApplicationListener`（见 [ApplicationListener.md](ApplicationListener.md)）
-  - `ApplicationEventMulticaster`（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）
-  - `AbstractApplicationEventMulticaster`（注册表与匹配，见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）
-  - `SimpleApplicationEventMulticaster`（分发执行，见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）
-  - Boot 启动事件桥接：`EventPublishingRunListener`（见 [../bootstrap/EventPublishingRunListener.md](../bootstrap/EventPublishingRunListener.md)）
+  - `ApplicationListener`（见 [../interface/ApplicationListener.md](../interface/ApplicationListener.md)）
+  - `ApplicationEventMulticaster`（见 [../interface/ApplicationEventMulticaster.md](../interface/ApplicationEventMulticaster.md)）
+  - `AbstractApplicationEventMulticaster`（注册表与匹配，见 [../class/AbstractApplicationEventMulticaster.md](../class/AbstractApplicationEventMulticaster.md)）
+  - `SimpleApplicationEventMulticaster`（分发执行，见 [../class/SimpleApplicationEventMulticaster.md](../class/SimpleApplicationEventMulticaster.md)）
+  - Boot 启动事件桥接：`EventPublishingRunListener`（见 [../../bootstrap/class/EventPublishingRunListener.md](../../bootstrap/class/EventPublishingRunListener.md)）
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → events → ApplicationListenerRegistration →（Listener Sources / Registration Timing / Multicaster Registry）。

@@ -22,7 +22,7 @@ tags:
 - `springboot/索引.md`：按 Flow/Class/Interface/Mechanism 分类的术语入口
 - `springboot/概念图.md`：跨模块关系边（只放“上级→下级/特例”）
 - `springboot/flows/`：流程页（以 `SpringApplication.run` 时间线组织）
-- `springboot/modules/`：概念页（按模块分目录）
+- `springboot/modules/`：概念页（按领域分目录，并在领域下按 type 二级归档：`class/`、`interface/`、`mechanism/`、`module/`、`pattern/`）
 
 ## 新概念的关系抽取维度（类/接口/机制）
 - 类型：Class / Interface / Mechanism / Flow

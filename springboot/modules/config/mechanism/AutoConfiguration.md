@@ -27,12 +27,12 @@
 - 候选列表资源：
   - Boot 2.x：`META-INF/spring.factories` 中的 `EnableAutoConfiguration` 键
   - Boot 3.x：`META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`（以及相关元数据）
-- 关联：候选列表的聚合机制见 [springboot/modules/extension/SpringFactoriesLoader.md](../extension/SpringFactoriesLoader.md)
+- 关联：候选列表的聚合机制见 [springboot/modules/extension/mechanism/SpringFactoriesLoader.md](../../extension/mechanism/SpringFactoriesLoader.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：配置类导入（Spring 配置类解析阶段的一类输入）。
-- 相关：外部化配置（条件判断输入）、配置属性绑定、starter 依赖组织（见 [springboot/modules/extension/Starters.md](../extension/Starters.md)）。
-- 发生位置：通常在 `ApplicationContext.refresh()` 期间的配置类解析与 BeanDefinition 注册阶段（见 [springboot/flows/启动流程.md](../../flows/启动流程.md)）。
+- 相关：外部化配置（条件判断输入）、配置属性绑定、starter 依赖组织（见 [springboot/modules/extension/mechanism/Starters.md](../../extension/mechanism/Starters.md)）。
+- 发生位置：通常在 `ApplicationContext.refresh()` 期间的配置类解析与 BeanDefinition 注册阶段（见 [springboot/flows/启动流程.md](../../../flows/启动流程.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → 自动配置 →（候选发现/条件过滤/导入）→ 启动流程。

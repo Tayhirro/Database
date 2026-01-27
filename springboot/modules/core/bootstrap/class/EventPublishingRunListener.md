@@ -49,12 +49,12 @@
 - **注册 Key**：`org.springframework.boot.SpringApplicationRunListener`。
 
 ## 关系：上级/下级/等价/特例/推广
-- 接口：`SpringApplicationRunListener`（见 [SpringApplicationRunListener.md](SpringApplicationRunListener.md)）。
+- 接口：`SpringApplicationRunListener`（见 [../interface/SpringApplicationRunListener.md](../interface/SpringApplicationRunListener.md)）。
 - 调用链：`SpringApplication` → `SpringApplicationRunListeners` → `EventPublishingRunListener`（见 [SpringApplicationRunListeners.md](SpringApplicationRunListeners.md)）。
 - 下游：
-  - `initialMulticaster`：`SimpleApplicationEventMulticaster`（见 [../events/SimpleApplicationEventMulticaster.md](../events/SimpleApplicationEventMulticaster.md)）
-  - 监听器：`ApplicationListener`（见 [../events/ApplicationListener.md](../events/ApplicationListener.md)）
-- 产物：`SpringApplicationEvent`（见 [../events/ApplicationLifecycleEvents.md](../events/ApplicationLifecycleEvents.md)）。
+  - `initialMulticaster`：`SimpleApplicationEventMulticaster`（见 [../../events/class/SimpleApplicationEventMulticaster.md](../../events/class/SimpleApplicationEventMulticaster.md)）
+  - 监听器：`ApplicationListener`（见 [../../events/interface/ApplicationListener.md](../../events/interface/ApplicationListener.md)）
+- 产物：`SpringApplicationEvent`（见 [../../events/mechanism/ApplicationLifecycleEvents.md](../../events/mechanism/ApplicationLifecycleEvents.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → EventPublishingRunListener → （RunListener / Multicaster）。
