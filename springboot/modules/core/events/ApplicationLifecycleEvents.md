@@ -40,12 +40,25 @@
 ### 严格定义
 启动事件流是一组实现了 `ApplicationEvent` 接口的对象序列，通过 `SpringApplicationRunListener`（Boot 事件）或 `ApplicationContext`（标准事件）进行广播。所有 Boot 体系事件均继承自 `org.springframework.boot.context.event.SpringApplicationEvent`。
 
+### 发布链路（Publisher → Multicaster → Listener）
+| 事件 | 发布入口（Boot 2.3.x） | 分发器 |
+| :--- | :--- | :--- |
+| `ApplicationStartingEvent` | `EventPublishingRunListener.starting()` | `initialMulticaster`（`SimpleApplicationEventMulticaster`） |
+| `ApplicationEnvironmentPreparedEvent` | `EventPublishingRunListener.environmentPrepared(...)` | `initialMulticaster` |
+| `ApplicationContextInitializedEvent` | `EventPublishingRunListener.contextPrepared(...)` | `initialMulticaster` |
+| `ApplicationPreparedEvent` | `EventPublishingRunListener.contextLoaded(...)` | `initialMulticaster` |
+| `ContextRefreshedEvent` | `AbstractApplicationContext.refresh()` | `applicationEventMulticaster`（Context 内部） |
+| `ApplicationStartedEvent` | `EventPublishingRunListener.started(context)` | `applicationEventMulticaster`（通过 `context.publishEvent(...)`） |
+| `ApplicationReadyEvent` | `EventPublishingRunListener.running(context)` | `applicationEventMulticaster`（通过 `context.publishEvent(...)`） |
+| `ApplicationFailedEvent` | `EventPublishingRunListener.failed(context, ex)` | `applicationEventMulticaster` 或 `initialMulticaster`（依赖 context 状态） |
+
 ### 接口：数据 + 约束
 - **数据**：
   - 载荷：当前阶段可用的核心对象（Environment, Context 等）。
 - **约束**：
   - 监听器的执行顺序遵循 `@Order` 或 `Ordered` 接口。
   - **早期限制**：在 `Context` 创建前的事件（如 Starting, EnvPrepared），无法注入 Bean，只能通过 `spring.factories` 注册的监听器捕获。
+  - 分发为触发式（push）：`publishEvent(...)` 触发一次 `multicastEvent(...)`；默认同步调用，异步取决于多播器实现与其 `Executor` 配置（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)、[SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）。
 
 ## 4. 常用构造/操作
 - **监听器接口**：`ApplicationListener<E>`

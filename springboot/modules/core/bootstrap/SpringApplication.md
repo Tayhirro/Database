@@ -26,6 +26,8 @@
 ## 常用构造/操作（仅列出接口与符号）
 - 启动入口：`SpringApplication.run(...)`
 - 启动阶段化过程（概览）：见 [springboot/flows/启动流程.md](../../../flows/启动流程.md)
+- RunListener 回调：`SpringApplicationRunListener` / `SpringApplicationRunListeners`（见 [SpringApplicationRunListener.md](SpringApplicationRunListener.md)、[SpringApplicationRunListeners.md](SpringApplicationRunListeners.md)）
+- 启动事件发布：`EventPublishingRunListener`（见 [EventPublishingRunListener.md](EventPublishingRunListener.md)）
 - 扩展点发现：见 [springboot/modules/extension/SpringFactoriesLoader.md](../../extension/SpringFactoriesLoader.md)
 - 生命周期事件：见 [springboot/modules/core/events/ApplicationLifecycleEvents.md](../events/ApplicationLifecycleEvents.md)
 

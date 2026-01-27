@@ -16,15 +16,15 @@
 ## 核心 API 与时序（Callback Timeline）
 这些方法按调用顺序排列，勾勒出了 Boot 启动的全貌：
 
-| 方法 | 触发时机 | 关键参数 |
+| 方法（Boot 2.3.x） | 触发时机 | 关键参数 |
 | :--- | :--- | :--- |
-| **`starting()`** | `run()` 刚开始，除了 listeners/initializers 初始化外，其他均未就绪。 | `bootstrapContext` |
-| **`environmentPrepared(...)`** | `Environment` 已创建并加载配置（Profile 已定），但 Context 未创建。 | `ConfigurableEnvironment` |
-| **`contextPrepared(...)`** | Context 已创建，Initializers 已执行，但 BeanDefinition 未加载。 | `ConfigurableApplicationContext` |
-| **`contextLoaded(...)`** | BeanDefinition 已加载（主配置类已解析），但在 `refresh()` 之前。 | `ConfigurableApplicationContext` |
-| **`started(...)`** | Context `refresh()` 完成，且 `ApplicationRunner`/`CommandLineRunner` **执行之前**。 | `ConfigurableApplicationContext` |
-| **`ready(...)`** | 所有 Runner 执行完毕，`run()` 方法即将返回（启动成功）。 | `ConfigurableApplicationContext` |
-| **`failed(...)`** | 启动过程中发生异常（Catch 块中触发）。 | `Throwable` |
+| **`starting()`** | `run()` 刚开始，Environment/Context 均未创建。 | 无 |
+| **`environmentPrepared(environment)`** | `Environment` 已创建并加载配置，但 Context 未创建。 | `ConfigurableEnvironment` |
+| **`contextPrepared(context)`** | Context 已创建并完成基础准备（refresh 之前）。 | `ConfigurableApplicationContext` |
+| **`contextLoaded(context)`** | BeanDefinition 已加载（`load(...)` 已执行），但在 `refresh()` 之前。 | `ConfigurableApplicationContext` |
+| **`started(context)`** | Context `refresh()` 完成，Runner 执行之前。 | `ConfigurableApplicationContext` |
+| **`running(context)`** | Runner 执行完毕，`run()` 即将返回。 | `ConfigurableApplicationContext` |
+| **`failed(context, ex)`** | 启动过程中发生异常（catch 块中触发；context 可能为 `null`）。 | `ConfigurableApplicationContext` / `Throwable` |
 
 ## 常用构造/操作
 - **加载方式**：通过 `SpringFactoriesLoader` 从 `META-INF/spring.factories` 加载。
@@ -37,9 +37,7 @@ public class MyRunListener implements SpringApplicationRunListener {
         // 必须有此构造器
     }
     @Override
-    public void starting(ConfigurableBootstrapContext bootstrapContext) {
-        System.out.println("Boot is starting!");
-    }
+    public void starting() { }
     // ... 其他方法
 }
 ```
@@ -47,7 +45,7 @@ public class MyRunListener implements SpringApplicationRunListener {
 ## 关系：上级/下级/等价/特例/推广
 - **实现**：`EventPublishingRunListener`（唯一内置实现，见 [EventPublishingRunListener.md](EventPublishingRunListener.md)）。
 - **调用方**：`SpringApplication`（见 [SpringApplication.md](SpringApplication.md)）。
-- **关联**：`SpringApplicationRunListeners`（作为 Dispatcher）。
+- **关联**：`SpringApplicationRunListeners`（作为分发器，见 [SpringApplicationRunListeners.md](SpringApplicationRunListeners.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → bootstrap → SpringApplicationRunListener → （Interface / Listeners / Lifecycle Methods）。

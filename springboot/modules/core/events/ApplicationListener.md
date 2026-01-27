@@ -19,6 +19,8 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 ### 2. 组合机制：`ApplicationEventMulticaster`
 与 `RunListener` 不同，`ApplicationListener` 没有对应的“复数类”（如 ~~ApplicationListeners~~）。它的组合与执行是由 **`ApplicationEventMulticaster`**（事件多播器）负责的。
 - **机制**：多播器维护一个监听器注册表，当事件发布时，它会遍历注册表，筛选出对该事件感兴趣的监听器并调用。
+  - 入口：见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)
+  - 默认实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）
 
 ## 核心特性
 - **泛型过滤**：通过 `<E>` 指定感兴趣的事件类型（如 `ApplicationListener<ApplicationStartedEvent>`），Spring 会自动过滤。
@@ -34,7 +36,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：`java.util.EventListener`。
 - **对应**：`ApplicationEvent`（被监听的事件对象，见 [ApplicationLifecycleEvents.md](ApplicationLifecycleEvents.md)）。
-- **管理者**：`ApplicationEventMulticaster`（负责广播）。
+- **管理者**：`ApplicationEventMulticaster`（负责广播，见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
 - **特例**：`SmartApplicationListener`（支持更复杂的匹配逻辑）。
 
 ## 早期监听器的核心价值与场景
