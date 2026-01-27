@@ -43,7 +43,12 @@
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：依赖注入容器生命周期（初始化 → 可用 → 关闭）。
+- 上级：
+  - 显式生命周期与状态机：见 [../../../patterns/concept/LifecycleStateMachine.md](../../../patterns/concept/LifecycleStateMachine.md)
+  - 两阶段初始化：见 [../../../patterns/pattern/TwoPhaseInitialization.md](../../../patterns/pattern/TwoPhaseInitialization.md)
+  - 模板方法：见 [../../../patterns/pattern/TemplateMethod.md](../../../patterns/pattern/TemplateMethod.md)
+  - 装配与运行分离：见 [../../../patterns/principle/SeparationOfWiringAndRunning.md](../../../patterns/principle/SeparationOfWiringAndRunning.md)
+  - 启动屏障：见 [../../../patterns/mechanism/BootstrapBarrier.md](../../../patterns/mechanism/BootstrapBarrier.md)
 - 相关：
   - `ApplicationContext`（见 [../interface/ApplicationContext.md](../interface/ApplicationContext.md)）
   - 监听器注册与装配（见 [../../events/mechanism/ApplicationListenerRegistration.md](../../events/mechanism/ApplicationListenerRegistration.md)）
@@ -52,4 +57,3 @@
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → context → mechanism → ContextRefresh → flows/启动流程。
-
