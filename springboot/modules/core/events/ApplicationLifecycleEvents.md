@@ -67,7 +67,7 @@
   - 晚期事件：可以是容器里的 `@Component` Bean。
 
 ## 5. 关系：上级/下级/等价/特例/推广
-- **上级**：观察者模式（Observer Pattern）。
+- **上级**：观察者模式（Observer Pattern，见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)）。
 - **包含**：`SpringApplicationEvent`（Boot 系）、`ApplicationContextEvent`（Standard 系）。
 - **消费方**：`SpringApplication`（发布者）、扩展点体系（监听者）。
 

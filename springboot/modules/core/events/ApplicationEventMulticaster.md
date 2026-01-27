@@ -26,7 +26,7 @@
 - 分发：`multicastEvent(event)` / `multicastEvent(event, eventType)`
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：观察者模式（Observer Pattern）的“广播器”角色。
+- 上级：观察者模式（Observer Pattern）：见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)
 - 抽象实现：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）。
 - 实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）。
 - 消费方：`ApplicationListener`（见 [ApplicationListener.md](ApplicationListener.md)）。

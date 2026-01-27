@@ -7,7 +7,7 @@
 
 ## 严格定义
 ### 1. 接口：`ApplicationListener<E>`
-它是基于观察者模式（Observer Pattern）的消费者接口，定义了单一的事件处理方法。
+它是基于观察者模式（Observer Pattern，见 [../../patterns/ObserverPattern.md](../../patterns/ObserverPattern.md)）的消费者接口，定义了单一的事件处理方法。
 
 ```java
 @FunctionalInterface
@@ -23,7 +23,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
   - 抽象注册表与匹配：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）
   - 默认实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）
 
-## 核心特性
+## 特性
 - **泛型过滤**：通过 `<E>` 指定感兴趣的事件类型（如 `ApplicationListener<ApplicationStartedEvent>`），Spring 会自动过滤。
 - **排序支持**：实现 `Ordered` 接口或使用 `@Order` 注解，决定同一事件下不同监听器的执行顺序（Order 值越小越先执行）。
 - **智能监听**：`SmartApplicationListener`（旧版）或 `GenericApplicationListener`（新版）支持更细粒度的事件类型和源对象（Source）匹配。
@@ -33,6 +33,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
   1. **`spring.factories`**：用于监听 Boot **启动早期**事件（Context 创建前）。
   2. **`SpringApplication.addListeners(...)`**：编程式添加。
   3. **`@Component` / `@EventListener`**：用于监听 **Context 创建后**的事件（启动早期事件无法通过这种方式捕获，因为 Bean 还没扫描）。
+- 监听器注册与装配（写入多播器注册表）：见 [ApplicationListenerRegistration.md](ApplicationListenerRegistration.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - **上级**：`java.util.EventListener`。
@@ -40,8 +41,8 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 - **管理者**：`ApplicationEventMulticaster`（负责广播，见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
 - **特例**：`SmartApplicationListener`（支持更复杂的匹配逻辑）。
 
-## 早期监听器的核心价值与场景
-在 Context 创建之前的“极早期”阶段（Starting / EnvironmentPrepared），监听器主要发挥以下价值：**“影响后面容器如何创建、如何读配置、如何打日志”**。
+## 早期监听器的场景
+在 Context 创建之前的“极早期”阶段（Starting / EnvironmentPrepared），监听器常见用途包括：影响后续容器创建、配置加载与日志初始化等行为。
 
 ### 1. 日志系统初始化
 - **目标**：让日志尽早可用，设置 Log Level，定向输出位置。
