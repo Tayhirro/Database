@@ -20,6 +20,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 与 `RunListener` 不同，`ApplicationListener` 没有对应的“复数类”（如 ~~ApplicationListeners~~）。它的组合与执行是由 **`ApplicationEventMulticaster`**（事件多播器）负责的。
 - **机制**：多播器维护一个监听器注册表，当事件发布时，它会遍历注册表，筛选出对该事件感兴趣的监听器并调用。
   - 入口：见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)
+  - 抽象注册表与匹配：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）
   - 默认实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）
 
 ## 核心特性

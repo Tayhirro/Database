@@ -27,10 +27,10 @@
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：观察者模式（Observer Pattern）的“广播器”角色。
+- 抽象实现：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）。
 - 实现：`SimpleApplicationEventMulticaster`（见 [SimpleApplicationEventMulticaster.md](SimpleApplicationEventMulticaster.md)）。
 - 消费方：`ApplicationListener`（见 [ApplicationListener.md](ApplicationListener.md)）。
 - 运行时持有者：`ApplicationContext`（通过 bean 名 `applicationEventMulticaster` 维护默认多播器）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → events → ApplicationEventMulticaster →（Multicast / Listener Registry）。
-

@@ -6,7 +6,7 @@
 `SimpleApplicationEventMulticaster` 是 `ApplicationEventMulticaster` 的通用实现：在一次 `multicastEvent(...)` 调用中遍历匹配的监听器并触发回调，默认以同步方式执行，可通过 `Executor` 使分发异步化。
 
 ## 严格定义
-在 Spring Framework 中，`org.springframework.context.event.SimpleApplicationEventMulticaster` 继承 `AbstractApplicationEventMulticaster`，并以 `taskExecutor`（可空）与 `errorHandler`（可空）作为可配置策略，决定监听器调用的并发与异常处理方式。它同时被 `ApplicationContext` 的默认事件系统与 Spring Boot 的启动早期事件发布逻辑复用。
+在 Spring Framework 中，`org.springframework.context.event.SimpleApplicationEventMulticaster` 继承 `AbstractApplicationEventMulticaster` 并实现 `multicastEvent(...)`：监听器注册表、事件类型匹配与缓存由父类提供（通过 `getApplicationListeners(event, eventType)` 暴露给子类使用），而 `SimpleApplicationEventMulticaster` 通过 `taskExecutor`（可空）与 `errorHandler`（可空）决定监听器调用的并发与异常处理方式。它同时被 `ApplicationContext` 的默认事件系统与 Spring Boot 的启动早期事件发布逻辑复用。
 
 ## 接口：数据 + 约束
 - 数据：
@@ -28,10 +28,10 @@
 
 ## 关系：上级/下级/等价/特例/推广
 - 实现：`ApplicationEventMulticaster`（见 [ApplicationEventMulticaster.md](ApplicationEventMulticaster.md)）。
+- 父类：`AbstractApplicationEventMulticaster`（见 [AbstractApplicationEventMulticaster.md](AbstractApplicationEventMulticaster.md)）。
 - 被使用：
   - Spring Framework：`AbstractApplicationContext` 缺省的 `applicationEventMulticaster`（若容器中未显式声明同名 Bean）。
   - Spring Boot：`EventPublishingRunListener` 的 `initialMulticaster`（启动早期事件分发，见 [../bootstrap/EventPublishingRunListener.md](../bootstrap/EventPublishingRunListener.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → core → events → SimpleApplicationEventMulticaster →（Default Multicaster / Executor / ErrorHandler）。
-
