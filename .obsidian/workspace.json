@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/线性代数/modules/FrobeniusNorm.md",
+                "file": "springboot/modules/extension/SpringFactoriesLoader.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FrobeniusNorm"
+              "title": "SpringFactoriesLoader"
             }
           }
         ],
@@ -224,6 +224,8 @@
   },
   "active": "ae1ee4d3fbf3d86c",
   "lastOpenFiles": [
+    "HMDP-Redis/docs/spring-factories-mechanism.md",
+    "math/线性代数/modules/FrobeniusNorm.md",
     "神经网络/modules/GraphAttentionNetwork.md",
     "神经网络/models/rnn/BiRNN.md",
     "神经网络/models/rnn/GRU.md",
@@ -240,7 +242,6 @@
     "轨迹预测/论文/LaneGCN.pdf",
     "音乐/modules/music-theory/03-rhythm/节奏型.md",
     "math/README.md",
-    "math/线性代数/modules/FrobeniusNorm.md",
     "文学/authors/紫式部.md",
     "文学/works/源氏物语.md",
     "math/线性代数/modules/FundamentalSubspaces.md",
@@ -258,7 +259,6 @@
     "math/数学索引.md",
     "math/线性代数/modules/Kernel.md",
     "math/线性代数/modules/DirectSum.md",
-    "轨迹预测/总结/2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction.md",
     "springboot/modules/core/events",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
