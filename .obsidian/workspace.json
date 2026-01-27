@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/extension/SpringFactoriesLoader.md",
+                "file": "study/real_springboot_init_analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SpringFactoriesLoader"
+              "title": "real_springboot_init_analysis"
             }
           }
         ],
@@ -224,6 +224,9 @@
   },
   "active": "ae1ee4d3fbf3d86c",
   "lastOpenFiles": [
+    "study/springboot_init_analysis.md",
+    "study/spring_runtime_flow.md",
+    "springboot/modules/extension/SpringFactoriesLoader.md",
     "HMDP-Redis/docs/spring-factories-mechanism.md",
     "math/线性代数/modules/FrobeniusNorm.md",
     "神经网络/modules/GraphAttentionNetwork.md",
@@ -256,9 +259,6 @@
     "math/线性代数/索引.md",
     "math/线性代数/概念图.md",
     "math/线性代数/modules/SVD.md",
-    "math/数学索引.md",
-    "math/线性代数/modules/Kernel.md",
-    "math/线性代数/modules/DirectSum.md",
     "springboot/modules/core/events",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",

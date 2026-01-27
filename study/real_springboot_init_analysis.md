@@ -69,7 +69,6 @@ public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySourc
 
     // 推断应用类型（REACTIVE、 SERVLET、 NONE）
     this.webApplicationType = WebApplicationType.deduceFromClasspath();
-    
     // 设置启动器
     setInitializers(getSpringFactoriesInstances(ApplicationContextInitializer.class));
     
