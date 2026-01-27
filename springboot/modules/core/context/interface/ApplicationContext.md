@@ -20,6 +20,8 @@
 - 生命周期处理器（常见为 `LifecycleProcessor`）：对实现了 `Lifecycle/SmartLifecycle` 的 Bean 执行 start/stop 协调。
 - 上下文标识与层级信息：`id` / `displayName` / `parent`（若存在父子上下文）。
 
+
+
 ## 接口：数据 + 约束
 - 输入（容器构建的常见输入形态）：
   - 配置类/组件扫描结果（作为 BeanDefinition 来源）
@@ -34,7 +36,7 @@
   - `ApplicationContext` 是接口；具体行为取决于实现类与其组合的底层容器（例如 `BeanFactory`、事件多播器等）。
 
 ## 常用构造/操作（仅列出接口与符号）
-- `refresh()`：将上下文从“已配置”推进到“可用”状态（refresh 流程见 [springboot/flows/启动流程.md](../../../../flows/启动流程.md)）。
+- `refresh()`：将上下文从“已配置”推进到“可用”状态（refresh 流程见 [springboot/modules/core/context/mechanism/ContextRefresh.md](../mechanism/ContextRefresh.md)，启动阶段位置见 [springboot/flows/启动流程.md](../../../../flows/启动流程.md)）。
 - `close()`：触发容器关闭与资源回收（关闭段见 [springboot/flows/运行全链路.md](../../../../flows/运行全链路.md)）。
 - `getBean(...)`：按类型/名称获取 Bean（抽象接口）。
 
