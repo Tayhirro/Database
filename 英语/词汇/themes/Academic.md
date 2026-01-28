@@ -7,6 +7,7 @@
 | methodology | /ˌmeθəˈdɒlədʒi/ | n.  | 方法论 | The methodology is sound.          |
 | phenomenon  | /fəˈnɒmɪnən/    | n.  | 现象  | This is an interesting phenomenon. |
 | agnostic    | /æɡˈnɒstɪk/     | adj. | 无关的；不可知的 | Our model can produce image-agnostic perturbations. |
+| deviate     | /ˈdiːvieɪt/     | v.  | 偏离；背离 | The results deviate significantly from the baseline. |
 
 ---
 
