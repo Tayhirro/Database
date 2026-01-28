@@ -8,6 +8,12 @@
 ## 严格定义
 `org.springframework.boot.context.event.EventPublishingRunListener` 是一个适配器类。它在 `SpringApplication` 启动之初通过 SPI 加载，并在类内部持有一个 `SimpleApplicationEventMulticaster` 类型的字段 `initialMulticaster`，用于将 `run()` 方法的阶段回调（如 starting、environmentPrepared）转化为事件发布调用。
 
+## 继承链（接口链 / 实现链）
+- 继承链：`java.lang.Object` → `EventPublishingRunListener`。
+- 实现接口：
+  - `SpringApplicationRunListener`（接收启动阶段回调，并在实现中把阶段映射为事件发布）
+  - `Ordered`（参与排序：决定与其他 `SpringApplicationRunListener` 的调用先后）
+
 ## 核心机制：从“步骤”到“事件”的桥梁
 它将 `SpringApplicationRunListener` 的阶段回调映射为一组 `SpringApplicationEvent`，并在不同阶段选择不同的发布通道（早期多播器 / Context 发布）。
 

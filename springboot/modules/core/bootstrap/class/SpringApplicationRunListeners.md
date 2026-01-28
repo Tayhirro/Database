@@ -8,6 +8,10 @@
 ## 严格定义
 在 Spring Boot 中，`org.springframework.boot.SpringApplicationRunListeners` 是包级可见的内部协作类，封装了 `Collection<SpringApplicationRunListener>` 并提供与接口同名的阶段方法（`starting/environmentPrepared/.../failed`），用于将一次启动过程的阶段信号转发给多个 RunListener 实现。
 
+## 继承链（接口链 / 实现链）
+- 继承链：`java.lang.Object` → `SpringApplicationRunListeners`。
+- 实现接口：无。
+
 ## 接口：数据 + 约束
 - 数据：
   - `listeners`：`List<SpringApplicationRunListener>`（构造时由外部集合拷贝得到）

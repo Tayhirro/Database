@@ -8,7 +8,9 @@
 ## 严格定义
 `org.springframework.web.reactive.DispatcherHandler` 是实现了 `WebHandler` 接口的 Spring Bean。它不依赖于 Servlet API，而是基于 Reactor 的 `Mono`/`Flux` 模型设计，是 WebFlux 应用的请求处理总入口。
 
-## 继承体系（Reactive Foundation）
+## 继承链（接口链 / 实现链）
+- 接口链（Framework）：`WebHandler`（定义 `handle(exchange)` 的 WebFlux 请求处理入口）← `DispatcherHandler`（implements 并提供分发实现）。
+
 与 `DispatcherServlet` 的 Servlet 继承树不同，`DispatcherHandler` 的体系更为扁平且专注于 Reactive Streams：
 
 1.  **`WebHandler` (Interface)**

@@ -8,6 +8,10 @@
 ## 严格定义
 在 Spring Boot 中，`org.springframework.boot.SpringApplication` 是应用启动入口 `SpringApplication.run(...)` 的承载对象；其目标是产生一个可用的 `ConfigurableApplicationContext`（成功时）或抛出启动失败异常（失败时）。
 
+## 继承链（接口链 / 实现链）
+- 继承链：`java.lang.Object` → `SpringApplication`。
+- 实现接口：无。
+
 ## 接口：数据 + 约束
 - 输入：
   - `primarySources` / `sources`：Bean 定义的初始来源集合。

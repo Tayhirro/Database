@@ -13,6 +13,11 @@
 ### 2. 组合类：`SpringApplicationRunListeners`
 这是一个内部使用的组合模式（Composite）实现。`SpringApplication` 并不直接调用单个监听器，而是持有一个 `SpringApplicationRunListeners` 实例，由后者遍历并调用所有注册的 `SpringApplicationRunListener`。
 
+## 继承链（接口链 / 实现链）
+- 接口链：`SpringApplicationRunListener`（定义 `SpringApplication.run()` 各阶段回调契约；无上级接口）。
+- 内置实现：`EventPublishingRunListener`（implements `SpringApplicationRunListener`, `Ordered`）。
+- 组合分发器：`SpringApplicationRunListeners`（持有 `List<SpringApplicationRunListener>` 并转发各阶段回调）。
+
 ## 核心 API 与时序（Callback Timeline）
 这些方法按调用顺序排列，勾勒出了 Boot 启动的全貌：
 

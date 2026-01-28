@@ -8,6 +8,10 @@
 ## 严格定义
 在 Spring Framework 中，`org.springframework.context.event.ApplicationEventMulticaster` 定义了监听器注册与事件多播的最小契约，包括监听器对象与监听器 BeanName 两类注册方式，以及 `multicastEvent(...)` 的两种签名（是否显式提供 `ResolvableType`）。
 
+## 继承链（接口链 / 实现链）
+- 接口链：`ApplicationEventMulticaster`（定义 listener 注册/移除与 `multicastEvent(...)` 多播契约；无上级接口）。
+- 常见实现链：`AbstractApplicationEventMulticaster` → `SimpleApplicationEventMulticaster`。
+
 ## 接口：数据 + 约束
 - 数据（抽象）：
   - 监听器注册表：`ApplicationListener<?>` 集合与监听器 BeanName 集合

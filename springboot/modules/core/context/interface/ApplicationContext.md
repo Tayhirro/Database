@@ -8,8 +8,20 @@
 ## 严格定义
 在 Spring Framework 中，`ApplicationContext` 是一组容器接口的组合体；在 Spring Boot 启动过程中，`SpringApplication.run(...)` 的目标是构建一个 `ConfigurableApplicationContext` 并完成 `refresh()`，使其进入可用状态。
 
+## 继承链（接口链 / 实现链）
+- 接口链（Framework）：
+  - `EnvironmentCapable`（提供 `getEnvironment()`，暴露配置查询入口）
+  - `ListableBeanFactory`（支持按类型/注解批量枚举 Bean）
+  - `HierarchicalBeanFactory`（支持父子容器层级与 `getParentBeanFactory()`）
+  - `MessageSource`（提供消息解析与 i18n 查询接口）
+  - `ApplicationEventPublisher`（提供 `publishEvent(...)` 事件发布入口）
+  - `ResourcePatternResolver`（提供带通配的资源解析/加载能力）
+  - 以上能力组合为 `ApplicationContext`；`ConfigurableApplicationContext` 在此之上补充 `refresh()`、监听器/后处理器注册与 `close()` 等“可配置/可驱动”能力。
+- 常见实现链（Boot 2.3.x）：`AbstractApplicationContext` →（非 Web）`AnnotationConfigApplicationContext`；（Servlet Web）`AnnotationConfigServletWebServerApplicationContext`；（Reactive Web）`AnnotationConfigReactiveWebServerApplicationContext`。
+
 ## 数据（语义级别；与启动主线相关）
 `ApplicationContext` 是接口，具体“数据承载”取决于实现；在典型的 `ConfigurableApplicationContext`（如 `AbstractApplicationContext` 一系）中，可抽象为一组被持有/可访问的组件：
+**Bean 容器查询能力** + **资源/消息/事件/环境能力**
 
 - `BeanFactory`（通常为 `ConfigurableListableBeanFactory`）：BeanDefinition 注册、Bean 实例化与依赖注入的底层容器。
 - `Environment`（通常为 `ConfigurableEnvironment`）：profiles 与属性源的聚合视图，供条件判断与属性绑定查询。

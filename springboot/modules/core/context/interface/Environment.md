@@ -10,10 +10,14 @@
 1.  **Profiles**：当前激活了哪些环境（如 `dev`, `prod`），用于控制 Bean 或配置段的生效。
 2.  **Properties**：应用属性的聚合视图（由有序的 `PropertySources` 列表组成）。
 
-> **核心价值**：它是“外部化配置”机制在运行时的**状态载体**和**查询入口**。
+> 该接口在运行时作为“外部化配置”机制的状态载体与查询入口。
 
-## 继承与实现体系（Hierarchy）
-Environment 的设计采用了“读写分离”和“模板方法”模式：
+## 继承链（接口链 / 实现链）
+- 接口链：
+  - `PropertyResolver`（按 key 查询属性值与类型转换入口）
+  - `Environment`（在 `PropertyResolver` 之上补充 profiles 与属性源聚合视图）
+  - `ConfigurableEnvironment`（在 `Environment` 之上补充 profiles 与 `PropertySources` 的可变更能力）
+- 常见实现类：`StandardEnvironment` / `StandardServletEnvironment` / `StandardReactiveWebEnvironment`。
 
 ### 1. `ConfigurableEnvironment`（写能力接口）
 继承自 `Environment`，增加了**修改**配置的能力。

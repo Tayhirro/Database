@@ -8,8 +8,10 @@
 ## 严格定义
 `org.springframework.web.servlet.DispatcherServlet` 是一个标准的 Servlet，它通过继承 `FrameworkServlet` 和 `HttpServlet` 实现了 Java Servlet 规范。在 Spring Boot 中，它默认被自动配置并注册到根路径 `/`，作为应用处理 HTTP 请求的统一入口。
 
-## 继承体系（Servlet Foundation）
-`DispatcherServlet` 的能力建立在标准 Servlet 规范之上：
+## 继承链（接口链 / 实现链）
+- 继承链（Framework）：`HttpServlet` → `HttpServletBean` → `FrameworkServlet` → `DispatcherServlet`。
+
+`DispatcherServlet` 的能力建立在 Servlet 规范与 WebApplicationContext 集成之上：
 
 1.  **`Servlet` (Interface)**
     - **定义**：Java EE/Jakarta EE 标准接口，定义了 `init()`, `service()`, `destroy()` 生命周期。

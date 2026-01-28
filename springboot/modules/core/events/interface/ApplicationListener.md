@@ -23,6 +23,12 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
   - 抽象注册表与匹配：`AbstractApplicationEventMulticaster`（见 [../class/AbstractApplicationEventMulticaster.md](../class/AbstractApplicationEventMulticaster.md)）
   - 默认实现：`SimpleApplicationEventMulticaster`（见 [../class/SimpleApplicationEventMulticaster.md](../class/SimpleApplicationEventMulticaster.md)）
 
+## 继承链（接口链 / 实现链）
+- 接口链：
+  - `java.util.EventListener`（JDK 事件监听标记接口）
+  - `ApplicationListener<E extends ApplicationEvent>`（约定 `onApplicationEvent(E event)` 的事件消费契约）
+- 相关扩展接口：`SmartApplicationListener` / `GenericApplicationListener`（在 `ApplicationListener` 基础上增加更细粒度的匹配能力）。
+
 ## 特性
 - **泛型过滤**：通过 `<E>` 指定感兴趣的事件类型（如 `ApplicationListener<ApplicationStartedEvent>`），Spring 会自动过滤。
 - **排序支持**：实现 `Ordered` 接口或使用 `@Order` 注解，决定同一事件下不同监听器的执行顺序（Order 值越小越先执行）。

@@ -8,6 +8,13 @@
 ## 严格定义
 在 Spring Framework 中，`org.springframework.context.event.AbstractApplicationEventMulticaster` 是事件多播器的抽象实现类，实现了 `ApplicationEventMulticaster` 的监听器注册/移除相关方法，并维护监听器检索器与缓存；它通过 `BeanFactoryAware` 接入 `ConfigurableBeanFactory`，以支持按 beanName 注册的监听器在分发时被解析与匹配。
 
+## 继承链（接口链 / 实现链）
+- 继承链：`java.lang.Object` → `AbstractApplicationEventMulticaster`。
+- 实现接口：
+  - `ApplicationEventMulticaster`（对外暴露 listener 注册表操作与多播入口）
+  - `BeanClassLoaderAware`（接入 BeanClassLoader，用于监听器类型/泛型解析等）
+  - `BeanFactoryAware`（接入 `BeanFactory`，用于按 beanName 解析监听器与判断事件支持性）
+
 ## 接口：数据 + 约束
 - 数据（类内字段，语义级别）：
   - `defaultRetriever`：监听器注册表（对象监听器 + listener beanName）
