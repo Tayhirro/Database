@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/context/interface/ApplicationContext.md",
+                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ApplicationContext"
+              "title": "ContextRefresh"
             }
           }
         ],
@@ -224,13 +224,13 @@
   },
   "active": "f3eab1065425f178",
   "lastOpenFiles": [
+    "springboot/modules/core/context/interface/ApplicationContext.md",
     "springboot/modules/core/context/interface/Environment.md",
     "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/class/SpringApplicationRunListeners.md",
     "springboot/modules/core/bootstrap/class/EventPublishingRunListener.md",
     "springboot/modules/core/events/interface/ApplicationEventMulticaster.md",
     "springboot/modules/core/events/interface/ApplicationListener.md",
-    "springboot/modules/core/context/interface/ApplicationContext.md",
     "springboot/modules/patterns/pattern/TemplateMethod.md",
     "springboot/modules/patterns/pattern/TwoPhaseInitialization.md",
     "springboot/modules/patterns/pattern/ObserverPattern.md",

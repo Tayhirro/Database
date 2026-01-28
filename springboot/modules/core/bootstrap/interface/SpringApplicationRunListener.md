@@ -18,6 +18,13 @@
 - 内置实现：`EventPublishingRunListener`（implements `SpringApplicationRunListener`, `Ordered`）。
 - 组合分发器：`SpringApplicationRunListeners`（持有 `List<SpringApplicationRunListener>` 并转发各阶段回调）。
 
+## 创建时机与作用域（Per-run）
+- 创建时机：在 `SpringApplication.run(String... args)` 内部创建（典型由 `getRunListeners(args)` 触发），而不是在 `new SpringApplication(...)` 构造阶段创建。
+- 绑定对象：与“本次 run 调用”的输入与中间产物绑定，包括 `args`、`ConfigurableEnvironment`、`ConfigurableApplicationContext`、以及失败路径的 `Throwable`。
+- 构造器约束来源：RunListener 的标准构造签名为 `(SpringApplication, String[] args)`，因此实例化需要 `run(args)` 的入参。
+- 状态隔离：实现类可持有与一次启动相关的状态（例如起始时间、阶段标记、context 引用）；按 run 创建可避免 `SpringApplication` 被复用时产生跨次启动的状态串联。
+- 触发边界：`run()` 的执行由调用方触发（main/test/工具代码）；RunListener 仅接收回调并产生副作用（如发布事件），不提供独立的后台机制去驱动 `run()` 进入下一阶段。
+
 ## 核心 API 与时序（Callback Timeline）
 这些方法按调用顺序排列，勾勒出了 Boot 启动的全貌：
 
