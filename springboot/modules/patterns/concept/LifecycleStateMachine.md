@@ -24,10 +24,8 @@
 - 下级/特例：
   - 两阶段初始化：见 [../pattern/TwoPhaseInitialization.md](../pattern/TwoPhaseInitialization.md)
 - 相关：
-  - 启动屏障：见 [../mechanism/BootstrapBarrier.md](../mechanism/BootstrapBarrier.md)
 - 例化：
   - `ApplicationContext` 的可配置态 → 运行态迁移：见 [../../core/context/mechanism/ContextRefresh.md](../../core/context/mechanism/ContextRefresh.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → patterns → concept → LifecycleStateMachine → core/context/mechanism/ContextRefresh。
-

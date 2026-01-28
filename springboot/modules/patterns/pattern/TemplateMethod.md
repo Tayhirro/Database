@@ -27,10 +27,8 @@ Template Method 是一种将算法主流程固定在基类中，并将若干可�
 - 上级：框架主控流（Framework Control Flow）。
 - 相关：
   - 两阶段初始化（Two-Phase Initialization）：见 [TwoPhaseInitialization.md](TwoPhaseInitialization.md)
-  - 启动屏障（Bootstrap Barrier）：见 [../mechanism/BootstrapBarrier.md](../mechanism/BootstrapBarrier.md)
 - 例化：
   - `AbstractApplicationContext.refresh()`：见 [../../core/context/mechanism/ContextRefresh.md](../../core/context/mechanism/ContextRefresh.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → patterns → pattern → TemplateMethod → core/context/mechanism/ContextRefresh。
-

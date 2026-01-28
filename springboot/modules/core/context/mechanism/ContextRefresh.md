@@ -48,7 +48,6 @@
   - 两阶段初始化：见 [../../../patterns/pattern/TwoPhaseInitialization.md](../../../patterns/pattern/TwoPhaseInitialization.md)
   - 模板方法：见 [../../../patterns/pattern/TemplateMethod.md](../../../patterns/pattern/TemplateMethod.md)
   - 装配与运行分离：见 [../../../patterns/principle/SeparationOfWiringAndRunning.md](../../../patterns/principle/SeparationOfWiringAndRunning.md)
-  - 启动屏障：见 [../../../patterns/mechanism/BootstrapBarrier.md](../../../patterns/mechanism/BootstrapBarrier.md)
 - 相关：
   - `ApplicationContext`（见 [../interface/ApplicationContext.md](../interface/ApplicationContext.md)）
   - 监听器注册与装配（见 [../../events/mechanism/ApplicationListenerRegistration.md](../../events/mechanism/ApplicationListenerRegistration.md)）
