@@ -18,6 +18,7 @@ Spring Boot 提供了一套基于 `spring.factories`（或 `imports`）的 SPI �
 | `ConfigDataLoader`             | **配置加载**：将解析出的资源加载为配置数据（Boot 2.4+）。                                              | `org.springframework.boot.context.config.ConfigDataLoader`           |
 | `EnvironmentPostProcessor`     | **环境后置处理**：在 Context refresh 前修改/追加 `Environment`（如加 PropertySource、激活 Profile）。 | `org.springframework.boot.env.EnvironmentPostProcessor`              |
 | `PropertySourceLoader`         | **文件格式扩展**：定义如何加载特定后缀（如 .properties, .yml）的配置文件。                                 | `org.springframework.boot.env.PropertySourceLoader`                  |
+|                                |                                                                                  |                                                                      |
 
 ### B. SpringApplication / ApplicationContext 结构级扩展
 | 接口                              | 作用                                                               | 注册 Key (spring.factories)                                   |
@@ -30,14 +31,14 @@ Spring Boot 提供了一套基于 `spring.factories`（或 `imports`）的 SPI �
 ### C. 自动配置导入阶段（Auto-Configuration Import）
 > **注意**：此类接口用于**干预或观察**自动配置的导入决策，而非自动配置类本身。
 
-| 接口 | 作用 | 注册 Key (spring.factories) |
-| :--- | :--- | :--- |
-| `AutoConfigurationImportFilter` | **快速过滤**：在读取字节码前过滤掉不符合条件的 AutoConfiguration 候选类。 | `org.springframework.boot.autoconfigure.AutoConfigurationImportFilter` |
-| `AutoConfigurationImportListener` | **导入观察**：接收“最终导入了哪些自动配置类”的事件通知。 | `org.springframework.boot.autoconfigure.AutoConfigurationImportListener` |
+| 接口                                | 作用                                               | 注册 Key (spring.factories)                                                |
+| :-------------------------------- | :----------------------------------------------- | :----------------------------------------------------------------------- |
+| `AutoConfigurationImportFilter`   | **快速过滤**：在读取字节码前过滤掉不符合条件的 AutoConfiguration 候选类。 | `org.springframework.boot.autoconfigure.AutoConfigurationImportFilter`   |
+| `AutoConfigurationImportListener` | **导入观察**：接收“最终导入了哪些自动配置类”的事件通知。                  | `org.springframework.boot.autoconfigure.AutoConfigurationImportListener` |
 
 ### D. 启动失败诊断（Failure Analysis）
-| 接口 | 作用 | 注册 Key (spring.factories) |
-| :--- | :--- | :--- |
+| 接口                | 作用                                                       | 注册 Key (spring.factories)                              |
+| :---------------- | :------------------------------------------------------- | :----------------------------------------------------- |
 | `FailureAnalyzer` | **异常分析**：将启动时的原始异常转换为可读性强的 `FailureAnalysis`（包含描述与行动建议）。 | `org.springframework.boot.diagnostics.FailureAnalyzer` |
 
 ## 辨析：扩展点 vs 自动配置
