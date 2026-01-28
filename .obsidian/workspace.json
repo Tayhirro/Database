@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/patterns/concept/LifecycleStateMachine.md",
+                "file": "springboot/modules/patterns/pattern/TemplateMethod.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LifecycleStateMachine"
+              "title": "TemplateMethod"
             }
           }
         ],
@@ -224,14 +224,15 @@
   },
   "active": "f3eab1065425f178",
   "lastOpenFiles": [
-    "springboot/modules/patterns/mechanism/BootstrapBarrier.md",
+    "springboot/modules/patterns/pattern/TwoPhaseInitialization.md",
+    "springboot/modules/patterns/pattern/ObserverPattern.md",
     "springboot/modules/patterns/concept/LifecycleStateMachine.md",
+    "springboot/modules/patterns/mechanism/BootstrapBarrier.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/patterns/mechanism",
     "springboot/modules/patterns/concept",
     "springboot/modules/patterns/principle/SeparationOfWiringAndRunning.md",
     "springboot/modules/patterns/principle",
-    "springboot/modules/patterns/pattern/TwoPhaseInitialization.md",
     "springboot/modules/patterns/pattern/TemplateMethod.md",
     "silicon-rider-bench/vitest.config.ts",
     "silicon-rider-bench/tsconfig.json",
@@ -242,7 +243,6 @@
     "音乐/modules/music-theory/03-rhythm/节奏型.md",
     "轨迹预测/论文/LaneGCN.pdf",
     "springboot/modules/patterns/ObserverPattern.md",
-    "springboot/modules/patterns/pattern/ObserverPattern.md",
     "springboot/modules/web/mechanism/EmbeddedWebServer.md",
     "springboot/modules/web/class/DispatcherHandler.md",
     "springboot/modules/web/class/DispatcherServlet.md",
