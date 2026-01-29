@@ -17,6 +17,7 @@ GoF 设计模式目录是《Design Patterns: Elements of Reusable Object-Oriente
 
 ### 2. GoF 目录（Catalog）
 本页以 GoF 原书的条目为准：**23 个模式**，分为三类（创建型/结构型/行为型）。
+若使用“21 个”等其他口径，需要额外前提（例如合并/忽略某些条目或采用不同书目）。
 
 ## 接口：数据 + 约束
 - 数据（目录项的最小信息形态）：
@@ -36,37 +37,37 @@ GoF 设计模式目录是《Design Patterns: Elements of Reusable Object-Oriente
 ### 创建型（Creational）
 | 中文 | English |
 | --- | --- |
-| 抽象工厂 | Abstract Factory |
-| 生成器 | Builder |
-| 工厂方法 | Factory Method |
-| 原型 | Prototype |
-| 单例 | Singleton |
+| 抽象工厂 | [Abstract Factory](pattern/AbstractFactory.md) |
+| 生成器 | [Builder](pattern/Builder.md) |
+| 工厂方法 | [Factory Method](pattern/FactoryMethod.md) |
+| 原型 | [Prototype](pattern/Prototype.md) |
+| 单例 | [Singleton](pattern/Singleton.md) |
 
 ### 结构型（Structural）
 | 中文 | English |
 | --- | --- |
-| 适配器 | Adapter |
-| 桥接 | Bridge |
-| 组合 | Composite |
-| 装饰 | Decorator |
-| 外观 | Facade |
-| 享元 | Flyweight |
-| 代理 | Proxy |
+| 适配器 | [Adapter](pattern/Adapter.md) |
+| 桥接 | [Bridge](pattern/Bridge.md) |
+| 组合 | [Composite](pattern/Composite.md) |
+| 装饰 | [Decorator](pattern/Decorator.md) |
+| 外观 | [Facade](pattern/Facade.md) |
+| 享元 | [Flyweight](pattern/Flyweight.md) |
+| 代理 | [Proxy](pattern/Proxy.md) |
 
 ### 行为型（Behavioral）
 | 中文   | English                 |
 | ---- | ----------------------- |
-| 职责链  | Chain of Responsibility |
-| 命令   | Command                 |
-| 解释器  | Interpreter             |
-| 迭代器  | Iterator                |
-| 中介者  | Mediator                |
-| 备忘录  | Memento                 |
-| 观察者  | Observer                |
-| 状态   | State                   |
-| 策略   | Strategy                |
-| 模板方法 | Template Method         |
-| 访问者  | Visitor                 |
+| 职责链  | [Chain of Responsibility](pattern/ChainOfResponsibility.md) |
+| 命令   | [Command](pattern/Command.md) |
+| 解释器  | [Interpreter](pattern/Interpreter.md) |
+| 迭代器  | [Iterator](pattern/Iterator.md) |
+| 中介者  | [Mediator](pattern/Mediator.md) |
+| 备忘录  | [Memento](pattern/Memento.md) |
+| 观察者  | [Observer](pattern/ObserverPattern.md) |
+| 状态   | [State](pattern/State.md) |
+| 策略   | [Strategy](pattern/Strategy.md) |
+| 模板方法 | [Template Method](pattern/TemplateMethod.md) |
+| 访问者  | [Visitor](pattern/Visitor.md) |
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：面向对象设计（Object-Oriented Design）。
@@ -76,4 +77,3 @@ GoF 设计模式目录是《Design Patterns: Elements of Reusable Object-Oriente
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → patterns → GoFDesignPatterns →（Observer / TemplateMethod / …）。
-
