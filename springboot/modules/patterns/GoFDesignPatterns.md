@@ -54,19 +54,19 @@ GoF 设计模式目录是《Design Patterns: Elements of Reusable Object-Oriente
 | 代理 | Proxy |
 
 ### 行为型（Behavioral）
-| 中文 | English |
-| --- | --- |
-| 职责链 | Chain of Responsibility |
-| 命令 | Command |
-| 解释器 | Interpreter |
-| 迭代器 | Iterator |
-| 中介者 | Mediator |
-| 备忘录 | Memento |
-| 观察者 | Observer |
-| 状态 | State |
-| 策略 | Strategy |
-| 模板方法 | Template Method |
-| 访问者 | Visitor |
+| 中文   | English                 |
+| ---- | ----------------------- |
+| 职责链  | Chain of Responsibility |
+| 命令   | Command                 |
+| 解释器  | Interpreter             |
+| 迭代器  | Iterator                |
+| 中介者  | Mediator                |
+| 备忘录  | Memento                 |
+| 观察者  | Observer                |
+| 状态   | State                   |
+| 策略   | Strategy                |
+| 模板方法 | Template Method         |
+| 访问者  | Visitor                 |
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：面向对象设计（Object-Oriented Design）。
