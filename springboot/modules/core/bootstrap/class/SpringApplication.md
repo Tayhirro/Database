@@ -105,14 +105,14 @@
 >    ```
 
 ### 环境与上下文（Environment & Context）
-| 字段 | 说明 |
-| --- | --- |
-| `environment` | 配置环境（`ConfigurableEnvironment`） |
-| `applicationContextClass` | 应用上下文类 |
-| `webApplicationType` | Web 应用类型（servlet/reactive/none） |
-| `isCustomEnvironment` | 是否自定义环境 |
-| `defaultProperties` | 默认属性映射 |
-| `additionalProfiles` | 额外配置文件集合 |
+| 字段                        | 说明                              |
+| ------------------------- | ------------------------------- |
+| `environment`             | 配置环境（`ConfigurableEnvironment`） |
+| `applicationContextClass` | 应用上下文类                          |
+| `webApplicationType`      | Web 应用类型（servlet/reactive/none） |
+| `isCustomEnvironment`     | 是否自定义环境                         |
+| `defaultProperties`       | 默认属性映射                          |
+| `additionalProfiles`      | 额外配置文件集合                        |
 
 ### 资源与生成器（Resources & Generators）
 | 字段 | 说明 |
