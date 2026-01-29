@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
+                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BeanLifecycle"
+              "title": "ContextRefresh"
             }
           }
         ],
@@ -224,6 +224,7 @@
   },
   "active": "f3eab1065425f178",
   "lastOpenFiles": [
+    "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
     "springboot/modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md",
     "springboot/modules/core/beans/interface/ConfigurableBeanFactory.md",
     "springboot/modules/core/beans/interface/Scope.md",
@@ -239,7 +240,6 @@
     "HMDP-Redis/hm-dianping/target/classes/mapper/VoucherMapper.xml",
     "HMDP-Redis/hm-dianping/target/classes/mapper",
     "HMDP-Redis/hm-dianping/target/classes/application.yaml",
-    "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/core/bootstrap/class/SpringApplication.md",
     "springboot/modules/extension/mechanism/ExtensionPoints.md",
