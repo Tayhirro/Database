@@ -25,8 +25,60 @@
   - `failed(context, ex)` 分发对单个监听器的异常进行捕获与记录；当 `context == null` 时，异常可能被重新抛出（由实现细节决定）。
 
 ## 常用构造/操作（仅列出接口与符号）
-- 构造：`new SpringApplicationRunListeners(Log log, Collection<? extends SpringApplicationRunListener> listeners)`
-- 分发：`starting()` / `environmentPrepared(env)` / `contextPrepared(ctx)` / `contextLoaded(ctx)` / `started(ctx)` / `running(ctx)` / `failed(ctx, ex)`
+
+### 构造
+- `new SpringApplicationRunListeners(Log log, Collection<? extends SpringApplicationRunListener> listeners)`
+
+### 阶段分发方法（按执行顺序）
+
+| 方法 | 触发时机 | 对应事件 | 说明 |
+|------|----------|----------|------|
+| `starting()` | run() 最开始 | `ApplicationStartingEvent` | Environment/Context 均未创建；最早钩子 |
+| `environmentPrepared(env)` | Environment 就绪后 | `ApplicationEnvironmentPreparedEvent` | 配置文件已加载，profiles 已解析 |
+| `contextPrepared(ctx)` | Context 创建后 | `ApplicationContextInitializedEvent` | Initializers 已执行，refresh 之前 |
+| `contextLoaded(ctx)` | BeanDefinition 加载后 | `ApplicationPreparedEvent` | 配置类已解析，refresh 即将开始 |
+| `started(ctx)` | refresh 完成后 | `ApplicationStartedEvent` | **Bean 已就绪，Runner 未执行**；适合预热 |
+| `running(ctx)` | Runner 执行后 | `ApplicationReadyEvent` | **应用完全就绪对外服务** |
+| `failed(ctx, ex)` | 启动失败时 | `ApplicationFailedEvent` | context 可能为 null，异常被记录或重抛 |
+
+### 阶段时序图
+
+```
+SpringApplication.run()
+    │
+    ▼
+starting() ────────────────────────▶ 发布 ApplicationStartingEvent
+    │                                  (Environment 未创建)
+    ▼
+environmentPrepared(env) ──────────▶ 发布 ApplicationEnvironmentPreparedEvent
+    │                                  (Environment 就绪)
+    ▼
+contextPrepared(ctx) ──────────────▶ 发布 ApplicationContextInitializedEvent
+    │                                  (Context 已创建，refresh 之前)
+    ▼
+contextLoaded(ctx) ────────────────▶ 发布 ApplicationPreparedEvent
+    │                                  (BeanDefinition 已加载)
+    ▼
+context.refresh()                    (Bean 实例化)
+    │
+    ▼
+started(ctx) ──────────────────────▶ 发布 ApplicationStartedEvent
+    │                                  ★ Bean 就绪，但 Runner 未执行
+    ▼
+ApplicationRunner /                  (用户自定义启动逻辑)
+CommandLineRunner.run()
+    │
+    ▼
+running(ctx) ──────────────────────▶ 发布 ApplicationReadyEvent
+    │                                  ★ 完全就绪，对外服务
+    │
+└─── 启动成功
+
+异常路径：
+    │
+    ▼
+failed(ctx, ex) ───────────────────▶ 发布 ApplicationFailedEvent
+```
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：组合模式（Composite）。

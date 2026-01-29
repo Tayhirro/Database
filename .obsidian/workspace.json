@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/flows/启动流程.md",
+                "file": "springboot/modules/core/bootstrap/interface/ApplicationRunner.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "启动流程"
+              "title": "ApplicationRunner"
             }
           }
         ],
@@ -224,6 +224,13 @@
   },
   "active": "f3eab1065425f178",
   "lastOpenFiles": [
+    "springboot/modules/core/bootstrap/class/ApplicationArguments.md",
+    "springboot/modules/core/bootstrap/interface/CommandLineRunner.md",
+    "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
+    "springboot/modules/core/bootstrap/interface/ApplicationRunner.md",
+    "springboot/modules/core/bootstrap/class/EventPublishingRunListener.md",
+    "springboot/modules/core/bootstrap/class/SpringApplicationRunListeners.md",
+    "springboot/flows/启动流程.md",
     "springboot/modules/core/context/interface/ApplicationContext.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
@@ -246,15 +253,8 @@
     "springboot/modules/extension/mechanism/ExtensionPoints.md",
     "springboot/modules/extension/mechanism/SpringFactoriesLoader.md",
     "springboot/modules/core/context/interface/Environment.md",
-    "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
-    "springboot/modules/core/bootstrap/class/EventPublishingRunListener.md",
-    "springboot/modules/core/bootstrap/class/SpringApplicationRunListeners.md",
     "springboot/modules/patterns/pattern/AbstractFactory.md",
     "springboot/modules/patterns/GoFDesignPatterns.md",
-    "springboot/modules/patterns/pattern/Visitor.md",
-    "springboot/modules/patterns/pattern/Strategy.md",
-    "springboot/modules/patterns/pattern/State.md",
-    "springboot/modules/patterns/pattern/Memento.md",
     "springboot/modules/core/beans/interface",
     "springboot/modules/core/beans/mechanism",
     "springboot/modules/core/beans/class",

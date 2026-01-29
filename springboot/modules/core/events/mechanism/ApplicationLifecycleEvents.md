@@ -25,13 +25,13 @@
 
 | 序号 | 阶段 | 事件类型 | 归属体系 | 关键状态 |
 | :--- | :--- | :--- | :--- | :--- |
-| **1** | Run 开始 | `ApplicationStartingEvent` | **Boot** | 最早钩子，Environment/Context 均未创建。 |
-| **2** | 环境准备 | `ApplicationEnvironmentPreparedEvent` | **Boot** | Environment 已加载，配置文件已读取。 |
-| **3** | 上下文预备 | `ApplicationContextInitializedEvent` | **Boot** | Context 对象已创建，`Initializers` 已执行。 |
-| **4** | 加载完成 | `ApplicationPreparedEvent` | **Boot** | BeanDefinition 已加载（Class 已读入），**Refresh 之前**。 |
-| **5** | **容器刷新** | `ContextRefreshedEvent` | **Standard** | **核心分界点**：所有 Bean 单例实例化完成。 |
-| **6** | 启动完成 | `ApplicationStartedEvent` | **Boot** | Refresh 结束，`CommandLineRunner` 执行前。 |
-| **7** | 服务就绪 | `ApplicationReadyEvent` | **Boot** | 所有 Runner 执行完毕，应用完全可用。 |
+| **1** | Run 开始 | `ApplicationStartingEvent` | **Boot** | 最早钩子；Environment/Context 均未创建。对应 `listeners.starting()` |
+| **2** | 环境准备 | `ApplicationEnvironmentPreparedEvent` | **Boot** | Environment 已加载，配置文件已读取。对应 `listeners.environmentPrepared()` |
+| **3** | 上下文预备 | `ApplicationContextInitializedEvent` | **Boot** | Context 对象已创建，`Initializers` 已执行。对应 `listeners.contextPrepared()` |
+| **4** | 加载完成 | `ApplicationPreparedEvent` | **Boot** | BeanDefinition 已加载（Class 已读入），**Refresh 之前**。对应 `listeners.contextLoaded()` |
+| **5** | **容器刷新** | `ContextRefreshedEvent` | **Standard** | **核心分界点**：所有非 lazy Bean 实例化完成。 |
+| **6** | 启动完成 | `ApplicationStartedEvent` | **Boot** | Refresh 结束，**Runner 执行前**。对应 `listeners.started()`；适合预热。 |
+| **7** | 服务就绪 | `ApplicationReadyEvent` | **Boot** | 所有 Runner 执行完毕，**应用完全就绪对外服务**。对应 `listeners.running()` |
 
 ---
 
