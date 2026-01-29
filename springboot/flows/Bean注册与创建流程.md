@@ -15,7 +15,7 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 
 给定配置来源集合 $S$（配置类、扫描结果、导入结果、XML 等）与环境 $E$（profiles 与属性源），在一次容器刷新过程中：
 
-1. **准备阶段**：构造 BeanDefinition 集合 $D$ 并写入注册表 $R$，完成 BeanFactory 后处理与设施装配
+1. **准备阶段**：构造 BeanDefinition 集合 $D$ 并写入注册表 $R$，完成 BeanF  actory 后处理与设施装配
 2. **创建阶段**：对 $d \in D$，按 [Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md) 执行实例化 → 属性填充 → 初始化
 3. **存取阶段**：按 $d.scopeName$ 解析实例来源（singleton 缓存 / prototype 新建 / 自定义 Scope 委托）
 
@@ -54,11 +54,11 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 
 ### Phase 2：BeanFactory 准备
 
-| 子阶段 | 说明 |
-|--------|------|
-| 工厂创建 | `DefaultListableBeanFactory` 作为默认实现 |
-| 基础设施装配 | ClassLoader、EL 表达式解析器、嵌套等级解析器等 |
-| 可枚举能力 | `ConfigurableListableBeanFactory` 接口组合 |
+| 子阶段    | 说明                                     |
+| ------ | -------------------------------------- |
+| 工厂创建   | `DefaultListableBeanFactory` 作为默认实现    |
+| 基础设施装配 | ClassLoader、EL 表达式解析器、嵌套等级解析器等         |
+| 可枚举能力  | `ConfigurableListableBeanFactory` 接口组合 |
 
 相关条目：
 - [BeanFactory](modules/core/beans/interface/BeanFactory.md)
