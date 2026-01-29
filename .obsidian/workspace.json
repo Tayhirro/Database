@@ -224,6 +224,7 @@
   },
   "active": "f3eab1065425f178",
   "lastOpenFiles": [
+    "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
     "springboot/modules/core/beans/interface/Scope.md",
     "springboot/flows/Bean注册与创建流程.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
@@ -249,7 +250,6 @@
     "springboot/modules/patterns/pattern/Iterator.md",
     "springboot/modules/patterns/pattern/Interpreter.md",
     "springboot/modules/patterns/pattern/Command.md",
-    "springboot/modules/patterns/pattern/ChainOfResponsibility.md",
     "springboot/modules/core/beans/interface",
     "springboot/modules/core/beans/mechanism",
     "springboot/modules/core/beans/class",
