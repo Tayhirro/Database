@@ -146,6 +146,7 @@ prototype 不由容器管理销毁。
 
 - 上级：[Bean 注册与创建流程](../../../flows/Bean注册与创建流程.md)（Phase 6 触发生命周期）
 - 上级：[Context refresh](../../context/mechanism/ContextRefresh.md)（`finishBeanFactoryInitialization` 阶段创建 singleton）
+- 下级：[BeanInstantiation](BeanInstantiation.md)（Instantiation 阶段的构造策略详情）
 - 相关：[BeanPostProcessor](../interface/BeanPostProcessor.md)（实例级拦截）
 - 相关：[Scope 注册与解析](ScopeResolution.md)（决定实例存取策略）
 - 相关：[FactoryBean](../interface/FactoryBean.md)（特殊实例化策略）
