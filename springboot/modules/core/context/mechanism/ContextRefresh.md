@@ -45,6 +45,74 @@
 ### Boot 触发位置（Boot 2.3.x）
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
 
+## 阶段顺序原理（依赖方向与 Hook 时机）
+
+阶段顺序由**设施依赖方向**决定：下游设施依赖上游设施，故上游必先初始化。
+
+### 依赖链与 Hook 位置
+
+阶段按**依赖关系**顺序执行：下游依赖上游，故上游先初始化。
+
+```
+阶段 1-3：基础层（必须最先）
+┌─────────────────┐    ┌──────────────────┐    ┌──────────────────────┐
+│ prepareRefresh()│───▶│obtainFreshBean   │───▶│ prepareBeanFactory() │
+│ (Environment)   │    │Factory           │    │ (配置 BeanFactory)   │
+└─────────────────┘    └──────────────────┘    └──────────┬───────────┘
+                                                          │
+                    ┌─────────────────────────────────────┘
+                    ▼
+            ┌──────────────────────┐
+            │[Hook 1]              │
+            │postProcessBeanFactory│───▶ 子类扩展点：可修改 BeanFactory
+            │(BeanFactory 就绪)    │      或注册自定义 Scope
+            └──────────────────────┘
+                    │
+                    ▼
+阶段 4-5：后处理层（依赖 BeanFactory）
+┌──────────────────────────┐    ┌──────────────────────────┐
+│invokeBeanFactoryPostP... │───▶│registerBeanPostP...      │
+│(BFPP 修改 BeanDefinition)│    │(BPP 注册拦截链)          │
+└──────────────────────────┘    └──────────────────────────┘
+                    │
+                    ▼
+阶段 6-7：设施层（被后续使用）
+┌──────────────────┐    ┌──────────────────────────┐
+│ initMessageSource│───▶│initApplicationEvent      │
+│ (国际化消息源)   │    │Multicaster (事件广播器)  │
+└──────────────────┘    └──────────────┬───────────┘
+                                         │
+                    ┌────────────────────┘
+                    ▼
+            ┌──────────────────────┐
+            │[Hook 2]              │
+            │onRefresh()           │───▶ 子类扩展点：基础设施全部就绪
+            │(EventMulticaster 就绪)│      但业务 Bean 未创建；可启动
+            └──────────────────────┘      Web 服务器等自定义设施
+                    │
+                    ▼
+阶段 8-10：运行时层（依赖全部设施）
+┌────────────────────────┐    ┌──────────────────────────────────┐
+│ registerListeners()    │───▶│ finishBeanFactoryInitialization()│
+│ (监听器注册到广播器)   │    │ (预实例化非 lazy Bean)           │
+└────────────────────────┘    └──────────────────────────────────┘
+```
+
+**箭头含义**：`───▶` 表示执行顺序（从左到右，从上到下）；`│` 和 `▶` 表示阶段调用关系。
+
+### Hook 时机约束
+
+| Hook | 前置条件 | 后置限制 | 典型用途 |
+|------|----------|----------|----------|
+| `postProcessBeanFactory()` | BeanFactory 已创建，标准特性已配置 | BFPP 即将执行，BeanDefinition 将被变换 | 注册 Web Scope、修改 BeanFactory 默认行为 |
+| `onRefresh()` | MessageSource、EventMulticaster 已就绪 | 业务 Bean 即将实例化，监听器待注册 | 启动 Web 服务器、初始化自定义上下文 |
+
+### 约束原理
+
+- **EventMulticaster 必须在 `onRefresh()` 之前**：`onRefresh()` 可能产生事件（如 Web 服务器启动失败），需有广播器接收。
+- **`onRefresh()` 必须在业务 Bean 之前**：业务 Bean（如 Controller）可能依赖 `onRefresh()` 创建的设施（如 `ServletContext`）。
+- **监听器注册在 Bean 实例化之前**：确保 Bean 创建过程中产生的事件可被分发。
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：
   - 显式生命周期与状态机：见 [../../../patterns/concept/LifecycleStateMachine.md](../../../patterns/concept/LifecycleStateMachine.md)
