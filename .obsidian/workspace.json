@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/bootstrap/class/SpringApplication.md",
+                "file": "springboot/modules/extension/mechanism/ExtensionPoints.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SpringApplication"
+              "title": "ExtensionPoints"
             }
           }
         ],
@@ -222,14 +222,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "f3eab1065425f178",
+  "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "springboot/modules/core/bootstrap/class/SpringApplication.md",
     "springboot/modules/core/context/interface/ApplicationContext.md",
     "springboot/modules/core/context/interface/Environment.md",
     "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/class/EventPublishingRunListener.md",
     "springboot/modules/core/bootstrap/class/SpringApplicationRunListeners.md",
-    "springboot/modules/core/bootstrap/class/SpringApplication.md",
     "springboot/modules/patterns/pattern/AbstractFactory.md",
     "springboot/modules/patterns/GoFDesignPatterns.md",
     "springboot/modules/patterns/pattern/Visitor.md",
