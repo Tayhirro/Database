@@ -8,6 +8,7 @@
 | phenomenon  | /fəˈnɒmɪnən/    | n.  | 现象  | This is an interesting phenomenon. |
 | agnostic    | /æɡˈnɒstɪk/     | adj. | 无关的；不可知的 | Our model can produce image-agnostic perturbations. |
 | deviate     | /ˈdiːvieɪt/     | v.  | 偏离；背离 | The results deviate significantly from the baseline. |
+| consolidated | /kənˈsɒlɪdeɪtɪd/ | adj. | 整合的；综合的 | We present a consolidated framework for multi-task learning. |
 
 ---
 
