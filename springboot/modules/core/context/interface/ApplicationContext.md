@@ -23,7 +23,7 @@
 `ApplicationContext` 是接口，具体“数据承载”取决于实现；在典型的 `ConfigurableApplicationContext`（如 `AbstractApplicationContext` 一系）中，可抽象为一组被持有/可访问的组件：
 **Bean 容器查询能力** + **资源/消息/事件/环境能力**
 
-- `BeanFactory`（通常为 `ConfigurableListableBeanFactory`）：BeanDefinition 注册、Bean 实例化与依赖注入的底层容器。
+- `BeanFactory`（通常为 `ConfigurableListableBeanFactory`）：BeanDefinition 注册、Bean 实例化与依赖注入的底层容器（见 [springboot/modules/core/beans/interface/BeanFactory.md](../../beans/interface/BeanFactory.md)、[springboot/modules/core/beans/interface/ConfigurableListableBeanFactory.md](../../beans/interface/ConfigurableListableBeanFactory.md)）。
 - `Environment`（通常为 `ConfigurableEnvironment`）：profiles 与属性源的聚合视图，供条件判断与属性绑定查询。
 - `ApplicationEventMulticaster`（默认 bean 名为 `applicationEventMulticaster`）：事件发布到监听器的分发组件。
 - 监听器注册表：`ApplicationListener` 对象集合与 listener beanName 集合（在 refresh 的注册步骤中装配到多播器）。

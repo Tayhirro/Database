@@ -50,6 +50,7 @@
   - 装配与运行分离：见 [../../../patterns/principle/SeparationOfWiringAndRunning.md](../../../patterns/principle/SeparationOfWiringAndRunning.md)
 - 相关：
   - `ApplicationContext`（见 [../interface/ApplicationContext.md](../interface/ApplicationContext.md)）
+  - Bean 注册与创建流程（见 [springboot/flows/Bean注册与创建流程.md](../../../../flows/Bean注册与创建流程.md)）
   - 监听器注册与装配（见 [../../events/mechanism/ApplicationListenerRegistration.md](../../events/mechanism/ApplicationListenerRegistration.md)）
   - 生命周期事件（见 [../../events/mechanism/ApplicationLifecycleEvents.md](../../events/mechanism/ApplicationLifecycleEvents.md)）
   - 启动流程（见 [springboot/flows/启动流程.md](../../../../flows/启动流程.md)）
