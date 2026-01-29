@@ -6,7 +6,7 @@
 `DefaultListableBeanFactory` 是 Spring Framework 中常见的 BeanFactory 实现，兼具 BeanDefinitionRegistry 与可枚举能力，并作为多数 ApplicationContext 的内部 BeanFactory 承载体。
 
 ## 严格定义
-在 Spring Framework 中，`org.springframework.beans.factory.support.DefaultListableBeanFactory` 提供 BeanDefinition 的注册/查询、按类型枚举 Bean、以及单例预实例化等能力；在典型的 `ApplicationContext.refresh()` 流程中，它作为 `ConfigurableListableBeanFactory` 的具体实现参与后处理器执行、作用域注册与 Bean 实例创建。
+在 Spring Framework 中，`org.springframework.beans.factory.support.DefaultListableBeanFactory` 提供 BeanDefinition 的注册/查询、按类型枚举 Bean、以及 Bean 预实例化等能力；在典型的 `ApplicationContext.refresh()` 流程中，它作为 `ConfigurableListableBeanFactory` 的具体实现参与后处理器执行、作用域注册与 Bean 实例创建。
 
 ## 继承链（接口链 / 实现链）
 - 继承链：`AbstractBeanFactory` → `DefaultListableBeanFactory`。

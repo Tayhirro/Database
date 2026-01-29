@@ -7,7 +7,7 @@ Scope 注册与解析机制描述了 BeanDefinition 的 `scopeName` 如何与 Be
 
 ## 严格定义
 给定 BeanDefinition $d$ 与其 `scopeName` $s$，以及 BeanFactory 中的 scope 注册表 $M: String\\to Scope$，当容器需要解析 beanName $n$ 的实例时：
-1) 若 $s$ 为空或为 `singleton`，按单例语义从单例缓存取/建；
+1) 若 $s$ 为空或为 `singleton`，按内置 Scope 实现从缓存取/建；
 2) 若 $s$ 为 `prototype`，每次创建新实例；
 3) 否则取 $M[s]$，若不存在则失败；若存在则调用 `M[s].get(n, factory)` 获取或创建实例。
 

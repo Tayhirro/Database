@@ -116,14 +116,14 @@ $$
 
 ### 7. Ready
 
-实例进入可用态：
-- singleton：缓存至单例注册表
+实例进入可用态，根据 scope 策略缓存或返回：
+- singleton：缓存至容器级缓存
 - prototype：直接返回调用方
 - 其他 scope：存入对应 Scope 容器
 
 ### 8. 销毁（Destruction）
 
-容器关闭时（`context.close()`），对 singleton 执行销毁回调：
+容器关闭时（`context.close()`），对非 prototype 的 Bean 执行销毁回调：
 
 1. `@PreDestroy` 标注方法
 2. `DisposableBean.destroy()`
@@ -145,7 +145,7 @@ prototype 不由容器管理销毁。
 ## 关系：上级/下级/等价/特例/推广
 
 - 上级：[Bean 注册与创建流程](../../../flows/Bean注册与创建流程.md)（Phase 6 触发生命周期）
-- 上级：[Context refresh](../../context/mechanism/ContextRefresh.md)（`finishBeanFactoryInitialization` 阶段创建 singleton）
+- 上级：[Context refresh](../../context/mechanism/ContextRefresh.md)（`finishBeanFactoryInitialization` 阶段预实例化非 lazy Bean）
 - 下级：[BeanInstantiation](BeanInstantiation.md)（Instantiation 阶段的构造策略详情）
 - 相关：[BeanPostProcessor](../interface/BeanPostProcessor.md)（实例级拦截）
 - 相关：[Scope 注册与解析](ScopeResolution.md)（决定实例存取策略）
