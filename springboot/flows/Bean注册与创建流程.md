@@ -9,17 +9,19 @@ tags:
 
 ## 一句话
 
-Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDefinition 的发现/注册、容器设施装配，以及运行时按 Scope 解析并通过 Bean 生命周期创建可用实例的阶段化链路。
+Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间的准备阶段、运行时的创建阶段（Bean 生命周期），以及实例存取策略（Scope 解析）的完整链路。
 
 ## 严格定义
 
-给定配置来源集合 $S$（配置类、扫描结果、导入结果、XML 等）与环境 $E$（profiles 与属性源），在一次容器刷新过程中：
+给定配置来源集合 $S$（配置类、扫描结果、导入结果、XML 等）与环境 $E$（profiles 与属性源），容器行为由三个正交维度定义：
 
-1. **准备阶段**：构造 BeanDefinition 集合 $D$ 并写入注册表 $R$，完成 BeanF  actory 后处理与设施装配
-2. **创建阶段**：对 $d \in D$，按 [Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md) 执行实例化 → 属性填充 → 初始化
-3. **存取阶段**：按 $d.scopeName$ 解析实例来源（singleton 缓存 / prototype 新建 / 自定义 Scope 委托）
+| 维度 | 核心问题 | 执行时机 |
+|------|----------|----------|
+| **准备阶段** | 有哪些 BeanDefinition？容器设施就位了吗？ | 仅 refresh 期间一次 |
+| **创建阶段** | Bean 实例如何被构造与初始化？ | 每次需要新实例时 |
+| **存取阶段** | 实例从哪获取？存到哪？ | 每次 getBean 调用时 |
 
-即：准备阶段解决"有哪些 Bean"，创建阶段解决"如何创建 Bean"，存取阶段解决"从哪获取 Bean"。
+即：准备阶段解决"有什么"，创建阶段解决"怎么造"，存取阶段解决"从哪取"。
 
 ## 接口：数据 + 约束
 
@@ -27,18 +29,20 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 - 配置来源（sources / 扫描 / 导入 / 自动配置导入等产生的 BeanDefinition）
 - `Environment`（profiles 与属性源）
 - 后处理器集合（`BeanFactoryPostProcessor`、`BeanPostProcessor` 等）
-- Scope 注册设施（singleton / prototype 内置，request / session 等需注册）
+- Scope 实现（singleton / prototype 内置，request / session 等需注册）
 
 ### 输出
 - `BeanDefinitionRegistry` 中已注册的 BeanDefinition 集合
-- 处于可用态的 `BeanFactory`（可解析依赖并按 scope 返回实例）
+- 处于可用态的 `BeanFactory`（可解析依赖并按 Scope 返回实例）
 
 ### 约束
-- BeanFactoryPostProcessor 需在单例实例化之前执行（保证 BeanDefinition 变换生效）
-- 非 singleton/prototype 的 scope 必须在 BeanFactory 中注册同名 Scope
-- Web 相关 scope 的可用性依赖请求上下文的绑定
+- BeanFactoryPostProcessor 在 Bean 实例化之前执行，其对 BeanDefinition 的修改对所有 Scope 生效
+- 非 singleton/prototype 的 Scope 必须在 BeanFactory 中注册
+- Web 相关 Scope 的可用性依赖请求上下文的绑定
 
 ## 阶段（Phase）
+
+> Phase 1-6 属于**准备阶段**，在 `refresh()` 期间按顺序执行。
 
 ### Phase 1：BeanDefinition 发现与注册
 
@@ -54,11 +58,11 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 
 ### Phase 2：BeanFactory 准备
 
-| 子阶段    | 说明                                     |
-| ------ | -------------------------------------- |
-| 工厂创建   | `DefaultListableBeanFactory` 作为默认实现    |
-| 基础设施装配 | ClassLoader、EL 表达式解析器、嵌套等级解析器等         |
-| 可枚举能力  | `ConfigurableListableBeanFactory` 接口组合 |
+| 子阶段 | 说明 |
+|--------|------|
+| 工厂创建 | `DefaultListableBeanFactory` 作为默认实现 |
+| 基础设施装配 | ClassLoader、EL 表达式解析器、嵌套等级解析器等 |
+| 可枚举能力 | `ConfigurableListableBeanFactory` 接口组合 |
 
 相关条目：
 - [BeanFactory](modules/core/beans/interface/BeanFactory.md)
@@ -99,27 +103,15 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 - [ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)
 - [WebScopes](../web/mechanism/WebScopes.md)
 
-### Phase 6：单例实例化（refresh 期间）
+### Phase 6：非 lazy Bean 预实例化
 
-| 子阶段 | 说明 |
-|--------|------|
-| 遍历 BeanDefinition | `beanFactory.preInstantiateSingletons()` |
-| 排除 lazy | 跳过 `BeanDefinition.isLazyInit()` 为 true 的 Bean |
-| 依赖排序 | 按 `dependsOn` 与 `@Order` 确定创建顺序 |
+refresh 结束时，对非 lazy 的 Bean（默认 scope 为 singleton）执行创建（通过 Bean 生命周期）。
 
-### Phase 7：运行时按 Scope 获取（getBean 调用）
+相关：见下方"创建阶段"与"存取阶段"。
 
-| Scope | 行为 |
-|-------|------|
-| `singleton` | 从 `singletonObjects` 缓存获取，未命中则触发生命周期创建 |
-| `prototype` | 每次触发完整生命周期创建 |
-| `request` | 从 `RequestContextHolder` 对应请求的缓存获取 |
-| `session` | 从 `HttpSession` 属性获取 |
-| 自定义 | 委托给 `Scope.get(name, ObjectFactory)` |
+## 二、创建阶段（每次需要新实例时执行）
 
-## 完整创建链路（Bean 生命周期）
-
-当需要创建新实例时（singleton 首次获取、prototype 每次获取、Scope 缓存未命中），执行以下阶段：
+当需要创建新实例时（任何 Scope 的首次获取、prototype 每次获取、缓存未命中），按以下阶段化链路执行：
 
 | 阶段 | 说明 | 关键组件 |
 |------|------|----------|
@@ -129,9 +121,22 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 | BPP.before | 初始化前拦截 | 全部 BeanPostProcessor |
 | 初始化 | @PostConstruct / InitializingBean / init-method | `invokeInitMethods` |
 | BPP.after | 初始化后拦截（可返回代理） | 全部 BeanPostProcessor（如 AOP） |
-| 缓存/返回 | 根据 scope 策略返回实例 | `ObjectFactory` / `Scope` |
 
 详见：[Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md)
+
+## 三、存取阶段（每次 getBean 调用时）
+
+按 BeanDefinition.scopeName 解析实例来源：
+
+| Scope | 行为 |
+|-------|------|
+| `singleton` | 从 `singletonObjects` 缓存获取，未命中则触发生命周期创建 |
+| `prototype` | 每次触发生命周期创建新实例 |
+| `request` | 从 `RequestContextHolder` 对应请求的缓存获取 |
+| `session` | 从 `HttpSession` 属性获取 |
+| 自定义 | 委托给 `Scope.get(name, ObjectFactory)` |
+
+相关条目：[ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)
 
 ## FactoryBean 场景
 
@@ -149,10 +154,10 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 - 上级：[Context refresh](modules/core/context/mechanism/ContextRefresh.md)（`refresh()` 模板流程的子流程）
 - 下级：[Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md)（创建阶段的具体阶段序列）
 - 下级：[BeanInstantiation](modules/core/beans/mechanism/BeanInstantiation.md)（实例化阶段的构造策略）
-- 下级：[ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)（存取阶段的 scope 解析机制）
+- 下级：[ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)（存取阶段的 Scope 解析机制）
 - 相关：外部化配置（影响 BeanDefinition 的产生与条件过滤）
 - 特例：Web 应用包含 request/session scope（见 [WebScopes](../web/mechanism/WebScopes.md)）
 
 ## 把新概念挂回框架（多级索引轨迹）
 
-springboot → flows → Bean 注册与创建流程 →（BeanDefinition / BeanFactory / PostProcessor / Scope / BeanLifecycle / BeanInstantiation）
+springboot → flows → Bean 注册与创建流程 →（准备阶段 / 创建阶段 / 存取阶段 / BeanLifecycle / BeanInstantiation / ScopeResolution）
