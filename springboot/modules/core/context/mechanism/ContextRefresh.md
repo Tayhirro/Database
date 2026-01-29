@@ -26,18 +26,21 @@
 
 ## 常用构造/操作（仅列出接口与符号）
 ### 阶段化顺序（Framework 视角）
-- `prepareRefresh()`
-- `obtainFreshBeanFactory()`
-- `prepareBeanFactory(beanFactory)`
-- `postProcessBeanFactory(beanFactory)`（子类 hook）
-- `invokeBeanFactoryPostProcessors(beanFactory)`
-- `registerBeanPostProcessors(beanFactory)`
-- `initMessageSource()`
-- `initApplicationEventMulticaster()`
-- `onRefresh()`（子类 hook）
-- `registerListeners()`
-- `finishBeanFactoryInitialization(beanFactory)`
-- `finishRefresh()`
+
+| 阶段                                             | 功能                                      |
+| ---------------------------------------------- | --------------------------------------- |
+| `prepareRefresh()`                             | 初始化上下文状态，准备 Environment 与早期事件存储         |
+| `obtainFreshBeanFactory()`                     | 获取或创建内部 BeanFactory，加载 BeanDefinition   |
+| `prepareBeanFactory(beanFactory)`              | 配置 BeanFactory 标准特性（类加载器、SpEL 解析器等）     |
+| `postProcessBeanFactory(beanFactory)`（子类 hook） | 子类自定义 BeanFactory 后处理（如注册 Web 相关 Scope） |
+| `invokeBeanFactoryPostProcessors(beanFactory)` | 执行 BFPP/BDRPP，修改 BeanDefinition         |
+| `registerBeanPostProcessors(beanFactory)`      | 注册 BPP，准备实例创建拦截链                        |
+| `initMessageSource()`                          | 初始化国际化消息源（读取 messages*.properties）      |
+| `initApplicationEventMulticaster()`            | 初始化事件广播器，建立事件分发机制                       |
+| `onRefresh()`（子类 hook）                         | 子类扩展点，如启动内嵌 Web 服务器（Tomcat/Jetty）       |
+| `registerListeners()`                          | 将监听器注册到事件广播器                            |
+| `finishBeanFactoryInitialization(beanFactory)` | 预实例化非 lazy Bean（Service、Controller 等）   |
+| `finishRefresh()`                              | 发布 ContextRefreshedEvent，标记容器就绪         |
 
 ### Boot 触发位置（Boot 2.3.x）
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
