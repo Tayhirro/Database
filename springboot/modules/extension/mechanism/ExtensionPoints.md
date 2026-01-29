@@ -41,6 +41,13 @@ Spring Boot 提供了一套基于 `spring.factories`（或 `imports`）的 SPI �
 | :---------------- | :------------------------------------------------------- | :----------------------------------------------------- |
 | `FailureAnalyzer` | **异常分析**：将启动时的原始异常转换为可读性强的 `FailureAnalysis`（包含描述与行动建议）。 | `org.springframework.boot.diagnostics.FailureAnalyzer` |
 
+## 执行模型（批量遍历 / 分派点）
+扩展点的“执行”可以抽象为两类组织方式：
+- 有序批量遍历：收集实现 → 排序 → 在某个启动阶段依次回调全部实现。
+- 分派点选择：在解析/加载流程遇到输入对象时，从实现集合中选择匹配者执行。
+
+对应的执行模型条目：见 [ExtensionExecutionModels.md](ExtensionExecutionModels.md)。
+
 ## 辨析：扩展点 vs 自动配置
 - **扩展点（Extensions）**：实现特定接口，由 Boot 基础设施回调，通常在容器生命周期之外或边缘工作（Key 为接口全名）。
 - **自动配置（Auto-Configuration）**：普通的 `@Configuration` 类，用于向容器贡献 Bean，由 Boot 导入机制加载（Key 为 `EnableAutoConfiguration` 或在 `imports` 文件中声明）。
