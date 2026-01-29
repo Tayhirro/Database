@@ -51,6 +51,7 @@
 - 相关：
   - `ApplicationContext`（见 [../interface/ApplicationContext.md](../interface/ApplicationContext.md)）
   - Bean 注册与创建流程（见 [springboot/flows/Bean注册与创建流程.md](../../../../flows/Bean注册与创建流程.md)）
+  - BFPP/BDRPP 执行与断环（见 [springboot/modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md](../../beans/mechanism/BeanFactoryPostProcessorExecution.md)）
   - 监听器注册与装配（见 [../../events/mechanism/ApplicationListenerRegistration.md](../../events/mechanism/ApplicationListenerRegistration.md)）
   - 生命周期事件（见 [../../events/mechanism/ApplicationLifecycleEvents.md](../../events/mechanism/ApplicationLifecycleEvents.md)）
   - 启动流程（见 [springboot/flows/启动流程.md](../../../../flows/启动流程.md)）

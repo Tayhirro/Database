@@ -43,6 +43,7 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间 BeanDe
 ### Phase 3：BeanFactoryPostProcessor（Definition 级变换）
 - 执行 `BeanFactoryPostProcessor` / `BeanDefinitionRegistryPostProcessor`：允许对 BeanDefinition 进行增删改与派生注册。
 - 该阶段通常发生在单例创建之前。
+- 执行顺序与断环窗口：见 [modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md](../modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md)。
 
 ### Phase 4：BeanPostProcessor（实例级拦截链装配）
 - 注册 `BeanPostProcessor`：使后续的 Bean 创建过程可在初始化前后进行实例级变换（例如代理生成、注入增强等）。

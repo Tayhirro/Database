@@ -6,6 +6,7 @@
 |             |                |     |                                       |
 | ----------- | -------------- | --- | ------------------------------------- |
 | instantiate | /ɪnˈstænʃieɪt/ | 实例化 | The class is instantiated at runtime. |
+| quota       | /ˈkwəʊtə/      | 配额；限额 | The API quota has been exceeded. |
 |             |                |     |                                       |
 
 
