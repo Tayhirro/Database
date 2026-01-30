@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/config/mechanism/ExternalizedConfiguration.md",
+                "file": "springboot/flows/运行全链路.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ExternalizedConfiguration"
+              "title": "运行全链路"
             }
           }
         ],
@@ -222,11 +222,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ba372ebe80244abe",
+  "active": "f3eab1065425f178",
   "lastOpenFiles": [
-    "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/flows/启动流程.md",
     "springboot/flows/运行全链路.md",
+    "springboot/modules/config/mechanism/ExternalizedConfiguration.md",
+    "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/core/bootstrap/interface/CommandLineRunner.md",
     "springboot/modules/core/bootstrap/interface/ApplicationRunner.md",
     "springboot/modules/core/bootstrap/class/ApplicationArguments.md",
@@ -254,7 +255,6 @@
     "springboot/modules/extension/mechanism/SpringFactoriesLoader.md",
     "springboot/modules/core/context/interface/Environment.md",
     "springboot/modules/patterns/pattern/AbstractFactory.md",
-    "springboot/modules/patterns/GoFDesignPatterns.md",
     "springboot/modules/core/beans/interface",
     "springboot/modules/core/beans/mechanism",
     "springboot/modules/core/beans/class",
