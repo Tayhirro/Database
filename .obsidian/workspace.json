@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法/算法a.md",
+                "file": "java/javass.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "算法a"
+              "title": "javass"
             }
           },
           {
@@ -222,9 +222,9 @@
   },
   "active": "e0ca67c69e583588",
   "lastOpenFiles": [
+    "算法/算法a.md",
     "算法/算法.md",
     "java/javass.md",
-    "算法/算法a.md",
     "python/python1.md",
     "python",
     "音乐/fl和声.md",
