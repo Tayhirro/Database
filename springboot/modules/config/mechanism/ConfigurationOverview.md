@@ -52,6 +52,7 @@ Spring Boot 的配置体系可以抽象为两条并行工作的线：
 1.  **`@Value`**：适合简单、零散的字段读取。
 2.  **`@ConfigurationProperties`**：**主流推荐**。类型安全、批量绑定、支持验证（见 [ConfigurationProperties.md](ConfigurationProperties.md)）。
 3.  **`@ConditionalOnProperty`**：基于配置值决定是否加载某个 Bean（开关逻辑）。
+4.  **自动配置（Auto-Configuration）**：在启动期基于 `Environment` 与条件注解决定导入/注册哪些配置与 Bean（见 [AutoConfiguration.md](AutoConfiguration.md)）。
 
 ## 7. 调试手段
 当配置不生效时，排查三板斧：

@@ -9,6 +9,7 @@
 | agnostic    | /æɡˈnɒstɪk/     | adj. | 无关的；不可知的 | Our model can produce image-agnostic perturbations. |
 | deviate     | /ˈdiːvieɪt/     | v.  | 偏离；背离 | The results deviate significantly from the baseline. |
 | consolidated | /kənˈsɒlɪdeɪtɪd/ | adj. | 整合的；综合的 | We present a consolidated framework for multi-task learning. |
+| comprise    | /kəmˈpraɪz/     | v.  | 包含；由...组成 | The dataset comprises 10,000 labeled samples. |
 
 ---
 
