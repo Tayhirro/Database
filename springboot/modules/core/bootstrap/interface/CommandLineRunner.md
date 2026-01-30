@@ -45,7 +45,7 @@ tags:
 
 ## 关系：上级/下级/等价/特例/推广
 
-- 上级：启动流程（见 [flows/启动流程.md](../../../flows/启动流程.md)）的 Phase 5b（Runner 执行阶段）
+- 上级：启动流程（见 [flows/启动流程.md](../../../../flows/启动流程.md)）的 Phase 5b（Runner 执行阶段）
 - 等价：`ApplicationRunner`（功能等价，参数形式不同）
 - 相关：`SpringApplication`（调用方，见 [SpringApplication.md](../class/SpringApplication.md)）
 

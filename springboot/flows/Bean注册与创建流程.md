@@ -53,8 +53,8 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间的准�
 | 注册写入 | `BeanDefinitionRegistry.registerBeanDefinition(...)` |
 
 相关条目：
-- [BeanDefinition](modules/core/beans/interface/BeanDefinition.md)
-- [BeanDefinitionRegistry](modules/core/beans/interface/BeanDefinitionRegistry.md)
+- [BeanDefinition](../modules/core/beans/interface/BeanDefinition.md)
+- [BeanDefinitionRegistry](../modules/core/beans/interface/BeanDefinitionRegistry.md)
 
 ### Phase 2：BeanFactory 准备
 
@@ -65,9 +65,9 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间的准�
 | 可枚举能力 | `ConfigurableListableBeanFactory` 接口组合 |
 
 相关条目：
-- [BeanFactory](modules/core/beans/interface/BeanFactory.md)
-- [ConfigurableListableBeanFactory](modules/core/beans/interface/ConfigurableListableBeanFactory.md)
-- [DefaultListableBeanFactory](modules/core/beans/class/DefaultListableBeanFactory.md)
+- [BeanFactory](../modules/core/beans/interface/BeanFactory.md)
+- [ConfigurableListableBeanFactory](../modules/core/beans/interface/ConfigurableListableBeanFactory.md)
+- [DefaultListableBeanFactory](../modules/core/beans/class/DefaultListableBeanFactory.md)
 
 ### Phase 3：BeanFactoryPostProcessor 执行
 
@@ -79,7 +79,7 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间的准�
 执行顺序：先按优先级执行 BDRPP，再执行普通 BFPP。
 
 相关条目：
-- [BeanFactoryPostProcessorExecution](modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md)
+- [BeanFactoryPostProcessorExecution](../modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md)
 
 ### Phase 4：BeanPostProcessor 注册
 
@@ -99,9 +99,9 @@ Bean 注册与创建流程描述了 `ApplicationContext.refresh()` 期间的准�
 | 自定义 | 通过 `ConfigurableBeanFactory.registerScope(name, Scope)` 注册 |
 
 相关条目：
-- [Scope](modules/core/beans/interface/Scope.md)
-- [ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)
-- [WebScopes](../web/mechanism/WebScopes.md)
+- [Scope](../modules/core/beans/interface/Scope.md)
+- [ScopeResolution](../modules/core/beans/mechanism/ScopeResolution.md)
+- [WebScopes](../modules/web/mechanism/WebScopes.md)
 
 ### Phase 6：非 lazy Bean 预实例化
 
@@ -115,14 +115,14 @@ refresh 结束时，对非 lazy 的 Bean（默认 scope 为 singleton）执行�
 
 | 阶段 | 说明 | 关键组件 |
 |------|------|----------|
-| 实例化 | 选择构造策略创建原始对象 | [BeanInstantiation](modules/core/beans/mechanism/BeanInstantiation.md) |
+| 实例化 | 选择构造策略创建原始对象 | [BeanInstantiation](../modules/core/beans/mechanism/BeanInstantiation.md) |
 | 属性填充 | 依赖注入（@Autowired / @Value / XML） | `AutowiredAnnotationBeanPostProcessor` |
 | Aware 回调 | 注入容器感知接口 | `ApplicationContextAwareProcessor` |
 | BPP.before | 初始化前拦截 | 全部 BeanPostProcessor |
 | 初始化 | @PostConstruct / InitializingBean / init-method | `invokeInitMethods` |
 | BPP.after | 初始化后拦截（可返回代理） | 全部 BeanPostProcessor（如 AOP） |
 
-详见：[Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md)
+详见：[Bean 生命周期](../modules/core/beans/mechanism/BeanLifecycle.md)
 
 ## 三、存取阶段（每次 getBean 调用时）
 
@@ -136,7 +136,7 @@ refresh 结束时，对非 lazy 的 Bean（默认 scope 为 singleton）执行�
 | `session` | 从 `HttpSession` 属性获取 |
 | 自定义 | 委托给 `Scope.get(name, ObjectFactory)` |
 
-相关条目：[ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)
+相关条目：[ScopeResolution](../modules/core/beans/mechanism/ScopeResolution.md)
 
 ## FactoryBean 场景
 
@@ -147,16 +147,16 @@ refresh 结束时，对非 lazy 的 Bean（默认 scope 为 singleton）执行�
 | `getBean("beanName")` | `FactoryBean.getObject()` 的结果（类型为 `T`） |
 | `getBean("&beanName")` | FactoryBean 实例本身 |
 
-相关条目：[FactoryBean](modules/core/beans/interface/FactoryBean.md)
+相关条目：[FactoryBean](../modules/core/beans/interface/FactoryBean.md)
 
 ## 关系：上级/下级/等价/特例/推广
 
-- 上级：[Context refresh](modules/core/context/mechanism/ContextRefresh.md)（`refresh()` 模板流程的子流程）
-- 下级：[Bean 生命周期](modules/core/beans/mechanism/BeanLifecycle.md)（创建阶段的具体阶段序列）
-- 下级：[BeanInstantiation](modules/core/beans/mechanism/BeanInstantiation.md)（实例化阶段的构造策略）
-- 下级：[ScopeResolution](modules/core/beans/mechanism/ScopeResolution.md)（存取阶段的 Scope 解析机制）
+- 上级：[Context refresh](../modules/core/context/mechanism/ContextRefresh.md)（`refresh()` 模板流程的子流程）
+- 下级：[Bean 生命周期](../modules/core/beans/mechanism/BeanLifecycle.md)（创建阶段的具体阶段序列）
+- 下级：[BeanInstantiation](../modules/core/beans/mechanism/BeanInstantiation.md)（实例化阶段的构造策略）
+- 下级：[ScopeResolution](../modules/core/beans/mechanism/ScopeResolution.md)（存取阶段的 Scope 解析机制）
 - 相关：外部化配置（影响 BeanDefinition 的产生与条件过滤）
-- 特例：Web 应用包含 request/session scope（见 [WebScopes](../web/mechanism/WebScopes.md)）
+- 特例：Web 应用包含 request/session scope（见 [WebScopes](../modules/web/mechanism/WebScopes.md)）
 
 ## 把新概念挂回框架（多级索引轨迹）
 

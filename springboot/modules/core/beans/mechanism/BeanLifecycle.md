@@ -144,7 +144,7 @@ prototype 不由容器管理销毁。
 
 ## 关系：上级/下级/等价/特例/推广
 
-- 上级：[Bean 注册与创建流程](../../../flows/Bean注册与创建流程.md)（Phase 6 触发生命周期）
+- 上级：[Bean 注册与创建流程](../../../../flows/Bean注册与创建流程.md)（Phase 6 触发生命周期）
 - 上级：[Context refresh](../../context/mechanism/ContextRefresh.md)（`finishBeanFactoryInitialization` 阶段预实例化非 lazy Bean）
 - 下级：[BeanInstantiation](BeanInstantiation.md)（Instantiation 阶段的构造策略详情）
 - 相关：[BeanPostProcessor](../interface/BeanPostProcessor.md)（实例级拦截）

@@ -50,8 +50,8 @@ java -jar app.jar --server.port=8080 --debug profile1 profile2
 
 ## 关系：上级/下级/等价/特例/推广
 
-- 上级：启动流程（见 [flows/启动流程.md](../../../flows/启动流程.md)）的 Phase 0-2（参数准备阶段）
-- 使用者：`ApplicationRunner.run(ApplicationArguments args)`（见 [ApplicationRunner.md](./ApplicationRunner.md)）
+- 上级：启动流程（见 [flows/启动流程.md](../../../../flows/启动流程.md)）的 Phase 0-2（参数准备阶段）
+- 使用者：`ApplicationRunner.run(ApplicationArguments args)`（见 [ApplicationRunner.md](../interface/ApplicationRunner.md)）
 - 对比：原始 `String[] args`（`CommandLineRunner` 使用）
 
 ## 把新概念挂回框架（多级索引轨迹）

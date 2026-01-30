@@ -55,6 +55,7 @@
 ## 关系：上级/下级/等价/特例/推广
 - 上级：依赖注入容器（DI container）。
 - 相关：
+  - `ConfigurableApplicationContext`（可配置运行时视图）：见 [ConfigurableApplicationContext.md](ConfigurableApplicationContext.md)
   - `SpringApplication`（创建并驱动 refresh）：见 [springboot/modules/core/bootstrap/class/SpringApplication.md](../../bootstrap/class/SpringApplication.md)
   - 外部化配置（`Environment`）：见 [springboot/modules/config/mechanism/ExternalizedConfiguration.md](../../../config/mechanism/ExternalizedConfiguration.md)
   - 自动配置：见 [springboot/modules/config/mechanism/AutoConfiguration.md](../../../config/mechanism/AutoConfiguration.md)
