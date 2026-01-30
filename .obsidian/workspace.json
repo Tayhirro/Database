@@ -8,29 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e0ca67c69e583588",
+            "id": "8f61731f8e1e8a24",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "java/javass.md",
+                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "javass"
-            }
-          },
-          {
-            "id": "8f61731f8e1e8a24",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "轨迹预测/论文/LaneGCN.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "LaneGCN"
+              "title": "ContextRefresh"
             }
           },
           {
@@ -220,11 +208,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e0ca67c69e583588",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "轨迹预测/论文/LaneGCN.pdf",
+    "java/javass.md",
     "算法/算法a.md",
     "算法/算法.md",
-    "java/javass.md",
     "python/python1.md",
     "python",
     "音乐/fl和声.md",
@@ -233,7 +222,6 @@
     "音乐/modules/music-theory/03-rhythm/节奏型.md",
     "java",
     "未命名 10.base",
-    "轨迹预测/论文/LaneGCN.pdf",
     "springboot/flows/运行全链路.md",
     "springboot/flows/启动流程.md",
     "springboot/modules/config/mechanism/ExternalizedConfiguration.md",
@@ -251,7 +239,6 @@
     "springboot/modules/core/beans/interface/Scope.md",
     "springboot/modules/core/beans/interface/ConfigurableListableBeanFactory.md",
     "springboot/modules/core/beans/interface/BeanFactory.md",
-    "springboot/modules/core/beans/interface/BeanDefinitionRegistry.md",
     "HMDP-Redis/hm-dianping/target/classes/unlock.lua",
     "HMDP-Redis/hm-dianping/target/classes/seckill.lua",
     "HMDP-Redis/hm-dianping/target/classes/mapper/VoucherMapper.xml",
