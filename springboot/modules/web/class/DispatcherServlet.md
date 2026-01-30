@@ -1,9 +1,9 @@
 # DispatcherServlet（前端控制器）
 
-> **类型**：核心组件（Core Component）
+> **类型**：类（Class）
 
 ## 一句话
-`DispatcherServlet` 是 Spring Web MVC 的核心前端控制器（Front Controller），负责接收所有 HTTP 请求并将其分发给合适的处理器（Controller）进行处理，最后返回响应。
+`DispatcherServlet` 是 Spring Web MVC 的前端控制器（Front Controller），负责接收 HTTP 请求并将其分发给合适的处理器（Controller）进行处理，最后返回响应。
 
 ## 严格定义
 `org.springframework.web.servlet.DispatcherServlet` 是一个标准的 Servlet，它通过继承 `FrameworkServlet` 和 `HttpServlet` 实现了 Java Servlet 规范。在 Spring Boot 中，它默认被自动配置并注册到根路径 `/`，作为应用处理 HTTP 请求的统一入口。

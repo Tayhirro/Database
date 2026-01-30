@@ -37,14 +37,15 @@ tags:
 - `refreshContext(context)` → `context.refresh()`
 - 在 `ContextRefresh` 的 hook 阶段，Servlet Web 上下文覆写 `onRefresh()` 并触发 WebServer 创建与启动：
   - refresh 模板流程：见 [../modules/core/context/mechanism/ContextRefresh.md](../modules/core/context/mechanism/ContextRefresh.md)
-  - WebServer 机制总览：见 [../modules/web/mechanism/EmbeddedWebServer.md](../modules/web/mechanism/EmbeddedWebServer.md)
+- WebServer 机制总览：见 [../modules/web/mechanism/EmbeddedWebServer.md](../modules/web/mechanism/EmbeddedWebServer.md)
+- WebServer 生命周期与线程保活：见 [../modules/web/mechanism/WebServerLifecycleAndThreads.md](../modules/web/mechanism/WebServerLifecycleAndThreads.md)
 
 概念级调用链（Servlet Web）：
 1) `SpringApplication.refreshContext(context)`  
-2) `AnnotationConfigServletWebServerApplicationContext.refresh()`  
+2) `AnnotationConfigServletWebServerApplicationContext.refresh()`（在该实例上调用，方法实现来自 Framework 的 `AbstractApplicationContext.refresh()`）  
 3) `AbstractApplicationContext.refresh()`（模板方法）  
-4) `onRefresh()`（Servlet Web 上下文覆写）  
-5) `createWebServer()`（创建并持有 `webServer`）  
+4) `ServletWebServerApplicationContext.onRefresh()`（Boot 的 Servlet Web 上下文覆写 hook）  
+5) `ServletWebServerApplicationContext.createWebServer()`（创建并写入 `webServer` 字段）  
 6) `ServletWebServerFactory.getWebServer(...)` → `WebServer.start()`  
 7) 容器实现启动端口监听与请求处理线程（non-daemon）
 
@@ -69,4 +70,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → flows → ServletWeb应用持续运行机制 →（SpringApplication.run / ContextRefresh.onRefresh / EmbeddedWebServer / WebServer.start）。
-

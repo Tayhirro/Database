@@ -1,9 +1,9 @@
 # DispatcherHandler（WebFlux 前端控制器）
 
-> **类型**：核心组件（Core Component）
+> **类型**：类（Class）
 
 ## 一句话
-`DispatcherHandler` 是 Spring WebFlux 的核心前端控制器，负责以非阻塞、响应式的方式接收 HTTP 请求并协调 HandlerMapping、HandlerAdapter 和 HandlerResultHandler 完成处理。
+`DispatcherHandler` 是 Spring WebFlux 的前端控制器，负责以非阻塞、响应式的方式接收 HTTP 请求并协调 HandlerMapping、HandlerAdapter 和 HandlerResultHandler 完成处理。
 
 ## 严格定义
 `org.springframework.web.reactive.DispatcherHandler` 是实现了 `WebHandler` 接口的 Spring Bean。它不依赖于 Servlet API，而是基于 Reactor 的 `Mono`/`Flux` 模型设计，是 WebFlux 应用的请求处理总入口。
@@ -24,13 +24,13 @@
 ## 接口：数据 + 约束
 - **输入**：`ServerWebExchange`（包含 `ServerHttpRequest` 和 `ServerHttpResponse`）。
 - **输出**：`Mono<Void>`（表示处理过程的异步完成信号，响应数据直接写入 Exchange）。
-- **约束**：全链路必须是非阻塞的（Non-blocking）。如果在 Handler 中执行阻塞操作（如 JDBC），必须显式调度到阻塞线程池，否则会卡死少量的工作线程（如 Netty EventLoop）。
+- **约束**：该调用链预期以非阻塞方式运行；若在 Handler 中执行阻塞操作（如 JDBC），需要显式调度到阻塞线程池，否则可能阻塞 event loop 线程并影响吞吐。
 
 ## 辨析：Servlet vs Reactive (走什么路？)
 
 | 特性 | Servlet 栈 (Spring MVC) | Reactive 栈 (Spring WebFlux) |
 | :--- | :--- | :--- |
-| **核心组件** | `DispatcherServlet` (extends `HttpServlet`) | `DispatcherHandler` (implements `WebHandler`) |
+| 入口组件 | `DispatcherServlet` (extends `HttpServlet`) | `DispatcherHandler` (implements `WebHandler`) |
 | **I/O 模型** | **同步阻塞** (Blocking I/O) | **异步非阻塞** (Non-blocking I/O) |
 | **数据载体** | `HttpServletRequest` / `HttpServletResponse` | `ServerWebExchange` (封装了 Request/Response) |
 | **底层容器** | Tomcat, Jetty (Servlet Container) | Netty, Tomcat, Jetty, Undertow (Reactive Adapter) |

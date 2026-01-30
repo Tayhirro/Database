@@ -3,7 +3,7 @@
 > **类型**：机制（Mechanism）
 
 ## 一句话
-嵌入式 WebServer 是 Spring Boot 在 Web 应用形态下对“服务器创建、生命周期托管与与 `ApplicationContext` 绑定”的集成机制。
+嵌入式 WebServer 是 Spring Boot 在 Web 应用形态下对“服务器创建、生命周期托管与 `ApplicationContext` 绑定”的集成机制。
 
 ## 严格定义
 当 `WebApplicationType` 为 servlet 或 reactive 时，Boot 会创建对应的 `ConfigurableApplicationContext`（常见为 Servlet/Reactive 的 web context 实现），并在启动过程中创建 `WebServer` 实例以接管端口与请求处理。
@@ -25,6 +25,7 @@
 ## 关系：上级/下级/等价/特例/推广
 - 上级：应用运行时（对外服务形态）。
 - 相关：外部化配置（端口等）、生命周期事件（ready 边界）、`SpringApplication`（按 `WebApplicationType` 选择上下文实现）。
+- 下级：WebServer 生命周期与线程保活（见 [WebServerLifecycleAndThreads.md](WebServerLifecycleAndThreads.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → 嵌入式 WebServer → 启动流程。
