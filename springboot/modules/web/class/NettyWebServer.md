@@ -16,8 +16,14 @@
 - 数据（语义级别）：
   - `httpServer: reactor.netty.http.server.HttpServer`
   - `handlerAdapter: ReactorHttpHandlerAdapter`
+- 构造签名（Boot 2.7.4）：
+  - `NettyWebServer(HttpServer, ReactorHttpHandlerAdapter, Duration, Shutdown)`
+- 可选路由扩展（Boot 2.7.4）：
+  - `setRouteProviders(List<NettyRouteProvider>)`
+  - 其中 `NettyRouteProvider` 为 `Function<HttpServerRoutes, HttpServerRoutes>` 形式的路由变换器，用于在 server 启动前组合/注入路由规则。
 - 约束：
   - 线程模型由 Reactor Netty 的 event loop 决定；`NettyWebServer` 负责触发生命周期。
+  - `Duration` 与 `Shutdown` 作为构造输入用于描述停止/优雅关闭相关的时间与策略参数（具体边界由实现定义）。
 
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`start()` / `stop()` / `getPort()`
@@ -26,7 +32,7 @@
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`WebServer`（见 [../interface/WebServer.md](../interface/WebServer.md)）。
 - 创建者：`NettyReactiveWebServerFactory`（见 [NettyReactiveWebServerFactory.md](NettyReactiveWebServerFactory.md)）。
+- 相关：Reactor Netty（`HttpServer` / event loop）提供实际 I/O 与线程模型；`NettyWebServer` 在其上提供 Boot 的生命周期适配层。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → class → NettyWebServer → EmbeddedWebServer。
-
