@@ -107,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 303.5069465637207
+    "width": 396.5069465637207
   },
   "right": {
     "id": "49f3e4bd09f511b1",
@@ -226,6 +226,13 @@
   },
   "active": "99558ef4ade1e8bc",
   "lastOpenFiles": [
+    "springboot/modules/web/class/NettyWebServer.md",
+    "springboot/modules/web/class/TomcatServletWebServerFactory.md",
+    "springboot/flows/ServletWeb应用持续运行机制.md",
+    "springboot/modules/web/mechanism/EmbeddedWebServer.md",
+    "springboot/modules/web/mechanism/WebServerLifecycleAndThreads.md",
+    "springboot/modules/web/mechanism/WebScopes.md",
+    "springboot/modules/web/class/TomcatWebServer.md",
     "agent/llm/索引.md",
     "agent/llm/概念图.md",
     "agent/llm/README.md",
@@ -240,11 +247,7 @@
     "agent/llm/modules/FFN.md",
     "agent/llm/modules/RoPE.md",
     "agent/llm/modules/MoE.md",
-    "springboot/modules/web/mechanism/WebServerLifecycleAndThreads.md",
-    "springboot/modules/web/class/NettyWebServer.md",
     "springboot/modules/web/class/NettyReactiveWebServerFactory.md",
-    "springboot/modules/web/class/TomcatWebServer.md",
-    "springboot/modules/web/class/TomcatServletWebServerFactory.md",
     "springboot/modules/web/interface/ServletWebServerFactory.md",
     "springboot/modules/web/interface/WebServer.md",
     "springboot/modules/web/interface/WebServerFactory.md",
@@ -252,11 +255,8 @@
     "springboot/modules/web/interface",
     "agent/llm/structures",
     "agent/llm",
-    "springboot/flows/ServletWeb应用持续运行机制.md",
     "未命名 10.base",
     "springboot/modules/config/mechanism/ConfigurationOverview.md",
-    "springboot/modules/config/mechanism/ConfigurationProperties.md",
-    "springboot/modules/config/mechanism/ExternalizedConfiguration.md",
     "agent/论文/Qwen3-report.pdf",
     "轨迹预测/论文/LaneGCN.pdf",
     "python",
