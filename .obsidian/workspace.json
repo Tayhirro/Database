@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
+                "file": "springboot/modules/core/context/interface/ApplicationContext.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ContextRefresh"
+              "title": "ApplicationContext"
             }
           },
           {
@@ -210,6 +210,7 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "轨迹预测/论文/LaneGCN.pdf",
     "java/javass.md",
     "算法/算法a.md",
@@ -225,7 +226,6 @@
     "springboot/flows/运行全链路.md",
     "springboot/flows/启动流程.md",
     "springboot/modules/config/mechanism/ExternalizedConfiguration.md",
-    "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/core/bootstrap/interface/CommandLineRunner.md",
     "springboot/modules/core/bootstrap/interface/ApplicationRunner.md",
     "springboot/modules/core/bootstrap/class/ApplicationArguments.md",
