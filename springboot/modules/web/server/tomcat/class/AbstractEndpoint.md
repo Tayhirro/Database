@@ -41,12 +41,70 @@ tags:
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`start()` / `stop()` / `pause()` / `resume()`（存在性取决于具体实现）
 
+## 运行态模型（以 HTTP/1.1 NIO 为例）
+
+### 启动链路（Boot → AbstractEndpoint.start）
+在 embedded Tomcat（Servlet）形态下，可用概念级链路表达 `AbstractEndpoint.start()` 的触发来源：
+
+[`TomcatWebServer`](../../../class/TomcatWebServer.md) → `Tomcat.start()` → [`Connector`](Connector.md).`startInternal()` → [`ProtocolHandler`](../interface/ProtocolHandler.md).`start()` → [`AbstractProtocol`](AbstractProtocol.md).`start()` → `AbstractEndpoint.start()`
+
+其中 `AbstractProtocol.start()` 的典型实现会调用其持有的 `endpoint.start()`，从而触发端点的“绑定端口 + 启动运行态线程/执行器”。
+
+### 线程角色（acceptor / poller / worker）
+在 NIO 端点（例如 `NioEndpoint`）语义模型下，可将运行态执行单元按职责划分为三类角色：
+
+- Acceptor（接入线程）：
+  - 输入：TCP 连接请求
+  - 行为：执行 accept（例如 `ServerSocketChannel.accept()`）并初始化新连接，然后把连接交给 I/O 轮询机制管理
+- Poller（I/O 轮询线程）：
+  - 输入：已建立连接的 I/O 就绪事件
+  - 行为：执行 select/poll（例如 `Selector.select()`）并将“就绪连接”转换为待执行任务投递到 worker executor
+- Worker（请求处理线程 / executor）：
+  - 输入：由 Poller/端点生成的处理任务（例如读取字节、解析 HTTP、驱动 Servlet 调用、写回响应）
+  - 行为：在 `Executor` 提供的线程中执行任务
+
+线程名（观测级）通常携带连接器与端口信息；其格式属于实现细节，可用于运行态识别 acceptor/poller/worker 三类角色，但不构成稳定接口。
+
+### 队列与上限（分层）
+以下条目用于将“连接接入/连接数量/请求处理”三层的排队与上限区分开来（字段名与精确定义可能随 Tomcat 版本与 OS 实现变化）：
+
+- `acceptCount`（OS backlog，接入层）：
+  - 语义：由操作系统维护的“等待应用 accept 的连接请求队列”的容量上界
+- `maxConnections`（连接上限，连接层）：
+  - 语义：端点/协议处理器对“已建立连接数量”的上界约束；到达上限后，新连接接入与排队行为取决于实现与平台
+- `maxThreads` / `minSpareThreads` / `maxQueueSize`（执行层）：
+  - 语义：worker executor 的最大线程数、最小保活线程数、以及任务队列容量（队列语义取决于 executor 实现）
+  - 位置：当端点使用内部线程池时，上述参数通常直接作用于该线程池；当端点使用外部注入的 `Executor` 时，上述语义由外部 executor 的实现决定
+
+### Spring Boot 配置映射（Servlet / Tomcat）
+以下映射只表达“属性名 → Tomcat 语义位置”的关系；是否落到 `AbstractEndpoint` 字段、以及落到内部线程池还是外部 executor，取决于实际协议与实现。
+
+| Spring Boot 属性 | Tomcat 语义位置 | 作用对象（概念级） |
+| --- | --- | --- |
+| `server.tomcat.accept-count` | `acceptCount`（OS backlog） | 接入层队列上限 |
+| `server.tomcat.max-connections` | `maxConnections`（连接上限） | 连接层上限 |
+| `server.tomcat.threads.max` | `maxThreads`（worker 线程上限） | 执行层：worker executor |
+| `server.tomcat.threads.min-spare` | `minSpareThreads`（保活线程） | 执行层：worker executor |
+| `server.tomcat.threads.max-queue-capacity` | `maxQueueSize`（任务队列容量） | 执行层：worker executor |
+
+前提（可选）：若应用启用“以其他执行器替代传统 worker 线程池”的模式（例如虚拟线程执行器或显式注入外部 executor），上述 threads.* 属性与底层执行器之间可能不再是一一对应关系。
+
+## 可观测接口（运行态）
+- 连接与线程计数：
+  - `getConnectionCount()`
+  - `getCurrentThreadCount()`
+  - `getCurrentThreadsBusy()`
+- 执行器视图：
+  - `getExecutor()`
+
 ## 代码示例
 ### 读取 endpoint 的运行态线程计数（通过 AbstractProtocol 反射获取 endpoint）
 前提：应用使用 embedded Tomcat；`Connector.getProtocolHandler()` 返回的具体类型为 `AbstractProtocol`。
 
 ```java
 import java.lang.reflect.Method;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.AbstractProtocol;
 import org.apache.coyote.ProtocolHandler;
@@ -70,6 +128,19 @@ void readThreadCounters(Connector connector) throws Exception {
   int currentThreadCount = endpoint.getCurrentThreadCount();
   int currentThreadsBusy = endpoint.getCurrentThreadsBusy();
   long connectionCount = endpoint.getConnectionCount();
+  System.out.println("currentThreadCount=" + currentThreadCount);
+  System.out.println("currentThreadsBusy=" + currentThreadsBusy);
+  System.out.println("connectionCount=" + connectionCount);
+
+  Executor executor = endpoint.getExecutor();
+  System.out.println("executor=" + executor);
+  if (executor instanceof ThreadPoolExecutor tpe) {
+    System.out.println("poolSize=" + tpe.getPoolSize());
+    System.out.println("active=" + tpe.getActiveCount());
+    System.out.println("core=" + tpe.getCorePoolSize());
+    System.out.println("max=" + tpe.getMaximumPoolSize());
+    System.out.println("queueSize=" + tpe.getQueue().size());
+  }
 }
 ```
 
