@@ -30,6 +30,45 @@ tags:
 - `start()`：触发 `endpoint.start()` 并启动/调度辅助任务
 - `stop()`：停止端点与相关任务（边界由实现定义）
 
+## 代码示例
+### 通过 TomcatServletWebServerFactory 定制 AbstractProtocol 参数（Boot/Servlet/Tomcat 场景）
+前提：应用使用 embedded Tomcat，且存在 `TomcatServletWebServerFactory`。
+
+```java
+import org.apache.coyote.AbstractProtocol;
+import org.apache.coyote.ProtocolHandler;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.context.annotation.Bean;
+
+@Bean
+WebServerFactoryCustomizer<TomcatServletWebServerFactory> customizeTomcatProtocol() {
+  return factory -> factory.addConnectorCustomizers(connector -> {
+    ProtocolHandler handler = connector.getProtocolHandler();
+    if (handler instanceof AbstractProtocol<?> protocol) {
+      protocol.setMaxThreads(200);
+      protocol.setAcceptCount(100);
+      protocol.setMaxConnections(8192);
+    }
+  });
+}
+```
+
+### 通过反射获取 endpoint 并读取线程计数（实现细节依赖）
+前提：`ProtocolHandler` 的具体类型为 `AbstractProtocol`；`getEndpoint()` 为受保护成员，使用反射调用。
+
+```java
+import java.lang.reflect.Method;
+import org.apache.coyote.AbstractProtocol;
+import org.apache.tomcat.util.net.AbstractEndpoint;
+
+AbstractEndpoint<?, ?> endpointOf(AbstractProtocol<?> protocol) throws Exception {
+  Method m = AbstractProtocol.class.getDeclaredMethod("getEndpoint");
+  m.setAccessible(true);
+  return (AbstractEndpoint<?, ?>) m.invoke(protocol);
+}
+```
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`ProtocolHandler`（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)）。
 - 下级：`AbstractEndpoint`（见 [AbstractEndpoint.md](AbstractEndpoint.md)）。
@@ -37,4 +76,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → AbstractProtocol。
-

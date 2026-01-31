@@ -31,6 +31,25 @@ tags:
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`start()` / `stop()` / `destroy()`
 
+## 代码示例
+### 通过 Connector 获取 ProtocolHandler 并按实现分支处理
+前提：可获得 Tomcat 的 `Connector` 实例。
+
+```java
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.AbstractProtocol;
+import org.apache.coyote.ProtocolHandler;
+
+void inspectProtocol(Connector connector) {
+  ProtocolHandler handler = connector.getProtocolHandler();
+  if (handler instanceof AbstractProtocol<?> protocol) {
+    int maxThreads = protocol.getMaxThreads();
+    long connectionCount = protocol.getConnectionCount();
+    String id = protocol.getId();
+  }
+}
+```
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：Tomcat 组件模型（见 [../mechanism/TomcatComponentModel.md](../mechanism/TomcatComponentModel.md)）。
 - 被持有者：`Connector`（见 [../class/Connector.md](../class/Connector.md)）。
@@ -38,4 +57,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → interface → ProtocolHandler。
-

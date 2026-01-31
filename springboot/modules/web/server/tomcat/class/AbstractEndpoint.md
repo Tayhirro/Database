@@ -33,10 +33,41 @@ tags:
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`start()` / `stop()` / `pause()` / `resume()`（存在性取决于具体实现）
 
+## 代码示例
+### 读取 endpoint 的运行态线程计数（通过 AbstractProtocol 反射获取 endpoint）
+前提：应用使用 embedded Tomcat；`Connector.getProtocolHandler()` 返回的具体类型为 `AbstractProtocol`。
+
+```java
+import java.lang.reflect.Method;
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.AbstractProtocol;
+import org.apache.coyote.ProtocolHandler;
+import org.apache.tomcat.util.net.AbstractEndpoint;
+
+AbstractEndpoint<?, ?> endpointOf(Connector connector) throws Exception {
+  ProtocolHandler handler = connector.getProtocolHandler();
+  if (!(handler instanceof AbstractProtocol<?> protocol)) {
+    return null;
+  }
+  Method m = AbstractProtocol.class.getDeclaredMethod("getEndpoint");
+  m.setAccessible(true);
+  return (AbstractEndpoint<?, ?>) m.invoke(protocol);
+}
+
+void readThreadCounters(Connector connector) throws Exception {
+  AbstractEndpoint<?, ?> endpoint = endpointOf(connector);
+  if (endpoint == null) {
+    return;
+  }
+  int currentThreadCount = endpoint.getCurrentThreadCount();
+  int currentThreadsBusy = endpoint.getCurrentThreadsBusy();
+  long connectionCount = endpoint.getConnectionCount();
+}
+```
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`AbstractProtocol`（见 [AbstractProtocol.md](AbstractProtocol.md)）。
 - 相关：Tomcat 线程与执行器模型（见 [../mechanism/TomcatThreadingAndExecutors.md](../mechanism/TomcatThreadingAndExecutors.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → AbstractEndpoint。
-

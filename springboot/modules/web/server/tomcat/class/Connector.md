@@ -35,6 +35,40 @@ tags:
 - 生命周期：`startInternal()` / `stopInternal()`
 - 观测：`getPort()` / `getLocalPort()` / `getScheme()`
 
+## 代码示例
+### 在运行态读取 Connector → ProtocolHandler（Servlet/Tomcat 场景）
+前提：应用为 Servlet Web 形态，且使用 embedded Tomcat；运行时可取得 `TomcatWebServer`。
+
+```java
+import org.apache.catalina.Service;
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.ProtocolHandler;
+import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
+import org.springframework.boot.web.server.WebServer;
+import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.boot.ApplicationRunner;
+
+@Bean
+ApplicationRunner dumpConnectors(ApplicationContext context) {
+  return args -> {
+    if (context instanceof ServletWebServerApplicationContext webContext) {
+      WebServer webServer = webContext.getWebServer();
+      if (webServer instanceof TomcatWebServer tomcatWebServer) {
+        Service service = tomcatWebServer.getTomcat().getService();
+        for (Connector connector : service.findConnectors()) {
+          ProtocolHandler protocolHandler = connector.getProtocolHandler();
+          String protocolHandlerClassName = connector.getProtocolHandlerClassName();
+          int configuredPort = connector.getPort();
+          int localPort = connector.getLocalPort();
+        }
+      }
+    }
+  };
+}
+```
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：Tomcat 组件模型（见 [../mechanism/TomcatComponentModel.md](../mechanism/TomcatComponentModel.md)）。
 - 下级：`ProtocolHandler`（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)）。
@@ -42,4 +76,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Connector。
-
