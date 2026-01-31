@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
+                "file": "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TomcatWebServerStartStop"
+              "title": "TomcatComponentModel"
             }
           },
           {
@@ -62,7 +62,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -236,8 +236,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "045ad0e626400cdb",
+  "active": "99558ef4ade1e8bc",
   "lastOpenFiles": [
+    "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
+    "springboot/modules/web/server/tomcat/class/Connector.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
+    "agent/llm/README.md",
+    "springboot/flows/ServletWeb应用持续运行机制.md",
+    "agent/论文/Qwen3-report.pdf",
     "agent/llm/概念图.md",
     "agent/llm/evaluation/索引.md",
     "agent/llm/context/索引.md",
@@ -249,7 +255,6 @@
     "agent/llm/training/索引.md",
     "agent/llm/architecture/索引.md",
     "agent/llm/evaluation/README.md",
-    "agent/llm/README.md",
     "agent/llm/context/README.md",
     "agent/llm/scaling/README.md",
     "agent/llm/prompting/README.md",
@@ -268,12 +273,7 @@
     "agent/llm/tokenization",
     "agent/llm/inference/quantization",
     "agent/llm/inference/decoding",
-    "agent/llm/inference/acceleration",
     "agent/llm/索引.md",
-    "英语/词汇/themes/Academic.md",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
-    "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
-    "springboot/modules/web/server/tomcat/class/Connector.md",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
