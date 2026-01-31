@@ -32,6 +32,9 @@
 - 上级：`WebServer`（见 [../interface/WebServer.md](../interface/WebServer.md)）。
 - 创建者：`TomcatServletWebServerFactory`（见 [TomcatServletWebServerFactory.md](TomcatServletWebServerFactory.md)）。
 - 相关：Tomcat 组件模型（`Tomcat` / `Service` / `Connector` / `Engine` / `Host` / `Context`）属于底层容器结构；`TomcatWebServer` 在该结构之上提供 Boot 的生命周期适配层。
+- 机制细化：
+  - `start/stop` 触发链：见 [../server/tomcat/mechanism/TomcatWebServerStartStop.md](../server/tomcat/mechanism/TomcatWebServerStartStop.md)
+  - 线程与执行器：见 [../server/tomcat/mechanism/TomcatThreadingAndExecutors.md](../server/tomcat/mechanism/TomcatThreadingAndExecutors.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → class → TomcatWebServer → flows/ServletWeb应用持续运行机制。

@@ -33,6 +33,9 @@
 - 上级：`WebServer`（见 [../interface/WebServer.md](../interface/WebServer.md)）。
 - 创建者：`NettyReactiveWebServerFactory`（见 [NettyReactiveWebServerFactory.md](NettyReactiveWebServerFactory.md)）。
 - 相关：Reactor Netty（`HttpServer` / event loop）提供实际 I/O 与线程模型；`NettyWebServer` 在其上提供 Boot 的生命周期适配层。
+- 机制细化：
+  - `start/stop` 触发链：见 [../server/netty/mechanism/NettyWebServerStartStop.md](../server/netty/mechanism/NettyWebServerStartStop.md)
+  - 线程与 event loop：见 [../server/netty/mechanism/NettyThreadingAndExecutors.md](../server/netty/mechanism/NettyThreadingAndExecutors.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → class → NettyWebServer → EmbeddedWebServer。

@@ -27,10 +27,16 @@ WebServer 生命周期与线程保活机制描述了 `WebServer.start()` 启动�
 - `TomcatServletWebServerFactory` 创建 `TomcatWebServer`（见 [../class/TomcatServletWebServerFactory.md](../class/TomcatServletWebServerFactory.md)、[../class/TomcatWebServer.md](../class/TomcatWebServer.md)）。
 - `TomcatWebServer.start()` 触发 Tomcat 启动并绑定端口；端口监听与请求处理由 Tomcat 的连接器/线程池承担。
 - 线程命名与分类属于实现细节；在常见配置下可观察到 acceptor/poller/worker 等类别（名称形式与数量与协议实现有关）。
+- 机制细化：
+  - `start/stop` 触发链：见 [../server/tomcat/mechanism/TomcatWebServerStartStop.md](../server/tomcat/mechanism/TomcatWebServerStartStop.md)
+  - 线程与执行器角色：见 [../server/tomcat/mechanism/TomcatThreadingAndExecutors.md](../server/tomcat/mechanism/TomcatThreadingAndExecutors.md)
 
 ### Netty（Reactive）
 - `NettyReactiveWebServerFactory` 创建 `NettyWebServer`（见 [../class/NettyReactiveWebServerFactory.md](../class/NettyReactiveWebServerFactory.md)、[../class/NettyWebServer.md](../class/NettyWebServer.md)）。
 - `NettyWebServer.start()` 启动 event loop 以处理连接与 I/O；event loop 的线程模型由 Reactor Netty 决定。
+- 机制细化：
+  - `start/stop` 触发链：见 [../server/netty/mechanism/NettyWebServerStartStop.md](../server/netty/mechanism/NettyWebServerStartStop.md)
+  - 线程与 event loop 角色：见 [../server/netty/mechanism/NettyThreadingAndExecutors.md](../server/netty/mechanism/NettyThreadingAndExecutors.md)
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：嵌入式 WebServer 机制（见 [EmbeddedWebServer.md](EmbeddedWebServer.md)）。
