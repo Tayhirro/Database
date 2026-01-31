@@ -805,7 +805,6 @@ Class cls = s.getClass();
 ```java
 Class cls = Class.forName("java.lang.String");
 ```
-
 ### 动态加载
 
 - 选择性加载各种类
@@ -1091,19 +1090,66 @@ interface Hello {
 ClassLoader classLoader = Main.class.getClassLoader();
 ```
 
-- 获取到类加载器
-
 ```java
 Class<?> loadedClass =classLoader.loadClass();
 ```
-
-- loadClass 加载类
 
 #### 可以使用当前线程进行类的加载
 
 ```java
 ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 ```
+
+#### JVM 中的 ClassLoader 层次与加载方式（概念模型）
+
+JVM 对“类从哪里来、由谁来定义（define）”的组织方式可以抽象为：**一组有父子关系的 ClassLoader + 双亲委派（parent delegation）**。
+
+##### 1) 层次结构（JDK 8 vs JDK 9+）
+
+- JDK 8 常见层次（概念口径）：
+  - Bootstrap ClassLoader（启动类加载器）：加载 `rt.jar` 等核心类库；在 Java 代码里表现为 `null`（不是 `ClassLoader` 的 Java 对象）。
+  - Extension ClassLoader（扩展类加载器）：加载 `$JAVA_HOME/jre/lib/ext` 等扩展目录（JDK 9+ 后不再以此模型为主）。
+  - Application ClassLoader（应用类加载器）：加载应用 classpath（`-classpath/-cp`）中的类。
+- JDK 9+ 常见层次（模块化后的口径）：
+  - Bootstrap ClassLoader：加载 `java.base` 等引导模块。
+  - Platform ClassLoader：加载平台模块（替代 JDK 8 的 “Ext” 概念位置）。
+  - Application ClassLoader：加载 classpath 与应用模块等。
+
+代码观测（打印层级）：
+
+```java
+ClassLoader app = Main.class.getClassLoader();
+ClassLoader parent = app.getParent();
+ClassLoader bootstrap = (parent == null) ? null : parent.getParent();
+```
+
+##### 2) 双亲委派（parent delegation）的“加载法”
+
+当调用 `ClassLoader.loadClass(name)` 时，典型策略是：
+1. 先检查该 `ClassLoader` 是否已经加载过该类（缓存/已定义类集合）。
+2. 将加载请求委派给 parent（一直到 Bootstrap）。
+3. parent 无法完成时，当前 `ClassLoader` 才尝试自行查找并定义该类（通常落在 `findClass`/`defineClass`）。
+
+这一策略使得：
+- 核心类（如 `java.lang.String`）倾向由上层（Bootstrap）统一定义，避免同名类被应用侧“覆盖定义”。
+- 同名类是否被视为“同一个类”，取决于 **(class name, defining ClassLoader)** 这对二元组。
+
+##### 3) 类的来源：classpath / module path / 自定义来源
+
+- Application ClassLoader 的常见来源是 classpath：Jar/目录（`-cp`）。
+- 模块化后还存在 module path（`--module-path`）与模块解析规则。
+- 自定义 ClassLoader 可以把“类的字节流来源”改为：网络、数据库、加密文件、内存字节数组等；最终仍需调用 `defineClass(...)` 把字节码定义为 JVM 内的 `Class<?>`。
+
+##### 4) ContextClassLoader（线程上下文类加载器）
+
+`Thread.currentThread().getContextClassLoader()` 通常用于“框架代码加载应用代码”的场景：
+- 调用点位于框架/容器线程中（框架类由 platform/app loader 加载），但需要加载应用侧实现类（由 app loader 或自定义 loader 定义）。
+- 因此，框架在运行时可以通过线程上下文类加载器获取“应当用哪个 loader 去找实现类”的线索。
+
+常见用法：SPI（`ServiceLoader`）、容器插件体系、应用服务器/嵌入式容器集成等。
+
+
+
 
 ## 泛型与特化
 
