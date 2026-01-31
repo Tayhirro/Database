@@ -1148,6 +1148,59 @@ ClassLoader bootstrap = (parent == null) ? null : parent.getParent();
 
 常见用法：SPI（`ServiceLoader`）、容器插件体系、应用服务器/嵌入式容器集成等。
 
+#### 容器类加载器（Tomcat 的 WebappClassLoader / TomcatWebClassLoader）
+
+Tomcat 这类 Servlet 容器会在同一个 JVM 进程里托管多个 Web 应用（webapp），因此会额外引入“每个 webapp 一套类空间”的类加载器体系，用于隔离不同应用的依赖与静态状态。
+
+##### 1) 目的：每个 webapp 一个 defining ClassLoader
+
+对容器而言，类的身份仍然是 **(class name, defining ClassLoader)**：
+- webapp1 的 `com.example.A` 由 `WebappClassLoader#1` 定义
+- webapp2 的 `com.example.A` 由 `WebappClassLoader#2` 定义
+即使类名相同，JVM 也认为它们是不同类型，互相不能强转，也不共享静态字段。
+
+##### 2) 典型来源：`WEB-INF/classes` 与 `WEB-INF/lib/*.jar`
+
+Tomcat 的 webapp 类加载器（常见实现名：`WebappClassLoaderBase` / `ParallelWebappClassLoader` 等）通常以 URL 集合的方式组织来源：
+- `WEB-INF/classes/`（编译输出的 `.class`）
+- `WEB-INF/lib/*.jar`（应用私有依赖）
+
+容器级/共享库（例如 Tomcat 自身的实现类、Servlet/JSP API 等）通常由更上层的 loader 提供，而不是由 webapp loader 从 `WEB-INF/lib` 定义。
+
+##### 3) 加载顺序：委派模型 + 容器的过滤/例外规则
+
+Tomcat 的 webapp loader 仍然会进行“委派”：
+1. 已加载检查（缓存）
+2. 向 parent 委派（直到 bootstrap/platform/app/容器公共 loader）
+3. parent 找不到时，尝试从 webapp 自己的 URL（`WEB-INF/classes`、`WEB-INF/lib`）里查找并 `defineClass`
+
+但容器通常还会对某些包名做过滤或例外规则，用来约束“哪些类必须来自容器侧，哪些类允许由 webapp 定义”，以避免关键 API/实现被应用覆盖定义（这是一类容器策略，不是 JVM 强制规则）。
+
+##### 4) ContextClassLoader 在容器中的使用
+
+Tomcat 在处理请求时会把当前线程的 ContextClassLoader 设为“当前 webapp 的 classloader”，使得框架代码（或 SPI）在运行时能从正确的 webapp 类空间加载实现类。
+
+##### 5) 代码示例：在 Servlet 中打印类加载器
+
+```java
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class LoaderDumpServlet extends HttpServlet {
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    ClassLoader thisClassLoader = this.getClass().getClassLoader();
+    ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+    ClassLoader stringLoader = String.class.getClassLoader(); // 通常为 null（bootstrap）
+    resp.getWriter().println("this.getClass().getClassLoader() = " + thisClassLoader);
+    resp.getWriter().println("Thread.contextClassLoader = " + contextClassLoader);
+    resp.getWriter().println("String.class.getClassLoader() = " + stringLoader);
+  }
+}
+```
+
 
 
 
