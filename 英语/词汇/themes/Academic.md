@@ -17,6 +17,7 @@
 | plausible   | /ˈplɔːzɪbl/     | adj. | 合理的；可信的 | The model generates plausible future trajectories. |
 | propensity  | /prəˈpensəti/   | n.  | 倾向；趋势 | We use propensity score matching to reduce bias. |
 | interpretable | /ɪnˈtɜːprɪtəbl/ | adj. | 可解释的 | Interpretable models are crucial for high-stakes decisions. |
+| implicitly  | /ɪmˈplɪsɪtli/   | adv. | 隐式地；含蓄地 | The model implicitly learns the underlying structure. |
 
 ---
 
