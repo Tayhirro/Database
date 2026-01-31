@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
+                "file": "springboot/modules/web/server/tomcat/class/Connector.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TomcatComponentModel"
+              "title": "Connector"
             }
           },
           {
@@ -238,6 +238,8 @@
   },
   "active": "99558ef4ade1e8bc",
   "lastOpenFiles": [
+    "springboot/modules/web/server/tomcat/class/AbstractEndpoint.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
     "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
     "springboot/modules/web/server/tomcat/class/Connector.md",
     "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
@@ -263,7 +265,6 @@
     "agent/llm/inference/README.md",
     "agent/llm/training/README.md",
     "agent/llm/architecture/Transformer/Transformer.md",
-    "agent/llm/architecture/README.md",
     "agent/llm/evaluation/benchmarks",
     "agent/llm/evaluation",
     "agent/llm/context",
@@ -273,7 +274,6 @@
     "agent/llm/tokenization",
     "agent/llm/inference/quantization",
     "agent/llm/inference/decoding",
-    "agent/llm/索引.md",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
