@@ -1,39 +1,42 @@
-# LLM 架构（Large Language Model Architecture）
+# LLM 知识库
 
-导航：[agent/README.md](../README.md) | 本分支：[索引.md](索引.md) | [概念图.md](概念图.md)
+导航：[agent/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)
 
-本目录按三条主线组织 LLM 架构知识：
-1. **骨架**：Transformer（Encoder / Decoder / Decoder-only）
-2. **模块**：Attention、FFN、Normalization、Position Encoding
-3. **扩展**：MoE（稀疏化）、Tokenizer
+本目录系统组织大语言模型（LLM）相关知识。
 
 ---
 
 ## 目录结构
 
-- [索引.md](索引.md)：术语索引（中英 | 一句话 | 链接）
-- [概念图.md](概念图.md)：概念关系图（依赖链 / 变体演化）
-
-模块页（modules/）：
-- [modules/Transformer.md](modules/Transformer.md)：Transformer 骨架
-- [modules/SelfAttention.md](modules/SelfAttention.md)：自注意力机制
-- [modules/GQA.md](modules/GQA.md)：Grouped Query Attention
-- [modules/RoPE.md](modules/RoPE.md)：Rotary Position Embedding
-- [modules/FFN.md](modules/FFN.md)：前馈网络（含 SwiGLU）
-- [modules/RMSNorm.md](modules/RMSNorm.md)：RMS 归一化
-- [modules/PreNorm.md](modules/PreNorm.md)：Pre-Norm 归一化位置
-- [modules/QKNorm.md](modules/QKNorm.md)：QK-Norm
-- [modules/MoE.md](modules/MoE.md)：Mixture of Experts
+| 分支 | 说明 | 入口 |
+|------|------|------|
+| architecture/ | 模型架构（Transformer、SSM） | [README](architecture/README.md) |
+| training/ | 训练方法（预训练、微调、优化） | [README](training/README.md) |
+| inference/ | 推理技术（解码、加速、量化） | [README](inference/README.md) |
+| tokenization/ | 分词方法 | [README](tokenization/README.md) |
+| alignment/ | 对齐技术（RLHF、DPO） | [README](alignment/README.md) |
+| prompting/ | 提示工程 | [README](prompting/README.md) |
+| scaling/ | 扩展规律 | [README](scaling/README.md) |
+| context/ | 长上下文 | [README](context/README.md) |
+| evaluation/ | 评估基准 | [README](evaluation/README.md) |
 
 ---
 
-## 阅读路线
+## 快速导航
 
-基础路径：Transformer → Self-Attention → FFN → LayerNorm/RMSNorm
+### 架构
+- [Transformer](architecture/Transformer/Transformer.md) | [SSM](architecture/SSM/SSM.md) | [Mamba](architecture/SSM/Mamba.md)
+- 组件：[SelfAttention](architecture/Transformer/structure/SelfAttention.md) | [FFN](architecture/Transformer/structure/FFN.md) | [RoPE](architecture/Transformer/mechanics/RoPE.md)
+- 变体：[GQA](architecture/Transformer/variants/GQA.md) | [MoE](architecture/Transformer/variants/MoE.md)
 
-变体演化：
-- Attention 变体：MHA → MQA → GQA
-- 位置编码变体：Sinusoidal → Learned → RoPE → ALiBi
-- FFN 变体：ReLU → GELU → SwiGLU
-- 归一化变体：LayerNorm → RMSNorm；Post-Norm → Pre-Norm
-- 稀疏化：Dense → MoE
+### 训练
+- [Pretraining](training/pretraining/Pretraining.md) | [SFT](training/finetuning/SFT.md) | [LoRA](training/finetuning/LoRA.md)
+
+### 推理
+- [KVCache](inference/acceleration/KVCache.md) | [FlashAttention](inference/acceleration/FlashAttention.md) | [Quantization](inference/quantization/Quantization.md)
+
+### 对齐
+- [RLHF](alignment/RLHF.md) | [DPO](alignment/DPO.md)
+
+### 提示
+- [CoT](prompting/CoT.md) | [ReAct](prompting/ReAct.md)

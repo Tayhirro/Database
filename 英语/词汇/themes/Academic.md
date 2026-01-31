@@ -13,6 +13,8 @@
 | curate      | /kjʊəˈreɪt/     | v.  | 策划；整理 | We curate a large-scale dataset for benchmarking. |
 | synthetic   | /sɪnˈθetɪk/     | adj. | 合成的；人造的 | We use synthetic data to augment the training set. |
 | synergy     | /ˈsɪnədʒi/      | n.  | 协同作用 | The synergy between the two modules improves performance. |
+| counterfactual | /ˌkaʊntəˈfæktʃuəl/ | adj./n. | 反事实的；反事实 | Counterfactual reasoning helps explain model predictions. |
+| plausible   | /ˈplɔːzɪbl/     | adj. | 合理的；可信的 | The model generates plausible future trajectories. |
 
 ---
 

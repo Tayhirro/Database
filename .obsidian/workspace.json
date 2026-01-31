@@ -41,16 +41,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "英语/词汇/themes/Academic.md",
+                "file": "agent/llm/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Academic"
+              "title": "README"
+            }
+          },
+          {
+            "id": "045ad0e626400cdb",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "agent/论文/Qwen3-report.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Qwen3-report"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -224,44 +236,44 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "99558ef4ade1e8bc",
+  "active": "045ad0e626400cdb",
   "lastOpenFiles": [
-    "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
-    "springboot/modules/web/server/tomcat/interface",
-    "springboot/modules/web/server/tomcat/class/Connector.md",
-    "springboot/modules/web/server/tomcat/class/AbstractProtocol.md",
-    "springboot/modules/web/server/tomcat/class/AbstractEndpoint.md",
-    "springboot/modules/web/server/tomcat/class",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatThreadingAndExecutors.md",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
-    "springboot/modules/web/server/netty/mechanism/NettyWebServerStartStop.md",
-    "springboot/modules/web/server/netty/mechanism/NettyThreadingAndExecutors.md",
-    "springboot/modules/web/interface/WebServer.md",
-    "springboot/modules/web/server/tomcat/mechanism",
-    "springboot/modules/web/server/netty/mechanism",
-    "springboot/modules/web/server/tomcat",
-    "springboot/modules/web/server/netty",
-    "springboot/modules/web/server",
-    "springboot/modules/web/mechanism/WebScopes.md",
-    "springboot/modules/web/mechanism/WebServerLifecycleAndThreads.md",
-    "springboot/modules/web/class/TomcatWebServer.md",
-    "springboot/modules/web/class/NettyWebServer.md",
-    "springboot/modules/web/class/TomcatServletWebServerFactory.md",
-    "springboot/flows/ServletWeb应用持续运行机制.md",
-    "springboot/modules/web/mechanism/EmbeddedWebServer.md",
-    "agent/llm/索引.md",
     "agent/llm/概念图.md",
+    "agent/llm/evaluation/索引.md",
+    "agent/llm/context/索引.md",
+    "agent/llm/scaling/索引.md",
+    "agent/llm/prompting/索引.md",
+    "agent/llm/tokenization/索引.md",
+    "agent/llm/alignment/索引.md",
+    "agent/llm/inference/索引.md",
+    "agent/llm/training/索引.md",
+    "agent/llm/architecture/索引.md",
+    "agent/llm/evaluation/README.md",
     "agent/llm/README.md",
+    "agent/llm/context/README.md",
+    "agent/llm/scaling/README.md",
+    "agent/llm/prompting/README.md",
+    "agent/llm/alignment/README.md",
+    "agent/llm/tokenization/README.md",
+    "agent/llm/inference/README.md",
+    "agent/llm/training/README.md",
+    "agent/llm/architecture/Transformer/Transformer.md",
+    "agent/llm/architecture/README.md",
+    "agent/llm/evaluation/benchmarks",
+    "agent/llm/evaluation",
+    "agent/llm/context",
+    "agent/llm/scaling",
+    "agent/llm/prompting",
+    "agent/llm/alignment",
+    "agent/llm/tokenization",
+    "agent/llm/inference/quantization",
+    "agent/llm/inference/decoding",
+    "agent/llm/inference/acceleration",
+    "agent/llm/索引.md",
     "英语/词汇/themes/Academic.md",
-    "agent/llm/modules/GQA.md",
-    "agent/llm/modules/SelfAttention.md",
-    "agent/llm/modules/Transformer.md",
-    "agent/llm/modules/QKNorm.md",
-    "agent/llm/modules/PreNorm.md",
-    "agent/llm/modules",
-    "springboot/modules/web/interface",
-    "agent/llm/structures",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
+    "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
+    "springboot/modules/web/server/tomcat/class/Connector.md",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
