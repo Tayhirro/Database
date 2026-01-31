@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/server/netty/mechanism/NettyThreadingAndExecutors.md",
+                "file": "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NettyThreadingAndExecutors"
+              "title": "TomcatWebServerStartStop"
             }
           },
           {
@@ -226,11 +226,18 @@
   },
   "active": "99558ef4ade1e8bc",
   "lastOpenFiles": [
-    "springboot/modules/web/interface/WebServer.md",
+    "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
+    "springboot/modules/web/server/tomcat/interface",
+    "springboot/modules/web/server/tomcat/class/Connector.md",
+    "springboot/modules/web/server/tomcat/class/AbstractProtocol.md",
+    "springboot/modules/web/server/tomcat/class/AbstractEndpoint.md",
+    "springboot/modules/web/server/tomcat/class",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatThreadingAndExecutors.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
     "springboot/modules/web/server/netty/mechanism/NettyWebServerStartStop.md",
     "springboot/modules/web/server/netty/mechanism/NettyThreadingAndExecutors.md",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
-    "springboot/modules/web/server/tomcat/mechanism/TomcatThreadingAndExecutors.md",
+    "springboot/modules/web/interface/WebServer.md",
     "springboot/modules/web/server/tomcat/mechanism",
     "springboot/modules/web/server/netty/mechanism",
     "springboot/modules/web/server/tomcat",
@@ -253,15 +260,8 @@
     "agent/llm/modules/QKNorm.md",
     "agent/llm/modules/PreNorm.md",
     "agent/llm/modules",
-    "agent/llm/modules/RMSNorm.md",
-    "agent/llm/modules/FFN.md",
-    "agent/llm/modules/RoPE.md",
-    "agent/llm/modules/MoE.md",
-    "springboot/modules/web/class/NettyReactiveWebServerFactory.md",
     "springboot/modules/web/interface",
     "agent/llm/structures",
-    "agent/llm",
-    "未命名 10.base",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",

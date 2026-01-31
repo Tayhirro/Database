@@ -16,6 +16,13 @@ Tomcat 的线程与执行器模型描述了在连接器启动后，Tomcat 如何
 ## 严格定义
 在 Tomcat（以 NIO/NIO2 等实现为例）中，`Connector` 将连接处理委托给 `ProtocolHandler`；`AbstractProtocol.start()` 调用 `AbstractEndpoint.start()` 启动网络端点，并由端点创建/使用执行器（executor）与若干专用线程以完成 accept、poll、以及将请求处理任务投递到工作线程池等职责。
 
+## 前置概念（名词对齐）
+- Tomcat 组件模型：见 [TomcatComponentModel.md](TomcatComponentModel.md)
+- `Connector`：见 [../class/Connector.md](../class/Connector.md)
+- `ProtocolHandler`：见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)
+- `AbstractProtocol`：见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)
+- `AbstractEndpoint`：见 [../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)
+
 ## 接口：数据 + 约束
 - 数据（语义级别）：
   - `Connector`（连接器）
@@ -49,4 +56,3 @@ Tomcat 的线程与执行器模型描述了在连接器启动后，Tomcat 如何
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → mechanism → TomcatThreadingAndExecutors。
-

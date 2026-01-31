@@ -1,0 +1,41 @@
+---
+type: interface
+tags:
+  - springboot/web
+  - tomcat
+---
+
+# ProtocolHandler（Tomcat 协议处理器接口）
+
+> **类型**：接口（Interface）
+
+## 一句话
+`ProtocolHandler` 是 Tomcat 用于抽象“某种协议栈（HTTP/1.1、AJP 等）如何启动/停止并处理连接”的接口，作为 `Connector` 与具体协议实现之间的边界。
+
+## 严格定义
+在 Tomcat 中，`org.apache.coyote.ProtocolHandler` 是由 `Connector` 持有并在 `Connector.startInternal()` 中触发其 `start()` 的协议处理器接口；其典型实现会在 `start()` 中启动对应的 `Endpoint`（网络端点）来完成端口监听与 I/O 管理，并将收到的请求推进到后续处理链路。
+
+## 继承链（接口链 / 实现链）
+- 接口链：`ProtocolHandler`（无上级接口）。
+- 常见实现基类：`AbstractProtocol`（见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)）。
+
+## 接口：数据 + 约束
+- 输入：
+  - `start()`：启动协议处理链路（副作用）
+  - `stop()`：停止协议处理链路（副作用）
+- 输出：
+  - 无（以副作用表达生命周期迁移）
+- 约束：
+  - 协议解析、线程模型与连接管理属于实现细节；接口只表达生命周期边界与协议处理职责的存在性。
+
+## 常用构造/操作（仅列出接口与符号）
+- 生命周期：`start()` / `stop()` / `destroy()`
+
+## 关系：上级/下级/等价/特例/推广
+- 上级：Tomcat 组件模型（见 [../mechanism/TomcatComponentModel.md](../mechanism/TomcatComponentModel.md)）。
+- 被持有者：`Connector`（见 [../class/Connector.md](../class/Connector.md)）。
+- 相关：`AbstractEndpoint`（网络端点，见 [../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)）。
+
+## 把新概念挂回框架（多级索引轨迹）
+springboot → modules → web → server → tomcat → interface → ProtocolHandler。
+

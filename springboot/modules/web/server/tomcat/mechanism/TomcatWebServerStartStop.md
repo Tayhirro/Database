@@ -29,6 +29,15 @@ tags:
 
 ## 触发链（实现级时间线）
 
+## 名词对齐（从 Boot 的 `WebServer.start()` 到 Tomcat 内部组件）
+- Boot 侧入口：`TomcatWebServer.start()`（见 [../../../class/TomcatWebServer.md](../../../class/TomcatWebServer.md)）
+- Tomcat 侧组件：
+  - `Connector`：端口入口与协议委托（见 [../class/Connector.md](../class/Connector.md)）
+  - `ProtocolHandler`：协议处理器接口（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)）
+  - `AbstractProtocol`：常见协议处理器基类（见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)）
+  - `AbstractEndpoint`：端口监听与连接/I/O 管理（见 [../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)）
+  - 线程/执行器角色：见 [TomcatThreadingAndExecutors.md](TomcatThreadingAndExecutors.md)
+
 ### 1) 初始化阶段：`initialize()` 中触发 `Tomcat.start()`
 Boot 的 `TomcatWebServer` 在构造后会执行一次初始化流程（语义上包含“启动 Tomcat”）：
 
@@ -62,4 +71,3 @@ Boot 的 `TomcatWebServer.stop()` 概念级步骤：
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → mechanism → TomcatWebServerStartStop。
-
