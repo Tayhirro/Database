@@ -939,13 +939,48 @@ public Object invoke(Object proxy,Method,Objecy[] args) throws IllegalAccessExce
 //proceed 是递归调用     
 ```
 
+#### 反射调用的底层路径（`Method.invoke` → MethodAccessor → `invoke0/native` → target）
 
+`Method.invoke(obj, args...)` 的语义是：在运行时对 `obj` 上的某个目标方法执行一次调用，并把返回值/异常回传给调用方。实现层面通常包含“Java 层参数整理 + 访问器分发 + JVM 反射入口 + 目标方法执行”的分层。
 
+##### 1) `MethodAccessor` / `NativeMethodAccessorImpl` / `invoke0` 的分层（JDK 实现口径）
 
+反射调用通常会经由一层“方法访问器（accessor）”对象分发。常见类名会出现在 `jdk.internal.reflect.*`（或旧版本的 `sun.reflect.*`）包下：
 
+- `MethodAccessor`：方法访问器接口（将反射调用抽象为 `invoke(obj, args)`）。
+- `DelegatingMethodAccessorImpl`：委托型访问器（内部持有一个真实访问器并转发，用于热切换实现）。
+- `NativeMethodAccessorImpl`：基于 native 入口的访问器（通过 `invoke0(...)` 让 JVM 执行一次目标方法调用）。
+- `GeneratedMethodAccessorN`：运行时生成的访问器（JVM/反射工厂生成字节码类，用于减少后续反射调用开销）。
 
+概念级调用链（示意）：
 
+```
+调用方A
+  -> java.lang.reflect.Method.invoke(obj, args)
+       -> MethodAccessor.invoke(obj, args)
+            -> DelegatingMethodAccessorImpl.invoke
+                 -> NativeMethodAccessorImpl.invoke
+                      -> invoke0(...)               // native 入口（JVM）
+                          -> target(...)            // 真实目标方法（解释/JIT）
+```
 
+在某些 JDK/配置下，反射调用会发生“inflation（膨胀）”优化：前几次先走 native 慢路径；达到阈值后切换到 `GeneratedMethodAccessorN` 之类的字节码访问器，后续路径变为：
+
+```
+Method.invoke
+  -> MethodAccessor.invoke
+       -> GeneratedMethodAccessorN.invoke
+            -> target(...)
+```
+
+##### 2) “执行 native 时，线程有没有栈帧？”（Java 栈 vs 本地栈）
+
+- 从 Java 代码视角：调用 `native` 方法时，当前线程会从“执行 Java 方法”进入“执行本地实现”；在 `Throwable.getStackTrace()` 里通常会看到一帧标记为 `Native Method`（例如 `Method.invoke0(Native Method)`），但不会展开 native 内部的 C/C++ 调用栈细节。
+- 从 JVM/运行时视角：native 代码主要运行在 **本地方法栈（native stack）** 上；当 JVM 通过反射入口去调用目标 Java 方法时，会为 **target 方法建立新的 Java 栈帧**（就像普通方法调用一样），执行完再逐层返回。
+
+因此可按“分界点”记：
+- 进入 `invoke0/native` 时：形成 native 执行段（Java 栈追踪上常表现为 `Native Method`）。
+- 进入 `target` 方法入口时：建立/进入 target 的 Java 栈帧（解释执行或执行 JIT 编译后的机器码）。
 
 ```java
 Method.setAccessible(true)

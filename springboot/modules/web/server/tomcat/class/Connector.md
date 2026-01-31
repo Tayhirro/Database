@@ -23,6 +23,9 @@ tags:
 - 数据（语义级别）：
   - `protocolHandler: ProtocolHandler`（协议处理器委托点）
   - `port: int`（配置端口；实际绑定端口可在运行态确定）
+- 字段与状态（面向“线程/执行器”理解；字段名可能随 Tomcat 版本变化）：
+  - `protocolHandler`：线程模型与 executor 组织的入口委托点；`Connector` 本身不定义 accept/worker 的线程模型（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)）
+  - 连接器级配置项（例如端口、协议名称等）通常用于构造/选择具体 `ProtocolHandler`，并在启动时触发生命周期迁移
 - 输入：
   - `startInternal()`：触发 `protocolHandler.start()`
   - `stopInternal()`：触发 `protocolHandler.stop()`

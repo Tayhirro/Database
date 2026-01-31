@@ -21,7 +21,15 @@ tags:
 ## 接口：数据 + 约束
 - 数据（语义级别）：
   - `executor: Executor | null`（请求处理工作线程池的抽象；是否存在与类型由实现决定）
-  - 运行态线程与调度器（accept/poll 等角色）
+  - accept/poll 等运行态线程（角色存在性与数量由具体端点实现决定）
+  - 运行态标志（例如 `running/paused` 等；字段名随版本可能不同）
+- 字段与状态（面向“线程/执行器”理解；字段名可能随 Tomcat 版本与端点实现变化）：
+  - `executor`：对外暴露/可注入的工作线程池（worker executor），端点将请求处理任务投递到该 executor 执行
+  - `internalExecutor`（常见命名）：当未配置外部 `executor` 时，端点在启动阶段创建并持有的内部线程池
+  - `maxThreads/minSpareThreads`（常见命名）：与 worker 线程池容量相关的配置项；常用于内部线程池的创建参数或对线程池实现的适配
+  - `acceptorThreadCount` 与 acceptor 线程集合（常见命名为 `acceptor*`）：负责接入新连接的专用线程/线程组
+  - I/O 轮询线程集合（常见命名为 `poller*` / `selector*`）：负责 select/poll 并触发后续处理阶段（存在性取决于 NIO/NIO2/APR 等实现）
+  - 线程创建参数（常见为 `namePrefix/threadPriority/daemon`）：用于创建 acceptor/poller/worker 等线程的线程工厂（ThreadFactory）参数
 - 输入：
   - `start()`：启动端点（绑定端口、启动运行态执行单元）
   - `stop()`：停止端点并释放资源

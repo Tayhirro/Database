@@ -23,6 +23,10 @@ tags:
 - 数据（语义级别）：
   - `endpoint: AbstractEndpoint`（网络端点）
   - `utilityExecutor: ScheduledExecutorService`（辅助任务调度器）
+- 字段与状态（面向“线程/执行器”理解；字段名可能随 Tomcat 版本变化）：
+  - `endpoint`：协议处理器持有的网络端点；端点内部组织 accept/poll 与 worker executor（见 [AbstractEndpoint.md](AbstractEndpoint.md)）
+  - `utilityExecutor`：协议级辅助任务调度器（例如周期性维护/监控任务）；与请求处理 worker 线程池是不同角色
+  - 线程相关配置向端点传递：协议处理器层通常承载“把 maxThreads/maxConnections/acceptCount 等参数落到端点/线程池”的适配入口（具体由协议实现决定）
 - 约束：
   - endpoint 的类型决定了 I/O 模型与线程组织方式；`AbstractProtocol` 只提供启动骨架与协议级别的组织点。
 

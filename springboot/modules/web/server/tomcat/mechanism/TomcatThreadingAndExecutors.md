@@ -46,6 +46,16 @@ Tomcat 的线程与执行器模型描述了在连接器启动后，Tomcat 如何
 ### D. 监控与辅助任务（scheduled/utility）
 `AbstractProtocol.start()` 会创建/使用 `ScheduledExecutorService` 来调度周期性任务（例如协议监控/维护任务），这类任务属于运行态辅助执行单元。
 
+## 线程属性（daemon/namePrefix/priority）
+
+### 守护线程（daemon thread）
+在 JVM 线程模型中，守护线程是“不会阻止 JVM 进程退出”的线程：当进程中只剩守护线程时，JVM 可以结束。Tomcat 的对外服务能力依赖若干运行态线程持续存在（accept/poll/worker 等）；这些线程是否为守护线程将影响“进程退出条件”的成立方式。
+
+### Tomcat 中的控制点（语义级别）
+- 线程是否为 daemon、线程名的前缀、线程优先级等属性，通常由创建线程的 `ThreadFactory` 决定。
+- 当 endpoint 使用外部注入的 `Executor` 时，上述属性通常由该 executor 的线程工厂决定（例如其内部 `ThreadPoolExecutor` 的 `ThreadFactory`）。
+- 当 endpoint 创建内部线程池时，上述属性通常由 endpoint 侧的线程工厂参数决定（例如 namePrefix/daemon/priority 之类的配置项；字段名随版本可能不同）。
+
 ## 与 Boot 的边界
 - Boot 的 `TomcatWebServer.start()` 负责触发 `Tomcat.start()` 并校验连接器进入 started 状态（见 [TomcatWebServerStartStop.md](TomcatWebServerStartStop.md)）。
 - Tomcat 的线程创建与 executor 组织属于底层容器实现；Boot 通过 `WebServer` 抽象表达生命周期边界，但不在 `WebServer` 接口层规定线程模型（见 [../../../interface/WebServer.md](../../../interface/WebServer.md)）。
