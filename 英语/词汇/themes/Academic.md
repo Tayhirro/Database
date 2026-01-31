@@ -15,6 +15,8 @@
 | synergy     | /ˈsɪnədʒi/      | n.  | 协同作用 | The synergy between the two modules improves performance. |
 | counterfactual | /ˌkaʊntəˈfæktʃuəl/ | adj./n. | 反事实的；反事实 | Counterfactual reasoning helps explain model predictions. |
 | plausible   | /ˈplɔːzɪbl/     | adj. | 合理的；可信的 | The model generates plausible future trajectories. |
+| propensity  | /prəˈpensəti/   | n.  | 倾向；趋势 | We use propensity score matching to reduce bias. |
+| interpretable | /ɪnˈtɜːprɪtəbl/ | adj. | 可解释的 | Interpretable models are crucial for high-stakes decisions. |
 
 ---
 
