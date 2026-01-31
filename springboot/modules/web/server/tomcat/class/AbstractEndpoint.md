@@ -14,7 +14,7 @@ tags:
 
 ## 严格定义
 在 Tomcat 的常见协议实现中，`ProtocolHandler.start()` 会启动一个 `AbstractEndpoint` 实例；端点负责绑定端口并组织连接接入、I/O 事件轮询与任务投递等过程。端点的具体实现决定了 accept/poll 与工作线程池（executor）的组织方式。
- Protocolhandle
+ 
 ## 继承链（接口链 / 实现链）
 - 继承链：`java.lang.Object` → `AbstractEndpoint` →（NIO/NIO2/APR 等具体端点实现）。
 
