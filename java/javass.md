@@ -172,6 +172,38 @@ public interface Log{
 } 
 ```
 
+#### @FunctionalInterface
+
+- 位置：`interface` 声明处的类型注解（type annotation）
+- 定义：`java.lang.FunctionalInterface` 是用于标记“函数式接口（Functional Interface）”的注解；函数式接口满足 **SAM（Single Abstract Method）** 约束：在排除 `Object` 继承方法与 `default/static` 方法后，接口中抽象方法数量为 1。
+- 作用：触发编译期校验（不满足 SAM 会编译失败），用于把“该接口用于 lambda/方法引用”的意图固定到类型定义上。
+- 约束：
+  - 目标类型必须是 `interface`；标注在 `class/enum` 上通常会报编译错误。
+  - `default` / `static` 方法不计入抽象方法数量。
+  - `Object` 的方法签名（如 `toString/equals/hashCode`）不计入抽象方法数量。
+
+```java
+@FunctionalInterface
+public interface IntPredicate {
+    boolean test(int value); // 唯一抽象方法（SAM）
+}
+
+IntPredicate p = v -> v > 0; // lambda 以 SAM 进行适配
+boolean ok = p.test(10);
+```
+
+```java
+@FunctionalInterface
+public interface Bad {
+    void a();
+    void b(); // 两个抽象方法 → 不满足 SAM（编译期报错）
+}
+```
+
+关系（名词对齐）：
+- 上级：Java 注解（`@interface`）/ 接口（`interface`）
+- 相关：lambda 表达式、方法引用（method reference）、SAM 转换、`java.util.function.*`（标准函数式接口族）
+
 ### java注解
 
 - 继承接口
@@ -3465,4 +3497,3 @@ new Vue({
 ```
 
 ```
-
