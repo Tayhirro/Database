@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/interface/WebServer.md",
+                "file": "springboot/modules/web/server/netty/mechanism/NettyThreadingAndExecutors.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WebServer"
+              "title": "NettyThreadingAndExecutors"
             }
           },
           {
@@ -226,6 +226,16 @@
   },
   "active": "99558ef4ade1e8bc",
   "lastOpenFiles": [
+    "springboot/modules/web/interface/WebServer.md",
+    "springboot/modules/web/server/netty/mechanism/NettyWebServerStartStop.md",
+    "springboot/modules/web/server/netty/mechanism/NettyThreadingAndExecutors.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatWebServerStartStop.md",
+    "springboot/modules/web/server/tomcat/mechanism/TomcatThreadingAndExecutors.md",
+    "springboot/modules/web/server/tomcat/mechanism",
+    "springboot/modules/web/server/netty/mechanism",
+    "springboot/modules/web/server/tomcat",
+    "springboot/modules/web/server/netty",
+    "springboot/modules/web/server",
     "springboot/modules/web/mechanism/WebScopes.md",
     "springboot/modules/web/mechanism/WebServerLifecycleAndThreads.md",
     "springboot/modules/web/class/TomcatWebServer.md",
@@ -248,20 +258,10 @@
     "agent/llm/modules/RoPE.md",
     "agent/llm/modules/MoE.md",
     "springboot/modules/web/class/NettyReactiveWebServerFactory.md",
-    "springboot/modules/web/interface/ServletWebServerFactory.md",
-    "springboot/modules/web/interface/WebServer.md",
-    "springboot/modules/web/interface/WebServerFactory.md",
-    "springboot/modules/web/interface/ReactiveWebServerFactory.md",
     "springboot/modules/web/interface",
     "agent/llm/structures",
     "agent/llm",
     "未命名 10.base",
-    "springboot/modules/config/mechanism/ConfigurationOverview.md",
-    "agent/论文/Qwen3-report.pdf",
-    "轨迹预测/论文/LaneGCN.pdf",
-    "python",
-    "java",
-    "HMDP-Redis/hm-dianping/target/classes/unlock.lua",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
