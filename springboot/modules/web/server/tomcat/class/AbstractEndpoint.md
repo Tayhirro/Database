@@ -53,13 +53,13 @@ tags:
 ### 线程角色（acceptor / poller / worker）
 在 NIO 端点（例如 `NioEndpoint`）语义模型下，可将运行态执行单元按职责划分为三类角色：
 
-- Acceptor（接入线程）：
+- `Acceptor`（接入线程角色，见 [threading/Acceptor.md](threading/Acceptor.md)）：
   - 输入：TCP 连接请求
   - 行为：执行 accept（例如 `ServerSocketChannel.accept()`）并初始化新连接，然后把连接交给 I/O 轮询机制管理
-- Poller（I/O 轮询线程）：
+- `Poller`（I/O 轮询线程角色，见 [threading/Poller.md](threading/Poller.md)）：
   - 输入：已建立连接的 I/O 就绪事件
   - 行为：执行 select/poll（例如 `Selector.select()`）并将“就绪连接”转换为待执行任务投递到 worker executor
-- Worker（请求处理线程 / executor）：
+- `Executor` / worker（请求处理执行器，见 [threading/Executor.md](threading/Executor.md)）：
   - 输入：由 Poller/端点生成的处理任务（例如读取字节、解析 HTTP、驱动 Servlet 调用、写回响应）
   - 行为：在 `Executor` 提供的线程中执行任务
 
