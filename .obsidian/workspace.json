@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/server/tomcat/class/Http11NioProtocol.md",
+                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Http11NioProtocol"
+              "title": "ContextRefresh"
             }
           },
           {
@@ -237,6 +237,9 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/web/README.md",
+    "springboot/modules/web/server/tomcat/概念图.md",
+    "springboot/modules/web/server/tomcat/class/Http11NioProtocol.md",
     "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
     "springboot/modules/web/server/tomcat/class/Connector.md",
     "springboot/modules/web/server/tomcat/class/Service.md",
@@ -247,7 +250,6 @@
     "springboot/modules/web/server/tomcat/mechanism/EmbeddedTomcatIntegration.md",
     "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
     "springboot/modules/web/server/tomcat/索引.md",
-    "springboot/modules/web/server/tomcat/概念图.md",
     "springboot/modules/web/server/tomcat/class/Wrapper.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/web/server/tomcat/class/Host.md",
@@ -262,8 +264,6 @@
     "java/jvm/tuning/tools/jconsole.md",
     "java/jvm/tuning/tools/jcmd.md",
     "java/jvm/tuning/tools",
-    "java/jvm/tuning/parameters/JITParameters.md",
-    "java/jvm/tuning/parameters/HeapParameters.md",
     "java/jvm/gc/algorithm",
     "java/jvm/runtime/structure",
     "hmdp/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",

@@ -72,18 +72,18 @@ Content-Type: application/json
 
 ### 处理流程（按阶段）
 
-| 阶段 | 组件（条目） | 作用（做什么） | 作用边界（分层语义） |
-| --- | --- | --- | --- |
-| 1 | `AbstractEndpoint`（见 [server/tomcat/class/AbstractEndpoint.md](server/tomcat/class/AbstractEndpoint.md)） | 接收连接、读写 socket、驱动 I/O 事件与任务投递 | I/O 与连接管理边界 |
-| 2 | `Processor` / `Http11Processor`（见 [server/tomcat/interface/Processor.md](server/tomcat/interface/Processor.md)、[server/tomcat/class/Http11Processor.md](server/tomcat/class/Http11Processor.md)） | 解析 HTTP 字节流，生成/填充 `org.apache.coyote.Request/Response` | 协议解析与连接级状态机边界 |
-| 3 | `CoyoteAdapter`（见 [server/tomcat/class/CoyoteAdapter.md](server/tomcat/class/CoyoteAdapter.md)） | 将 Coyote 请求/响应适配到 Catalina（容器）侧请求对象，并进入容器调用链 | 协议栈 → 容器 的适配边界 |
-| 4 | `Mapper`（见 [server/tomcat/class/Mapper.md](server/tomcat/class/Mapper.md)） | 将 `Host` 头与 URI 路径映射为目标容器对象（`Host`/`Context`/`Wrapper`） | 路由与索引边界（运行态查找） |
-| 5 | `Engine`（见 [server/tomcat/class/Engine.md](server/tomcat/class/Engine.md)） | 容器链路顶层入口：确定目标 `Host` 并推进到下一层容器 | 虚拟主机集合（跨 Host）边界 |
-| 6 | `Host`（见 [server/tomcat/class/Host.md](server/tomcat/class/Host.md)） | 虚拟主机容器：确定目标 `Context` 并推进到下一层容器 | 单域名/单虚拟主机边界 |
-| 7 | `Context`（见 [server/tomcat/class/Context.md](server/tomcat/class/Context.md)） | Web 应用容器：建立应用级处理上下文并选择目标 `Wrapper` | 单 Web 应用边界（类加载、会话、映射等应用级设施由该边界组织） |
-| 8 | `Wrapper`（见 [server/tomcat/class/Wrapper.md](server/tomcat/class/Wrapper.md)） | Servlet 容器单元：`allocate()` 获取 `Servlet`，构造 `ApplicationFilterChain` 并调用 `Servlet.service(...)` | 单 Servlet 边界（Servlet 生命周期与过滤器链入口） |
-| 9 | `DispatcherServlet`（见 [class/DispatcherServlet.md](class/DispatcherServlet.md)） | 作为 Servlet 入口分发到 Spring MVC 的 Handler，并将返回值写入响应 | 框架层（MVC 分发与返回值处理）边界 |
-| 10 | `Http11Processor`（同上） | 将响应对象序列化为字节并写回 socket | 协议输出边界 |
+| 阶段  | 组件（条目）                                                                                                                                                                                           | 作用（做什么）                                                                                       | 作用边界（分层语义）                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------- |
+| 1   | `AbstractEndpoint`（见 [server/tomcat/class/AbstractEndpoint.md](server/tomcat/class/AbstractEndpoint.md)）                                                                                         | 接收连接、读写 socket、驱动 I/O 事件与任务投递                                                                 | I/O 与连接管理边界                       |
+| 2   | `Processor` / `Http11Processor`（见 [server/tomcat/interface/Processor.md](server/tomcat/interface/Processor.md)、[server/tomcat/class/Http11Processor.md](server/tomcat/class/Http11Processor.md)） | 解析 HTTP 字节流，生成/填充 `org.apache.coyote.Request/Response`                                        | 协议解析与连接级状态机边界                     |
+| 3   | `CoyoteAdapter`（见 [server/tomcat/class/CoyoteAdapter.md](server/tomcat/class/CoyoteAdapter.md)）                                                                                                  | 将 Coyote 请求/响应适配到 Catalina（容器）侧请求对象，并进入容器调用链                                                  | 协议栈 → 容器 的适配边界                    |
+| 4   | `Mapper`（见 [server/tomcat/class/Mapper.md](server/tomcat/class/Mapper.md)）                                                                                                                       | 将 `Host` 头与 URI 路径映射为目标容器对象（`Host`/`Context`/`Wrapper`）                                       | 路由与索引边界（运行态查找）                    |
+| 5   | `Engine`（见 [server/tomcat/class/Engine.md](server/tomcat/class/Engine.md)）                                                                                                                       | 容器链路顶层入口：确定目标 `Host` 并推进到下一层容器                                                                | 虚拟主机集合（跨 Host）边界                  |
+| 6   | `Host`（见 [server/tomcat/class/Host.md](server/tomcat/class/Host.md)）                                                                                                                             | 虚拟主机容器：确定目标 `Context` 并推进到下一层容器                                                               | 单域名/单虚拟主机边界                       |
+| 7   | `Context`（见 [server/tomcat/class/Context.md](server/tomcat/class/Context.md)）                                                                                                                    | Web 应用容器：建立应用级处理上下文并选择目标 `Wrapper`                                                            | 单 Web 应用边界（类加载、会话、映射等应用级设施由该边界组织） |
+| 8   | `Wrapper`（见 [server/tomcat/class/Wrapper.md](server/tomcat/class/Wrapper.md)）                                                                                                                    | Servlet 容器单元：`allocate()` 获取 `Servlet`，构造 `ApplicationFilterChain` 并调用 `Servlet.service(...)` | 单 Servlet 边界（Servlet 生命周期与过滤器链入口） |
+| 9   | `DispatcherServlet`（见 [class/DispatcherServlet.md](class/DispatcherServlet.md)）                                                                                                                  | 作为 Servlet 入口分发到 Spring MVC 的 Handler，并将返回值写入响应                                               | 框架层（MVC 分发与返回值处理）边界               |
+| 10  | `Http11Processor`（同上）                                                                                                                                                                            | 将响应对象序列化为字节并写回 socket                                                                         | 协议输出边界                            |
 
 ### 容器链的调用形式（Pipeline/Valve）
 容器层级（`Engine`/`Host`/`Context`/`Wrapper`）在运行态通常通过 Pipeline/Valve 组织调用：每一层容器的 Pipeline 由若干 Valve 组成，末尾的 Basic Valve 负责把请求推进到下一层容器；到达 `Wrapper` 层后，Basic Valve 触发 `Servlet` 的分配与调用（并在此处构造过滤器链）。
