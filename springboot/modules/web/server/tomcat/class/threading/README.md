@@ -11,11 +11,12 @@ tags:
 
 > 本目录用于描述 Tomcat endpoint 在运行态的线程角色分工（概念级），以便与 `AbstractEndpoint` 的启动与执行器模型对齐。
 
-| 概念 | 一句话 | 入口 |
-| --- | --- | --- |
-| Acceptor | 接入线程角色：接收 TCP 连接并交给 I/O 轮询机制管理 | [Acceptor.md](Acceptor.md) |
-| Poller | 轮询线程角色：驱动 `Selector` 并将 I/O 就绪事件分发为任务 | [Poller.md](Poller.md) |
-| Executor | 执行器：承载请求处理任务的 worker 线程池抽象（内部或外部注入） | [Executor.md](Executor.md) |
+| 概念           | 一句话                                                | 入口                               |
+| ------------ | -------------------------------------------------- | -------------------------------- |
+| Acceptor     | 接入线程角色：接收 TCP 连接并交给 I/O 轮询机制管理                     | [Acceptor.md](Acceptor.md)       |
+| Poller       | 轮询线程角色：驱动 `Selector` 并将 I/O 就绪事件分发为任务              | [Poller.md](Poller.md)           |
+| Executor     | 执行器：承载请求处理任务的 worker 线程池抽象（内部或外部注入）                | [Executor.md](Executor.md)       |
+| NIO Channels | `ServerSocketChannel`/`SocketChannel` 的职责区分与连接接入语义 | [NioChannels.md](NioChannels.md) |
 
 ## 关系（概念级）
 - `AbstractEndpoint` → `Acceptor`
@@ -31,13 +32,16 @@ tags:
 
 ### 1) 接入（Acceptor）
 1. 客户端对 `:8080` 发起 TCP connect。
-2. `Acceptor` 线程在监听 socket 上执行 accept，得到新连接通道（见 [Acceptor.md](Acceptor.md)）。
-3. Acceptor 对连接做基础初始化，并把连接移交给 I/O 轮询体系（提交到 Poller 注册通道）。
+2. `Acceptor` 线程在监听通道上执行 accept（见 [Acceptor.md](Acceptor.md)）：
+   - `ServerSocketChannel`（监听端口的通道；关键属性：local address、blocking mode、socket options（概念级））
+   - `ServerSocketChannel.accept()` → `SocketChannel`（单条连接通道；关键属性：local/remote address、connected/closed、blocking mode、socket options（概念级））
+3. Acceptor 对 `SocketChannel` 做基础初始化（例如切换为非阻塞），并把连接移交给 I/O 轮询体系（提交到 Poller 侧注册）。
 
 ### 2) 轮询与分发（Poller / Selector）
 1. `Poller` 线程持有并驱动 `Selector`（见 [Poller.md](Poller.md)）。
-2. Poller 将新连接注册到 `Selector` 并关注读/写就绪事件（interest ops）。
-3. Poller 调用 `select()` 获得就绪事件后，将“就绪连接”封装为可执行任务（概念级）并投递到 `Executor`。
+2. Poller 将 `SocketChannel` 注册到 `Selector` 并得到 `SelectionKey`：
+   - `SocketChannel.register(selector, ops, attachment)` → `SelectionKey`（关键内容：interest ops / ready ops / attachment（概念级））
+3. Poller 调用 `select()` 获得就绪的 `SelectionKey` 后，将“就绪连接”封装为可执行任务（概念级）并投递到 `Executor`。
 
 ### 3) 执行（Executor / worker）
 1. `Executor`（worker 线程池）接收任务并在 worker 线程中执行（见 [Executor.md](Executor.md)）。

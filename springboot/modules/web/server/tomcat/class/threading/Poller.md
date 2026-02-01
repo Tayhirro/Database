@@ -13,7 +13,7 @@ tags:
 Poller 是 Tomcat NIO 端点中负责驱动 I/O 多路复用（select/poll）并把就绪事件分发为可执行任务的运行态线程角色。
 
 ## 严格定义
-在 NIO 端点实现中，Poller 线程通常持有并驱动一个 `Selector`：周期性调用 `select()` 获取就绪的 `SelectionKey` 集合，将“可读/可写等就绪事件”转化为端点内部的处理任务，并将任务投递到端点的 `Executor`（worker 执行器）或等价的任务执行通道，从而把就绪连接推进到请求处理阶段。
+在 NIO 端点实现中，Poller 线程通常持有并驱动一个 `Selector`：将已接入的 `SocketChannel` 注册到 `Selector` 并获得 `SelectionKey`，周期性调用 `select()` 获取就绪的 `SelectionKey` 集合，将“可读/可写等就绪事件”转化为端点内部的处理任务，并将任务投递到端点的 `Executor`（worker 执行器）或等价的任务执行通道，从而把就绪连接推进到请求处理阶段。
 
 ## 接口：数据 + 约束
 - 数据（语义级别）：
@@ -37,4 +37,3 @@ Poller 是 Tomcat NIO 端点中负责驱动 I/O 多路复用（select/poll）并
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → threading → Poller。
-

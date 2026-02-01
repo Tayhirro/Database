@@ -12,7 +12,7 @@ tags:
 Acceptor 是 Tomcat NIO 端点中负责接收（accept）新 TCP 连接并将连接交给后续 I/O 管理机制的运行态线程角色。
 
 ## 严格定义
-在以 NIO 为代表的端点实现中，Acceptor 线程围绕“接入新连接”的循环运行：从监听 socket 接收连接、完成必要的通道初始化（例如配置阻塞/非阻塞与基础属性），并把新连接注册/提交到端点的 I/O 轮询与分发机制（例如交给 Poller/Selector 监管），使其进入后续读写事件处理流程。
+在以 NIO 为代表的端点实现中，Acceptor 线程围绕“接入新连接”的循环运行：通过 `ServerSocketChannel.accept()` 接收连接并得到 `SocketChannel`，完成必要的通道初始化（例如配置阻塞/非阻塞与基础属性），并把新连接注册/提交到端点的 I/O 轮询与分发机制（例如交给 Poller/Selector 监管），使其进入后续读写事件处理流程。
 
 ## 接口：数据 + 约束
 - 数据（语义级别）：
@@ -36,4 +36,3 @@ Acceptor 是 Tomcat NIO 端点中负责接收（accept）新 TCP 连接并将连
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → threading → Acceptor。
-
