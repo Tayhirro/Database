@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/server/tomcat/class/threading/Poller.md",
+                "file": "springboot/modules/extension/mechanism/SpringFactoriesLoader.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Poller"
+              "title": "SpringFactoriesLoader"
             }
           },
           {
@@ -235,11 +235,18 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/core/bootstrap/class/SpringApplication.md",
+    "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
+    "springboot/modules/core/bootstrap/interface/CommandLineRunner.md",
+    "springboot/modules/core/bootstrap/interface/ApplicationRunner.md",
+    "springboot/modules/core/bootstrap/interface/ApplicationContextFactory.md",
+    "springboot/modules/core/bootstrap/class/EventPublishingRunListener.md",
+    "springboot/modules/core/bootstrap/class/ApplicationArguments.md",
+    "springboot/modules/web/server/tomcat/class/threading/Poller.md",
     "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
     "springboot/modules/web/server/tomcat/class/threading/README.md",
-    "springboot/modules/web/server/tomcat/class/threading/Poller.md",
     "springboot/modules/web/server/tomcat/class/threading/Acceptor.md",
     "springboot/modules/web/server/tomcat/class/threading/Executor.md",
     "springboot/modules/web/server/tomcat/class/AbstractEndpoint.md",
@@ -256,13 +263,6 @@
     "springboot/README.md",
     "springboot/索引.md",
     "springboot/flows/ServletWeb应用持续运行机制.md",
-    "java/jvm/runtime/索引.md",
-    "java/jvm/runtime/README.md",
-    "java/jvm/tuning/README.md",
-    "java/jvm/README.md",
-    "java/jvm/tuning/索引.md",
-    "java/jvm/概念图.md",
-    "java/jvm/索引.md",
     "java/jvm/native",
     "java/jvm/tuning/tools",
     "java/jvm/tuning/analysis",
