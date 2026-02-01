@@ -237,6 +237,7 @@
   },
   "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
     "springboot/modules/web/server/tomcat/class/threading/README.md",
     "springboot/modules/web/server/tomcat/class/threading/Poller.md",
     "springboot/modules/web/server/tomcat/class/threading/Acceptor.md",
@@ -262,7 +263,6 @@
     "java/jvm/tuning/索引.md",
     "java/jvm/概念图.md",
     "java/jvm/索引.md",
-    "springboot/jvm/README.md",
     "java/jvm/native",
     "java/jvm/tuning/tools",
     "java/jvm/tuning/analysis",
