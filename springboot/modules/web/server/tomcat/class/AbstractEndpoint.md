@@ -30,6 +30,10 @@ tags:
   - `acceptorThreadCount` 与 acceptor 线程集合（常见命名为 `acceptor*`）：负责接入新连接的专用线程/线程组
   - I/O 轮询线程集合（常见命名为 `poller*` / `selector*`）：负责 select/poll 并触发后续处理阶段（存在性取决于 NIO/NIO2/APR 等实现）
   - 线程创建参数（常见为 `namePrefix/threadPriority/daemon`）：用于创建 acceptor/poller/worker 等线程的线程工厂（ThreadFactory）参数
+- 字段与状态（面向“连接与事件分发”理解；字段名可能随 Tomcat 版本与端点实现变化）：
+  - `handler`（常见命名）：端点的连接事件回调接口，由协议处理器提供实现；端点将“可读/可写/关闭”等连接事件回调到该 handler，由其进一步转发给 `Processor`（语义级）
+  - `socketWrapper`（语义级）：对底层 socket/channel 的读写包装对象；Poller/worker 通常围绕 socket wrapper 进行状态转换与任务分发（实现类名依版本）
+  - 连接注册与映射结构：用于在“连接集合”与“可轮询/可处理集合”之间维护关联（实现细节依端点）
 - 输入：
   - `start()`：启动端点（绑定端口、启动运行态执行单元）
   - `stop()`：停止端点并释放资源

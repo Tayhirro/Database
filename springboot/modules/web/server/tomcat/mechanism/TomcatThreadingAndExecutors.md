@@ -48,6 +48,7 @@ Tomcat 的线程与执行器模型描述了在连接器启动后，Tomcat 如何
 
 ## 端点视角（示例）
 - 以 HTTP/1.1 NIO 端点为例的“启动链路/线程三件套/限流分层/Boot 配置映射”：见 [../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)。
+- 以 HTTP/1.1 NIO 为例的“字节流→CoyoteRequest→ServletRequest”对象映射：见 [TomcatRequestObjectMapping.md](TomcatRequestObjectMapping.md)。
 
 ## 线程属性（daemon/namePrefix/priority）
 

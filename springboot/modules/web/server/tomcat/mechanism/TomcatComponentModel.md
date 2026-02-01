@@ -37,12 +37,18 @@ Tomcat 组件模型用一组分层组件（`Server`、`Service`、`Connector`、
   - `Service` → `Connector`（网络入口）
   - `Connector` → `ProtocolHandler`（协议处理委托）
   - `ProtocolHandler` → `Endpoint`（端口与 I/O 管理）
+- 下级（按“协议栈内部组成”）：
+  - `ProtocolHandler` → `Processor`（协议解析与连接级状态机，见 [../interface/Processor.md](../interface/Processor.md)）
+  - `Processor` → `CoyoteRequest`（协议解析后的请求对象，见 [../class/CoyoteRequest.md](../class/CoyoteRequest.md)）
+  - `CoyoteAdapter` → `CatalinaRequest`（Servlet 请求视图，见 [../class/CoyoteAdapter.md](../class/CoyoteAdapter.md)、[../class/CatalinaRequest.md](../class/CatalinaRequest.md)）
 - 相关页面：
   - `Connector`：见 [../class/Connector.md](../class/Connector.md)
   - `ProtocolHandler`：见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)
   - `AbstractProtocol`：见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)
   - `AbstractEndpoint`：见 [../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)
+  - `Http11NioProtocol`：见 [../class/Http11NioProtocol.md](../class/Http11NioProtocol.md)
+  - `Http11Processor`：见 [../class/Http11Processor.md](../class/Http11Processor.md)
+  - Tomcat 请求对象映射：见 [TomcatRequestObjectMapping.md](TomcatRequestObjectMapping.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → mechanism → TomcatComponentModel。
-
