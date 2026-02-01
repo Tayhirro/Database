@@ -41,6 +41,8 @@
 | `registerListeners()`                          | 将监听器注册到事件广播器                                     |
 | `finishBeanFactoryInitialization(beanFactory)` | 预实例化非 lazy Bean（Service、Controller 等）            |
 | `finishRefresh()`                              | 发布 ContextRefreshedEvent，标记容器就绪                  |
+|                                                |                                                  |
+|                                                |                                                  |
 
 ### Boot 触发位置（Spring Boot）
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
