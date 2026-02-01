@@ -22,3 +22,30 @@ tags:
 - `AbstractEndpoint` → `Poller`
 - `AbstractEndpoint` → `Executor`
 
+## 流程（以 `http-nio-8080` 为例：从 accept 到 Servlet）
+
+> 说明：以下为概念级时间线，用于对齐线程角色与分层职责；具体类名/方法名会随 Tomcat 版本与端点实现（NIO/NIO2/APR）变化。
+
+### 0) 触发前提（启动链路）
+`Connector` → `ProtocolHandler` → `AbstractProtocol` → `AbstractEndpoint.start()`（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）。
+
+### 1) 接入（Acceptor）
+1. 客户端对 `:8080` 发起 TCP connect。
+2. `Acceptor` 线程在监听 socket 上执行 accept，得到新连接通道（见 [Acceptor.md](Acceptor.md)）。
+3. Acceptor 对连接做基础初始化，并把连接移交给 I/O 轮询体系（提交到 Poller 注册通道）。
+
+### 2) 轮询与分发（Poller / Selector）
+1. `Poller` 线程持有并驱动 `Selector`（见 [Poller.md](Poller.md)）。
+2. Poller 将新连接注册到 `Selector` 并关注读/写就绪事件（interest ops）。
+3. Poller 调用 `select()` 获得就绪事件后，将“就绪连接”封装为可执行任务（概念级）并投递到 `Executor`。
+
+### 3) 执行（Executor / worker）
+1. `Executor`（worker 线程池）接收任务并在 worker 线程中执行（见 [Executor.md](Executor.md)）。
+2. worker 线程完成请求处理阶段的工作（概念级）：
+   - 从 socket 读取字节并解析 HTTP（请求行/headers/body）
+   - 将请求推进到 Servlet 容器处理链路（例如通过适配器进入 `Engine/Host/Context/Wrapper` 的管线模型；见 [../../mechanism/TomcatComponentModel.md](../../mechanism/TomcatComponentModel.md)）
+   - 生成响应并写回 socket
+
+### 4) Keep-Alive 与连接回收（概念级）
+1. 若连接保持 keep-alive，连接在一次请求处理完成后返回到 Poller/Selector 的监管，等待下一次就绪事件。
+2. 若连接关闭或超时，端点释放连接相关资源并从轮询体系中移除。
