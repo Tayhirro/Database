@@ -1,6 +1,6 @@
 # 垃圾回收（Garbage Collection）
 
-导航：[jvm/README.md](../README.md) | [索引.md](索引.md)
+导航：[jvm/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)
 
 本目录包含 JVM 垃圾回收机制、算法与收集器。
 

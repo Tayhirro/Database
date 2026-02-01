@@ -1,6 +1,6 @@
 # 性能调优（Tuning）
 
-导航：[jvm/README.md](../README.md) | [索引.md](索引.md)
+导航：[jvm/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)
 
 本目录包含 JVM 性能调优参数、工具与分析方法。
 

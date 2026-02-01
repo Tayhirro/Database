@@ -24,8 +24,8 @@ Actuator 提供运行态端点（endpoints）以暴露应用的健康、信息�
 ## 关系：上级/下级/等价/特例/推广
 - 上级：运行态管理（runtime management）。
 - 相关：外部化配置（端点开关/暴露）、自动配置（端点 Bean 的导入）、WebServer（HTTP 暴露时）。
-- 相关：JVM 垃圾回收（GC）与收集器（见 [java/jvm/gc/README.md](../../../java/jvm/gc/README.md)）。
-- 相关：GC 日志与参数（见 [java/jvm/tuning/analysis/GCLog.md](../../../java/jvm/tuning/analysis/GCLog.md)、[java/jvm/tuning/parameters/GCParameters.md](../../../java/jvm/tuning/parameters/GCParameters.md)）。
+- 相关：JVM 垃圾回收（GC）与收集器（见 [java/jvm/gc/README.md](../../../../java/jvm/gc/README.md)）。
+- 相关：GC 日志与参数（见 [java/jvm/tuning/analysis/GCLog.md](../../../../java/jvm/tuning/analysis/GCLog.md)、[java/jvm/tuning/parameters/GCParameters.md](../../../../java/jvm/tuning/parameters/GCParameters.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → Actuator →（运行态端点/可观测性）。
