@@ -31,6 +31,8 @@ InvocationHandler h = new MyInvocationHandler(target);
 -可以定义不同解决办法
 //生成代理类
 Hello proxy = (Hello) Proxy.newProxyInstance(classloader,interface, invocationHandler);
+---$Proxy0
+
 //运行 
 $Proxy0.hi 转发方法
 return (String) h.invoke(this /*就是 proxy*/, method, new Object[]{"Bob"});
