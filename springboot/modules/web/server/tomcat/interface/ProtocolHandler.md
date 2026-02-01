@@ -13,7 +13,7 @@ tags:
 `ProtocolHandler` 是 Tomcat 用于抽象“某种协议栈（HTTP/1.1、AJP 等）如何启动/停止并处理连接”的接口，作为 `Connector` 与具体协议实现之间的边界。
 
 ## 严格定义
-在 Tomcat 中，`org.apache.coyote.ProtocolHandler` 是由 `Connector` 持有并在 `Connector.startInternal()` 中触发其 `start()` 的协议处理器接口；其典型实现会在 `start()` 中启动对应的 `Endpoint`（网络端点）来完成端口监听与 I/O 管理，并将收到的请求推进到后续处理链路。
+在 Tomcat 中，`org.apache.coyote.ProtocolHandler` 是由 `Connector` 持有并在 `Connector.startInternal()` 中触发其 `start()` 的协议处理器接口；其典型实现会持有/创建 `Endpoint`（网络端点）以完成端口监听与 I/O 管理，并在运行态为连接/请求分配 `Processor` 以推进协议解析与后续处理链路（实现相关）。
 
 ## 继承链（接口链 / 实现链）
 - 接口链：`ProtocolHandler`（无上级接口）。
