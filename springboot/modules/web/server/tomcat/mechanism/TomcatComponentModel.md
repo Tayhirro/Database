@@ -34,6 +34,7 @@ Tomcat 组件模型用一组分层组件（`Server`、`Service`、`Connector`、
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`WebServer`（Boot 生命周期适配层，见 [../../../interface/WebServer.md](../../../interface/WebServer.md)）。
 - 下级（按“组件 → 子组件/委托”）：
+  - `Server` → `Service`（聚合边界，见 [../class/Server.md](../class/Server.md)、[../class/Service.md](../class/Service.md)）
   - `Service` → `Connector`（网络入口）
   - `Connector` → `ProtocolHandler`（协议处理委托）
   - `ProtocolHandler` → `Endpoint`（端口与 I/O 管理）
@@ -42,6 +43,7 @@ Tomcat 组件模型用一组分层组件（`Server`、`Service`、`Connector`、
   - `Processor` → `CoyoteRequest`（协议解析后的请求对象，见 [../class/CoyoteRequest.md](../class/CoyoteRequest.md)）
   - `CoyoteAdapter` → `CatalinaRequest`（Servlet 请求视图，见 [../class/CoyoteAdapter.md](../class/CoyoteAdapter.md)、[../class/CatalinaRequest.md](../class/CatalinaRequest.md)）
 - 相关页面：
+  - `Service` 容器入口：`Engine`（见 [../class/Engine.md](../class/Engine.md)）→ `Host`（见 [../class/Host.md](../class/Host.md)）→ `Context`（见 [../class/Context.md](../class/Context.md)）→ `Wrapper`（见 [../class/Wrapper.md](../class/Wrapper.md)）
   - `Connector`：见 [../class/Connector.md](../class/Connector.md)
   - `ProtocolHandler`：见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)
   - `AbstractProtocol`：见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)
