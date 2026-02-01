@@ -20,6 +20,13 @@ tags:
   - `contexts: Context[]`：子容器集合
   - `name: String`：虚拟主机名
   - `appBase: String`：应用基目录（实现相关，部署模式相关）
+- 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
+  - `name: String`：虚拟主机名
+  - `appBase: String`：应用基目录（部署相关）
+  - `children: Map<String, Context>`：子容器集合（按 context path/name 索引，实现相关）
+  - `aliases: String[]`：别名主机名集合（可选，实现相关）
+  - `pipeline`：容器调用链（Valve 链，Tomcat Pipeline 体系）
+  - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
 - 输入：
   - 子容器管理：`addChild(context)` / `findChild(pathOrName)`
   - 配置：`setName(name)` / `setAppBase(path)`
@@ -40,4 +47,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Host。
-

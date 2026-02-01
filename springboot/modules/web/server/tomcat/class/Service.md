@@ -20,6 +20,13 @@ tags:
   - `connectors: Connector[]`：网络入口集合（协议/端口/线程模型入口）
   - `container: Engine`：容器入口（通常为 `Engine`）
   - （可选）`executors: Executor[]`：供协议栈/端点使用的执行器集合（实现相关）
+- 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
+  - `name: String`：Service 名称
+  - `server: Server`：反向引用所属 `Server`（实现相关）
+  - `connectors: Connector[]`：连接器集合
+  - `container: Engine`：容器入口（通常为 `Engine`）
+  - `executors: Executor[]`：执行器集合（可选，实现相关）
+  - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
 - 输入：
   - 连接器管理：`addConnector(connector)` / `removeConnector(connector)`
   - 容器绑定：`setContainer(engine)`
@@ -46,4 +53,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Service。
-

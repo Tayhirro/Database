@@ -19,6 +19,13 @@ tags:
 - 数据（语义级别）：
   - `hosts: Host[]`：子容器集合
   - `defaultHost: String`：默认虚拟主机名（实现相关）
+- 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
+  - `name: String`：容器名称（实现相关）
+  - `defaultHost: String`：默认虚拟主机名
+  - `children: Map<String, Host>`：子容器集合（按 hostName 索引，实现相关）
+  - `pipeline`：容器调用链（Valve 链，Tomcat Pipeline 体系）
+  - `realm`：认证与授权边界（Tomcat Realm 体系，实现相关）
+  - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
 - 输入：
   - 子容器管理：`addChild(host)` / `findChild(name)`
   - 配置：`setDefaultHost(name)`
@@ -39,4 +46,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Engine。
-

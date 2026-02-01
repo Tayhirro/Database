@@ -16,9 +16,16 @@ tags:
 在 Tomcat 中，`org.apache.catalina.Server` 表示 Catalina 侧的“服务集合与生命周期协调”边界：它聚合 `Service`，并在 `start/stop` 等生命周期阶段推进各 `Service` 及其下级组件进入相应状态；常见实现为 `org.apache.catalina.core.StandardServer`。
 
 ## 接口：数据 + 约束
+说明：本节分两层表述——“数据（语义级别）”描述该概念在接口/职责层面所管理的对象关系（稳定边界）；“字段与状态”记录某个常见实现（如 `StandardServer`）里可能出现的成员变量与运行态状态，可能与前者重叠且随版本变化。
 - 数据（语义级别）：
   - `services: Service[]`：`Server` 所管理的一组 `Service`
   - （实现相关）关闭控制与全局资源：例如 shutdown 监听、命名资源等
+- 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
+  - `port: int`：shutdown 监听端口（与 HTTP 监听端口不同）
+  - `address: String`：shutdown 监听地址（可选）
+  - `shutdown: String`：shutdown 命令 token
+  - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
+  - `listeners`：生命周期监听器集合（实现相关）
 - 输入：
   - 生命周期触发：`start()` / `stop()`（以及实现内部的对应阶段）
   - 服务管理：`addService(service)` / `removeService(service)` / `findServices()`
@@ -43,4 +50,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Server。
-

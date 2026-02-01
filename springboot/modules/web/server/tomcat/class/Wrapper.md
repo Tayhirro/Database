@@ -20,6 +20,15 @@ tags:
   - `name: String`：Servlet 名称（用于映射与查找）
   - `servletClass: String`：Servlet 类名（实现相关）
   - `loadOnStartup: int`：启动加载语义（实现相关）
+- 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
+  - `name: String`：Servlet 名称
+  - `servletClass: String`：Servlet 类名
+  - `loadOnStartup: int`：启动加载顺序/语义
+  - `servlet: Servlet`：Servlet 实例（分配/缓存策略实现相关）
+  - `instanceInitialized: boolean`：Servlet 实例初始化状态（实现相关）
+  - `initParameters: Map<String, String>`：初始化参数
+  - `multipartConfig`：multipart 上传配置（实现相关）
+  - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
 - 输入：
   - 生命周期触发：随 `Context`/容器生命周期推进
   - 请求调用：分配 Servlet 实例并调用 `service(req, resp)`（实现相关）
@@ -42,4 +51,3 @@ tags:
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → Wrapper。
-
