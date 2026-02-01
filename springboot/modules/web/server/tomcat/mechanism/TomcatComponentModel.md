@@ -15,6 +15,8 @@ Tomcat 组件模型用一组分层组件（`Server`、`Service`、`Connector`、
 ## 严格定义
 在 Tomcat 中，一个 `Server` 可包含多个 `Service`；每个 `Service` 通常包含一个 `Engine`（Servlet 容器部分）与若干 `Connector`（网络入口）。`Connector` 将网络连接处理委托给 `ProtocolHandler`（协议处理器）；在常见实现中，`ProtocolHandler.start()` 会进一步启动其 `Endpoint`（网络端点）以完成端口监听、连接管理与 I/O 事件处理，并把请求处理任务推进到后续处理链路。
 
+在请求分发到具体 Servlet 之前，运行态可将请求的 host/path 等输入映射为目标容器对象（`Host`/`Context`/`Wrapper`）；该映射可由 `Mapper` 提供（实现相关，见 [../class/Mapper.md](../class/Mapper.md)）。
+
 ## 接口：数据 + 约束
 - 数据（语义级别）：
   - `Server`：`Service` 的聚合容器
@@ -44,6 +46,7 @@ Tomcat 组件模型用一组分层组件（`Server`、`Service`、`Connector`、
   - `CoyoteAdapter` → `CatalinaRequest`（Servlet 请求视图，见 [../class/CoyoteAdapter.md](../class/CoyoteAdapter.md)、[../class/CatalinaRequest.md](../class/CatalinaRequest.md)）
 - 相关页面：
   - `Service` 容器入口：`Engine`（见 [../class/Engine.md](../class/Engine.md)）→ `Host`（见 [../class/Host.md](../class/Host.md)）→ `Context`（见 [../class/Context.md](../class/Context.md)）→ `Wrapper`（见 [../class/Wrapper.md](../class/Wrapper.md)）
+  - `Mapper`：见 [../class/Mapper.md](../class/Mapper.md)
   - `Connector`：见 [../class/Connector.md](../class/Connector.md)
   - `ProtocolHandler`：见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)
   - `AbstractProtocol`：见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)

@@ -25,6 +25,8 @@ tags:
   - `port: int`（配置端口；实际绑定端口可在运行态确定）
 - 字段与状态（面向“线程/执行器”理解；字段名可能随 Tomcat 版本变化）：
   - `protocolHandler`：线程模型与 executor 组织的入口委托点；`Connector` 本身不定义 accept/worker 的线程模型（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)）
+  - `endpoint`：通常不属于 `Connector` 字段；常见实现中由 `ProtocolHandler` 的具体实现（例如 `AbstractProtocol`）持有/创建（见 [../class/AbstractProtocol.md](../class/AbstractProtocol.md)、[../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)）
+  - `processor`：通常不属于 `Connector` 字段；常见实现中由 `ProtocolHandler` 在运行态为连接/请求分配 `Processor` 实例（见 [../interface/Processor.md](../interface/Processor.md)）
   - 连接器级配置项（例如端口、协议名称等）通常用于构造/选择具体 `ProtocolHandler`，并在启动时触发生命周期迁移
 - 输入：
   - `startInternal()`：触发 `protocolHandler.start()`
@@ -33,6 +35,7 @@ tags:
   - 端口监听与协议处理链路的启动/停止（副作用）
 - 约束：
   - `Connector` 只表达“端口入口 + 委托协议处理器”的边界；连接处理线程模型由 `ProtocolHandler/Endpoint` 决定。
+  - `Connector` 与 `Endpoint`/`Processor` 的关系通常是“通过 `ProtocolHandler` 间接关联”，而非 `Connector` 直接聚合这些对象。
 
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`startInternal()` / `stopInternal()`
