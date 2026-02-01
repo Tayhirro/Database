@@ -33,7 +33,6 @@ tags:
   - 端口监听与协议处理链路的启动/停止（副作用）
 - 约束：
   - `Connector` 只表达“端口入口 + 委托协议处理器”的边界；连接处理线程模型由 `ProtocolHandler/Endpoint` 决定。
-  - `Endpoint` 与 `Processor` 通常由 `ProtocolHandler` 的具体实现持有/创建与分配（见 [../interface/ProtocolHandler.md](../interface/ProtocolHandler.md)、[../class/AbstractProtocol.md](../class/AbstractProtocol.md)、[../class/AbstractEndpoint.md](../class/AbstractEndpoint.md)、[../interface/Processor.md](../interface/Processor.md)）。
 
 ## 常用构造/操作（仅列出接口与符号）
 - 生命周期：`startInternal()` / `stopInternal()`
