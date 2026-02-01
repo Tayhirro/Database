@@ -17,6 +17,30 @@ TomcatRequestObjectMapping 描述了 Tomcat 在一次 HTTP 请求处理中如何
 ## 严格定义
 在 Tomcat 的 HTTP/1.1（NIO）场景下，网络端点负责接入连接与 I/O 就绪事件轮询；当连接可读时，`Processor`（如 `Http11Processor`）从连接读取字节并按 HTTP 协议解析请求行/头部/请求体，将解析结果写入 `org.apache.coyote.Request`；随后 `CoyoteAdapter` 将 Coyote 请求/响应适配为 Catalina 侧的 `org.apache.catalina.connector.Request/Response`，并把处理推进到容器管线与最终的 `Servlet.service(...)` 调用。
 
+## 阶段（Phase）
+
+| Phase | 阶段名称 | 数据形态（概念级） | 关键组件 |
+| --- | --- | --- | --- |
+| 1 | I/O 就绪检测 | `SocketChannel`/socket wrapper 可读/可写就绪 | `Endpoint`/`Poller`（见 [../class/threading/Poller.md](../class/threading/Poller.md)） |
+| 2 | 协议解析 | 字节 → 请求行/头部/体的结构化表示 | `Processor`（见 [../interface/Processor.md](../interface/Processor.md)、[../class/Http11Processor.md](../class/Http11Processor.md)） |
+| 3 | Coyote 请求对象形成 | `org.apache.coyote.Request`（含 headers/inputBuffer） | `CoyoteRequest`（见 [../class/CoyoteRequest.md](../class/CoyoteRequest.md)） |
+| 4 | 适配为 Servlet 语义 | `CoyoteRequest` → `CatalinaRequest`（`ServletRequest` 视图） | `CoyoteAdapter`（见 [../class/CoyoteAdapter.md](../class/CoyoteAdapter.md)） |
+| 5 | 容器路由与 servlet 调用 | `ServletRequest` → `Servlet.service(...)` | Catalina 管线/Valve（见 [TomcatComponentModel.md](TomcatComponentModel.md)） |
+
+## 形态变换链（概念级）
+
+```
+网络字节流
+  ↓（Endpoint/Poller：I/O 就绪与读写抽象）
+socket wrapper / channel
+  ↓（Processor：HTTP 协议解析）
+org.apache.coyote.Request (CoyoteRequest)
+  ↓（CoyoteAdapter：对象适配）
+org.apache.catalina.connector.Request (CatalinaRequest / ServletRequest)
+  ↓（容器路由：Valve/Wrapper）
+Servlet.service(...)
+```
+
 ## 接口：数据 + 约束
 - 数据（语义级别）：
   - 连接字节流（readable bytes）
@@ -36,4 +60,3 @@ TomcatRequestObjectMapping 描述了 Tomcat 在一次 HTTP 请求处理中如何
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → mechanism → TomcatRequestObjectMapping。
-
