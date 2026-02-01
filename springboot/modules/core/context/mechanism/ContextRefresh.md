@@ -37,15 +37,15 @@
 | `registerBeanPostProcessors(beanFactory)`      | 注册 BPP，准备实例创建拦截链                                                |
 | `initMessageSource()`                          | 初始化国际化消息源（读取 messages*.properties）                              |
 | `initApplicationEventMulticaster()`            | 初始化事件广播器，建立事件分发机制                                               |
-| `onRefresh()`（子类 hook）                         | 子类扩展点；Web 场景中常用于 `createWebServer()` 启动内嵌 Web 服务器（Tomcat/Jetty） |
+| `onRefresh()`（子类 hook）                         | 子类扩展点；用于初始化上下文实现所需的场景化运行时设施（例如 WebServer 的创建/启动）          |
 | `registerListeners()`                          | 将监听器注册到事件广播器                                                    |
 | `finishBeanFactoryInitialization(beanFactory)` | 预实例化非 lazy Bean（Service、Controller 等）                           |
 | `finishRefresh()`                              | 发布 ContextRefreshedEvent，标记容器就绪                                 |
 
-### Boot 触发位置（Boot 2.3.x）
+### Boot 触发位置（Spring Boot）
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
 
-## invokeBeanFactoryPostProcessors 的典型产物（注解配置上下文）
+### invokeBeanFactoryPostProcessors 的典型产物（注解配置上下文）
 在注解驱动的 `ApplicationContext` 中（例如 `AnnotationConfig...ApplicationContext` 及其 Web 变体），`invokeBeanFactoryPostProcessors(beanFactory)` 的典型效果之一是触发配置类解析与派生注册：
 - `ConfigurationClassPostProcessor`（BDRPP/BFPP）解析配置类候选并派生注册更多 `BeanDefinition`（见 [../../beans/mechanism/ConfigurationClassPostProcessor.md](../../beans/mechanism/ConfigurationClassPostProcessor.md)）。
 - 该解析过程通常包含：
@@ -53,11 +53,11 @@
   - `@Bean`：为 `@Bean` 方法派生注册 `BeanDefinition`（factory method 语义见 [../../beans/mechanism/BeanRegistrationMethods.md](../../beans/mechanism/BeanRegistrationMethods.md)）。
   - `@EnableAutoConfiguration`（Boot）：导入自动配置候选（见 [../../../config/mechanism/AutoConfiguration.md](../../../config/mechanism/AutoConfiguration.md)）。
 
-## 阶段顺序原理（依赖方向与 Hook 时机）
+### 阶段顺序原理（依赖方向与 Hook 时机）
 
 阶段顺序由**设施依赖方向**决定：下游设施依赖上游设施，故上游必先初始化。
 
-### 依赖链与 Hook 位置
+#### 依赖链与 Hook 位置
 
 阶段按**依赖关系**顺序执行：下游依赖上游，故上游先初始化。
 
@@ -108,22 +108,22 @@
 
 **箭头含义**：`───▶` 表示执行顺序（从左到右，从上到下）；`│` 和 `▶` 表示阶段调用关系。
 
-### Hook 时机约束
+#### Hook 时机约束
 
 | Hook | 前置条件 | 后置限制 | 典型用途 |
 |------|----------|----------|----------|
 | `postProcessBeanFactory()` | BeanFactory 已创建，标准特性已配置 | BFPP 即将执行，BeanDefinition 将被变换 | 注册 Web Scope、修改 BeanFactory 默认行为 |
 | `onRefresh()` | MessageSource、EventMulticaster 已就绪 | 业务 Bean 即将实例化，监听器待注册 | 初始化“特定场景基础设施”（WebServer、ReactiveServer、自定义运行时设施） |
 
-## 精确定位：`refresh()` 的整体结构（不是“只创建 WebServer”）
+### `refresh()` 的整体结构（结构化视角）
 
-把 `refresh()` 看成“构建容器运行时”的过程更准确：它不是做某一个具体设施（例如 WebServer），而是在**统一的启动模板**里，按依赖顺序搭建整套运行时能力。
+从结构化视角，`refresh()` 可描述为“构建容器运行时”的阶段化过程：它在统一模板中按依赖顺序装配通用设施与场景化设施，并驱动 Bean 的创建，使上下文进入可用状态。
 
 `AbstractApplicationContext.refresh()` 是典型的**模板方法**：
-- 主流程负责“通用框架设施”的搭建（BeanFactory、后处理器链、事件系统等）。
-- 两个关键 hook（`postProcessBeanFactory` / `onRefresh`）给子类把“场景化设施”挂上来。
+- 主流程负责初始化通用框架设施（BeanFactory、后处理器链、事件系统等）。
+- 两个关键 hook（`postProcessBeanFactory` / `onRefresh`）提供场景化扩展点，用于由上下文实现补齐其所需设施。
 
-### 以“构建运行时”的视角重述 refresh 分层
+#### 以“构建运行时”的视角重述 refresh 分层
 - **元数据层（定义阶段）**：`obtainFreshBeanFactory()` 加载/刷新 `BeanDefinition`，相当于把“要装配的对象模型”准备好。
 - **变换层（装配阶段）**：`invokeBeanFactoryPostProcessors()` 对 `BeanDefinition` 做派生与改写（注解解析、自动配置导入等）。
 - **拦截层（实例化前准备）**：`registerBeanPostProcessors()` 把对象创建/初始化的拦截链装上（后续每个 Bean 创建都会经过它）。
@@ -131,17 +131,17 @@
 - **场景设施层（hook 扩展）**：`postProcessBeanFactory()` / `onRefresh()` 由子类按场景补齐设施（例如 Web 环境的 `ServletContext`、WebServer；或你自定义的运行时设施）。
 - **运行时层（实例化与就绪）**：`registerListeners()` → `finishBeanFactoryInitialization()` → `finishRefresh()`，完成监听器就位、单例预实例化、发布就绪事件。
 
-### 类比（为什么你会觉得像“构建数据库”）
-- `BeanDefinition` 更像 schema/元数据：先把“结构”定义清楚，后面才谈实例化与运行。
-- BFPP/BDRPP 与 BPP 更像编译/拦截机制：前者改写定义，后者围绕实例生命周期织入拦截逻辑。
-- `onRefresh()` 更像“补齐运行时设施”：在主流程给定的时机，把某个场景所需的外部设施（WebServer、资源、上下文对象）接到容器里。
+#### 类比：schema / 变换 / 运行时
+- `BeanDefinition` 可类比为 schema/元数据：描述待装配对象的结构与依赖，而非对象实例本身。
+- BFPP/BDRPP 与 BPP 可类比为“变换/拦截机制”：前者改写定义（Definition），后者围绕实例生命周期织入拦截链。
+- `onRefresh()` 可类比为“补齐运行时设施”的插槽：在固定时机初始化场景化设施，使后续 Bean 创建可引用这些设施。
 
-### Hook 的定位（抽象总结）
-- `postProcessBeanFactory()`：在 BFPP 之前插入，适合注册/调整 BeanFactory 级别能力（Scope、解析器、属性编辑等）。
-- `onRefresh()`：在通用基础设施（消息源/事件系统）就绪后、业务 Bean 大规模实例化前插入，适合启动“需要容器环境但又会影响后续 Bean 创建”的设施。
+#### Hook 的定位（抽象总结）
+- `postProcessBeanFactory()`：在 BFPP 之前插入，可用于注册/调整 BeanFactory 级别能力（Scope、解析器、属性编辑等）。
+- `onRefresh()`：在通用基础设施（消息源/事件系统）就绪后、业务 Bean 大规模实例化前插入，可用于初始化“需要容器环境且会影响后续 Bean 创建”的设施。
 
-### Web 场景特例：Boot 在 `onRefresh()` 启动 WebServer（嵌入式 Tomcat）
-当应用是 Web 类型时，Spring Boot 使用 `ServletWebServerApplicationContext`（`ApplicationContext` 的 Web 特例）覆盖 `onRefresh()`，把“创建内嵌 Web 服务器”的逻辑插入到 refresh 的标准流程里。
+#### Web 场景特例：`ServletWebServerApplicationContext` 在 `onRefresh()` 创建/启动 WebServer
+在 Servlet Web 类型的 `ApplicationContext` 实现中，可以通过覆盖 `onRefresh()` 触发 WebServer 的创建与启动（例如 Spring Boot 的 `ServletWebServerApplicationContext`）。
 
 ```
 SpringApplication.run()
@@ -157,13 +157,13 @@ SpringApplication.run()
                                 - (Engine/Host/Context/Connector 等继续组装与配置)
 ```
 
-### Web 场景下：谁创建了什么？（对照用）
+#### Web 场景下：谁创建了什么？
 - `SpringApplication.run()`：负责启动 Spring 容器并触发 `refresh()`，本身不直接创建 Tomcat 组件。
 - `ServletWebServerApplicationContext.onRefresh()`：通过 hook 调用 `createWebServer()`，把“启动 WebServer”挂载进 refresh 流程。
 - `TomcatServletWebServerFactory.getWebServer(...)`：作为工厂，驱动创建并配置内嵌 Tomcat。
 - `org.apache.catalina.startup.Tomcat`：其构造与组装过程创建/持有 `StandardServer`、`StandardService` 等 Tomcat 核心组件。
 
-### 约束原理
+#### 约束原理
 
 - **EventMulticaster 必须在 `onRefresh()` 之前**：`onRefresh()` 可能产生事件（如 Web 服务器启动失败），需有广播器接收。
 - **`onRefresh()` 必须在业务 Bean 之前**：业务 Bean（如 Controller）可能依赖 `onRefresh()` 创建的设施（如 `ServletContext`）。
