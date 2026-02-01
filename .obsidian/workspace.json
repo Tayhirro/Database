@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/extension/mechanism/SpringFactoriesLoader.md",
+                "file": "springboot/modules/core/context/interface/ApplicationContext.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SpringFactoriesLoader"
+              "title": "ApplicationContext"
             }
           },
           {
@@ -237,6 +237,7 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/extension/mechanism/SpringFactoriesLoader.md",
     "springboot/modules/core/bootstrap/class/SpringApplication.md",
     "springboot/modules/core/bootstrap/interface/SpringApplicationRunListener.md",
     "springboot/modules/core/bootstrap/interface/CommandLineRunner.md",
@@ -262,7 +263,6 @@
     "springboot/概念图.md",
     "springboot/README.md",
     "springboot/索引.md",
-    "springboot/flows/ServletWeb应用持续运行机制.md",
     "java/jvm/native",
     "java/jvm/tuning/tools",
     "java/jvm/tuning/analysis",
