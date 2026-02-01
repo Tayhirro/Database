@@ -6,7 +6,6 @@
       {
         "id": "f90d19f41455e658",
         "type": "tabs",
-        "dimension": 77.87610619469027,
         "children": [
           {
             "id": "8f61731f8e1e8a24",
@@ -34,8 +33,7 @@
               },
               "icon": "lucide-file",
               "title": "javass"
-            },
-            "group": "b625416759b335df"
+            }
           },
           {
             "id": "ca7714e3b461c8a8",
@@ -62,29 +60,6 @@
               "icon": "lucide-file-text",
               "title": "Qwen3-report"
             }
-          }
-        ]
-      },
-      {
-        "id": "d650e836bc02fcdb",
-        "type": "tabs",
-        "dimension": 22.123893805309734,
-        "children": [
-          {
-            "id": "7863a98f149d4efc",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "java/javass.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "javass 的大纲"
-            },
-            "group": "b625416759b335df"
           }
         ]
       }
@@ -143,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 245.5069465637207
+    "width": 344.5069465637207
   },
   "right": {
     "id": "49f3e4bd09f511b1",
@@ -245,7 +220,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 275.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -263,6 +238,7 @@
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
     "java/javass.md",
+    "agent/llm/README.md",
     "springboot/modules/web/server/tomcat/class/AbstractEndpoint.md",
     "springboot/modules/web/server/tomcat/class/Connector.md",
     "springboot/flows/ServletWeb应用持续运行机制.md",
@@ -270,7 +246,6 @@
     "springboot/modules/web/server/tomcat/interface/ProtocolHandler.md",
     "springboot/modules/web/server/tomcat/mechanism/TomcatThreadingAndExecutors.md",
     "springboot/modules/web/server/tomcat/mechanism/TomcatComponentModel.md",
-    "agent/llm/README.md",
     "agent/论文/Qwen3-report.pdf",
     "agent/llm/概念图.md",
     "agent/llm/evaluation/索引.md",
