@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "java/jvm/gc/README.md",
+                "file": "java/jvm/gc/mechanism/GCOverview.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "GCOverview"
             }
           },
           {
@@ -237,6 +237,10 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "java/jvm/gc/mechanism/GCRoots.md",
+    "java/jvm/gc/mechanism/CardTable.md",
+    "java/jvm/gc/概念图.md",
+    "java/jvm/gc/README.md",
     "未命名 11.base",
     "java/jvm/runtime/structure/DirectMemory.md",
     "java/jvm/runtime/structure/ProgramCounter.md",
@@ -261,9 +265,6 @@
     "springboot/modules/web/server/tomcat/class/Http11Processor.md",
     "springboot/modules/web/server/tomcat/class/Http11NioProtocol.md",
     "springboot/modules/web/server/tomcat/class/Context.md",
-    "springboot/modules/web/server/tomcat/class/threading/Acceptor.md",
-    "springboot/modules/core/context/mechanism/ContextRefresh.md",
-    "springboot/modules/web/README.md",
     "java/jvm/tuning/tools",
     "java/jvm/gc/algorithm",
     "java/jvm/runtime/structure",
