@@ -45,6 +45,14 @@
 ### Boot 触发位置（Boot 2.3.x）
 `SpringApplication.refreshContext(context)` → `SpringApplication.refresh(context)` → `context.refresh()`。
 
+## invokeBeanFactoryPostProcessors 的典型产物（注解配置上下文）
+在注解驱动的 `ApplicationContext` 中（例如 `AnnotationConfig...ApplicationContext` 及其 Web 变体），`invokeBeanFactoryPostProcessors(beanFactory)` 的典型效果之一是触发配置类解析与派生注册：
+- `ConfigurationClassPostProcessor`（BDRPP/BFPP）解析配置类候选并派生注册更多 `BeanDefinition`（见 [../../beans/mechanism/ConfigurationClassPostProcessor.md](../../beans/mechanism/ConfigurationClassPostProcessor.md)）。
+- 该解析过程通常包含：
+  - `@ComponentScan`：扫描 stereotype 组件并注册其 `BeanDefinition`（扫描器见 [../../beans/mechanism/BeanRegistrationMethods.md](../../beans/mechanism/BeanRegistrationMethods.md)）。
+  - `@Bean`：为 `@Bean` 方法派生注册 `BeanDefinition`（factory method 语义见 [../../beans/mechanism/BeanRegistrationMethods.md](../../beans/mechanism/BeanRegistrationMethods.md)）。
+  - `@EnableAutoConfiguration`（Boot）：导入自动配置候选（见 [../../../config/mechanism/AutoConfiguration.md](../../../config/mechanism/AutoConfiguration.md)）。
+
 ## 阶段顺序原理（依赖方向与 Hook 时机）
 
 阶段顺序由**设施依赖方向**决定：下游设施依赖上游设施，故上游必先初始化。

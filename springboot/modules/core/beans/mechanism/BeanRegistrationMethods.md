@@ -116,7 +116,7 @@ public class UserController {
 ```
 @Configuration 类被解析
        ↓
-ConfigurationClassPostProcessor 处理 @Bean 方法
+ConfigurationClassPostProcessor 处理配置类并派生注册（见 [ConfigurationClassPostProcessor.md](ConfigurationClassPostProcessor.md)）
        ↓
 为每个 @Bean 方法生成 BeanDefinition
        ↓
@@ -218,7 +218,7 @@ BeanDefinitionRegistry.registerBeanDefinition(...)
 
 ## 关系
 
-- 上级：[Bean 注册与创建流程](../../flows/Bean注册与创建流程.md)
+- 上级：[Bean 注册与创建流程](../../../../flows/Bean注册与创建流程.md)
 - 下游：[BeanDefinition](../interface/BeanDefinition.md)、[BeanDefinitionRegistry](../interface/BeanDefinitionRegistry.md)
 - 相关：[Bean 生命周期](BeanLifecycle.md)（注册后的实例化流程）
 - 相关：[FactoryBean](../interface/FactoryBean.md)（@MapperScan 使用的工厂模式）
