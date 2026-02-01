@@ -46,9 +46,13 @@ tags:
 
 ### 2) 轮询与分发（Poller / Selector）
 1. `Poller` 线程持有并驱动 `Selector`（见 [Poller.md](Poller.md)）。
-2. Poller 将 `SocketChannel` 注册到 `Selector` 并得到 `SelectionKey`：
-   - `SocketChannel.register(selector, ops, attachment)` → `SelectionKey`（关键内容：interest ops / ready ops / attachment（概念级））
-3. Poller 调用 `select()` 获得就绪的 `SelectionKey` 后，将“就绪连接”封装为可执行任务（概念级）并投递到 `Executor`。
+2. Poller 维护“待注册集合”（概念级）并将需要被监管的连接注册到 `Selector`：
+   - 新接入连接：`Acceptor` 提交 `SocketChannel` 到待注册集合；
+   - 既有连接：worker 处理完成后（例如 keep-alive 等待下一次请求）把连接提交回待注册集合。
+3. Poller 在循环中执行：
+   - 处理待注册集合（注册 channel 或更新 `interestOps`）；
+   - 调用 `select()` 获取就绪 `SelectionKey`；
+   - 将就绪事件转化为任务并投递到 `Executor`（见 [Executor.md](Executor.md)）。
 
 ### 3) 执行（Executor / worker）
 1. `Executor`（worker 线程池）接收任务并在 worker 线程中执行（见 [Executor.md](Executor.md)）。

@@ -30,6 +30,16 @@ Acceptor 是 Tomcat NIO 端点中负责接收（accept）新 TCP 连接并将连
 - `accept()`：接收新连接（语义级）
 - “注册/移交到轮询机制”：将连接提交给 Poller/Selector（语义级）
 
+## 流程（概念级：Acceptor 的一次接入）
+1. 监听通道接入：
+   - `ServerSocketChannel.accept()` 产生一个新的 `SocketChannel`（见 [NioChannels.md](NioChannels.md)）。
+2. 连接初始化（概念级）：
+   - 对 `SocketChannel` 设置必要的 socket/channel 属性（例如将其置为非阻塞以便注册到 `Selector`）。
+3. 移交到 Poller：
+   - 将该 `SocketChannel` 与其连接状态对象提交到 Poller 的“待注册集合”（register queue，概念级）。
+4. 触发 Poller 处理：
+   - 若 Poller 当前阻塞在 `select()`，实现通常需要通过 `selector.wakeup()`（或等价机制）使 Poller 及时处理新的注册请求（实现细节）。
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`AbstractEndpoint`（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）。
 - 并列角色：`Poller`（见 [Poller.md](Poller.md)）、`Executor`（见 [Executor.md](Executor.md)）。

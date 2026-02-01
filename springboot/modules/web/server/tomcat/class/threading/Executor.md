@@ -30,6 +30,16 @@ Executor 是 Tomcat endpoint 用于承载请求处理任务的执行器抽象：
 - `execute(Runnable)`：投递任务（语义级）
 - `AbstractEndpoint.getExecutor()`：获取端点当前使用的执行器视图（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）
 
+## 流程（概念级：一次请求处理任务）
+1. Poller 分发任务：
+   - Poller 发现某连接可读/可写就绪后，将该连接对应的处理动作封装为任务并投递到 `Executor`（见 [Poller.md](Poller.md)）。
+2. worker 执行任务：
+   - 在 worker 线程中执行与该连接相关的处理步骤（概念级）：读取字节、解析协议、推进到应用处理链路、生成并写回响应。
+3. 决策下一步（概念级）：
+   - 若连接关闭：释放连接资源并取消其 `SelectionKey`（具体由端点实现）。
+   - 若连接保持 keep-alive：将连接重新提交到 Poller 的“待注册集合”，使其回到 `Selector` 监管并等待下一次可读事件。
+   - 若需要继续写（例如写缓冲未完成）：更新该连接在 `Selector` 上关注的事件类型（例如关注可写），以便后续由 Poller 继续分发写相关任务（实现细节依端点）。
+
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`AbstractEndpoint`（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）。
 - 任务来源：`Poller`（见 [Poller.md](Poller.md)）。
@@ -37,4 +47,3 @@ Executor 是 Tomcat endpoint 用于承载请求处理任务的执行器抽象：
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → threading → Executor。
-
