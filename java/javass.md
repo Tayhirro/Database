@@ -18,27 +18,60 @@ Hello proxy = (Hello)Proxy.newProxyInstance(
     new MyInvocationHandler(target)		//提供解决办法
 )
     
--缓存===为了：校验接口列表-拼接代理类字节码-生成类
-WeakCache<ClassLoader, InterfaceArrayKey, Class<?>>
--生成byte[]字节码
-sun.misc.ProxyGenerator.generateProxyClass(...)
--定义类
-defineClass0(loader, name, bytes, ...)
     
-     
+
+--例子：     
 //定义解决办法
 InvocationHandler h = new MyInvocationHandler(target);
 -可以定义不同解决办法
 //生成代理类
 Hello proxy = (Hello) Proxy.newProxyInstance(classloader,interface, invocationHandler);
 ---$Proxy0
-
 //运行 
 $Proxy0.hi 转发方法
 return (String) h.invoke(this /*就是 proxy*/, method, new Object[]{"Bob"});
 //对于method：反射---class定义的method
 Method method = Hello.class.getMethod("sayHello");
 method.invoke(Object obj1,Object[] args); 
+
+
+---proxy类
+-缓存===为了：校验接口列表-拼接代理类字节码-生成类
+WeakCache<ClassLoader, InterfaceArrayKey, Class<?>>
+-生成byte[]字节码
+sun.misc.ProxyGenerator.generateProxyClass(...)
+-定义类
+defineClass0(loader, name, bytes, ...)
+// 1. 它继承了 Proxy 类（所以它自动拥有了 handler 这个成员变量）
+// 2. 它实现了你的 UserService 接口（所以它有 saveUser 方法）
+public final class $Proxy0 extends Proxy implements UserService {
+
+    // 这一步是在类加载时，通过反射把 saveUser 方法对象拿出来，存成静态变量 m3
+    // m3 = UserService.class.getMethod("saveUser", String.class);
+    --反射 拿取 方法
+    private static Method m3; 
+
+    // 构造函数：把你传入的 handler 存给父类
+    public $Proxy0(InvocationHandler h) {
+        super(h);
+    }
+
+    // --- 重点来了：这就是生成的 saveUser 方法 ---
+    @Override
+    public void saveUser(String name) {
+        try {
+            // 它是怎么走的？看这行：
+            // super.h 就是你传入的 LogHandler
+            // 它直接调用了 handler 的 invoke 方法！
+            // 把 "自己(this)", "方法对象(m3)", "参数(name)" 全传过去了
+            super.h.invoke(this, m3, new Object[] { name });
+            
+        } catch (Throwable e) {
+            throw new UndeclaredThrowableException(e);
+        }
+    }
+}
+
 ```
 
 #### 具体实现
