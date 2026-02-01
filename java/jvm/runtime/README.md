@@ -12,6 +12,7 @@
 |------|------|
 | [structure/](structure/) | 运行时数据区结构 |
 | [threading/](threading/) | JVM 运行态线程 |
+| [class/](class/) | 运行态相关的 Java 平台类 |
 
 ---
 
@@ -33,6 +34,9 @@
 - [ReferenceHandlerThread](threading/ReferenceHandlerThread.md)：引用处理线程
 - [FinalizerThread](threading/FinalizerThread.md)：终结器线程
 - [SignalDispatcherThread](threading/SignalDispatcherThread.md)：信号分发线程
+
+### 平台类（class/）
+- [Runtime](class/Runtime.md)：`java.lang.Runtime`（运行时环境访问入口）
 
 ---
 
