@@ -34,6 +34,7 @@
 - [GenerationalGC](algorithm/GenerationalGC.md)：分代收集
 
 ### 收集器（collector/）
+- [GarbageCollector](collector/GarbageCollector.md)：垃圾收集器（概念与边界）
 - [Serial](collector/Serial.md)：Serial 收集器
 - [ParNew](collector/ParNew.md)：ParNew 收集器
 - [ParallelScavenge](collector/ParallelScavenge.md)：Parallel Scavenge
