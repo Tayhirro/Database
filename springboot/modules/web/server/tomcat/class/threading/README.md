@@ -23,6 +23,13 @@ tags:
 - `AbstractEndpoint` → `Poller`
 - `AbstractEndpoint` → `Executor`
 
+## 相关（OS/TCP 对齐）
+- TCP 连接标识（五元组）：见 [../../../../../../../网络/transport/tcp/TCP连接标识（五元组）.md](../../../../../../../网络/transport/tcp/TCP连接标识（五元组）.md)
+- accept（监听 socket → 已连接 socket/新 FD）：见 [../../../../../../../网络/os/accept（监听socket与已连接socket）.md](../../../../../../../网络/os/accept（监听socket与已连接socket）.md)
+- 文件描述符（FD）：见 [../../../../../../../网络/os/文件描述符（FD）.md](../../../../../../../网络/os/文件描述符（FD）.md)
+- epoll（Linux I/O 多路复用）：见 [../../../../../../../网络/os/epoll（I-O多路复用）.md](../../../../../../../网络/os/epoll（I-O多路复用）.md)
+- Selector（Java NIO 多路复用）：见 [../../../../../../../网络/java/Selector（JavaNIO多路复用）.md](../../../../../../../网络/java/Selector（JavaNIO多路复用）.md)
+
 ## 流程（以 `http-nio-8080` 为例：从 accept 到 Servlet）
 
 > 说明：以下为概念级时间线，用于对齐线程角色与分层职责；具体类名/方法名会随 Tomcat 版本与端点实现（NIO/NIO2/APR）变化。

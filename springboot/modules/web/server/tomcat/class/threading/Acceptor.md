@@ -33,6 +33,7 @@ Acceptor 是 Tomcat NIO 端点中负责接收（accept）新 TCP 连接并将连
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`AbstractEndpoint`（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）。
 - 并列角色：`Poller`（见 [Poller.md](Poller.md)）、`Executor`（见 [Executor.md](Executor.md)）。
+- OS/TCP 对齐：`accept()` 与“监听 socket → 已连接 socket”的区分（见 [../../../../../../../网络/os/accept（监听socket与已连接socket）.md](../../../../../../../网络/os/accept（监听socket与已连接socket）.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → threading → Acceptor。

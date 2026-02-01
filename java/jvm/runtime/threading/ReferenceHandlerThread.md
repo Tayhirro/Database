@@ -1,7 +1,7 @@
 ---
 type: mechanism
 tags:
-  - springboot/jvm
+  - java/jvm
   - jvm
   - reference
   - threading
@@ -20,7 +20,7 @@ Reference Handler 线程是 JVM 在运行态用于处理待处理引用（refere
   - 待处理引用集合（pending references）
   - `ReferenceQueue`
 - 输入：
-  - “引用需要入队”的运行态事件
+  - "引用需要入队"的运行态事件
 - 输出：
   - 引用对象入队到 `ReferenceQueue` 的效果（副作用）
 - 约束：
@@ -30,8 +30,8 @@ Reference Handler 线程是 JVM 在运行态用于处理待处理引用（refere
 - 观测：`jstack <pid>`
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：JVM Runtime Threads（见 [JvmRuntimeThreads.md](JvmRuntimeThreads.md)）。
+- 上级：[JvmRuntimeThreads](JvmRuntimeThreads.md)
+- 相关：[ReferenceTypes](../../gc/mechanism/ReferenceTypes.md)（引用类型）
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → jvm → mechanism → ReferenceHandlerThread。
-
+java → jvm → runtime → threading → ReferenceHandlerThread

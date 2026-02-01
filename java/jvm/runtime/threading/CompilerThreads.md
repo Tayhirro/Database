@@ -1,7 +1,7 @@
 ---
 type: mechanism
 tags:
-  - springboot/jvm
+  - java/jvm
   - jvm
   - jit
   - threading
@@ -30,8 +30,8 @@ tags:
 - 观测：`jstack <pid>`
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：JVM Runtime Threads（见 [JvmRuntimeThreads.md](JvmRuntimeThreads.md)）。
+- 上级：[JvmRuntimeThreads](JvmRuntimeThreads.md)
+- 相关：[JIT](../../execution/jit/JIT.md)（即时编译机制）
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → jvm → mechanism → CompilerThreads。
-
+java → jvm → runtime → threading → CompilerThreads

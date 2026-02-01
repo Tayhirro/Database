@@ -1,7 +1,7 @@
 ---
 type: mechanism
 tags:
-  - springboot/jvm
+  - java/jvm
   - jvm
   - gc
   - threading
@@ -30,8 +30,8 @@ GC 线程是垃圾回收器在 JVM 运行态用于执行内存回收相关工作
 - 观测：`jstack <pid>`
 
 ## 关系：上级/下级/等价/特例/推广
-- 上级：JVM Runtime Threads（见 [JvmRuntimeThreads.md](JvmRuntimeThreads.md)）。
+- 上级：[JvmRuntimeThreads](JvmRuntimeThreads.md)
+- 相关：[GC](../../gc/README.md)（GC 机制与收集器）
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → jvm → mechanism → GCThreads。
-
+java → jvm → runtime → threading → GCThreads

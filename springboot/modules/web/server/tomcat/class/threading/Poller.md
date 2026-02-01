@@ -34,6 +34,7 @@ Poller 是 Tomcat NIO 端点中负责驱动 I/O 多路复用（select/poll）并
 ## 关系：上级/下级/等价/特例/推广
 - 上级：`AbstractEndpoint`（见 [../AbstractEndpoint.md](../AbstractEndpoint.md)）。
 - 并列角色：`Acceptor`（见 [Acceptor.md](Acceptor.md)）、`Executor`（见 [Executor.md](Executor.md)）。
+- OS 对齐：epoll 与 Selector 的映射（实现依赖）（见 [../../../../../../../网络/os/epoll（I-O多路复用）.md](../../../../../../../网络/os/epoll（I-O多路复用）.md)、[../../../../../../../网络/java/Selector（JavaNIO多路复用）.md](../../../../../../../网络/java/Selector（JavaNIO多路复用）.md)）。
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → server → tomcat → class → threading → Poller。

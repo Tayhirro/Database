@@ -1,7 +1,7 @@
 ---
 type: mechanism
 tags:
-  - springboot/jvm
+  - java/jvm
   - jvm
   - threading
 ---
@@ -32,15 +32,13 @@ JVM 运行态线程描述的是：一个 Java 进程在运行期间除了应用�
 - 观测（可选）：`jcmd <pid> Thread.print`（线程打印）
 
 ## 关系：上级/下级/等价/特例/推广
+- 上级：[Runtime](../README.md)
 - 下级（JVM 内部服务线程）：
   - GC Threads（见 [GCThreads.md](GCThreads.md)）
   - CompilerThread (C1/C2)（见 [CompilerThreads.md](CompilerThreads.md)）
   - Reference Handler（见 [ReferenceHandlerThread.md](ReferenceHandlerThread.md)）
   - Finalizer（见 [FinalizerThread.md](FinalizerThread.md)）
   - Signal Dispatcher（见 [SignalDispatcherThread.md](SignalDispatcherThread.md)）
-- 相关（同一进程内的应用线程示例）：
-  - Tomcat 端点线程角色（Acceptor/Poller/Executor）：见 [../../modules/web/server/tomcat/class/threading/README.md](../../modules/web/server/tomcat/class/threading/README.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
-springboot → jvm → mechanism → JvmRuntimeThreads。
-
+java → jvm → runtime → threading → JvmRuntimeThreads
