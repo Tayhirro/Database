@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "java/jvm/gc/mechanism/GCOverview.md",
+                "file": "java/jvm/gc/mechanism/RememberedSet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GCOverview"
+              "title": "RememberedSet"
             }
           },
           {
@@ -237,6 +237,11 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "java/jvm/gc/mechanism/SafePoint.md",
+    "java/jvm/gc/mechanism/RememberedSet.md",
+    "java/jvm/gc/mechanism/ReferenceTypes.md",
+    "java/jvm/gc/mechanism/ReachabilityAnalysis.md",
+    "java/jvm/gc/mechanism/GCOverview.md",
     "java/jvm/gc/mechanism/GCRoots.md",
     "java/jvm/gc/mechanism/CardTable.md",
     "java/jvm/gc/概念图.md",
@@ -260,11 +265,6 @@
     "springboot/modules/web/server/tomcat/class/AbstractProtocol.md",
     "springboot/modules/web/server/tomcat/class/CatalinaRequest.md",
     "springboot/modules/web/server/tomcat/class/Wrapper.md",
-    "springboot/modules/web/server/tomcat/class/Service.md",
-    "springboot/modules/web/server/tomcat/class/Server.md",
-    "springboot/modules/web/server/tomcat/class/Http11Processor.md",
-    "springboot/modules/web/server/tomcat/class/Http11NioProtocol.md",
-    "springboot/modules/web/server/tomcat/class/Context.md",
     "java/jvm/tuning/tools",
     "java/jvm/gc/algorithm",
     "java/jvm/runtime/structure",
