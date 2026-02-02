@@ -1,10 +1,11 @@
 # 历史（History）知识库组织说明
 
-这部分按"面向对象/类型系统"的方式组织历史概念：
+按层级化方式组织历史概念：
 1) **结构族（structures）**：朝代/时期/事件（唐朝、贞观之治、安史之乱……）
-2) **人物（figures）**：历史人物分类（帝王、官员、军事、学者……）
-3) **史料（sources）**：原始文献与史书（《史记》、《资治通鉴》……）
-4) **跨领域模块**：通过链接关联到文学、哲学等其他知识库
+2) **行政区划（administrative）**：州郡县制、道路制、行省制及具体州郡（江州、荆州等）
+3) **人物（figures）**：历史人物分类（帝王、官员、军事、学者……）
+4) **史料（sources）**：原始文献与史书（《史记》、《资治通鉴》……）
+5) **跨领域模块**：通过链接关联到文学、哲学等其他知识库
 
 ---
 
@@ -19,6 +20,9 @@
   - `structures/dynasties/`：朝代（夏商周、秦汉、唐宋元明清……）
   - `structures/periods/`：历史时期（春秋战国、三国、南北朝……）
   - `structures/events/`：重大事件（贞观之治、安史之乱、靖康之变……）
+  - `structures/administrative/`：行政区划制度
+    - 制度类型：州郡县制、道路制、行省制
+    - 具体州郡：江州、荆州、扬州等
 - `历史/figures/`：历史人物分类
   - `figures/emperors/`：帝王
   - `figures/officials/`：官员政治家
@@ -28,6 +32,7 @@
 
 跨领域：
 - `文学/cultural-geography/`：具有文学意义的历史地理空间（详细条目见文学知识库）
+- 行政区划与文学空间关联：如江州与浔阳江
 
 ---
 
@@ -81,23 +86,28 @@
 ### 与文学目录的互相引用
 - 历史人物如果有文学成就 → 在 `文学/authors/` 中也建立条目
 - 文学作品涉及历史背景 → 链接到 `历史/structures/` 或 `历史/figures/`
+- 行政区划与文学空间 → 在 `历史/structures/administrative/` 和 `文学/cultural-geography/` 互相链接
 - 例如：
   - 李泰 → `历史/figures/emperors/李泰.md` + `文学/authors/李泰.md`
   - 曹植 → `历史/figures/officials/曹植.md` + `文学/authors/曹植.md`
+  - 江州 → `历史/structures/administrative/江州.md` + `文学/cultural-geography/浔阳江.md`
 
 ### 链接示例
 ```markdown
 ## 相关链接
 - **历史背景**：[历史/structures/dynasties/唐朝.md](../历史/structures/dynasties/唐朝.md)
+- **行政区划**：[历史/structures/administrative/江州.md](../历史/structures/administrative/江州.md)
 - **文学成就**：[文学/authors/李泰.md](../文学/authors/李泰.md)
+- **文化地理**：[文学/cultural-geography/浔阳江.md](../文学/cultural-geography/浔阳江.md)
 ```
 
 ---
 
 ## 5. 你接下来怎么用
 
-- **速查**：从 `历史索引.md` 进，按朝代或人物类型查找
+- **速查**：从 `历史索引.md` 进，按朝代、行政区划或人物类型查找
 - **系统学**：按时间线阅读朝代/时期，理解历史演进
+- **行政区划研究**：从 `structures/administrative/` 进，了解州郡县制到行省制的演变
 - **人物研究**：从 `figures/` 进，按类型（帝王/官员/军事/学者）浏览
 - **跨领域**：通过链接在历史、文学、哲学之间穿梭
 
