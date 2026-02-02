@@ -15,7 +15,7 @@
 - `历史/概念图.md`：时间线与依赖关系图
 
 核心内容：
-- `历史/structures/`：历史结构的"类定义"
+- `历史/structures/`：历史结构的结构化定义
   - `structures/dynasties/`：朝代（夏商周、秦汉、唐宋元明清……）
   - `structures/periods/`：历史时期（春秋战国、三国、南北朝……）
   - `structures/events/`：重大事件（贞观之治、安史之乱、靖康之变……）
@@ -25,6 +25,9 @@
   - `figures/military/`：军事人物
   - `figures/scholars/`：学者思想家
 - `历史/sources/`：史料与文献
+
+跨领域：
+- `文学/cultural-geography/`：具有文学意义的历史地理空间（详细条目见文学知识库）
 
 ---
 

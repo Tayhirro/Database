@@ -46,3 +46,14 @@ Tool Use：Agent 调用外部工具（API、代码执行器、数据库等）完
 - 上级：[Agent](../README.md)
 - 扩展：[LLM](../llm/README.md) 能力
 - 相关：[Action](../action/README.md)
+
+---
+
+## 交叉引用：工具相关训练
+
+如何训练模型使用工具，见 LLM 训练模块：
+
+- [Agentic Training](../llm/training/post-training/agentic/)：Agent 能力训练
+  - [Search-R1](../llm/training/post-training/agentic/Search-R1.md)：搜索工具 + RL
+  - [Toolformer](../llm/training/post-training/agentic/Toolformer.md)：自监督工具学习
+  - [WebGPT](../llm/training/post-training/agentic/WebGPT.md)：网页浏览 + RLHF
