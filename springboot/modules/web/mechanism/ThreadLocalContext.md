@@ -14,7 +14,7 @@ tags:
 ThreadLocalContext 描述在同一线程的调用链路中，使用 `ThreadLocal<T>` 绑定与读取运行态上下文数据（例如当前用户、请求属性、事务上下文）的机制。
 
 ## 严格定义
-给定一个线程集合 $Th$ 与值域 $V$，`ThreadLocal<T>` 在语义上提供一个部分映射 $f: Th \\rightharpoonup V$：对每个线程 $t \\in Th$，`set(v)` 将 $f(t)$ 设为 $v$，`get()` 读取 $f(t)$，`remove()` 删除 $f(t)$。
+给定一个线程集合 $Th$ 与值域 $V$，`ThreadLocal<T>` 在语义上提供一个部分映射 $f: Th \rightharpoonup V$：对每个线程 $t \in Th$，`set(v)` 将 $f(t)$ 设为 $v$，`get()` 读取 $f(t)$，`remove()` 删除 $f(t)$。
 
 在 Servlet Web 请求处理过程中，容器通常以线程池复用工作线程处理请求；ThreadLocalContext 用于把“与当前请求相关、且只在该线程调用链内消费的数据”绑定到当前线程，使下游组件无需显式透传参数即可访问该上下文（实现与使用点相关）。
 
@@ -49,4 +49,3 @@ ThreadLocalContext 描述在同一线程的调用链路中，使用 `ThreadLocal
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → mechanism → ThreadLocalContext。
-
