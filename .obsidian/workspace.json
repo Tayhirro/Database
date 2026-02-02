@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/README.md",
+                "file": "springboot/modules/web/interface/HandlerInterceptor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "HandlerInterceptor"
             }
           },
           {
@@ -237,8 +237,21 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/web/README.md",
     "springboot/modules/web/server/tomcat/索引.md",
     "springboot/modules/web/server/tomcat/概念图.md",
+    "springboot/modules/web/server/tomcat/interface/Session.md",
+    "springboot/modules/web/server/tomcat/class/Context.md",
+    "springboot/modules/web/server/tomcat/class/StandardSession.md",
+    "springboot/modules/web/server/tomcat/class/StandardManager.md",
+    "springboot/modules/web/server/tomcat/interface/Manager.md",
+    "springboot/modules/web/interface/HandlerExceptionResolver.md",
+    "springboot/modules/web/interface/HandlerMethodReturnValueHandler.md",
+    "springboot/modules/web/interface/HandlerMethodArgumentResolver.md",
+    "springboot/modules/web/interface/HandlerInterceptor.md",
+    "springboot/modules/web/interface/HttpMessageConverter.md",
+    "springboot/modules/web/interface/HandlerAdapter.md",
+    "springboot/modules/web/interface/HandlerMapping.md",
     "java/jvm/gc/README.md",
     "java/jvm/gc/索引.md",
     "java/jvm/gc/mechanism/RememberedSet.md",
@@ -251,20 +264,7 @@
     "java/jvm/gc/概念图.md",
     "未命名 11.base",
     "java/jvm/runtime/structure/DirectMemory.md",
-    "java/jvm/runtime/structure/ProgramCounter.md",
-    "java/jvm/runtime/structure/NativeMethodStack.md",
-    "java/jvm/runtime/structure/JVMStack.md",
-    "java/jvm/runtime/structure/Metaspace.md",
-    "java/jvm/runtime/structure/MethodArea.md",
-    "java/jvm/runtime/概念图.md",
-    "java/jvm/runtime/class/Runtime.md",
     "java/jvm/runtime/class",
-    "java/jvm/runtime/threading/JvmRuntimeThreads.md",
-    "java/jvm/runtime/structure/Heap.md",
-    "java/jvm/runtime/README.md",
-    "springboot/modules/web/server/tomcat/class/CoyoteAdapter.md",
-    "springboot/modules/web/server/tomcat/class/Engine.md",
-    "springboot/modules/web/server/tomcat/class/Connector.md",
     "java/jvm/tuning/tools",
     "java/jvm/gc/algorithm",
     "java/jvm/runtime/structure",

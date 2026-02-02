@@ -96,16 +96,16 @@ Content-Type: application/json
 
 ### `DispatcherServlet` 内部处理链（Spring MVC）
 
-| 步骤 | 组件（条目） | 作用（做什么） | 输出（用于下一步） |
-| --- | --- | --- | --- |
-| 9.0 | `MultipartResolver`（实现相关） | 在 multipart 请求场景下将请求解析为可访问上传文件/表单字段的请求视图 | 可能被包装的 `HttpServletRequest` |
-| 9.1 | `HandlerMapping`（见 [interface/HandlerMapping.md](interface/HandlerMapping.md)） | 根据 `HttpServletRequest` 查找处理器（handler）与拦截器链 | `HandlerExecutionChain`（handler + interceptors） |
-| 9.2 | `HandlerInterceptor`（见 [interface/HandlerInterceptor.md](interface/HandlerInterceptor.md)） | 在 handler 执行前后提供拦截点（preHandle/postHandle/afterCompletion） | 对 handler 执行的放行/中断决策与副作用 |
-| 9.3 | `HandlerAdapter`（见 [interface/HandlerAdapter.md](interface/HandlerAdapter.md)） | 选择与 handler 匹配的适配器并驱动执行 | `ModelAndView` 或“已写入响应”的副作用 |
-| 9.4 | `HandlerMethodArgumentResolver`（见 [interface/HandlerMethodArgumentResolver.md](interface/HandlerMethodArgumentResolver.md)） | 在注解控制器方法场景解析方法参数（路径变量、请求参数、请求体等） | 控制器方法入参集合（语义） |
-| 9.5 | `HandlerMethodReturnValueHandler`（见 [interface/HandlerMethodReturnValueHandler.md](interface/HandlerMethodReturnValueHandler.md)） | 在注解控制器方法场景处理返回值（视图名、模型、响应体等） | `ModelAndView` 或响应写回意图 |
-| 9.6 | `HttpMessageConverter`（见 [interface/HttpMessageConverter.md](interface/HttpMessageConverter.md)） | 在响应体写回场景把返回对象序列化为 HTTP 消息体（并设置 Content-Type 等） | `HttpServletResponse` 的 body/header/status |
-| 9.7 | `HandlerExceptionResolver`（见 [interface/HandlerExceptionResolver.md](interface/HandlerExceptionResolver.md)） | 在异常场景将异常转换为可返回的响应（或 `ModelAndView`） | 异常到响应/视图的解析结果（实现相关） |
+| 步骤  | 组件（条目）                                                                                                                            | 作用（做什么）                                                   | 输出（用于下一步）                                       |
+| --- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------- |
+| 9.0 | `MultipartResolver`（实现相关）                                                                                                         | 在 multipart 请求场景下将请求解析为可访问上传文件/表单字段的请求视图                  | 可能被包装的 `HttpServletRequest`                     |
+| 9.1 | `HandlerMapping`（见 [interface/HandlerMapping.md](interface/HandlerMapping.md)）                                                    | 根据 `HttpServletRequest` 查找处理器（handler）与拦截器链               | `HandlerExecutionChain`（handler + interceptors） |
+| 9.2 | `HandlerInterceptor`（见 [interface/HandlerInterceptor.md](interface/HandlerInterceptor.md)）                                        | 在 handler 执行前后提供拦截点（preHandle/postHandle/afterCompletion） | 对 handler 执行的放行/中断决策与副作用                        |
+| 9.3 | `HandlerAdapter`（见 [interface/HandlerAdapter.md](interface/HandlerAdapter.md)）                                                    | 选择与 handler 匹配的适配器并驱动执行                                   | `ModelAndView` 或“已写入响应”的副作用                     |
+| 9.4 | `HandlerMethodArgumentResolver`（见 [interface/HandlerMethodArgumentResolver.md](interface/HandlerMethodArgumentResolver.md)）       | 在注解控制器方法场景解析方法参数（路径变量、请求参数、请求体等）                          | 控制器方法入参集合（语义）                                   |
+| 9.5 | `HandlerMethodReturnValueHandler`（见 [interface/HandlerMethodReturnValueHandler.md](interface/HandlerMethodReturnValueHandler.md)） | 在注解控制器方法场景处理返回值（视图名、模型、响应体等）                              | `ModelAndView` 或响应写回意图                          |
+| 9.6 | `HttpMessageConverter`（见 [interface/HttpMessageConverter.md](interface/HttpMessageConverter.md)）                                  | 在响应体写回场景把返回对象序列化为 HTTP 消息体（并设置 Content-Type 等）            | `HttpServletResponse` 的 body/header/status      |
+| 9.7 | `HandlerExceptionResolver`（见 [interface/HandlerExceptionResolver.md](interface/HandlerExceptionResolver.md)）                      | 在异常场景将异常转换为可返回的响应（或 `ModelAndView`）                       | 异常到响应/视图的解析结果（实现相关）                             |
 
 ### 容器链的调用形式（Pipeline/Valve）
 容器层级（`Engine`/`Host`/`Context`/`Wrapper`）在运行态通常通过 Pipeline/Valve 组织调用：每一层容器的 Pipeline 由若干 Valve 组成，末尾的 Basic Valve 负责把请求推进到下一层容器；到达 `Wrapper` 层后，Basic Valve 触发 `Servlet` 的分配与调用（并在此处构造过滤器链）。
