@@ -218,6 +218,7 @@ HttpServletRequest.getInputStream() 包含：
 ```
 
 #### 4. ThreadLocal 存取（HMDP 特色）
+相关机制：ThreadLocalContext（线程绑定上下文）：见 [../modules/web/mechanism/ThreadLocalContext.md](../modules/web/mechanism/ThreadLocalContext.md)。
 ```
 RefreshTokenInterceptor.preHandle：
 - 从 Redis 获取用户数据（Hash 结构）

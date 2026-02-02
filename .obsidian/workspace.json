@@ -75,8 +75,7 @@
               "title": "浔阳江"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -250,8 +249,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c190243dabe03571",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/web/mechanism/ThreadLocalContext.md",
+    "agent/README.md",
+    "java/javass.md",
+    "文学/cultural-geography/浔阳江.md",
     "文学/诗歌收藏/宋/蒋捷/虞美人·听雨.md",
     "文学/诗歌收藏/宋/蒋捷",
     "历史/structures/administrative/江州.md",
@@ -279,15 +282,11 @@
     "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
     "springboot/modules/core/beans/mechanism/BeanInstantiation.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
-    "java/javass.md",
     "agent/llm/training/paradigms/SelfSupervised.md",
     "agent/llm/training/paradigms/PreferenceOptimization.md",
     "agent/llm/training/paradigms/SupervisedLearning.md",
     "agent/llm/training/paradigms/ReinforcementLearning.md",
     "agent/llm/training/paradigms/README.md",
-    "agent/llm/training/post-training/agentic/README.md",
-    "agent/llm/training/post-training/reasoning/README.md",
-    "agent/llm/training/post-training/alignment/README.md",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",

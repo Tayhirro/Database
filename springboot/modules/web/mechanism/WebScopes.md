@@ -27,8 +27,8 @@ WebScopes 机制描述了 Web 场景下 `request`/`session` 等 scope 如何被�
 - 上级：Scope（作用域）机制（见 [../../core/beans/interface/Scope.md](../../core/beans/interface/Scope.md)）。
 - 相关：
   - Spring MVC 请求入口：`DispatcherServlet`（见 [../class/DispatcherServlet.md](../class/DispatcherServlet.md)）
+  - ThreadLocalContext（请求上下文在运行态的线程绑定视图）：见 [ThreadLocalContext.md](ThreadLocalContext.md)
   - scope 注册与解析：见 [../../core/beans/mechanism/ScopeResolution.md](../../core/beans/mechanism/ScopeResolution.md)
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → web → mechanism → WebScopes → core/beans/mechanism/ScopeResolution。
-

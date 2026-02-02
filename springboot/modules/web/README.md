@@ -575,6 +575,7 @@ TCP 发送
 
 ## Web 作用域（WebScopes）
 - Web 作用域（request/session）：见 [mechanism/WebScopes.md](mechanism/WebScopes.md)
+- ThreadLocalContext（线程绑定上下文）：见 [mechanism/ThreadLocalContext.md](mechanism/ThreadLocalContext.md)
 
 ## 前端控制器（可选）
 - `DispatcherServlet`（Spring MVC）：见 [class/DispatcherServlet.md](class/DispatcherServlet.md)
