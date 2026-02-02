@@ -7,7 +7,7 @@ tags:
 
 # springboot（总入口）
 
-> 用法：把本页当作入口，在 Obsidian 打开“本地关系图（Local graph）”，深度设为 2～3，用索引与概念图把整套内容串起来。
+> 用法：把本页当作入口，在 Obsidian 打开"本地关系图（Local graph）"，深度设为 2～3，用索引与概念图把整套内容串起来。
 
 ## 导航
 - 索引（MOC）：[索引.md](索引.md)
@@ -20,7 +20,7 @@ tags:
 ## 目录结构（入口 → 索引 → 概念图 → 条目）
 - `springboot/README.md`：入口与导航（本页）
 - `springboot/索引.md`：按 Flow/Class/Interface/Mechanism 分类的术语入口
-- `springboot/概念图.md`：跨模块关系边（只放“上级→下级/特例”）
+- `springboot/概念图.md`：跨模块关系边（只放"上级→下级/特例"）
 - `springboot/flows/`：流程页（以 `SpringApplication.run` 时间线组织）
 - `springboot/modules/`：概念页（按领域分目录，并在领域下按 type 二级归档：`class/`、`interface/`、`mechanism/`、`module/`、`pattern/`）
 - `springboot/jvm/`：JVM 运行态条目（线程等运行态结构）
