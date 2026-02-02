@@ -1327,6 +1327,162 @@ public class StringContainer implements Container<String> {
 
 ```
 
+## 泛型擦除（Type Erasure）
+
+**一句话**：Java 泛型在**编译后**会被"擦掉"，变成原始类型，JVM 运行时**看不到**泛型类型参数。
+
+### 为什么需要擦除？
+
+1. **兼容性**：Java 5 引入泛型，要兼容 Java 5 之前的 JVM（不支持泛型）
+2. **字节码统一**：JVM 规范不感知泛型，只认识原始类型
+
+### 擦除规则
+
+| 泛型类型 | 编译后擦除为 |
+|---------|-------------|
+| `List<T>` | `List`（原始类型） |
+| `List<String>` | `List` |
+| `T`（无边界） | `Object` |
+| `<T extends Number>` | `Number`（上界） |
+| `<T extends Comparable<T>>` | `Comparable`（第一个上界） |
+
+### 擦除示例
+
+```java
+// 源代码（你写的）
+public class GenericExample {
+    public void test() {
+        List<String> strList = new ArrayList<>();
+        strList.add("hello");
+        String s = strList.get(0);
+        
+        Map<String, Integer> map = new HashMap<>();
+        map.put("age", 25);
+    }
+}
+
+// 编译后的字节码（实际运行的）- 通过 javap -c 查看
+public class GenericExample {
+    public void test() {
+        List strList = new ArrayList();  // <String> 被擦除！
+        strList.add("hello");
+        String s = (String) strList.get(0);  // 编译器自动插入强制类型转换
+        
+        Map map = new HashMap();  // <String, Integer> 被擦除
+        map.put("age", 25);  // 编译器检查类型，但字节码没有泛型信息
+    }
+}
+```
+
+### 擦除带来的影响
+
+#### 1. 运行时无法获取泛型类型
+
+```java
+List<String> strList = new ArrayList<>();
+List<Integer> intList = new ArrayList<>();
+
+System.out.println(strList.getClass());  // class java.util.ArrayList
+System.out.println(intList.getClass());  // class java.util.ArrayList
+System.out.println(strList.getClass() == intList.getClass());  // true！
+
+// 无法区分 List<String> 和 List<Integer>
+// 因为擦除后都是 List
+```
+
+#### 2. 泛型数组不能创建
+
+```java
+// 错误！无法创建泛型数组
+List<String>[] array = new List<String>[10];  // 编译错误
+
+// 原因：擦除后变成 List[]，如果允许创建，可以放入 List<Integer>
+// 破坏类型安全
+List<String>[] array = (List<String>[]) new List[10];  // 只能这样，但有警告
+```
+
+#### 3. 基本类型不能直接作为泛型参数
+
+```java
+// 错误！
+List<int> intList;  // 编译错误
+
+// 正确做法：使用包装类
+List<Integer> intList;  // 擦除后是 List（存 Integer 对象）
+```
+
+### 桥接方法（Bridge Method）
+
+擦除可能导致方法签名冲突，编译器会生成桥接方法：
+
+```java
+// 父类 - 擦除后是原始类型
+class Node<T> {
+    public void setData(T data) {
+        // ...
+    }
+}
+
+// 子类 - 指定了具体类型
+class MyNode extends Node<Integer> {
+    @Override
+    public void setData(Integer data) {  // 参数类型是 Integer
+        // ...
+    }
+}
+
+// 编译器生成的桥接方法（在字节码中可见）
+class MyNode extends Node {
+    // 桥接方法 - 保持多态性
+    public void setData(Object data) {  // 擦除后的签名
+        setData((Integer) data);  // 调用实际方法并强制转换
+    }
+    
+    // 实际方法
+    public void setData(Integer data) {
+        // ...
+    }
+}
+```
+
+### 获取泛型信息的方法
+
+虽然运行时擦除了，但编译器在字节码中保留了**签名信息**（Signature attribute），可以通过反射获取：
+
+```java
+// 1. 获取方法返回值的泛型类型
+Method method = MyClass.class.getMethod("getList");
+Type returnType = method.getGenericReturnType();
+// 可能得到：java.util.List<java.lang.String>
+
+// 2. 获取字段的泛型类型
+Field field = MyClass.class.getDeclaredField("list");
+Type fieldType = field.getGenericType();
+// 可能得到：java.util.List<java.lang.String>
+
+// 3. 获取父类的泛型参数
+Type genericSuperclass = MyClass.class.getGenericSuperclass();
+if (genericSuperclass instanceof ParameterizedType) {
+    ParameterizedType pt = (ParameterizedType) genericSuperclass;
+    Type[] actualTypeArgs = pt.getActualTypeArguments();
+    // 可能得到：[class java.lang.String]
+}
+```
+
+### 总结
+
+```
+源代码泛型
+    ↓ javac 编译
+类型检查（编译期） + 插入强制类型转换 + 生成桥接方法
+    ↓ 擦除
+字节码（无泛型）
+    ↓ JVM 运行
+原始类型 + 自动类型转换
+```
+
+**关键点**：泛型是**编译期**的类型安全检查机制，运行时不存在，通过**擦除**保持与旧版本 JVM 的兼容性。
+
 # Java[类加载](https://so.csdn.net/so/search?q=类加载&spm=1001.2101.3001.7020)器
 
 - 加载、验证、准备、解析和初始化
