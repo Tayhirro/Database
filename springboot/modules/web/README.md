@@ -23,6 +23,11 @@ tags:
 - `ServletWebServerFactory`：见 [interface/ServletWebServerFactory.md](interface/ServletWebServerFactory.md)
 - `ReactiveWebServerFactory`：见 [interface/ReactiveWebServerFactory.md](interface/ReactiveWebServerFactory.md)
 
+## Spring MVC 组件（接口层）
+- `HandlerMapping`：见 [interface/HandlerMapping.md](interface/HandlerMapping.md)
+- `HandlerAdapter`：见 [interface/HandlerAdapter.md](interface/HandlerAdapter.md)
+- `HttpMessageConverter`：见 [interface/HttpMessageConverter.md](interface/HttpMessageConverter.md)
+
 ## 启动链（Servlet / embedded Tomcat）
 
 ### Boot → WebServer（概念级）
@@ -57,8 +62,8 @@ tags:
 请求（客户端 → 服务器）：
 
 ```
-GET /hr/employee?id=42 HTTP/1.1
-Host: www.company.com
+GET /myapp/product/list HTTP/1.1
+Host: shop.company.com
 ```
 
 响应（服务器 → 客户端）：
@@ -67,7 +72,7 @@ Host: www.company.com
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-{"id":42,"name":"Alice"}
+[{"id":42,"name":"Alice"}]
 ```
 
 ### 处理流程（按阶段）
@@ -84,6 +89,14 @@ Content-Type: application/json
 | 8   | `Wrapper`（见 [server/tomcat/class/Wrapper.md](server/tomcat/class/Wrapper.md)）                                                                                                                    | Servlet 容器单元：`allocate()` 获取 `Servlet`，构造 `ApplicationFilterChain` 并调用 `Servlet.service(...)` | 单 Servlet 边界（Servlet 生命周期与过滤器链入口） |
 | 9   | `DispatcherServlet`（见 [class/DispatcherServlet.md](class/DispatcherServlet.md)）                                                                                                                  | 作为 Servlet 入口分发到 Spring MVC 的 Handler，并将返回值写入响应                                               | 框架层（MVC 分发与返回值处理）边界               |
 | 10  | `Http11Processor`（同上）                                                                                                                                                                            | 将响应对象序列化为字节并写回 socket                                                                         | 协议输出边界                            |
+
+### `DispatcherServlet` 内部处理链（Spring MVC）
+
+| 步骤 | 组件（条目） | 作用（做什么） | 输出（用于下一步） |
+| --- | --- | --- | --- |
+| 9.1 | `HandlerMapping`（见 [interface/HandlerMapping.md](interface/HandlerMapping.md)） | 根据 `HttpServletRequest` 查找处理器（handler），并附带拦截器链 | `HandlerExecutionChain`（handler + interceptors） |
+| 9.2 | `HandlerAdapter`（见 [interface/HandlerAdapter.md](interface/HandlerAdapter.md)） | 选择与 handler 匹配的适配器并驱动执行 | 控制器方法返回值（语义） |
+| 9.3 | `HttpMessageConverter`（见 [interface/HttpMessageConverter.md](interface/HttpMessageConverter.md)） | 将返回值写入响应体（例如 `@ResponseBody`/REST 场景） | `HttpServletResponse` 的 body/header/status |
 
 ### 容器链的调用形式（Pipeline/Valve）
 容器层级（`Engine`/`Host`/`Context`/`Wrapper`）在运行态通常通过 Pipeline/Valve 组织调用：每一层容器的 Pipeline 由若干 Valve 组成，末尾的 Basic Valve 负责把请求推进到下一层容器；到达 `Wrapper` 层后，Basic Valve 触发 `Servlet` 的分配与调用（并在此处构造过滤器链）。
