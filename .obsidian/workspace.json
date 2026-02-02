@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
+                "file": "springboot/modules/core/beans/mechanism/ConfigurationClassPostProcessor.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ContextRefresh"
+              "title": "ConfigurationClassPostProcessor"
             }
           },
           {
@@ -251,6 +251,13 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/core/beans/mechanism/ScopeResolution.md",
+    "springboot/modules/core/beans/mechanism/ConfigurationClassPostProcessor.md",
+    "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
+    "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
+    "springboot/modules/core/beans/mechanism/BeanInstantiation.md",
+    "springboot/modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md",
+    "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "springboot/modules/web/README.md",
     "java/javass.md",
     "agent/llm/training/paradigms/SelfSupervised.md",
@@ -277,14 +284,7 @@
     "springboot/modules/web/server/tomcat/索引.md",
     "springboot/modules/web/server/tomcat/概念图.md",
     "springboot/modules/web/interface/HandlerInterceptor.md",
-    "agent/README.md",
-    "agent/llm/README.md",
     "agent/论文/Qwen3-report.pdf",
-    "agent/safety/README.md",
-    "agent/perception/README.md",
-    "agent/action/README.md",
-    "agent/evaluation/索引.md",
-    "agent/evaluation/README.md",
     "agent/safety",
     "agent/evaluation/benchmarks",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
