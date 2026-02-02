@@ -19,7 +19,8 @@ tags:
 - 数据（语义级别）：
   - `path: String`：上下文路径（例如 `""` 或 `"/app"`；具体含义随配置与容器实现约定）
   - `wrappers: Wrapper[]`：子容器集合（每个 Wrapper 对应一个 Servlet）
-  - （实现相关）类加载/会话/安全等子系统：`Loader`、`Manager`、`Realm` 等
+  - `manager: Manager`：会话管理子系统（负责创建/查找/回收 `Session`；见 [../interface/Manager.md](../interface/Manager.md)）
+  - （实现相关）类加载/安全等子系统：`Loader`、`Realm` 等
 - 字段与状态（常见实现；字段名可能随 Tomcat 版本变化）：
   - `path: String`：上下文路径
   - `docBase: String`：应用内容根目录/资源基准位置（部署相关，实现相关）
@@ -27,7 +28,7 @@ tags:
   - `servletMappings: Map<String, String>`：URL pattern → servletName 的映射表（实现相关）
   - `loader`：类加载子系统（实现相关）
   - `resources`：静态资源与 Web 资源抽象（实现相关）
-  - `manager`：会话管理子系统（实现相关）
+  - `manager`：会话管理子系统（常见实现：`StandardManager`，见 [StandardManager.md](StandardManager.md)）
   - `pipeline`：容器调用链（Valve 链，Tomcat Pipeline 体系）
   - `state`：生命周期状态（Tomcat `Lifecycle` 体系）
 - 输入：
@@ -37,6 +38,7 @@ tags:
   - 将请求分派到某个 `Wrapper` 并最终调用对应 `Servlet` 的处理链路（运行态行为）
 - 约束：
   - `Context` 的“应用边界”同时适用于多应用部署与单应用嵌入式部署；嵌入式 Tomcat 下通常由宿主框架/工厂负责创建与绑定该 `Context`。
+  - “内存 Session”的组织通常发生在 `manager` 内部：例如 `StandardManager` 会在 JVM 堆中维护 `sessionId -> Session` 的索引结构（实现相关；见 [StandardManager.md](StandardManager.md)、[../interface/Session.md](../interface/Session.md)）。
 
 ## 常用构造/操作（仅列出接口与符号）
 - `addChild(Wrapper)` / `findChild(String)`
