@@ -20,23 +20,8 @@
               "icon": "lucide-file",
               "title": "RedisDataStructures"
             }
-          },
-          {
-            "id": "045ad0e626400cdb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "java/jvm/gc/mechanism/CardTable.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CardTable"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -210,8 +195,18 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "045ad0e626400cdb",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "hmdp/frontend/tsconfig.json",
+    "hmdp/frontend/renovate.json",
+    "hmdp/frontend/pnpm-workspace.yaml",
+    "hmdp/frontend/eslint.config.mjs",
+    "java/jvm/gc/mechanism/CardTable.md",
+    "java/jvm/gc/structure/索引.md",
+    "java/jvm/gc/structure/Region.md",
+    "java/jvm/gc/structure/CardTable.md",
+    "java/jvm/gc/structure/RememberedSet.md",
+    "java/jvm/gc/structure",
     "hmdp/frontend/pnpm-lock.yaml",
     "hmdp/frontend/_tmp_83480_6f5a9505e5f59186a4f812906fff33b1",
     "java/jvm/gc/mechanism/RememberedSet.md",
@@ -220,13 +215,7 @@
     "hmdp/frontend/node_modules/vue-devtools-stub/dist/index.cjs",
     "hmdp/frontend/node_modules/vue-devtools-stub/README.md",
     "hmdp/frontend/node_modules/vue-devtools-stub/package.json",
-    "hmdp/frontend/node_modules/vue-devtools-stub/LICENSE",
-    "hmdp/frontend/node_modules/vue-devtools-stub/dist",
-    "hmdp/frontend/node_modules/vue-devtools-stub",
-    "hmdp/frontend/node_modules/aria-hidden/dist/es5/index.js",
-    "hmdp/frontend/node_modules/aria-hidden/dist/es5/index.d.ts",
     "hmdp/frontend/node_modules/aria-hidden/README.md",
-    "java/jvm/gc/mechanism/CardTable.md",
     "hmdp/frontend/node_modules/@tailwindcss/vite/README.md",
     "hmdp/frontend/node_modules/sax/README.md",
     "hmdp/frontend/node_modules/sax/LICENSE.md",
@@ -244,10 +233,6 @@
     "java/jvm/classloading/索引.md",
     "mechanism/ClassLoadingProcess.md",
     "hmdp/frontend/node_modules/mdurl/README.md",
-    "hmdp/frontend/node_modules/linkify-it/README.md",
-    "hmdp/frontend/node_modules/@types/linkify-it/README.md",
-    "hmdp/frontend/node_modules/@nuxt/icon/README.md",
-    "hmdp/frontend/node_modules/@tiptap/extension-drag-handle-vue-3/README.md",
     "hmdp/frontend/node_modules/@eslint/config-inspector/dist/public/favicon.svg",
     "hmdp/frontend/node_modules/@nuxt/devtools/dist/client/nuxt.svg",
     "hmdp/frontend/node_modules/vite-plugin-inspect/dist/client/favicon.svg",
