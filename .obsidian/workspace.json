@@ -22,29 +22,17 @@
             }
           },
           {
-            "id": "ca7714e3b461c8a8",
+            "id": "045ad0e626400cdb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/mechanics/RoPE.md",
+                "file": "java/jvm/gc/mechanism/ReferenceTypes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RoPE"
-            }
-          },
-          {
-            "id": "045ad0e626400cdb",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "agent/论文/Qwen3-report.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Qwen3-report"
+              "title": "ReferenceTypes"
             }
           }
         ],
@@ -222,11 +210,25 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ca7714e3b461c8a8",
+  "active": "045ad0e626400cdb",
   "lastOpenFiles": [
+    "未命名.md",
+    "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
+    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
+    "未命名 1.base",
+    "未命名 1.canvas",
+    "未命名 5.canvas",
+    "未命名 4.base",
+    "未命名 4.canvas",
+    "OpenAI-o1.md",
+    "DeepSeek-R1.md",
+    "agent/llm/training/post-training/reasoning/README.md",
     "agent/论文/Qwen3-report.pdf",
-    "springboot/modules/web/mechanism/ThreadLocalContext.md",
+    "springboot/modules/ops/mechanism/RedisDataStructures.md",
+    "未命名 9.base",
+    "agent/llm/索引.md",
     "agent/llm/architecture/Transformer/mechanics/RoPE.md",
+    "springboot/modules/web/mechanism/ThreadLocalContext.md",
     "java/javass.md",
     "agent/llm/architecture/索引.md",
     "agent/README.md",
@@ -235,7 +237,6 @@
     "agent/llm/video/深度学习通用知识～ [6] 【硬核】手撕RoPE旋转位置编码推导，只需高中数学！通俗易懂！ [算法魔法师] [高清 720P] [9分47秒] Mg.mp4",
     "agent/llm/video",
     "agent/llm/新建文件夹",
-    "springboot/modules/ops/mechanism/RedisDataStructures.md",
     "springboot/modules/ops/mechanism/Packaging.md",
     "springboot/modules/web/README.md",
     "hmdp/target/classes/com/hmdp/auth/JwtAuthResolver$1.class",
@@ -248,28 +249,16 @@
     "历史/structures/administrative/_TEMPLATE.md",
     "历史/structures/administrative",
     "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
-    "hmdp/target/classes/com/hmdp/auth/RedisTokenAuthResolver.class",
-    "hmdp/src/main/java/com/hmdp/auth/RedisTokenAuthResolver.java",
     "springboot/modules/web/server/tomcat/概念图.md",
     "springboot/modules/core/beans/mechanism/AnnotationProcessing.md",
-    "hmdp/target/classes/com/hmdp/interceptor/LoginRequiredInterceptor.class",
-    "springboot/modules/core/beans/mechanism/BeanFactoryPostProcessorExecution.md",
-    "springboot/modules/core/beans/mechanism/ScopeResolution.md",
-    "springboot/modules/core/beans/mechanism/ConfigurationClassPostProcessor.md",
-    "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
-    "springboot/modules/core/beans/mechanism/BeanLifecycle.md",
-    "springboot/modules/core/beans/mechanism/BeanInstantiation.md",
     "silicon-rider-bench/assets/images/silicon-rider-bench-cover.jpg",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
     "未命名 2.canvas",
     "未命名.canvas",
-    "未命名 1.canvas",
     "未命名 6.canvas",
     "Pasted image 20260120163629.png",
-    "未命名 5.canvas",
-    "未命名 4.canvas",
     "未命名 3.canvas",
     "轨迹预测/img/image2.png",
     "轨迹预测/img/image copy.png",

@@ -1,0 +1,85 @@
+---
+aliases: [Root Mean Square Layer Normalization, RMS归一化]
+tags: [normalization, layer-norm, llama, training-stability]
+---
+
+# RMSNorm
+
+## 一句话
+
+仅通过均方根（RMS）进行尺度缩放而不减去均值、不添加偏置的层归一化变体，以减少计算开销并维持训练稳定性。
+
+## 严格定义
+
+对输入向量 $x \in \mathbb{R}^d$，RMSNorm 定义为：
+
+$$
+y = \gamma \cdot \frac{x}{\text{RMS}(x) + \epsilon}
+$$
+
+其中均方根（RMS）为：
+
+$$
+\text{RMS}(x) = \sqrt{\frac{1}{d}\sum_{i=1}^{d} x_i^2}
+$$
+
+### 与 LayerNorm 的公式对比（必要条件）
+
+| 组件 | LayerNorm | RMSNorm | 差异 |
+|------|-----------|---------|------|
+| 中心化（减均值） | $\mu = \frac{1}{d}\sum x_i$ | **无** | RMSNorm 假设输入已近似零均值或无需显式中心化 |
+| 缩放分母 | $\sqrt{\sigma^2 + \epsilon}$ | $\sqrt{\frac{1}{d}\sum x_i^2 + \epsilon}$ | RMSNorm 使用二阶矩而非方差 |
+| 平移（bias） | $+\beta$ | **无** | RMSNorm 仅保留可学习的缩放参数 $\gamma$ |
+
+## 接口：数据 + 约束
+
+| 符号 | 类型 | 约束 | 说明 |
+|------|------|------|------|
+| $x$ | $\mathbb{R}^d$ 或 $\mathbb{R}^{B \times L \times d}$ | 任意实数 | 输入特征，最后一维为特征维 |
+| $\gamma$ | $\mathbb{R}^d$ | 可学习参数，通常初始化为1 | 逐元素缩放权重（gating 参数）|
+| $\epsilon$ | $\mathbb{R}$ | 常数，默认 $10^{-5} \sim 10^{-6}$ | 数值稳定性保护 |
+| RMS | $\mathbb{R}$ | $\geq 0$ | 沿特征维计算的标量范数 |
+
+## 常用构造/操作
+
+| 操作 | 接口/公式 | 备注 |
+|------|-----------|------|
+| 前向计算 | `x * rsqrt(x.pow(2).mean(-1, keepdim=True) + eps)` | PyTorch 实现，使用 `rsqrt` 避免开方除法 |
+| 参数初始化 | $\gamma \leftarrow \mathbf{1}$ | 全1初始化，初始行为等价于纯 RMS 缩放 |
+| 类型保持 | `.type_as(x)` | 确保半精度（fp16/bf16）输入输出类型一致 |
+| 对比实现 | 无 `bias` 参数，比 LayerNorm 减少 $d$ 个参数 | 内存与计算节省约 30-40% |
+
+## 数值对比示例
+
+### 输入数据
+设某一层输入为 $x = [2.0, -1.0, 3.0]$，特征维度 $d=3$。
+
+### BatchNorm（沿批次维度，此处单样本退化）
+- 均值 $\mu = 2.0$，方差 $\sigma^2 = 4.67$
+- 输出：$[-0.46, -1.39, 0.46]$（假设 $\gamma=1, \beta=0$）
+- **问题**：单样本时统计量不稳定，依赖批次大小
+
+### LayerNorm（沿特征维度）
+- 均值 $\mu = \frac{2-1+3}{3} = 1.33$
+- 方差 $\sigma^2 = \frac{(0.67)^2 + (-2.33)^2 + (1.67)^2}{3} = 2.89$
+- 归一化：$[0.39, -1.37, 0.98]$
+- 加 bias $\beta$ 后可平移
+
+### RMSNorm（沿特征维度，无均值减法）
+- RMS = $\sqrt{\frac{4+1+9}{3}} = \sqrt{4.67} = 2.16$
+- 归一化：$[0.93, -0.46, 1.39]$
+- **关键差异**：  
+  1. 未减去均值1.33，保留输入的"直流偏移"信息  
+  2. 无 bias 项，无法通过 $\beta$ 平移恢复均值  
+  3. 计算量减少（省一次均值计算和一次加法）
+
+## 关系
+
+- **上级**: [[LayerNorm]] —— 共享"沿特征维归一化"结构，但移除中心化与平移
+- **对比**: [[BatchNorm]] —— BN 沿批次维统计，RMSNorm 沿特征维；BN 必须减均值，RMSNorm 可选
+- **等价**: [[Pre-LN]] 架构中的常用组件，与 SwiGLU 激活函数共同构成现代 LLM 基础模块
+- **应用**: [[LLaMA]], [[PaLM]], [[Mistral]], [[Qwen]] 等 decoder-only 模型的默认归一化层
+
+## 挂载路径
+
+[[深度学习]] → [[神经网络组件]] → [[归一化]] → [[RMSNorm]]
