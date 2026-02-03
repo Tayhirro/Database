@@ -194,7 +194,7 @@ import java.nio.ByteBuffer;
 // 示例 1：基本虚引用使用（监控对象回收）
 Object obj = new Object();
 
-// 必须创建 ReferenceQueue
+// 必须创建 ReferenceQueue   这里指 
 ReferenceQueue<Object> queue = new ReferenceQueue<>();
 
 // 创建虚引用（必须传入队列）
