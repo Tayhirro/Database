@@ -34,6 +34,37 @@ Redis 的 String 是“二进制安全”的字节序列，所以它除了能 `S
   - `SETBIT sign:5:202602 0 1` 表示 2 月 1 号已签到
   - `SETBIT sign:5:202602 1 1` 表示 2 月 2 号已签到
 
+#### BITFIELD（一次取多天的 bit）
+在“统计连续签到天数”时，关键点是：**一次把本月从 1 号到今天的所有 bit 取出来**，在 JVM 里用位运算快速统计。
+
+你在 HMDP 里看到的用法：
+```java
+List<Long> result = stringRedisTemplate.opsForValue().bitField(
+    key,
+    BitFieldSubCommands.create()
+        .get(BitFieldSubCommands.BitFieldType.unsigned(dayOfMonth))
+        .valueAt(0)
+);
+```
+
+它对应的 Redis 命令语义（近似）是：
+- `BITFIELD {key} GET u{dayOfMonth} 0`
+
+解释每一段：
+- `BitFieldSubCommands.create()`：**创建一个“命令构造器/描述对象”**，并不会真的发 Redis 命令。
+- `.get(...)`：向这个构造器里追加一个 GET 子命令（`BITFIELD` 可以一次带多个子命令）。
+- `BitFieldType.unsigned(dayOfMonth)`：表示读取一个“无符号整数”，长度是 `dayOfMonth` 个 bit（今天是 3 号就读 3 个 bit）。
+- `.valueAt(0)`：从 bit offset=0 开始读。
+
+返回为什么是 `List<Long>`：
+- 因为一个 `BITFIELD` 请求里可以有多个 GET/SET/INCR 子命令，所以 Spring 用 `List<Long>` 按顺序返回每个子命令的结果。
+- 你这里只有一个 GET，所以 `result.get(0)` 就是那段 bit 解释成的无符号整数。
+
+为啥它能用 `num & 1` 从“今天开始往前数”：
+- 你写签到是 `SETBIT key (dayOfMonth - 1) 1`（越靠近今天 offset 越大）。
+- `BITFIELD GET uN 0` 读的是从 offset 0 开始的 N 个 bit，其中 **最后一个 bit（offset=N-1，也就是今天）会落在结果整数的最低位（LSB）**。
+- 所以 `num & 1` 检查的是“今天是否签到”，然后 `num >>>= 1` 就把“今天”抛掉，继续检查“昨天”…直到遇到 0 停止。
+
 ### 2) Hash（`opsForHash()`）
 - 适合：对象按字段拆分存（一个 key 下多个 field-value）
 - 命令：`HSET key field value` / `HGET key field` / `HGETALL key`
