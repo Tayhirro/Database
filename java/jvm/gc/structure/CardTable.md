@@ -1,5 +1,6 @@
 ---
 type: structure
+kind: class
 tags:
   - java/jvm
   - jvm
@@ -16,7 +17,8 @@ tags:
 卡表是一个字节数组，其中每个元素（Entry）对应堆内存中一块连续的内存区域（称为“卡页”，Card Page，通常为 512 字节）。
 - **映射关系**：$Address \rightarrow CardIndex = (Address - BaseAddress) \gg Shift$。
 - **脏卡（Dirty Card）**：当卡页内的对象发生引用字段赋值时，写屏障将对应的卡表元素标记为 Dirty。
-- **扫描逻辑**：GC 时仅扫描状态为 Dirty 的卡页，以发现跨代引用。
+  - **示例（老年代引用新生代）**：当**老年代**中的对象 $A$（位于卡页 $P_A$）的字段被赋值为**新生代**对象 $B$ 时（即 $A.field = B$），写屏障会将 $P_A$ 在卡表中对应的索引标记为 Dirty。
+- **扫描逻辑**：GC（通常是 Minor GC）时仅扫描状态为 Dirty 的卡页（即老年代中发生了修改的区域），找出指向新生代的引用，从而避免扫描整个老年代。
 
 ## 接口：数据 + 约束
 - **数据结构**：

@@ -1,5 +1,6 @@
 ---
 type: structure
+kind: class
 tags:
   - java/jvm
   - jvm
@@ -20,7 +21,8 @@ Region（内存区域）是堆内存的**逻辑或物理划分单元**，是垃�
 - **属性**：
   - `Bottom` / `Top` / `End`：地址边界。
   - `Type`：角色类型（Eden/Survivor/Old/Humongous/Free）。
-  - `RSet`：关联的记忆集（[RememberedSet.md](RememberedSet.md)），记录指向本区域的引用。
+  - `RSet`：关联的记忆集（[RememberedSet.md](RememberedSet.md)）。
+    - **注**：为性能考虑，**Young Region 通常不维护 RSet**（如 G1），因为其对象更新频繁且总是被整体回收。
 - **操作**：
   - `Allocation`：在 Region 内 TLAB 或直接分配。
   - `Evacuation`：将存活对象复制到另一 Region。

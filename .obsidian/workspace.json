@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "java/jvm/gc/structure/RememberedSet.md",
+                "file": "springboot/modules/web/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RememberedSet"
+              "title": "README"
             }
           }
         ]
@@ -197,7 +197,14 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "springboot/modules/web/interface/HandlerAdapter.md",
+    "java/jvm/tuning/索引.md",
+    "java/jvm/tuning/概念图.md",
+    "java/jvm/gc/structure/RememberedSet.md",
     "java/jvm/gc/structure/CardTable.md",
+    "java/jvm/gc/collector/ZGC.md",
+    "java/jvm/gc/collector/G1.md",
+    "java/jvm/gc/structure/Region.md",
     "java/jvm/gc/structure/索引.md",
     "java/jvm/gc/mechanism/GCRoots.md",
     "java/jvm/gc/mechanism/ReachabilityAnalysis.md",
@@ -209,8 +216,6 @@
     "hmdp/frontend/pnpm-workspace.yaml",
     "hmdp/frontend/eslint.config.mjs",
     "java/jvm/gc/mechanism/CardTable.md",
-    "java/jvm/gc/structure/Region.md",
-    "java/jvm/gc/structure/RememberedSet.md",
     "java/jvm/gc/structure",
     "hmdp/frontend/pnpm-lock.yaml",
     "hmdp/frontend/_tmp_83480_6f5a9505e5f59186a4f812906fff33b1",
@@ -228,11 +233,6 @@
     "hmdp/frontend/node_modules/es-module-lexer/README.md",
     "hmdp/frontend/node_modules/@babel/helper-plugin-utils/README.md",
     "hmdp/frontend/node_modules/@babel/code-frame/README.md",
-    "java/jvm/gc/mechanism/GCOverview.md",
-    "java/jvm/classloading/README.md",
-    "java/jvm/classloading/索引.md",
-    "mechanism/ClassLoadingProcess.md",
-    "hmdp/frontend/node_modules/mdurl/README.md",
     "hmdp/frontend/node_modules/@eslint/config-inspector/dist/public/favicon.svg",
     "hmdp/frontend/node_modules/@nuxt/devtools/dist/client/nuxt.svg",
     "hmdp/frontend/node_modules/vite-plugin-inspect/dist/client/favicon.svg",

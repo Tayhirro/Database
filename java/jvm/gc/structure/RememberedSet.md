@@ -1,5 +1,6 @@
 ---
 type: structure
+kind: interface
 tags:
   - java/jvm
   - jvm
@@ -28,8 +29,20 @@ tags:
   - **性能**：写入开销（写屏障）与空间占用需平衡。
 
 ## 常用构造/操作（仅列出接口与符号）
-- **Points-in RSet**：记录“谁引用了我”（G1 使用）。
-- **Points-out RSet**：记录“我引用了谁”（较少用）。
+- **Points-out RSet（我引用了谁）**：
+  - **定义**：记录**来源区域**（Source）指向了哪些外部区域。
+  - **典型实现**：**卡表（Card Table）**。
+    - **例子**：老年代（Source）的卡页被标记为 Dirty，隐含表示“我（老年代）引用了新生代（Target）”。
+  - **场景**：适用于 Source 变动频繁但 Target 固定的场景（如传统分代 GC，Target 总是新生代）。
+- **Points-in RSet（谁引用了我）**：
+  - **定义**：记录**目标区域**（Target）被哪些外部区域引用。
+  - **典型实现**：**G1 的 RSet**（哈希表）。
+    - **例子**：Region A（Target）内部维护一个列表 `{Region B, Region C}`，明确记录“Region B 和 C 引用了我”。
+  - **场景**：适用于需要独立回收任意 Region 的场景（如 G1, Shenandoah），回收 Region A 时直接查 RSet 即可知 GC Roots。
+    - **特例**：**Young Region 通常不维护**。因新生代引用变更频繁且总是整体回收，维护 RSet 开销大于收益（通常改用扫描全局 Dirty Cards）。
+  - **核心价值**：解决**部分老年代回收**（Mixed GC）的效率问题。
+    - 若仅用卡表（Points-out），要回收特定的老年代区域 $X$，必须遍历全堆的卡表来寻找指向 $X$ 的引用（反向查询成本 $O(\text{Heap})$）。
+    - 使用 Points-in，区域 $X$ 直接记录了引用来源，扫描成本仅为 $O(\text{IncomingRefs})$。
 - **具体实现**：
   - **卡表（Card Table）**：见 [CardTable.md](CardTable.md)（最常见的实现）。
   - **粗粒度位图（Coarse-grained Bitmap）**：按 Region 记录。
