@@ -197,6 +197,7 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "docker",
     "springboot/modules/web/interface/HttpMessageConverter.md",
     "springboot/modules/web/README.md",
     "hmdp/frontend/node_modules/vaul-vue/dist/index.umd.cjs",
@@ -232,7 +233,6 @@
     "hmdp/frontend/node_modules/@eslint/js/README.md",
     "hmdp/frontend/node_modules/@babel/helper-string-parser/README.md",
     "hmdp/frontend/node_modules/@babel/helper-replace-supers/README.md",
-    "hmdp/frontend/node_modules/@babel/helper-optimise-call-expression/README.md",
     "hmdp/frontend/node_modules/@eslint/config-inspector/dist/public/favicon.svg",
     "hmdp/frontend/node_modules/@nuxt/devtools/dist/client/nuxt.svg",
     "hmdp/frontend/node_modules/vite-plugin-inspect/dist/client/favicon.svg",
