@@ -212,6 +212,8 @@
   },
   "active": "045ad0e626400cdb",
   "lastOpenFiles": [
+    "hmdp/frontend/pnpm-lock.yaml",
+    "hmdp/frontend/_tmp_83480_6f5a9505e5f59186a4f812906fff33b1",
     "java/jvm/gc/mechanism/RememberedSet.md",
     "hmdp/frontend/node_modules/vue-devtools-stub/dist/index.d.ts",
     "hmdp/frontend/node_modules/vue-devtools-stub/dist/index.mjs",
@@ -223,7 +225,6 @@
     "hmdp/frontend/node_modules/vue-devtools-stub",
     "hmdp/frontend/node_modules/aria-hidden/dist/es5/index.js",
     "hmdp/frontend/node_modules/aria-hidden/dist/es5/index.d.ts",
-    "hmdp/frontend/node_modules/aria-hidden/dist/es2019/index.d.ts",
     "hmdp/frontend/node_modules/aria-hidden/README.md",
     "java/jvm/gc/mechanism/CardTable.md",
     "hmdp/frontend/node_modules/@tailwindcss/vite/README.md",
