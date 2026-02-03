@@ -194,10 +194,18 @@ import java.nio.ByteBuffer;
 // 示例 1：基本虚引用使用（监控对象回收）
 Object obj = new Object();
 
-// 必须创建 ReferenceQueue   这里指 
+// 必须创建 ReferenceQueue----
+//ReferenceQueue<? extends Object> head -- null
+//
 ReferenceQueue<Object> queue = new ReferenceQueue<>();
-
 // 创建虚引用（必须传入队列）
+// Reference 父类的关键逻辑
+//Reference(T referent, ReferenceQueue<? super T> queue) {
+//    this.referent = referent;
+//    this.queue = (queue == null) ? ReferenceQueue.NULL : queue;
+//    // 把 queue 的引用保存下来！
+//}
+
 PhantomReference<Object> phantomRef = new PhantomReference<>(obj, queue);
 
 // 注意：phantomRef.get() 永远返回 null，这是虚引用的特点
@@ -243,16 +251,17 @@ class DirectMemoryResource {
         this.phantomRef = new PhantomReference<>(this, queue);
         
         // 启动清理线程（实际应用中通常使用 Cleaner 类）
-        new Thread(() -> {
-            try {
-                PhantomReference<?> ref = (PhantomReference<?>) queue.remove();
-                System.out.println("资源被回收，执行清理操作");
+	    new Thread(()->{
+		    try{
+			    PhantomReference<?> ref = (PhantomReference<?>) queue.remove();
+			    System.out.println("资源被回收，执行清理操作");
                 // 清理直接内存（调用 Unsafe 或直接释放）
                 ref.clear();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }).start();
+		    } catch (InterruptedException e){
+			    Thread.currentThread().interrupt();
+		    }
+	    
+	    }).start();
     }
 }
 
@@ -375,6 +384,265 @@ System.gc();
 | **WeakHashMap** | - | key-value 缓存，key 弱引用 | 特定场景，注意 value 引用 |
 
 **核心原则**：`ReferenceQueue` 通常配合**自定义 Reference 子类**使用，而不是直接用原生 `SoftReference/WeakReference/PhantomReference`。
+
+## 代码速查（Reference Code Snippets）
+
+### 1. 基础引用创建与使用
+
+```java
+import java.lang.ref.*;
+
+// 强引用（默认）
+Object strongRef = new Object();
+
+// 软引用
+SoftReference<Object> softRef = new SoftReference<>(new Object());
+Object obj = softRef.get();  // 可能返回 null（被回收）
+
+// 弱引用
+WeakReference<Object> weakRef = new WeakReference<>(new Object());
+Object obj2 = weakRef.get();  // 可能返回 null
+
+// 虚引用（get() 永远返回 null）
+PhantomReference<Object> phantomRef = new PhantomReference<>(
+    new Object(), 
+    new ReferenceQueue<>()
+);
+Object obj3 = phantomRef.get();  // 永远为 null
+```
+
+### 2. 引用队列基础用法
+
+```java
+import java.lang.ref.*;
+
+// 创建队列
+ReferenceQueue<Object> queue = new ReferenceQueue<>();
+
+// 创建引用并注册队列
+WeakReference<Object> ref = new WeakReference<>(new Object(), queue);
+
+// 取消引用，建议 GC
+ref.clear();  // 或让对象变成不可达
+System.gc();
+
+// 从队列获取通知
+Reference<?> deadRef = queue.poll();  // 非阻塞
+Reference<?> deadRef2 = queue.remove(1000);  // 阻塞等待1秒
+```
+
+### 3. 方案一：自定义引用子类（推荐）
+
+```java
+import java.lang.ref.*;
+import java.util.HashMap;
+import java.util.Map;
+
+// 自定义软引用，存储业务 key
+class KeyedSoftReference extends SoftReference<byte[]> {
+    final String key;  // 业务标识
+    final long createTime;  // 可扩展更多字段
+    
+    KeyedSoftReference(String key, byte[] data, ReferenceQueue<byte[]> queue) {
+        super(data, queue);
+        this.key = key;
+        this.createTime = System.currentTimeMillis();
+    }
+}
+
+// 使用
+public class CacheWithCleanUp {
+    private final Map<String, KeyedSoftReference> cache = new HashMap<>();
+    private final ReferenceQueue<byte[]> queue = new ReferenceQueue<>();
+    
+    public void put(String key, byte[] data) {
+        cache.put(key, new KeyedSoftReference(key, data, queue));
+    }
+    
+    // 清理被回收的引用
+    public void cleanUp() {
+        KeyedSoftReference ref;
+        while ((ref = (KeyedSoftReference) queue.poll()) != null) {
+            System.out.println("清理: " + ref.key + 
+                             ", 存活时间: " + (System.currentTimeMillis() - ref.createTime));
+            cache.remove(ref.key);  // O(1) 删除
+        }
+    }
+}
+```
+
+### 4. 方案二：反向查找（不推荐）
+
+```java
+import java.lang.ref.*;
+import java.util.*;
+
+public class ReverseLookupExample {
+    private final Map<String, SoftReference<byte[]>> cache = new HashMap<>();
+    private final ReferenceQueue<byte[]> queue = new ReferenceQueue<>();
+    
+    public void cleanUpSlow() {
+        SoftReference<byte[]> deadRef = (SoftReference<byte[]>) queue.poll();
+        if (deadRef != null) {
+            // O(n) 遍历查找
+            for (Iterator<Map.Entry<String, SoftReference<byte[]>>> it = 
+                 cache.entrySet().iterator(); it.hasNext();) {
+                Map.Entry<String, SoftReference<byte[]>> entry = it.next();
+                if (entry.getValue() == deadRef) {
+                    it.remove();
+                    System.out.println("找到并删除: " + entry.getKey());
+                    break;
+                }
+            }
+        }
+    }
+}
+```
+
+### 5. 方案三：WeakHashMap（特定场景）
+
+```java
+import java.util.WeakHashMap;
+
+public class WeakHashMapExample {
+    // key 是弱引用，value 是强引用
+    private final WeakHashMap<String, byte[]> cache = new WeakHashMap<>();
+    
+    public void add(String key, byte[] data) {
+        cache.put(key, data);
+    }
+    
+    public void demonstrate() {
+        String key = new String("temp_data");
+        cache.put(key, new byte[1024 * 1024]);  // 1MB
+        
+        System.out.println("清理前大小: " + cache.size());  // 1
+        
+        key = null;  // 取消 key 的强引用
+        System.gc();  // 建议 GC
+        
+        // 注意：WeakHashMap 的清理是在访问时触发的
+        System.out.println("访问后大小: " + cache.size());  // 可能为 0
+    }
+}
+```
+
+### 6. 虚引用 + Cleaner 清理堆外内存
+
+```java
+import java.lang.ref.*;
+import java.nio.ByteBuffer;
+
+public class OffHeapCleaner {
+    private final ReferenceQueue<ByteBuffer> queue = new ReferenceQueue<>();
+    
+    public ByteBuffer allocateDirect(int size) {
+        ByteBuffer buffer = ByteBuffer.allocateDirect(size);
+        
+        // 创建虚引用监听 buffer 的回收
+        PhantomReference<ByteBuffer> phantom = 
+            new PhantomReference<>(buffer, queue);
+        
+        // 启动清理线程
+        new Thread(() -> {
+            try {
+                PhantomReference<?> ref = (PhantomReference<?>) queue.remove();
+                System.out.println("ByteBuffer 被回收，清理堆外内存");
+                // 实际项目中调用 Unsafe.freeMemory
+                ref.clear();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }).start();
+        
+        return buffer;
+    }
+}
+
+// Java 9+ 推荐方式
+import java.lang.ref.Cleaner;
+
+public class ModernCleaner {
+    private static final Cleaner cleaner = Cleaner.create();
+    
+    public ByteBuffer allocateWithCleaner(int size) {
+        ByteBuffer buffer = ByteBuffer.allocateDirect(size);
+        
+        cleaner.register(buffer, () -> {
+            System.out.println("Cleaner 清理堆外内存");
+            // 执行清理操作
+        });
+        
+        return buffer;
+    }
+}
+```
+
+### 7. 完整缓存实现示例
+
+```java
+import java.lang.ref.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+public class SoftReferenceCache<K, V> {
+    private final Map<K, Node<K, V>> cache = new ConcurrentHashMap<>();
+    private final ReferenceQueue<V> queue = new ReferenceQueue<>();
+    
+    // 带 key 的软引用
+    private static class Node<K, V> extends SoftReference<V> {
+        final K key;
+        
+        Node(K key, V value, ReferenceQueue<V> queue) {
+            super(value, queue);
+            this.key = key;
+        }
+    }
+    
+    public void put(K key, V value) {
+        cleanUp();  // 先清理
+        cache.put(key, new Node<>(key, value, queue));
+    }
+    
+    public V get(K key) {
+        cleanUp();
+        Node<K, V> node = cache.get(key);
+        return node != null ? node.get() : null;
+    }
+    
+    // 后台清理线程
+    public void startCleaner() {
+        Thread cleaner = new Thread(() -> {
+            while (!Thread.interrupted()) {
+                try {
+                    Node<K, V> node = (Node<K, V>) queue.remove();
+                    cache.remove(node.key);
+                    System.out.println("自动清理: " + node.key);
+                } catch (InterruptedException e) {
+                    break;
+                }
+            }
+        });
+        cleaner.setDaemon(true);
+        cleaner.start();
+    }
+    
+    // 手动清理
+    public void cleanUp() {
+        Node<K, V> node;
+        while ((node = (Node<K, V>) queue.poll()) != null) {
+            cache.remove(node.key);
+        }
+    }
+}
+
+// 使用
+SoftReferenceCache<String, byte[]> imageCache = new SoftReferenceCache<>();
+imageCache.startCleaner();  // 启动后台清理
+
+imageCache.put("photo1.jpg", new byte[1024 * 1024 * 10]);  // 10MB
+byte[] data = imageCache.get("photo1.jpg");  // 获取
+```
 
 ## 接口：数据 + 约束
 - 数据：
