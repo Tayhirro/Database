@@ -8,10 +8,10 @@
 
 ## 子目录
 
-| 目录 | 说明 |
-|------|------|
-| [mechanism/](mechanism/) | 类加载过程 |
-| [classloader/](classloader/) | 类加载器 |
+| 目录                           | 说明    |
+| ---------------------------- | ----- |
+| [mechanism/](mechanism/)     | 类加载过程 |
+| [classloader/](classloader/) | 类加载器  |
 
 ---
 
