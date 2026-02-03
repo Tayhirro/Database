@@ -157,8 +157,32 @@ System.out.println("缓存大小（可能已清理）：" + cache.size());
 **虚引用（PhantomReference）**
 - **触发条件**：对象无可达引用路径，已决定回收但尚未回收
 - **行为**：referent 不会被自动清除（需手动处理），PhantomReference 入队
-- **用途**：对象回收前的清理操作（如直接内存释放）
+- **用途**：对象回收前的清理操作（最常见：**直接内存释放**，见 [DirectMemory](../../runtime/structure/DirectMemory.md)）
 - **队列**：必须注册 ReferenceQueue，用于接收回调
+
+**为什么需要虚引用？堆外内存自动释放的关键**
+
+堆外内存（Direct Memory）不受 GC 管理，需要通过虚引用实现自动释放：
+
+```
+场景：使用 ByteBuffer.allocateDirect(1GB) 分配堆外内存
+
+堆内（受 GC 管理）          堆外（不受 GC 管理）
+├─ DirectByteBuffer 对象    └─ 1GB 实际内存
+│   ├─ memoryAddress 字段       (C 语言 malloc 分配)
+│   └─ Cleaner（虚引用）
+│
+流程：
+1. buffer = allocateDirect(1GB) → 堆内创建小对象，堆外分配大内存
+2. buffer = null → 取消引用
+3. GC 回收堆内的 DirectByteBuffer → 对象消失
+4. 虚引用感知 → 触发 Cleaner
+5. Cleaner 调用 free(memoryAddress) → 释放堆外 1GB
+```
+
+**如果没有虚引用**：堆内小对象被 GC 回收了，但堆外 1GB 内存没人管 → **永久泄漏**
+
+见 [DirectMemory](../../runtime/structure/DirectMemory.md) 了解完整机制。
 
 **代码示例（虚引用）**
 ```java
@@ -272,7 +296,9 @@ class ResourceWithCleaner {
 
 ## 关系：上级/下级/等价/特例/推广
 - 上级：GC 概述（见 [GCOverview.md](GCOverview.md)）。
-- 相关：可达性分析（见 [ReachabilityAnalysis.md](ReachabilityAnalysis.md)）。
+- 相关：
+  - 可达性分析（见 [ReachabilityAnalysis.md](ReachabilityAnalysis.md)）
+  - 直接内存（见 [../../runtime/structure/DirectMemory.md](../../runtime/structure/DirectMemory.md)）：虚引用用于堆外内存自动释放
 
 ## 把新概念挂回框架（多级索引轨迹）
 java → jvm → gc → mechanism → ReferenceTypes
