@@ -53,6 +53,7 @@ import java.lang.ref.ReferenceQueue;
 
 // 创建软引用（用于内存敏感的缓存）
 byte[] data = new byte[1024 * 1024 * 10]; // 10MB 数据
+// 记录softreference
 ReferenceQueue<byte[]> queue = new ReferenceQueue<>();
 SoftReference<byte[]> softRef = new SoftReference<>(data, queue);
 
@@ -276,6 +277,104 @@ class ResourceWithCleaner {
 - 当 referent 被 GC 决定回收时，对应的 Reference 对象会被加入注册的 ReferenceQueue
 - 应用程序可通过轮询 ReferenceQueue 获知对象回收事件
 - 见 [../../runtime/threading/ReferenceHandlerThread.md](../../runtime/threading/ReferenceHandlerThread.md)
+
+### 引用队列使用模式与最佳实践
+
+**问题**：`ReferenceQueue` 中拿到的 `Reference` 对象，如何知道它对应哪个业务 Key？
+
+原生的 `SoftReference<byte[]>` 只包含：
+- `referent`（指向数据的指针，已 null）
+- `queue`（指向队列）
+- `next`（链表指针）
+
+**它不知道自己是"美女.jpg"还是"data_001"**。实际工程中有两种解决方案：
+
+#### 方案 1：自定义引用子类存储元数据（推荐）
+
+继承引用类，添加字段存储业务标识信息：
+
+```java
+// 适用于所有引用类型（Soft/Weak/Phantom）
+class KeyedSoftReference extends SoftReference<byte[]> {
+    String key;  // 存储业务 key，用于识别
+    
+    KeyedSoftReference(String key, byte[] data, ReferenceQueue<byte[]> queue) {
+        super(data, queue);
+        this.key = key;
+    }
+}
+
+// 使用
+Map<String, KeyedSoftReference> cache = new HashMap<>();
+ReferenceQueue<byte[]> queue = new ReferenceQueue<>();
+
+cache.put("美女.jpg", new KeyedSoftReference("美女.jpg", imageData, queue));
+
+// 清理时
+KeyedSoftReference deadRef = (KeyedSoftReference) queue.poll();
+if (deadRef != null) {
+    String key = deadRef.key;  // ← 现在你知道了！
+    cache.remove(key);
+    System.out.println("已清理: " + key);
+}
+```
+
+**优点**：
+- O(1) 时间获取 key
+- 可扩展存储更多元数据（如创建时间、大小等）
+
+**适用场景**：所有需要识别被回收引用的场景（缓存清理、连接池管理、资源追踪等）
+
+#### 方案 2：反向查找（不推荐，性能差）
+
+如果不想自定义类，就只能遍历查找：
+
+```java
+SoftReference<byte[]> deadRef = (SoftReference<byte[]>) queue.poll();
+if (deadRef != null) {
+    // 笨办法：遍历找哪个 value 等于 deadRef
+    for (Map.Entry<String, SoftReference<byte[]>> entry : cache.entrySet()) {
+        if (entry.getValue() == deadRef) {
+            cache.remove(entry.getKey());
+            break;
+        }
+    }
+}
+```
+
+**缺点**：
+- O(n) 时间复杂度
+- 高并发时遍历整个 map 性能差
+- 可能找不到（如果已被其他线程移除）
+
+#### 方案 3：使用 WeakHashMap（特定场景）
+
+如果是 key-value 映射，且希望 key 不再被引用时自动清理 entry：
+
+```java
+// key 是弱引用，value 是强引用
+WeakHashMap<String, byte[]> cache = new WeakHashMap<>();
+
+// 当 key 不再被强引用时，对应的 entry 会在下次 GC 时被移除
+String key = new String("temp_key");
+cache.put(key, data);
+
+key = null; // key 不再被强引用
+System.gc();
+// entry 会自动从 map 中移除
+```
+
+**注意**：WeakHashMap 的 value 是强引用，如果 value 持有 key 的引用会形成循环依赖。
+
+### 总结
+
+| 方案 | 时间复杂度 | 适用场景 | 备注 |
+|-----|-----------|---------|------|
+| **自定义引用子类** | O(1) | 所有需要识别引用的场景 | 推荐，灵活可扩展 |
+| **反向查找** | O(n) | 简单原型、数据量小 | 不推荐生产环境 |
+| **WeakHashMap** | - | key-value 缓存，key 弱引用 | 特定场景，注意 value 引用 |
+
+**核心原则**：`ReferenceQueue` 通常配合**自定义 Reference 子类**使用，而不是直接用原生 `SoftReference/WeakReference/PhantomReference`。
 
 ## 接口：数据 + 约束
 - 数据：
