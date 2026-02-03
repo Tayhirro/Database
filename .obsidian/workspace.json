@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/ops/mechanism/RedisDataStructures.md",
+                "file": "java/jvm/gc/structure/RememberedSet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RedisDataStructures"
+              "title": "RememberedSet"
             }
           }
         ]
@@ -197,14 +197,19 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "java/jvm/gc/structure/CardTable.md",
+    "java/jvm/gc/structure/索引.md",
+    "java/jvm/gc/mechanism/GCRoots.md",
+    "java/jvm/gc/mechanism/ReachabilityAnalysis.md",
+    "java/jvm/gc/mechanism/ReferenceTypes.md",
+    "java/jvm/gc/mechanism/SafePoint.md",
+    "springboot/modules/ops/mechanism/RedisDataStructures.md",
     "hmdp/frontend/tsconfig.json",
     "hmdp/frontend/renovate.json",
     "hmdp/frontend/pnpm-workspace.yaml",
     "hmdp/frontend/eslint.config.mjs",
     "java/jvm/gc/mechanism/CardTable.md",
-    "java/jvm/gc/structure/索引.md",
     "java/jvm/gc/structure/Region.md",
-    "java/jvm/gc/structure/CardTable.md",
     "java/jvm/gc/structure/RememberedSet.md",
     "java/jvm/gc/structure",
     "hmdp/frontend/pnpm-lock.yaml",
@@ -214,7 +219,6 @@
     "hmdp/frontend/node_modules/vue-devtools-stub/dist/index.mjs",
     "hmdp/frontend/node_modules/vue-devtools-stub/dist/index.cjs",
     "hmdp/frontend/node_modules/vue-devtools-stub/README.md",
-    "hmdp/frontend/node_modules/vue-devtools-stub/package.json",
     "hmdp/frontend/node_modules/aria-hidden/README.md",
     "hmdp/frontend/node_modules/@tailwindcss/vite/README.md",
     "hmdp/frontend/node_modules/sax/README.md",
@@ -225,10 +229,6 @@
     "hmdp/frontend/node_modules/@babel/helper-plugin-utils/README.md",
     "hmdp/frontend/node_modules/@babel/code-frame/README.md",
     "java/jvm/gc/mechanism/GCOverview.md",
-    "java/jvm/gc/mechanism/GCRoots.md",
-    "java/jvm/gc/mechanism/ReferenceTypes.md",
-    "java/jvm/gc/mechanism/ReachabilityAnalysis.md",
-    "java/jvm/gc/mechanism/SafePoint.md",
     "java/jvm/classloading/README.md",
     "java/jvm/classloading/索引.md",
     "mechanism/ClassLoadingProcess.md",
