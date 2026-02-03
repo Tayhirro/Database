@@ -17,6 +17,52 @@ tags:
 
 可达性分析以 GC Roots 为起点判定强可达路径（见 [ReachabilityAnalysis.md](ReachabilityAnalysis.md)），引用类型在此基础上对“可回收性/回收时机/回调通知”进行细化。
 
+## 引用处理流程（GC 周期第 2 阶段）
+
+在 GC 的引用处理阶段，JVM 根据可达性分析结果处理各类引用：
+
+```
+引用处理（Reference Processing）
+├── 软引用（SoftReference）
+│   └── 条件：若内存不足（实现定义）
+│       ├── 清除 referent（置为 null）
+│       └── Reference 入队（若注册了 ReferenceQueue）
+│
+├── 弱引用（WeakReference）
+│   └── 条件：只要被标记为弱可达（无强/软引用路径）
+│       ├── 清除 referent（置为 null）
+│       └── Reference 入队（若注册了 ReferenceQueue）
+│
+└── 虚引用（PhantomReference）
+    └── 条件：referent 已决定回收（无强/软/弱引用路径）
+        └── PhantomReference 入队（必须注册 ReferenceQueue，用于回调通知）
+```
+
+### 处理规则
+
+**软引用（SoftReference）**
+- **触发条件**：对象仅被软引用指向，且 JVM 内存不足（实现定义）
+- **行为**：referent 被清除，对象可被回收
+- **用途**：内存敏感的缓存（如图片缓存）
+- **队列**：可注册 ReferenceQueue 接收通知
+
+**弱引用（WeakReference）**
+- **触发条件**：对象仅被弱引用指向（无强/软引用路径）
+- **行为**：下次 GC 时 referent 被清除
+- **用途**： canonicalizing mappings（如 WeakHashMap）
+- **队列**：可注册 ReferenceQueue 接收通知
+
+**虚引用（PhantomReference）**
+- **触发条件**：对象无可达引用路径，已决定回收但尚未回收
+- **行为**：referent 不会被自动清除（需手动处理），PhantomReference 入队
+- **用途**：对象回收前的清理操作（如直接内存释放）
+- **队列**：必须注册 ReferenceQueue，用于接收回调
+
+### 引用队列（ReferenceQueue）
+- 当 referent 被 GC 决定回收时，对应的 Reference 对象会被加入注册的 ReferenceQueue
+- 应用程序可通过轮询 ReferenceQueue 获知对象回收事件
+- 见 [../../runtime/threading/ReferenceHandlerThread.md](../../runtime/threading/ReferenceHandlerThread.md)
+
 ## 接口：数据 + 约束
 - 数据：
   - 引用对象（Reference）及其 referent

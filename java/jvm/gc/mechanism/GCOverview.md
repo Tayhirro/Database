@@ -20,6 +20,41 @@ $$
 
 GC 的实现包含若干阶段化动作（阶段集合与顺序依收集器而定），常见阶段语义包括：根扫描、标记（mark）、清理（sweep）、复制/整理（copy/compact）、更新引用（update references）、以及与应用线程的同步/并发协作（STW/并发）。
 
+## GC 周期流程
+
+```
+GC 周期
+├── 1. 可达性分析（标记阶段）
+│   ├── 强可达（Strongly Reachable）：保留
+│   ├── 软/弱/虚可达（Soft/Weak/Phantom Reachable）：标记为"候选回收"（依引用类型规则）
+│   └── 不可达（Unreachable）：标记为"待回收"
+│
+├── 2. 引用处理（Reference Processing）
+│   ├── 软引用（SoftReference）：若内存不足，清除 referent，Reference 入队
+│   ├── 弱引用（WeakReference）：只要被标记为弱可达，referent 清除，Reference 入队
+│   └── 虚引用（PhantomReference）：referent 已决定回收，PhantomReference 入队（用于回调）
+│
+└── 3. 垃圾回收（清除/压缩阶段）
+    └── 实际回收对象内存（释放或整理/搬迁存活对象）
+```
+
+### 阶段说明
+
+**阶段 1：可达性分析**
+- 以 GC Roots 为起点遍历对象引用图
+- 区分可达性级别：强可达、软可达、弱可达、虚可达、不可达
+- 见 [ReachabilityAnalysis.md](ReachabilityAnalysis.md)
+
+**阶段 2：引用处理**
+- 处理软/弱/虚引用对象及其引用队列
+- 根据可达性级别和内存压力决定是否清除 referent
+- 见 [ReferenceTypes.md](ReferenceTypes.md)
+
+**阶段 3：清除/压缩**
+- 回收不可达对象占用的内存
+- 可选：整理存活对象以消除碎片
+- 见 [../algorithm/MarkSweep.md](../algorithm/MarkSweep.md)、[../algorithm/MarkCompact.md](../algorithm/MarkCompact.md)
+
 ## 接口：数据 + 约束
 - 数据（语义级别）：
   - 堆（Heap）：GC 的主要作用对象（见 [../../runtime/structure/Heap.md](../../runtime/structure/Heap.md)）
