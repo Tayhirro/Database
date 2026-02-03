@@ -46,17 +46,207 @@ tags:
 - **用途**：内存敏感的缓存（如图片缓存）
 - **队列**：可注册 ReferenceQueue 接收通知
 
+**代码示例（软引用）**
+```java
+import java.lang.ref.SoftReference;
+import java.lang.ref.ReferenceQueue;
+
+// 创建软引用（用于内存敏感的缓存）
+byte[] data = new byte[1024 * 1024 * 10]; // 10MB 数据
+ReferenceQueue<byte[]> queue = new ReferenceQueue<>();
+SoftReference<byte[]> softRef = new SoftReference<>(data, queue);
+
+// 使用软引用获取对象
+byte[] cachedData = softRef.get();
+if (cachedData != null) {
+    // 对象仍然存在，可以使用
+    System.out.println("缓存命中，数据大小：" + cachedData.length);
+} else {
+    // 对象已被回收，需要重新加载
+    System.out.println("缓存已失效，重新加载数据");
+}
+
+// 清除强引用，使对象仅被软引用指向
+data = null;
+
+// 模拟内存不足（分配大量内存触发 GC）
+try {
+    for (int i = 0; i < 100; i++) {
+        byte[] big = new byte[1024 * 1024 * 5]; // 分配 5MB
+    }
+} catch (OutOfMemoryError e) {
+    // 忽略
+}
+
+// 检查软引用是否被清除
+if (softRef.get() == null) {
+    System.out.println("软引用指向的对象已被回收");
+}
+
+// 检查引用队列（可选，用于接收回收通知）
+SoftReference<? extends byte[]> clearedRef = (SoftReference<? extends byte[]>) queue.poll();
+if (clearedRef != null) {
+    System.out.println("收到软引用清除通知");
+}
+```
+
 **弱引用（WeakReference）**
 - **触发条件**：对象仅被弱引用指向（无强/软引用路径）
 - **行为**：下次 GC 时 referent 被清除
 - **用途**： canonicalizing mappings（如 WeakHashMap）
 - **队列**：可注册 ReferenceQueue 接收通知
 
+**代码示例（弱引用）**
+```java
+import java.lang.ref.WeakReference;
+import java.lang.ref.ReferenceQueue;
+import java.util.WeakHashMap;
+
+// 示例 1：基本弱引用使用
+Object obj = new Object();
+ReferenceQueue<Object> queue = new ReferenceQueue<>();
+WeakReference<Object> weakRef = new WeakReference<>(obj, queue);
+
+// 使用弱引用获取对象
+Object ref = weakRef.get();
+if (ref != null) {
+    System.out.println("对象仍然存在：" + ref);
+}
+
+// 清除强引用，使对象仅被弱引用指向
+obj = null;
+
+// 建议 JVM 进行 GC（仅建议，不保证立即执行）
+System.gc();
+
+// 等待 GC 完成（实际应用中不应这样做，仅用于演示）
+try {
+    Thread.sleep(100);
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+// 检查弱引用是否被清除
+if (weakRef.get() == null) {
+    System.out.println("弱引用指向的对象已被回收");
+}
+
+// 检查引用队列
+WeakReference<? extends Object> clearedRef = (WeakReference<? extends Object>) queue.poll();
+if (clearedRef != null) {
+    System.out.println("收到弱引用清除通知");
+}
+
+// 示例 2：WeakHashMap 典型用法（canonicalizing mappings）
+WeakHashMap<String, byte[]> cache = new WeakHashMap<>();
+String key = "large_data";
+byte[] value = new byte[1024 * 1024]; // 1MB 数据
+
+cache.put(key, value);
+System.out.println("缓存大小：" + cache.size()); // 1
+
+// 当 key 不再被强引用时，对应的 entry 会在下次 GC 时被移除
+key = null;
+value = null;
+
+System.gc();
+// 注意：WeakHashMap 的清理是在访问 map 时触发的，或者依赖后台线程
+System.out.println("缓存大小（可能已清理）：" + cache.size());
+```
+
 **虚引用（PhantomReference）**
 - **触发条件**：对象无可达引用路径，已决定回收但尚未回收
 - **行为**：referent 不会被自动清除（需手动处理），PhantomReference 入队
 - **用途**：对象回收前的清理操作（如直接内存释放）
 - **队列**：必须注册 ReferenceQueue，用于接收回调
+
+**代码示例（虚引用）**
+```java
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.nio.ByteBuffer;
+
+// 示例 1：基本虚引用使用（监控对象回收）
+Object obj = new Object();
+
+// 必须创建 ReferenceQueue
+ReferenceQueue<Object> queue = new ReferenceQueue<>();
+
+// 创建虚引用（必须传入队列）
+PhantomReference<Object> phantomRef = new PhantomReference<>(obj, queue);
+
+// 注意：phantomRef.get() 永远返回 null，这是虚引用的特点
+System.out.println("虚引用 get() 返回：" + phantomRef.get()); // null
+
+// 清除强引用
+obj = null;
+
+// 建议 GC
+System.gc();
+
+// 等待 GC 完成
+try {
+    Thread.sleep(100);
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+// 检查引用队列（阻塞方式）
+try {
+    PhantomReference<?> ref = (PhantomReference<?>) queue.remove(1000);
+    if (ref != null) {
+        System.out.println("收到虚引用通知，对象即将被回收");
+        // 此时可以执行清理操作
+        ref.clear(); // 手动清除虚引用
+    }
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+// 示例 2：直接内存释放的典型用法（Cleaner 模式）
+class DirectMemoryResource {
+    private final ByteBuffer directBuffer;
+    private final PhantomReference<DirectMemoryResource> phantomRef;
+    
+    public DirectMemoryResource(int size) {
+        this.directBuffer = ByteBuffer.allocateDirect(size);
+        
+        // 创建引用队列
+        ReferenceQueue<DirectMemoryResource> queue = new ReferenceQueue<>();
+        
+        // 创建虚引用
+        this.phantomRef = new PhantomReference<>(this, queue);
+        
+        // 启动清理线程（实际应用中通常使用 Cleaner 类）
+        new Thread(() -> {
+            try {
+                PhantomReference<?> ref = (PhantomReference<?>) queue.remove();
+                System.out.println("资源被回收，执行清理操作");
+                // 清理直接内存（调用 Unsafe 或直接释放）
+                ref.clear();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }).start();
+    }
+}
+
+// 示例 3：使用 Java 9+ Cleaner 类（推荐方式）
+import java.lang.ref.Cleaner;
+
+class ResourceWithCleaner {
+    private static final Cleaner cleaner = Cleaner.create();
+    private final Cleaner.Cleanable cleanable;
+    
+    public ResourceWithCleaner() {
+        // 创建清理动作
+        cleanable = cleaner.register(this, () -> {
+            System.out.println("ResourceWithCleaner 被回收，执行清理");
+            // 执行清理操作
+        });
+    }
+}
+```
 
 ### 引用队列（ReferenceQueue）
 - 当 referent 被 GC 决定回收时，对应的 Reference 对象会被加入注册的 ReferenceQueue
