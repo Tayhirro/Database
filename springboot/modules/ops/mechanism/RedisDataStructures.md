@@ -13,12 +13,26 @@
 ## 常用操作（命令 → Java）
 
 ### 1) String（`opsForValue()`）
-- 适合：验证码、计数器、简单标记（锁/开关）
+- 适合：验证码、计数器、简单标记（锁/开关）、Bitmap（签到）
 - 命令：`SET key value` / `GET key` / `INCR key` / `DEL key`
 - Java：
   - `stringRedisTemplate.opsForValue().set(key, value, ttl, TimeUnit.MINUTES);`
   - `stringRedisTemplate.opsForValue().get(key);`
   - `stringRedisTemplate.opsForValue().increment(key);`
+
+#### Bitmap（本质还是 String）
+Redis 的 String 是“二进制安全”的字节序列，所以它除了能 `SET/GET` 一整个字符串以外，还能对同一个 value 按位操作：
+- 命令：`SETBIT key offset 0|1` / `GETBIT key offset` / `BITCOUNT key` / `BITFIELD key ...`
+- Spring：这些位操作在 `StringRedisTemplate.opsForValue()` 下面提供：
+  - `stringRedisTemplate.opsForValue().setBit(key, offset, true);`
+  - `stringRedisTemplate.opsForValue().getBit(key, offset);`
+  - `stringRedisTemplate.opsForValue().bitField(key, subCommands);`
+
+示例（签到）：
+- key：`sign:{userId}:{yyyyMM}`（例如 `sign:5:202602`）
+- offset：`dayOfMonth - 1`（1 号写第 0 位，2 号写第 1 位…）
+  - `SETBIT sign:5:202602 0 1` 表示 2 月 1 号已签到
+  - `SETBIT sign:5:202602 1 1` 表示 2 月 2 号已签到
 
 ### 2) Hash（`opsForHash()`）
 - 适合：对象按字段拆分存（一个 key 下多个 field-value）
@@ -67,4 +81,3 @@
 
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → ops → mechanism → Redis 数据结构与 StringRedisTemplate。
-
