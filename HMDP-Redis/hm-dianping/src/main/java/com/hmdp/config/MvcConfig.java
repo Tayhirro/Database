@@ -35,7 +35,8 @@ public class MvcConfig implements WebMvcConfigurer {
                         "/blog/hot",        //放行热点接口(与用户是否登录无关)
                         "/upload/**",       //放行上传接口(用于测试)
                         "/user/code",       //放行验证码接口
-                        "/user/login"       //放行登录接口
+                        "/user/login",      //放行登录接口
+                        "/user/signup"       //放行注册接口
                 ).order(1);
 
         // token刷新的拦截器
