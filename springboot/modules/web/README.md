@@ -152,31 +152,42 @@ DispatcherServlet.doDispatch(request, response)
     │   AuthInterceptor: 从 Header 取 token → 查 Redis → ThreadLocal.set(user)
     │   LogInterceptor: 记录请求日志
     │   输出：boolean (true=放行, false=拦截)
+    │   说明：若某个拦截器 preHandle=false，会立刻触发「已通过 preHandle 的拦截器」afterCompletion 并结束请求
     │
     ├─ Step 3: HandlerAdapter 驱动执行
     │   输入：HandlerExecutionChain, HttpServletRequest
-    │   处理：调用 RequestMappingHandlerAdapter.invokeHandlerMethod()
-    │   内部：创建 Model → 解析参数 → 执行 Controller → 处理返回值
-    │   输出：ModelAndView (视图渲染场景) 或直接写入 Response (@ResponseBody 场景)
+    │   处理：调用 RequestMappingHandlerAdapter.handle(...) → invokeHandlerMethod()
+    │   内部：
+    │     3.1 参数解析：HandlerMethodArgumentResolver（@PathVariable/@RequestParam/@RequestBody...）
+    │     3.2 执行 Controller 方法（业务逻辑）
+    │     3.3 返回值处理：HandlerMethodReturnValueHandler
+    │         - 视图场景：构建 ModelAndView（viewName + model），交给后续渲染
+    │         - @ResponseBody 场景：RequestResponseBodyMethodProcessor → HttpMessageConverter(Jackson) 序列化 → 写入 response
+    │           并标记 requestHandled=true（不再走视图渲染）
+    │   输出：ModelAndView（视图）或 null（已写入 response）
     │
     ├─ Step 4: HandlerInterceptor.postHandle
-    │   在 Controller 执行后，视图渲染前
-    │   可修改 ModelAndView (很少用)
+    │   在 handler 正常返回后、渲染前回调（倒序执行）；若 handler 抛异常则不会执行，直接进入 Step 5.1
+    │   备注：@ResponseBody 场景下，此时通常 response 已经在 Step 3 写入/提交（postHandle 仍会被调用，mv 可能为 null）
     │
-    ├─ Step 5: 视图渲染 (如果是模板引擎)
-    │   ModelAndView → View.render() → HTML
-    │   数据：Model 属性 → Request Attributes → 模板填充 (${user.name})
+    ├─ Step 5: 结果处理（异常处理 / 视图渲染）
+    │   5.1 异常分支：HandlerExceptionResolver 处理异常 → 写入 response 或返回错误视图
+    │   5.2 视图分支（仅当 mv != null 且未 requestHandled）：DispatcherServlet.render(mv)
+    │       ModelAndView → View.render() → HTML
+    │       数据：Model 属性 → Request Attributes → 模板填充 (${user.name})
     │
     └─ Step 6: HandlerInterceptor.afterCompletion
-        清理资源：ThreadLocal.remove(), 记录总耗时
+        最终回调（类似 finally，倒序执行）：清理资源（ThreadLocal.remove() 等）、记录总耗时（包含异常场景）
 ```
+
+补充（异步请求）：如果 Controller 返回 `Callable` / `DeferredResult` / `WebAsyncTask` 等触发异步处理，`DispatcherServlet` 会在 Step 3 检测到并提前结束当前线程；后续异步完成会触发一次新的 async dispatch，再继续走后面的拦截器与结果处理流程。
 
 ---
 
 ### 深入 Step 3：HandlerAdapter 内部详细流程
 
 这是 Spring MVC 最复杂的部分，包含 **Model 生命周期、参数解析、返回值处理**。
-Step3可不可以把它划到就是降一级的优先级啊，就是给它划到第三步的里边，就它那个是不是更好一点呢
+（可理解为上面「Step 3」的展开）
 ### HandlerAdapter 内部子流程
 
 ```
