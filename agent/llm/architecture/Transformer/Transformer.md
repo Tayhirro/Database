@@ -33,11 +33,12 @@ Transformer 是一种神经网络架构，由堆叠的层组成，每层包含�
 
 ## 常用构造
 
-| 变体 | 说明 |
-|------|------|
-| Encoder-only | 双向注意力（BERT） |
-| Decoder-only | 因果掩码、自回归（GPT） |
+| 变体              | 说明               |
+| --------------- | ---------------- |
+| Encoder-only    | 双向注意力（BERT）      |
+| Decoder-only    | 因果掩码、自回归（GPT）    |
 | Encoder-Decoder | 编码 + 交叉注意力解码（T5） |
+|                 |                  |
 
 ---
 

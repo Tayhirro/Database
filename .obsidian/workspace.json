@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "算法/算法a.md",
+                "file": "agent/llm/architecture/Transformer/Transformer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "算法a"
+              "title": "Transformer"
             },
             "group": "bddcdc6fae2036ea"
           }
@@ -34,13 +34,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "算法/算法a.md",
+                "file": "agent/llm/architecture/Transformer/Transformer.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "算法a 的大纲"
+              "title": "Transformer 的大纲"
             },
             "group": "bddcdc6fae2036ea"
           }
@@ -218,8 +218,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "5fb3f5ea1037581a",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "agent/llm/evaluation/索引.md",
+    "算法/算法a.md",
     "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
     "hmdp/target/classes/nginx-1.18.0/nginx.exe",
     "hmdp/target/classes/nginx-1.18.0/nginx-1.18.0.zip",
@@ -264,8 +266,6 @@
     "hmdp/frontend/node_modules/process/README.md",
     "hmdp/frontend/node_modules/process-nextick-args/readme.md",
     "hmdp/frontend/node_modules/process-nextick-args/license.md",
-    "hmdp/frontend/node_modules/balanced-match/LICENSE.md",
-    "hmdp/frontend/node_modules/balanced-match/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
