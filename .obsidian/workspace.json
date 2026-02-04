@@ -13,13 +13,36 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
+                "file": "算法/算法a.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BeanRegistrationMethods"
-            }
+              "title": "算法a"
+            },
+            "group": "bddcdc6fae2036ea"
+          }
+        ]
+      },
+      {
+        "id": "4635a15bc4bf3794",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5fb3f5ea1037581a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "算法/算法a.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "算法a 的大纲"
+            },
+            "group": "bddcdc6fae2036ea"
           }
         ]
       }
@@ -195,8 +218,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8f61731f8e1e8a24",
+  "active": "5fb3f5ea1037581a",
   "lastOpenFiles": [
+    "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
     "hmdp/target/classes/nginx-1.18.0/nginx.exe",
     "hmdp/target/classes/nginx-1.18.0/nginx-1.18.0.zip",
     "hmdp/target/classes/nginx-1.18.0/logs/error.log",
@@ -207,7 +231,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-list.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-detail.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/other-info.html",
-    "hmdp/target/classes/nginx-1.18.0/html/hmdp/login2.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/9/12/ac2ce2fb-0605-4f14-82cc-c962b8c86688.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",

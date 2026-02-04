@@ -929,6 +929,8 @@ x->child  = y;
 
 
 
+## 二叉树
+
 
 
 
@@ -1588,82 +1590,6 @@ for(int i =1 ;i<=ns;i++){
 - 循环两次就行
 
 ### 最大m字段和
-
-
-
-
-
-
-
-
-
-# 树
-
-## py
-
-- 二叉树
-
-### 插入
-
-```
-class TreeNode:
-	def __init__(self,value):
-	self.value
-	self.left=None
-	self.right=None
-	def gen_treeNode(self,info):
-		nowNode=TreeNode(info)
-		if #condition:
-			return nowNode
-		else:
-			gen_treeNode(nowNode.right,#otherinfo)
-			gen_treeNode(nowNode.left,#otherinfo)
-			return nowNode
-
-#树
-
-class Tree:
-    def __init__(self,root_value):
-    	self.root=TrooNode(root_value)
-	def insert_left(self, parent_node, value):
-        parent_node.left = TreeNode(value)
-        return parent_node.left
-	def insert_right(self,parent_node,value):
-		parent_node.right=TreeNode(value)
-		return parent_node.right
-	def gen_tree(self,info):
-		TreeNode.gen_treeNode(self.root.left,info)
-		TreeNode.gen_treeNode(self.root.Right,info)
-
-
-class Tree:
-	def __init__(self,info):
-		self.tree=None
-		self.info=info
-	#每次更新为两边
-	def 
-
-
-```
-
-- 插入节点定义为可以返回，便于迭代
-
-### 增长
-
-- 递归增长，且只能对节点进行递归
-  - 构造本节点
-  - 左节点
-  - 右节点
-
-- 循环增长
-
-
-
-
-
-
-
-
 
 
 
