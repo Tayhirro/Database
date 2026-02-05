@@ -78,6 +78,7 @@ $$
 - **上级**: [[LayerNorm]] —— 共享"沿特征维归一化"结构，但移除中心化与平移
 - **对比**: [[BatchNorm]] —— BN 沿批次维统计，RMSNorm 沿特征维；BN 必须减均值，RMSNorm 可选
 - **等价**: [[Pre-LN]] 架构中的常用组件，与 SwiGLU 激活函数共同构成现代 LLM 基础模块
+- **相关**: [Bias（偏置/截距）](Bias.md) —— RMSNorm 无 $\beta$，对应“无平移项”的归一化变体
 - **应用**: [[LLaMA]], [[PaLM]], [[Mistral]], [[Qwen]] 等 decoder-only 模型的默认归一化层
 
 ## 挂载路径

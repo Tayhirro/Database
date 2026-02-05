@@ -212,6 +212,7 @@
   },
   "active": "78f0122b1e24e17f",
   "lastOpenFiles": [
+    "agent/llm/architecture/Transformer/mechanics/Bias.md",
     "hmdp/docs/knowledge/spring/di-annotations.md",
     "hmdp/docs/knowledge/spring",
     "hmdp/docs/knowledge",
@@ -257,7 +258,6 @@
     "hmdp/frontend/node_modules/b4a/README.md",
     "hmdp/frontend/node_modules/events-universal/README.md",
     "hmdp/frontend/node_modules/zip-stream/README.md",
-    "hmdp/frontend/node_modules/safe-buffer/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
