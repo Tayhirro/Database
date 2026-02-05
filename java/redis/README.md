@@ -302,6 +302,7 @@ spring:
 ## 2. 序列化配置（重要！）
 
 ### 2.1 自定义 RedisTemplate（推荐）
+- 支持将object 序列化
 
 ```java
 @Configuration
@@ -335,6 +336,9 @@ public class RedisConfig {
         return template;
     }
 }
+//流程
+redisTemplate.setKeySerializer---setHashKeySerializer---setHashValueSerializer--afterPropertiesSet---
+
 ```
 
 ### 2.2 StringRedisTemplate（字符串专用）

@@ -226,6 +226,7 @@
   },
   "active": "a9359fff476d5190",
   "lastOpenFiles": [
+    "java/utils",
     "java/jvm/gc/algorithm/GenerationalGC.md",
     "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
     "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
@@ -271,7 +272,6 @@
     "hmdp/frontend/node_modules/@vue/devtools-core/README.md",
     "hmdp/frontend/node_modules/js-tokens/README.md",
     "hmdp/frontend/node_modules/js-tokens/CHANGELOG.md",
-    "hmdp/frontend/node_modules/picocolors/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
