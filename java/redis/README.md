@@ -408,7 +408,7 @@ public class HashOps {
     
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
-    
+
     // 存储对象（将 User 对象的字段映射到 Hash）
     public void putUser(String key, User user) {
         redisTemplate.opsForHash().put(key, "id", user.getId());

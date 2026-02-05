@@ -49,7 +49,8 @@
               "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -223,14 +224,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8f61731f8e1e8a24",
+  "active": "a9359fff476d5190",
   "lastOpenFiles": [
+    "java/jvm/gc/algorithm/GenerationalGC.md",
+    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
     "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
     "agent/llm/architecture/Transformer/mechanics/Bias.md",
-    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
     "agent/llm/architecture/Transformer/Transformer.md",
     "java/redis/README.md",
-    "java/jvm/gc/algorithm/GenerationalGC.md",
     "mini-spring/version2/target/test-classes/spring.xml",
     "mini-spring/version2/target/test-classes/context-namespace.xml",
     "mini-spring/version2/target/classes/META-INF/spring.handlers",
