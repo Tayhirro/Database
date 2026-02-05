@@ -30,6 +30,7 @@ SpringBoot-Notes/
 ├── 04-最佳实践/           # 项目开发最佳实践
 │   └── README/
 │       └── Redis-Cache-Problems.md   # 缓存问题解决方案
+│       └── SpringBoot-Testing-Interview-CheatSheet.md  # 测试面试速记
 │
 └── 05-源码分析/           # 核心源码解析
     └── README/
@@ -89,6 +90,14 @@ SpringBoot-Notes/
   - 缓存击穿（互斥锁、逻辑过期）
   - 缓存雪崩（随机过期、多级缓存）
 
+#### Spring Boot 测试面试速记
+- **文档**: [SpringBoot-Testing-Interview-CheatSheet.md](04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md)
+- **内容**:
+  - JUnit5 常用注解与断言
+  - Mockito Mock/verify 用法
+  - `@SpringBootTest` / `@WebMvcTest` 对比
+  - 面试高频问答与测试设计方法
+
 ---
 
 ## 快速导航
@@ -102,6 +111,7 @@ SpringBoot-Notes/
 | Redis 配置 | [Redis 配置详解](03-配置技巧/README/Redis-Configuration.md) |
 | Redis 完整手册 | [Redis 完整指南](02-数据访问/README/Redis-Complete-Guide.md) |
 | 缓存问题 | [Redis 缓存问题](04-最佳实践/README/Redis-Cache-Problems.md) |
+| 测试面试速记 | [Testing CheatSheet](04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md) |
 
 ### 学习路径
 

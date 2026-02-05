@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
+                "file": "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RMSNorm"
+              "title": "LayerNorm"
             }
           },
           {
@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "java/jvm/gc/algorithm/GenerationalGC.md",
+                "file": "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GenerationalGC"
+              "title": "SpringBoot-Testing-Interview-CheatSheet"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -210,8 +209,18 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "78f0122b1e24e17f",
+  "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "LLM/structure/Transformer-FAQ.md",
+    "LLM/structure/Transformer-简化流程.md",
+    "LLM/structure/Transformer-基础结构.md",
+    "LLM/structure",
+    "LLM",
+    "agent/llm/architecture/Transformer/mechanics/Bias.md",
+    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
+    "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
+    "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
+    "java/jvm/gc/algorithm/GenerationalGC.md",
     "hmdp/target/surefire-reports/TEST-com.hmdp.utils.RegexUtilsTest.xml",
     "hmdp/target/surefire-reports/com.hmdp.utils.RegexUtilsTest.txt",
     "hmdp/target/surefire-reports",
@@ -220,9 +229,6 @@
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile",
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile",
     "hmdp/target/test-classes/com/hmdp/utils/RegexUtilsTest.class",
-    "hmdp/target/test-classes/com/hmdp/utils",
-    "hmdp/src/test/java/com/hmdp/utils/RegexUtilsTest.java",
-    "hmdp/src/test/java/com/hmdp/utils",
     "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "SpringBoot-Notes/01-核心工具类/README/RedisUtils.md",
     "SpringBoot-Notes/真实API说明.md",
@@ -233,14 +239,10 @@
     "SpringBoot-Notes/QUICK-INDEX.md",
     "SpringBoot-Notes/STRUCTURE.md",
     "java/redis/README.md",
-    "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
     "SpringBoot-Notes/03-配置技巧/README/Redis-Configuration.md",
     "SpringBoot-Notes/README.md",
     "java/utils/ObjectMapper.md",
-    "java/jvm/gc/algorithm/GenerationalGC.md",
-    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
     "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
-    "agent/llm/architecture/Transformer/mechanics/Bias.md",
     "agent/llm/architecture/Transformer/Transformer.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
@@ -255,9 +257,6 @@
     "java/jvm/gc/algorithm/Copying.md",
     "java/jvm/gc/mechanism/GCOverview.md",
     "java/jvm/gc/algorithm/MarkCompact.md",
-    "java/jvm/gc/algorithm/MarkSweep.md",
-    "文学/诗歌收藏/唐/崔涂/除夜有怀.md",
-    "hmdp/docs/knowledge/spring/di-annotations.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
