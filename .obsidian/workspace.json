@@ -220,6 +220,8 @@
   },
   "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "java/redis/README.md",
+    "java/redis",
     "hmdp/target/hmdp-1.0-SNAPSHOT.jar.original",
     "hmdp/target/hmdp-1.0-SNAPSHOT.jar",
     "hmdp/target/maven-archiver/pom.properties",
@@ -229,8 +231,6 @@
     "hmdp/target/classes/db/migration/V1__init.sql",
     "hmdp/target/classes/db/migration",
     "hmdp/target/classes/db",
-    "mini-spring/version1/target/classes/logback.xml",
-    "HMDP-Redis/hm-dianping/target/classes/unlock.lua",
     "agent/llm/evaluation/索引.md",
     "算法/算法a.md",
     "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
