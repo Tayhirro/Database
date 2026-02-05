@@ -212,8 +212,9 @@
   },
   "active": "78f0122b1e24e17f",
   "lastOpenFiles": [
-    "java/jvm/gc/mechanism/GCOverview.md",
+    "agent/llm/architecture/Transformer/Transformer.md",
     "java/jvm/gc/algorithm/Copying.md",
+    "java/jvm/gc/mechanism/GCOverview.md",
     "java/jvm/gc/algorithm/MarkCompact.md",
     "hmdp/target/classes/application.yaml",
     "java/jvm/gc/algorithm/MarkSweep.md",
@@ -227,7 +228,6 @@
     "hmdp/docs/knowledge/spring",
     "hmdp/docs/knowledge",
     "hmdp/docs",
-    "agent/llm/architecture/Transformer/Transformer.md",
     "java/redis",
     "hmdp/target/hmdp-1.0-SNAPSHOT.jar.original",
     "hmdp/target/hmdp-1.0-SNAPSHOT.jar",
