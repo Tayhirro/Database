@@ -19,8 +19,7 @@
               },
               "icon": "lucide-file",
               "title": "Transformer"
-            },
-            "group": "bddcdc6fae2036ea"
+            }
           },
           {
             "id": "78f0122b1e24e17f",
@@ -38,28 +37,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "4635a15bc4bf3794",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "5fb3f5ea1037581a",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "agent/llm/architecture/Transformer/Transformer.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Transformer 的大纲"
-            },
-            "group": "bddcdc6fae2036ea"
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -235,6 +212,10 @@
   },
   "active": "78f0122b1e24e17f",
   "lastOpenFiles": [
+    "hmdp/docs/knowledge/spring/di-annotations.md",
+    "hmdp/docs/knowledge/spring",
+    "hmdp/docs/knowledge",
+    "hmdp/docs",
     "agent/llm/architecture/Transformer/Transformer.md",
     "java/redis/README.md",
     "java/redis",
@@ -244,9 +225,6 @@
     "hmdp/target/maven-archiver",
     "mini-spring/version2/target/classes/META-INF/spring.handlers",
     "mini-spring/version2/target/classes/META-INF",
-    "hmdp/target/classes/db/migration/V1__init.sql",
-    "hmdp/target/classes/db/migration",
-    "hmdp/target/classes/db",
     "agent/llm/evaluation/索引.md",
     "算法/算法a.md",
     "springboot/modules/core/beans/mechanism/BeanRegistrationMethods.md",
@@ -280,7 +258,6 @@
     "hmdp/frontend/node_modules/events-universal/README.md",
     "hmdp/frontend/node_modules/zip-stream/README.md",
     "hmdp/frontend/node_modules/safe-buffer/README.md",
-    "hmdp/frontend/node_modules/process/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",

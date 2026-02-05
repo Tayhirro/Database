@@ -30,22 +30,271 @@
 </dependencies>
 ```
 
-### 1.2 配置文件
+### 1.2 配置文件详解
 
 ```yaml
+spring:
+  redis:
+    # ==================== 基础连接配置 ====================
+    host: localhost              # Redis服务器地址，默认localhost
+    port: 6379                  # Redis端口，默认6379
+    password:                   # 密码，如果没有设密码就留空
+    database: 0                 # 数据库索引，Redis默认16个库(0-15)，默认用0号库
+    
+    # ==================== 客户端类型选择 ====================
+    # Spring Boot 2.x 默认使用 Lettuce（推荐）
+    # 如果要改用 Jedis（老版本客户端）：
+    # client-type: jedis
+    
+    # ==================== Lettuce 连接池配置 ====================
+    # 【Lettuce 是什么？】
+    # Lettuce 是 Java 的 Redis 客户端之一，基于 Netty 实现
+    # 特点：线程安全、支持异步/响应式编程、自动重连
+    # 对比 Jedis：Jedis 是阻塞式，每个连接一个线程；Lettuce 是单线程多路复用
+    lettuce:
+      pool:
+        # ---- 连接池大小配置 ----
+        max-active: 8           # 【最大活跃连接数】
+                                # 含义：连接池最多同时存在8个连接
+                                # 场景：并发请求多时，最多8个请求同时使用Redis
+                                # 注意：不是越大越好，Redis服务器也有连接数限制（默认10000）
+                                # 建议：CPU核心数 * 2，或根据并发量测试调整
+        
+        max-idle: 8             # 【最大空闲连接数】
+                                # 含义：即使没人用，连接池里也保持8个连接待命
+                                # 好处：下次请求来不用新建连接，直接用现成的
+                                # 建议：和 max-active 保持一致，避免频繁创建/销毁连接
+        
+        min-idle: 0             # 【最小空闲连接数】
+                                # 含义：最少保持0个空闲连接（可以全部用完）
+                                # 如果设为2：即使没人用，也至少保持2个连接
+                                # 建议：0 或 2-5，看业务是否需要预热
+        
+        # ---- 连接超时配置 ----
+        max-wait: 1000ms        # 【获取连接的最大等待时间】
+                                # 含义：如果8个连接都被占用了，第9个请求要等多久
+                                # 1000ms = 1秒，超过1秒还没拿到连接就报错
+                                # 建议：根据业务容忍度，一般 1-5 秒
+        
+        # ---- 连接检测配置（可选但建议配置） ----
+        time-between-eviction-runs: 60000ms   # 空闲连接检测周期，默认60秒
+        max-idle-time: 1800000ms             # 连接在池中的最大空闲时间，默认30分钟
+    
+    # ==================== 通用超时配置 ====================
+    timeout: 5000ms             # 【Redis 操作超时时间】
+                                # 含义：发送命令后，等多久没响应算超时
+                                # 5秒 = 5000ms
+                                # 注意：这是"操作超时"，不是"连接超时"
+    
+    # ==================== 高级配置（可选） ====================
+    # ssl: false                # 是否启用SSL加密
+    # cluster:                  # 集群模式配置
+    #   nodes: host1:6379,host2:6379
+    # sentinel:                 # 哨兵模式配置
+    #   master: mymaster
+    #   nodes: host1:26379,host2:26379
+```
+
+#### 配置项详细说明表
+
+| 配置项 | 含义 | 类比 | 建议值 |
+|--------|------|------|--------|
+| `host` | Redis服务器IP | 数据库地址 | localhost/实际IP |
+| `port` | Redis端口 | 数据库端口 | 6379 |
+| `password` | 认证密码 | 数据库密码 | 有就填，没有留空 |
+| `database` | 数据库编号 | MySQL的database | 0-15，默认0 |
+| `timeout` | 命令执行超时 | SQL查询超时 | 5000ms (5秒) |
+| `max-active` | 最大连接数 | 数据库连接池大小 | 8-20 |
+| `max-idle` | 最大空闲连接 | 保持待命连接数 | 同max-active |
+| `min-idle` | 最小空闲连接 | 最少保持连接数 | 0-5 |
+| `max-wait` | 等待连接超时 | 连接池满了排队时间 | 1000-5000ms |
+
+#### Lettuce vs Jedis 对比
+
+```yaml
+# 【Lettuce - 推荐】
+# 优点：
+# 1. 线程安全：一个连接可以多个线程共用
+# 2. 异步支持：支持Reactive编程（Mono/Flux）
+# 3. 自动重连：断线自动恢复
+# 4. 性能高：基于Netty，单线程处理多连接
+# 缺点：依赖Netty，包稍大
+
+# 【Jedis - 传统】
+# 优点：
+# 1. 简单易用，API直观
+# 2. 包小，无额外依赖
+# 缺点：
+# 1. 线程不安全：每个线程需要独立连接
+# 2. 阻塞式：BIO模型，连接数多时性能差
+# 3. 需要手动管理连接池
+```
+
+#### 连接池工作原理图解
+
+```
+【连接池示意图 - 以 max-active=8 为例】
+
+请求1 ─┐
+请求2 ─┤
+请求3 ─┼→ 获取连接 ─→ 【连接池】─┬─ 连接1 (活跃)
+请求4 ─┤    (8个以内)          ├─ 连接2 (活跃)
+请求5 ─┘                      ├─ 连接3 (活跃)
+                              ├─ 连接4 (空闲)
+                              ├─ 连接5 (空闲)
+                              └─ ...
+
+场景1：来了3个并发请求
+      → 从池中拿3个连接使用 → 用完归还
+
+场景2：来了10个并发请求（超过max-active=8）
+      → 8个立即执行
+      → 第9、10个进入等待队列
+      → 等前面的用完归还，再执行
+      → 如果等待超过max-wait(1000ms)，报错！
+
+场景3：空闲时（没人访问）
+      → 保持min-idle=0个连接（可以全部断开）
+      → 或保持min-idle=2个连接（预热，下次来直接用）
+```
+
+#### 实际生产环境配置示例
+
+```yaml
+# 【开发环境】单机Redis
 spring:
   redis:
     host: localhost
     port: 6379
     password: 
-    database: 0
     lettuce:
       pool:
         max-active: 8
         max-idle: 8
         min-idle: 0
         max-wait: 1000ms
-    timeout: 5000ms
+
+# 【生产环境】高并发、集群模式
+spring:
+  redis:
+    cluster:                    # 集群配置
+      nodes: 
+        - 192.168.1.10:6379
+        - 192.168.1.11:6379
+        - 192.168.1.12:6379
+    password: your-password
+    lettuce:
+      pool:
+        max-active: 50          # 生产环境调高，根据并发量
+        max-idle: 50
+        min-idle: 10            # 预热10个连接，避免冷启动延迟
+        max-wait: 3000ms        # 等待3秒，比开发环境宽容
+        time-between-eviction-runs: 60000ms
+      shutdown-timeout: 100ms   # 关闭时等待时间
+```
+
+#### 配置常见问题排查
+
+```java
+// 【问题1】Could not get a resource from the pool
+// 原因：连接池满了，max-active 不够，或者 Redis 服务器连不上
+// 解决：
+// 1. 检查 Redis 服务器是否启动
+// 2. 增加 max-active: 8 -> 20
+// 3. 增加 max-wait: 1000ms -> 5000ms（给更多等待时间）
+
+// 【问题2】Redis command timed out
+// 原因：命令执行超过 timeout 配置（默认5秒）
+// 解决：
+spring:
+  redis:
+    timeout: 10000ms  # 增加到10秒
+    # 或者检查 Redis 是否压力太大，考虑集群
+
+// 【问题3】连接泄漏（连接不归还）
+// 原因：代码异常导致连接没释放
+// 解决：确保使用 try-finally 或 Spring 管理
+// 错误示例：
+public void bad() {
+    RedisConnection conn = redisTemplate.getConnectionFactory().getConnection();
+    conn.set("key".getBytes(), "value".getBytes());
+    // 异常发生，没执行 close！连接泄漏！
+    conn.close();
+}
+
+// 正确示例：
+public void good() {
+    RedisConnection conn = null;
+    try {
+        conn = redisTemplate.getConnectionFactory().getConnection();
+        conn.set("key".getBytes(), "value".getBytes());
+    } finally {
+        if (conn != null) {
+            conn.close();  // 确保释放
+        }
+    }
+}
+
+// 或者用 Spring 的自动管理（推荐）：
+@Autowired
+private StringRedisTemplate redisTemplate;  // Spring 自动管理连接
+
+// 【问题4】密码认证失败
+// 错误：ERR invalid password
+// 解决：
+spring:
+  redis:
+    password: "123456"  # 确保和 redis.conf 里 requirepass 一致
+    # 如果没设密码，必须留空或注释掉，不能写 null
+
+// 【问题5】 Lettuce 连接断开后不自动重连
+// 解决：配置重连策略
+@Bean
+public ClientOptions clientOptions() {
+    return ClientOptions.builder()
+        .autoReconnect(true)                    // 自动重连
+        .pingBeforeActivateConnection(true)     // 激活前ping测试
+        .timeoutOptions(TimeoutOptions.enabled(Duration.ofSeconds(5)))
+        .build();
+}
+
+@Bean
+public LettuceConnectionFactory redisConnectionFactory() {
+    RedisStandaloneConfiguration config = 
+        new RedisStandaloneConfiguration("localhost", 6379);
+    
+    LettuceClientConfiguration clientConfig = 
+        LettuceClientConfiguration.builder()
+            .clientOptions(clientOptions())
+            .build();
+    
+    return new LettuceConnectionFactory(config, clientConfig);
+}
+```
+
+#### 性能调优建议
+
+```yaml
+# 【高并发场景】QPS > 10000
+spring:
+  redis:
+    lettuce:
+      pool:
+        max-active: 100        # 大量并发连接
+        max-idle: 50           # 但空闲时只保留50个
+        min-idle: 20           # 预热20个
+        max-wait: 5000ms       # 等待5秒
+      shutdown-timeout: 200ms
+
+# 【内存敏感】Redis 内存有限，要减少连接占用
+spring:
+  redis:
+    lettuce:
+      pool:
+        max-active: 20         # 减少最大连接
+        max-idle: 10           # 减少空闲连接
+        min-idle: 0            # 不保持空闲连接
+        time-between-eviction-runs: 30000ms  # 30秒检测一次，及时回收
 ```
 
 ---
