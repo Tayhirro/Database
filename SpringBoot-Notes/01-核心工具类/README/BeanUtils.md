@@ -24,7 +24,7 @@ CopyOptions copyOptions = CopyOptions.create()
     .setIgnoreNullValue(true);
 BeanUtil.copyProperties(source, target, copyOptions);
 
-// 自定义字段映射
+// 自定义字段映射()
 CopyOptions copyOptions = CopyOptions.create()
     .setFieldMapping(MapUtil.of("userName", "name"));
 

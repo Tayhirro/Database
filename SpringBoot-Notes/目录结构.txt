@@ -1,0 +1,33 @@
+SpringBoot-Notes/
+│
+├── README.md                                    # 总览文档
+│
+├── 01-核心工具类/                               # ✅ Spring 官方 API
+│   ├── README/
+│   │   ├── BeanUtils.md                        # Spring 官方 Bean 拷贝工具
+│   │   └── StringRedisTemplate.md              # Spring Data Redis 官方 API
+│   └── 示例代码/
+│       └── BeanUtilsDemo.java                  # BeanUtils 使用示例
+│
+├── 02-数据访问/                                 # 完整操作手册
+│   └── README/
+│       └── Redis-Complete-Guide.md            # Redis 完整指南（1072行）
+│
+├── 03-配置技巧/                                 # 配置说明
+│   └── README/
+│       └── Redis-Configuration.md             # Redis 配置详解
+│
+├── 04-最佳实践/                                 # 生产环境实践
+│   └── README/
+│       └── Redis-Cache-Problems.md            # 缓存三大问题解决方案
+│
+└── 05-源码分析/                                 # 待补充
+    ├── README/
+    └── 示例代码/
+
+总计：7 个文件
+- 6 个 Markdown 文档
+- 1 个 Java 示例代码
+
+✅ 所有内容都基于 Spring Boot 官方真实 API
+❌ 不包含任何自定义封装
