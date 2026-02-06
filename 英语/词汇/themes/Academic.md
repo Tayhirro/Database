@@ -22,6 +22,9 @@
 | outrageous  | /aʊtˈreɪdʒəs/   | adj. | 离谱的；令人震惊的 | The claim is outrageous and lacks evidence. |
 | proportional | /prəˈpɔːʃənl/  | adj. | 成比例的 | The effect is proportional to the input magnitude. |
 | proposition | /ˌprɒpəˈzɪʃn/  | n.  | 命题；提议 | We prove the proposition by induction. |
+| basis       | /ˈbeɪsɪs/      | n.  | 基础；根据 | This forms the basis for our analysis. |
+| stochastic  | /stəˈkæstɪk/   | adj. | 随机的 | We use stochastic gradient descent for optimization. |
+| deterministic | /dɪˌtɜːmɪˈnɪstɪk/ | adj. | 确定性的 | The algorithm produces deterministic outputs given the same input. |
 
 ---
 
