@@ -212,6 +212,7 @@
   },
   "active": "a0e6bec5f0e897ee",
   "lastOpenFiles": [
+    "hmdp/target/classes/application.yaml",
     "agent/llm/architecture/Transformer/layers/MoE.md",
     "agent/llm/architecture/README.md",
     "agent/llm/architecture/Transformer/layers/README.md",
@@ -247,7 +248,6 @@
     "hmdp/target/surefire-reports/com.hmdp.service.impl.UserServiceImplTest.txt",
     "hmdp/target/test-classes/com/hmdp/service/impl/UserServiceImplTest.class",
     "hmdp/target/test-classes/com/hmdp/service/impl",
-    "agent/llm/architecture/索引.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
