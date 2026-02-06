@@ -29,6 +29,8 @@
 | arithmetic  | /əˈrɪθmətɪk/   | n./adj. | 算术；算术的 | Arithmetic operations are performed on integers. |
 | chunks of   | /tʃʌŋks əv/    | phr. | 大块的；大量的 | The data is split into chunks of 512 tokens. |
 | amortize    | /ˈæmətaɪz/     | v.  | 摊销；均摊 | The cost is amortized over multiple operations. |
+| aggregate   | /ˈæɡrɪɡət/     | v./n./adj. | 聚合；总计 | We aggregate the results across all experiments. |
+| handicap    | /ˈhændikæp/    | n./v. | 障碍；阻碍 | Limited data can handicap model performance. |
 
 ---
 
