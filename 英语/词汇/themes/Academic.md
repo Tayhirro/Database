@@ -25,6 +25,10 @@
 | basis       | /ˈbeɪsɪs/      | n.  | 基础；根据 | This forms the basis for our analysis. |
 | stochastic  | /stəˈkæstɪk/   | adj. | 随机的 | We use stochastic gradient descent for optimization. |
 | deterministic | /dɪˌtɜːmɪˈnɪstɪk/ | adj. | 确定性的 | The algorithm produces deterministic outputs given the same input. |
+| blame on    | /bleɪm ɒn/     | phr. | 归咎于 | The failure was blamed on insufficient training data. |
+| arithmetic  | /əˈrɪθmətɪk/   | n./adj. | 算术；算术的 | Arithmetic operations are performed on integers. |
+| chunks of   | /tʃʌŋks əv/    | phr. | 大块的；大量的 | The data is split into chunks of 512 tokens. |
+| amortize    | /ˈæmətaɪz/     | v.  | 摊销；均摊 | The cost is amortized over multiple operations. |
 
 ---
 
