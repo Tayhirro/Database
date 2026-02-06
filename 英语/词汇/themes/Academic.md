@@ -19,6 +19,9 @@
 | interpretable | /ɪnˈtɜːprɪtəbl/ | adj. | 可解释的 | Interpretable models are crucial for high-stakes decisions. |
 | implicitly  | /ɪmˈplɪsɪtli/   | adv. | 隐式地；含蓄地 | The model implicitly learns the underlying structure. |
 | incorporate | /ɪnˈkɔːpəreɪt/  | v.  | 纳入；包含 | We incorporate attention mechanisms into the encoder. |
+| outrageous  | /aʊtˈreɪdʒəs/   | adj. | 离谱的；令人震惊的 | The claim is outrageous and lacks evidence. |
+| proportional | /prəˈpɔːʃənl/  | adj. | 成比例的 | The effect is proportional to the input magnitude. |
+| proposition | /ˌprɒpəˈzɪʃn/  | n.  | 命题；提议 | We prove the proposition by induction. |
 
 ---
 
