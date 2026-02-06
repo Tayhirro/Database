@@ -32,6 +32,7 @@
 | aggregate   | /ˈæɡrɪɡət/     | v./n./adj. | 聚合；总计 | We aggregate the results across all experiments. |
 | handicap    | /ˈhændikæp/    | n./v. | 障碍；阻碍 | Limited data can handicap model performance. |
 | generic     | /dʒəˈnerɪk/    | adj. | 通用的；泛型的 | We propose a generic framework applicable to various tasks. |
+| ensemble    | /ɒnˈsɒmbl/     | n./v. | 集成；集合 | An ensemble of models often outperforms a single model. |
 
 ---
 
