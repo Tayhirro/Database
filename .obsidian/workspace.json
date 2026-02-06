@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
+                "file": "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Transformer-基础结构"
+              "title": "RMSNorm"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "SpringBoot-Testing-Interview-CheatSheet"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,8 +210,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "8f61731f8e1e8a24",
+  "active": "78f0122b1e24e17f",
   "lastOpenFiles": [
+    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
+    "agent/llm/architecture/Transformer/mechanics/RoPE.md",
+    "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
     "hmdp/target/surefire-reports/TEST-com.hmdp.service.impl.UserServiceImplTest.xml",
     "hmdp/target/surefire-reports/com.hmdp.service.impl.UserServiceImplTest.txt",
     "hmdp/target/test-classes/com/hmdp/service/impl/UserServiceImplTest.class",
@@ -222,7 +226,6 @@
     "agent/llm/architecture/Transformer/structure/目录说明.txt",
     "agent/llm/architecture/索引.md",
     "agent/llm/architecture/Transformer/structure/Transformer-简化流程.md",
-    "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
     "agent/llm/architecture/Transformer/structure/Transformer-FAQ.md",
     "agent/llm/architecture/Transformer/structure/README.md",
     "LLM/structure/目录说明.txt",
@@ -233,9 +236,7 @@
     "LLM/structure/Transformer-FAQ.md",
     "LLM/structure/Transformer-简化流程.md",
     "LLM/structure/Transformer-基础结构.md",
-    "LLM/structure",
     "agent/llm/architecture/Transformer/mechanics/Bias.md",
-    "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
     "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
     "java/jvm/gc/algorithm/GenerationalGC.md",
