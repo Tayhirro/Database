@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "SpringBoot-Testing-Interview-CheatSheet"
             }
+          },
+          {
+            "id": "a0e6bec5f0e897ee",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -195,8 +206,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "78f0122b1e24e17f",
+  "active": "a0e6bec5f0e897ee",
   "lastOpenFiles": [
+    "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "agent/llm/architecture/Transformer/variants/稀疏计算vs稀疏查找.md",
     "agent/llm/architecture/Transformer/variants/MoE-性能挑战.md",
     "agent/llm/architecture/Transformer/variants/MoE.md",
@@ -220,7 +232,6 @@
     "agent/llm/architecture/Transformer/mechanics/正弦位置编码.md",
     "agent/llm/architecture/Transformer/mechanics/Bias.md",
     "agent/llm/architecture/Transformer/Transformer.md",
-    "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
     "hmdp/target/surefire-reports/TEST-com.hmdp.service.impl.UserServiceImplTest.xml",
     "hmdp/target/surefire-reports/com.hmdp.service.impl.UserServiceImplTest.txt",
