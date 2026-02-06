@@ -31,6 +31,7 @@
 | amortize    | /ˈæmətaɪz/     | v.  | 摊销；均摊 | The cost is amortized over multiple operations. |
 | aggregate   | /ˈæɡrɪɡət/     | v./n./adj. | 聚合；总计 | We aggregate the results across all experiments. |
 | handicap    | /ˈhændikæp/    | n./v. | 障碍；阻碍 | Limited data can handicap model performance. |
+| generic     | /dʒəˈnerɪk/    | adj. | 通用的；泛型的 | We propose a generic framework applicable to various tasks. |
 
 ---
 
