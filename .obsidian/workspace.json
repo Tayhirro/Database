@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
+                "file": "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LayerNorm"
+              "title": "Transformer-基础结构"
             }
           },
           {
@@ -209,8 +209,19 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "8f61731f8e1e8a24",
   "lastOpenFiles": [
+    "agent/llm/architecture/Transformer/structure/目录说明.txt",
+    "agent/llm/architecture/索引.md",
+    "agent/llm/architecture/Transformer/structure/Transformer-简化流程.md",
+    "agent/llm/architecture/Transformer/structure/Transformer-基础结构.md",
+    "agent/llm/architecture/Transformer/structure/Transformer-FAQ.md",
+    "agent/llm/architecture/Transformer/structure/README.md",
+    "LLM/structure/目录说明.txt",
+    "agent/llm/architecture/README.md",
+    "agent/llm/architecture/Transformer/Transformer.md",
+    "LLM/structure/README.md",
+    "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
     "LLM/structure/Transformer-FAQ.md",
     "LLM/structure/Transformer-简化流程.md",
     "LLM/structure/Transformer-基础结构.md",
@@ -228,7 +239,6 @@
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile",
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile",
-    "hmdp/target/test-classes/com/hmdp/utils/RegexUtilsTest.class",
     "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "SpringBoot-Notes/01-核心工具类/README/RedisUtils.md",
     "SpringBoot-Notes/真实API说明.md",
@@ -237,13 +247,6 @@
     "SpringBoot-Notes/01-核心工具类/README/BeanUtils.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "SpringBoot-Notes/QUICK-INDEX.md",
-    "SpringBoot-Notes/STRUCTURE.md",
-    "java/redis/README.md",
-    "SpringBoot-Notes/03-配置技巧/README/Redis-Configuration.md",
-    "SpringBoot-Notes/README.md",
-    "java/utils/ObjectMapper.md",
-    "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
-    "agent/llm/architecture/Transformer/Transformer.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
@@ -254,9 +257,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/5/2/fdc6cbb0-ddc5-4525-884a-9e88f07cf2d8.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/2/6/b0756279-65da-4f2d-b62a-33f74b06454a.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/4/10/2f07e3c9-ddce-482d-9ea7-c21450f8d7cd.jpg",
-    "java/jvm/gc/algorithm/Copying.md",
-    "java/jvm/gc/mechanism/GCOverview.md",
-    "java/jvm/gc/algorithm/MarkCompact.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",

@@ -1,0 +1,34 @@
+agent/llm/architecture/Transformer/structure/
+===========================================
+
+📁 Transformer 基础结构学习笔记
+├── README.md                      # 总索引
+├── Transformer-基础结构.md        # ⭐ 完整详细版
+├── Transformer-简化流程.md        # 🚀 简化图解版
+└── Transformer-FAQ.md             # ❓ 常见问题解答
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ 已覆盖内容
+
+1. Q、K、V 是什么？怎么来的？
+2. Self-Attention 完整5步流程（详细图解）
+3. Q·K^T 计算过程
+4. Softmax 归一化
+5. 为什么要除以 √dk？
+6. 残差连接（Residual Connection）
+7. Multi-Head Attention
+8. LayerNorm
+9. Feed Forward Network (FFN)
+10. 完整 Encoder/Decoder 流程
+11. 位置编码
+12. 维度变化详解
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 推荐学习路径
+
+新手：Transformer-简化流程.md → FAQ.md → 基础结构.md
+有基础：基础结构.md → FAQ.md（查漏补缺）
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
