@@ -21,7 +21,8 @@
 - [Transformer](Transformer/Transformer.md)
   - structure/：[SelfAttention](Transformer/structure/SelfAttention.md)、[CrossAttention](Transformer/structure/CrossAttention.md)、[FFN](Transformer/structure/FFN.md)、[ResidualConnection](Transformer/structure/ResidualConnection.md)
   - mechanics/：[RoPE](Transformer/mechanics/RoPE.md)、[ALiBi](Transformer/mechanics/ALiBi.md)、[RMSNorm](Transformer/mechanics/RMSNorm.md)、[PreNorm](Transformer/mechanics/PreNorm.md)、[QKNorm](Transformer/mechanics/QKNorm.md)
-  - variants/：[GQA](Transformer/variants/GQA.md)、[MQA](Transformer/variants/MQA.md)、[MoE](Transformer/variants/MoE.md)、[SwiGLU](Transformer/variants/SwiGLU.md)
+  - variants/：[GQA](Transformer/variants/GQA.md)、[MQA](Transformer/variants/MQA.md)、[SwiGLU](Transformer/variants/SwiGLU.md)
+  - layers/：[MoE](Transformer/layers/MoE.md)（专家混合层）
 
 ### 状态空间模型
 - [SSM](SSM/SSM.md)

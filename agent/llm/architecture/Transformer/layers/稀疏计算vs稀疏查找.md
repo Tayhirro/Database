@@ -1,6 +1,6 @@
 # 稀疏计算 vs 稀疏查找
 
-导航：[MoE.md](./MoE.md) | [MoE-性能挑战.md](./MoE-性能挑战.md)
+导航：[layers/README.md](./README.md) | [MoE.md](./MoE.md) | [MoE-性能挑战.md](./MoE-性能挑战.md)
 
 **核心问题**：为什么Embedding层（稀疏查找）和MoE层（稀疏计算）虽然都是"条件计算"，但面临完全不同的性能瓶颈？
 

@@ -1,6 +1,6 @@
 # MoE 性能挑战与解决方案
 
-导航：[MoE.md](./MoE.md) | [architecture/README.md](../../README.md)
+导航：[layers/README.md](./README.md) | [MoE.md](./MoE.md) | [Transformer.md](../Transformer.md)
 
 条件计算虽然在理论上很有前景，但在实践中面临显著的算法和性能挑战。本文档详细分析 MoE 架构面临的四大核心挑战及其解决方案。
 

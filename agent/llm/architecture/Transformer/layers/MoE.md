@@ -1,6 +1,6 @@
 # Mixture of Experts (MoE)
 
-导航：[architecture/README.md](../../README.md) | [Transformer.md](../Transformer.md)
+导航：[layers/README.md](./README.md) | [Transformer.md](../Transformer.md) | [architecture/README.md](../../README.md)
 
 **论文**：Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer (Shazeer et al., 2017)
 

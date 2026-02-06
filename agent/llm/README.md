@@ -27,7 +27,8 @@
 ### 架构
 - [Transformer](architecture/Transformer/Transformer.md) | [SSM](architecture/SSM/SSM.md) | [Mamba](architecture/SSM/Mamba.md)
 - 组件：[SelfAttention](architecture/Transformer/structure/SelfAttention.md) | [FFN](architecture/Transformer/structure/FFN.md) | [RoPE](architecture/Transformer/mechanics/RoPE.md)
-- 变体：[GQA](architecture/Transformer/variants/GQA.md) | [MoE](architecture/Transformer/variants/MoE.md)
+- 变体：[GQA](architecture/Transformer/variants/GQA.md) | [SwiGLU](architecture/Transformer/variants/SwiGLU.md)
+- 层级架构：[MoE](architecture/Transformer/layers/MoE.md)
 
 ### 训练
 - [Pretraining](training/pretraining/Pretraining.md) | [SFT](training/finetuning/SFT.md) | [LoRA](training/finetuning/LoRA.md)
