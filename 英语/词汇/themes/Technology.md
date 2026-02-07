@@ -9,6 +9,7 @@
 | quota       | /ˈkwəʊtə/      | 配额；限额 | The API quota has been exceeded. |
 | blob        | /blɒb/         | 二进制大对象 | The image is stored as a blob in the database. |
 | seamless    | /ˈsiːmləs/     | 无缝的 | The system provides seamless integration with third-party APIs. |
+| rectifiers  | /ˈrektɪfaɪəz/  | 整流器 | Rectifiers convert AC to DC in power supplies. |
 |             |                |     |                                       |
 
 

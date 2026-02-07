@@ -222,6 +222,7 @@
   },
   "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "英语/词汇/words/R.md",
     "英语/词汇/words/E.md",
     "英语/词汇/words/W.md",
     "英语/词汇/words/S.md",
@@ -257,7 +258,6 @@
     "agent/llm/architecture/Transformer/mechanics/position-encoding/正弦位置编码.md",
     "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE.md",
     "agent/llm/architecture/Transformer/mechanics/normalization/Norm对比总结.md",
-    "agent/llm/architecture/Transformer/mechanics/normalization/RMSNorm.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
