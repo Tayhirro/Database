@@ -265,11 +265,106 @@ loss_importance = w_importance × CV²
 ```
 
 **Load Loss**（负载均衡）：
+
+Load Loss的核心思想是通过**概率化**的方式来估计每个专家处理的样本数，从而解决硬选择（Hard Selection）不可微的问题。
+
+**为什么需要噪声？从硬选到软选**
+
+传统Top-K选择是"硬"的：
 ```python
-# 考虑门控网络的噪声，估计每个专家处理的样本数
-load = sum(P(expert_i is selected))
-loss_load = w_load * CV(load)²  # 鼓励所有专家样本数相等
+# 硬选择（不可微）
+if score_i > threshold:
+    selected = 1  # 确定选中
+else:
+    selected = 0  # 确定不选
+# 问题：在threshold处是跳变，没有梯度
 ```
+
+加入噪声后变成"软"选择：
+```python
+# 实际比较的是：score_i + noise
+# 入选条件：score_i + noise > threshold
+# 即：noise > threshold - score_i
+```
+
+**关键洞察**：
+- `noise` 服从正态分布 `N(0, σ²)`（σ通过Softplus从网络学习得到）
+- 入选变成了一个**概率事件**：噪声足够大就能超过门槛
+- 通过计算这个概率，我们得到了可微分的"软选择"
+
+**数学推导**
+
+**Step 1：入选条件**
+```
+专家i入选 ⟺ score_i + noise > threshold
+          ⟺ noise > threshold - score_i
+```
+
+**Step 2：标准化**（将任意正态分布转化为标准正态分布）
+```python
+# noise ~ N(0, σ²)，定义 Z = noise/σ ~ N(0, 1)
+# 两边除以σ（正数）：
+noise/σ > (threshold - score_i)/σ
+即：Z > (threshold - score_i)/σ
+
+定义 z-score：z = (score_i - threshold)/σ
+则：Z > -z
+
+由正态分布对称性：P(Z > -z) = P(Z < z) = Φ(z)
+```
+
+**Step 3：计算选中概率**
+```python
+# 专家i在样本x上被选中的概率
+P(x, i) = Φ((score_i - threshold)/σ)
+
+其中：
+- score_i = (x @ Wg)_i          # 专家i的门控得分
+- threshold = kth_excluding(H(x), k, i)  # 其他专家中第k高的得分（门槛）
+- σ = Softplus((x @ W_noise)_i)  # 学习到的噪声标准差
+- Φ = 标准正态分布的CDF
+```
+
+**直观理解**：
+- `score_i - threshold`：专家i比门槛高多少分
+- 除以σ：换算成"多少个标准差"
+- Φ(z)：标准正态分布中，小于z的概率
+- 结果：噪声能弥补这个差距的概率
+
+**Step 4：计算Load Loss**
+```python
+# 在批次X上累加期望样本数
+Load(X)_i = Σ P(x, i)  for x in X  # 专家i期望处理的样本数
+
+# 使用变异系数衡量负载均衡程度
+CV_load = std(Load(X)) / mean(Load(X))
+loss_load = w_load × CV_load²
+```
+
+**与Importance Loss的区别**
+
+| 维度 | Importance Loss | Load Loss |
+|------|----------------|-----------|
+| **关注** | 门控值G(x)的大小 | 是否被选中（0/1） |
+| **计算** | Σ G(x)_i | Σ P(x,i) |
+| **防止** | 某些专家总权重过大 | 某些专家处理样本过多 |
+| **依赖** | 门控值本身 | 噪声引入的概率 |
+
+**实际效果**
+
+论文表6显示：
+- 仅Importance Loss：最大负载比 = 1.47（不太均衡）
+- 仅Load Loss：最大负载比 = 1.15（较均衡）
+- 两者都用：最大负载比 = 1.14（最佳）
+
+**总结**
+
+Load Loss通过**噪声+概率**的方式：
+1. 将硬性的Top-K截断变成平滑的概率分布
+2. 通过正态分布CDF计算入选概率
+3. 使得负载均衡目标可微分、可优化
+4. 确保所有专家都能获得合理的训练机会
+
 
 **初始化策略**：
 - 将门控网络权重初始化为0

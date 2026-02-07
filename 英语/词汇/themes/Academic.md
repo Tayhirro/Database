@@ -35,6 +35,7 @@
 | ensemble    | /ɒnˈsɒmbl/     | n./v. | 集成；集合 | An ensemble of models often outperforms a single model. |
 | a handful of | /ə ˈhændfʊl əv/ | phr. | 少量的；一小撮 | Only a handful of studies have explored this phenomenon. |
 | seamless    | /ˈsiːmləs/     | adj. | 无缝的；流畅的 | The framework enables seamless integration with existing systems. |
+| allude      | /əˈluːd/       | v.  | 暗示；间接提到 | The author alludes to previous research without direct citation. |
 
 ---
 

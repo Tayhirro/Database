@@ -220,8 +220,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ab8f895f235cf562",
+  "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "英语/词汇/words/A.md",
     "math/概率论/distributions/正态分布.md",
     "math/概率论/distributions/LaplaceDistribution.md",
     "数学/概率论/分布/正态分布.md",
@@ -257,7 +258,6 @@
     "agent/llm/architecture/Transformer/mechanics/normalization/LayerNorm.md",
     "agent/llm/architecture/Transformer/mechanics/RoPE.md",
     "agent/llm/architecture/Transformer/mechanics/RMSNorm.md",
-    "agent/llm/architecture/Transformer/mechanics/LayerNorm.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
