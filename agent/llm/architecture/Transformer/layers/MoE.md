@@ -256,7 +256,12 @@ MoE混合并行：
 **Importance Loss**（重要性均衡）：
 ```python
 importance = sum(gate_values) for each expert  # 专家的总权重
-loss_importance = w_importance * CV(importance)²  # 鼓励所有专家总权重相等
+
+# CV = Coefficient of Variation（变异系数）
+CV = std(importance) / mean(importance)  # 标准差 / 均值
+
+loss_importance = w_importance × CV²
+                  = w_importance × (σ/μ)²  # 鼓励所有专家总权重相等
 ```
 
 **Load Loss**（负载均衡）：
