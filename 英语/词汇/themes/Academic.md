@@ -37,6 +37,7 @@
 | seamless    | /ˈsiːmləs/     | adj. | 无缝的；流畅的 | The framework enables seamless integration with existing systems. |
 | allude      | /əˈluːd/       | v.  | 暗示；间接提到 | The author alludes to previous research without direct citation. |
 | sparsity    | /ˈsper.si.ti/  | n.  | 稀疏性；稀少 | The sparsity of the data makes analysis challenging. |
+| element-wise | /ˈel.ɪ.mənt waɪz/ | adj. | 逐元素的；按元素的 | Element-wise operations are performed on each element of the matrix. |
 
 ---
 
