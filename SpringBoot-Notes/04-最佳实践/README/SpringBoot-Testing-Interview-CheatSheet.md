@@ -71,6 +71,75 @@
 - 测 Service，不希望真的连 MySQL/Redis/消息队列。
 - 验证“调用了没、调用次数、参数是否正确”。
 
+### 3.4 `verify` （高频易错）
+
+#### 3.4.1 基本结构
+- 语义：验证某个 `mock` 对象的方法是否按预期被调用。
+- 固定形态：`verify(mock, 校验规则).method(参数规则)`
+
+示例：
+
+```java
+verify(smsSender).sendLoginCode(eq(phone), anyString());
+```
+
+解释：
+- `smsSender`：被验证的 Mock 对象（你说的“先传 mock/bean”）。
+- `sendLoginCode(...)`：要验证的方法。
+- `eq(phone)` / `anyString()`：参数匹配规则。
+
+#### 3.4.2 调用次数/频率规则
+- `verify(mock)`：默认等价于 `times(1)`，即恰好调用 1 次。
+- `verify(mock, times(n))`：恰好 `n` 次。
+- `verify(mock, never())`：0 次。
+- `verify(mock, atLeast(n))`：至少 `n` 次。
+- `verify(mock, atMost(n))`：至多 `n` 次。
+- `verify(mock, only())`：该 mock 只发生了这一次交互（其他方法不能被调用）。
+- `verify(mock, timeout(ms))`：在 `ms` 时间内等到该调用发生（异步测试常用）。
+- `verify(mock, after(ms).never())`：等待 `ms` 后再判断“确实没被调用”（异步反向校验）。
+
+#### 3.4.3 参数匹配规则
+- `eq(x)`：参数必须等于 `x`（`equals` 语义）。
+- `any()` / `anyString()` / `anyInt()`：任意该类型参数都可。
+- `isNull()` / `notNull()`：空值或非空值匹配。
+- `argThat(predicate)`：自定义条件匹配（复杂对象常用）。
+
+最常见规则：
+- 一个方法参数里如果用了匹配器（如 `anyString()`），其他参数也应使用匹配器（如 `eq(phone)`），不要混写字面量。
+
+反例（易报错）：
+
+```java
+verify(smsSender).sendLoginCode(phone, anyString()); // 混用了字面量和 matcher
+```
+
+正例：
+
+```java
+verify(smsSender).sendLoginCode(eq(phone), anyString());
+```
+
+#### 3.4.4 顺序与“无额外交互”
+- `InOrder`：验证多个调用顺序。
+- `verifyNoInteractions(mock)`：该 mock 完全不应被调用。
+- `verifyNoMoreInteractions(mock1, mock2...)`：除已验证过的调用外，不允许再有别的调用。
+
+#### 3.4.5 结合你当前 `sendCode` 测试的写法
+
+```java
+// 成功路径：应发送短信 + 应写入验证码
+verify(smsSender).sendLoginCode(eq(phone), anyString());
+verify(valueOperations).set(eq(LOGIN_CODE_KEY + phone), anyString(), eq(LOGIN_CODE_TTL), eq(TimeUnit.MINUTES));
+
+// 失败路径：短信发送失败后应释放锁，不应写验证码
+verify(stringRedisTemplate).delete(lockKey);
+verify(valueOperations, never()).set(anyString(), anyString(), anyLong(), any());
+```
+
+面试一句话可答：
+- `assert` 是校验“结果对不对”；
+- `verify` 是校验“依赖有没有被正确调用（次数、参数、顺序）”。
+
 ---
 
 ## 4. Spring Boot 常见测试注解对比
@@ -165,4 +234,3 @@
 ## 10. 一句话记忆
 
 “单测保逻辑、集成保协作、接口保行为；核心是可重复、可定位、能防回归。”
-

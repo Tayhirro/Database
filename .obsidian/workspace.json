@@ -34,9 +34,18 @@
               "icon": "lucide-file",
               "title": "MoE"
             }
+          },
+          {
+            "id": "702cbb0e4aed3b0e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -210,10 +219,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ab8f895f235cf562",
+  "active": "78f0122b1e24e17f",
   "lastOpenFiles": [
-    "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
+    "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
     "agent/论文/MOE.pdf",
     "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "agent/llm/architecture/Transformer/layers/稀疏计算vs稀疏查找.md",
