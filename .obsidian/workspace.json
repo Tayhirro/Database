@@ -45,7 +45,8 @@
               "title": "新标签页"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -219,10 +220,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "78f0122b1e24e17f",
+  "active": "ab8f895f235cf562",
   "lastOpenFiles": [
-    "math/概率论/distributions/LaplaceDistribution.md",
     "math/概率论/distributions/正态分布.md",
+    "math/概率论/distributions/LaplaceDistribution.md",
     "数学/概率论/分布/正态分布.md",
     "数学/概率论/分布",
     "数学/概率论",
