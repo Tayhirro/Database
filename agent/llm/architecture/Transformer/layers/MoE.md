@@ -199,27 +199,126 @@ def noisy_top_k_gating(x, k=2):
 
 **问题**：每个专家收到的批次太小
 
-**MoE方案：混合数据并行与模型并行**
+**MoE方案：混合数据并行与模型并行（Hybrid Parallelism）**
+
+### 核心思想
+
+MoE通过**混合并行策略**解决批次收缩问题：
+- **标准层（Attention、LayerNorm等）**：使用数据并行（每张卡处理不同样本）
+- **MoE层（专家网络）**：使用模型并行（每张卡托管不同专家，收集所有卡的样本）
+
+### 具体流程示例
+
+**设定**：
+- GPU数：d = 2张卡（GPU0, GPU1）
+- 总batch：B = 8条序列，每条seq_len = 4个token
+- 总token数：8 × 4 = 32个
+- 专家数：E = 4个（Expert0~3）
+- top-k：k = 1（每个token选1个专家）
+- 专家放置：GPU0放Expert0,1；GPU1放Expert2,3
+
+**Step 1：大batch拆分，标准层数据并行**
 
 ```
-传统数据并行：
-  设备1: batch_1 → 完整模型
-  设备2: batch_2 → 完整模型
-  （MoE层每个专家只收到 b/n 样本）
+将32个token拆到2张卡：
+- GPU0：样本0-3（16个token）→ 跑标准层（Attention等）
+- GPU1：样本4-7（16个token）→ 跑标准层（Attention等）
 
-MoE混合并行：
-  数据并行部分（LSTM、门控）：
-    设备1-4: 各自处理batch_1-4
-      ↓ 同步
-  模型并行部分（专家）：
-    设备1: Expert_1-128 ← 收集所有设备的样本（合并批次）
-    设备2: Expert_129-256 ← 收集所有设备的样本
-    （每个专家收到 kbd/n 样本，批次扩大d倍）
+每张卡只保存一份标准层参数副本（数据并行）
 ```
 
-**额外优化：利用卷积性质**
-- 在语言模型中，MoE应用于每个时间步
-- 合并所有时间步的样本：有效批次 = batch_size × time_steps
+**Step 2：每张卡本地计算Gating（仍是数据并行）**
+
+每张卡上的16个token过门控网络，决定路由：
+
+```
+GPU0上的路由结果：
+- Expert0：5个token
+- Expert1：3个token  
+- Expert2：6个token（要去GPU1）
+- Expert3：2个token（要去GPU1）
+
+GPU1上的路由结果：
+- Expert0：1个token（要去GPU0）
+- Expert1：7个token（要去GPU0）
+- Expert2：4个token
+- Expert3：4个token
+```
+
+**Step 3：All-to-All分发（按专家重新分组）**
+
+关键通信：把token按专家"分桶"搬到专家所在卡。
+
+```
+发往GPU0（Expert0,1所在卡）：
+- GPU0本地已有：Expert0的5个 + Expert1的3个
+- GPU1发过来：Expert0的1个 + Expert1的7个
+- GPU0最终收到：
+  * Expert0：5+1 = 6个token
+  * Expert1：3+7 = 10个token
+
+发往GPU1（Expert2,3所在卡）：
+- GPU1本地已有：Expert2的4个 + Expert3的4个  
+- GPU0发过来：Expert2的6个 + Expert3的2个
+- GPU1最终收到：
+  * Expert2：4+6 = 10个token
+  * Expert3：4+2 = 6个token
+```
+
+**效果**：每个专家收到`k×B×d/E`个token，批次扩大d倍！
+
+**Step 4：在专家所在卡上跑MoE-FFN（模型并行）**
+
+每张卡只计算自己托管的专家：
+
+```
+GPU0：
+- 对Expert0的6个token跑FFN_0
+- 对Expert1的10个token跑FFN_1
+
+GPU1：
+- 对Expert2的10个token跑FFN_2
+- 对Expert3的6个token跑FFN_3
+```
+
+关键：每个FFN_i参数不同（模型并行），且批次从4扩大到6-10。
+
+**Step 5：All-to-All送回原卡（Combine）**
+
+把每个token的输出送回它原来所属的数据并行卡：
+
+```
+GPU0把原本属于GPU1的token输出发回GPU1
+GPU1把原本属于GPU0的token输出发回GPU0
+
+最终：
+- GPU0拿回自己的16个token的FFN输出
+- GPU1拿回自己的16个token的FFN输出
+```
+
+**Step 6：继续后续层（数据并行）**
+
+两张卡继续跑：
+- Residual Add → LayerNorm → 下一层Attention → 下一层MoE...
+
+### 关键结论
+
+**结论A：融合后不会放到一张卡**
+- "融合"只是把分散在各卡的同一专家token合并到该专家所在卡
+- 仍然是分布式，不是集中到一张卡
+
+**结论B：为什么这样不炸显存？**
+- 每张卡本地micro-batch大小不变（标准层激活不随全局batch增大）
+- 每张卡只存它负责的那部分experts（不复制所有专家）
+- MoE层里token是"搬来搬去算完就归位"，不需要集中存储
+
+### 通信开销
+
+整个流程只增加**两次All-to-All通信**：
+1. **Dispatch**：按专家分桶送到专家卡
+2. **Combine**：把结果送回原卡
+
+相比计算量，通信开销可接受（计算/通信比≈1000:1）。
 
 ### 3. 解决网络带宽瓶颈
 
