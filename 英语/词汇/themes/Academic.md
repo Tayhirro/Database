@@ -34,6 +34,7 @@
 | generic     | /dʒəˈnerɪk/    | adj. | 通用的；泛型的 | We propose a generic framework applicable to various tasks. |
 | ensemble    | /ɒnˈsɒmbl/     | n./v. | 集成；集合 | An ensemble of models often outperforms a single model. |
 | a handful of | /ə ˈhændfʊl əv/ | phr. | 少量的；一小撮 | Only a handful of studies have explored this phenomenon. |
+| seamless    | /ˈsiːmləs/     | adj. | 无缝的；流畅的 | The framework enables seamless integration with existing systems. |
 
 ---
 
