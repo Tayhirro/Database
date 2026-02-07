@@ -10,6 +10,7 @@
 | blob        | /blɒb/         | 二进制大对象 | The image is stored as a blob in the database. |
 | seamless    | /ˈsiːmləs/     | 无缝的 | The system provides seamless integration with third-party APIs. |
 | rectifiers  | /ˈrektɪfaɪəz/  | 整流器 | Rectifiers convert AC to DC in power supplies. |
+| replicas    | /ˈreplɪkəz/   | 副本；复制品 | The system maintains multiple replicas for fault tolerance. |
 |             |                |     |                                       |
 
 
