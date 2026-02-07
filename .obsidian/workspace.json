@@ -44,9 +44,21 @@
               "icon": "lucide-file",
               "title": "新标签页"
             }
+          },
+          {
+            "id": "cc058387f69d78bc",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "agent/论文/Qwen3-report.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Qwen3-report"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -222,6 +234,8 @@
   },
   "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "agent/llm/evaluation/Perplexity.md",
+    "agent/llm/evaluation/CrossEntropy.md",
     "英语/词汇/words/P.md",
     "英语/词汇/words/D.md",
     "hmdp/target/test-classes/com/hmdp/service/impl/UserServiceImplTest.class",
@@ -256,8 +270,6 @@
     "agent/llm/architecture/Transformer/mechanics/README.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "agent/llm/architecture/Transformer/mechanics/Norm对比总结.md",
-    "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
-    "agent/llm/architecture/Transformer/mechanics/position-encoding/正弦位置编码.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",

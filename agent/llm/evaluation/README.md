@@ -17,7 +17,8 @@
 ## 条目列表
 
 ### 指标
-- [Perplexity](Perplexity.md)：困惑度
+- [CrossEntropy](CrossEntropy.md)：交叉熵损失，语言模型训练的核心目标函数
+- [Perplexity](Perplexity.md)：困惑度，交叉熵的指数形式
 
 ### 基准
 - [MMLU](benchmarks/MMLU.md)：多任务语言理解
