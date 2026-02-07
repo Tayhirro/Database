@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "稀疏计算vs稀疏查找"
             }
+          },
+          {
+            "id": "abd448957ba1c317",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.11.7"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -210,7 +222,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "a0e6bec5f0e897ee",
+  "active": "abd448957ba1c317",
   "lastOpenFiles": [
     "hmdp/target/classes/application.yaml",
     "agent/llm/architecture/Transformer/layers/MoE.md",
