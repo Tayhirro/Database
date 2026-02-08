@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/patterns/pattern/Builder.md",
+                "file": "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Builder"
+              "title": "MyBatis-Plus-IService"
             }
           },
           {
@@ -238,21 +238,21 @@
   },
   "active": "702cbb0e4aed3b0e",
   "lastOpenFiles": [
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
+    "SpringBoot-Notes/01-核心工具类/README/JSONUtil.md",
+    "SpringBoot-Notes/01-核心工具类/README/BeanUtils.md",
+    "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
+    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
+    "springboot/modules/patterns/pattern/Builder.md",
     "springboot/modules/patterns/pattern/Builder-Example.md",
     "springboot/modules/patterns/GoFDesignPatterns.md",
     "springboot/modules/patterns/pattern/Adapter.md",
-    "springboot/modules/patterns/pattern/Builder.md",
     "算法/算法.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
     "算法/跳表.md",
-    "SpringBoot-Notes/01-核心工具类/README/BeanUtils.md",
-    "SpringBoot-Notes/01-核心工具类/README/JSONUtil.md",
-    "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
-    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "agent/论文/Qwen3-report.pdf",
     "SpringBoot-Notes/README.md.backup2",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "SpringBoot-Notes/README.md.bak",
     "hmdp/target/classes/com/hmdp/service/impl/ShopServiceImpl.class",
