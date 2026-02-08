@@ -6,6 +6,93 @@
 
 **官方文档**: [Spring Data Redis](https://spring.io/projects/spring-data-redis)
 
+---
+
+## 类层级结构
+
+```
+RedisAccessor (抽象类)
+    │
+    │  - 持有 RedisConnectionFactory（连接工厂）
+    │  - 提供连接管理的基础能力
+    │
+    ▼
+RedisTemplate<K, V> (核心模板类)
+    │
+    │  - 提供所有 Redis 操作的通用实现
+    │  - 支持多种数据类型：String、Hash、List、Set、ZSet
+    │  - 提供 execute() 方法执行底层命令
+    │  - 支持事务、Pipeline、Lua 脚本
+    │  - 默认使用 JDK 序列化（存储为字节码，不可读）
+    │
+    ▼
+StringRedisTemplate (字符串专用)
+    │
+    │  - 继承 RedisTemplate<String, String>
+    │  - Key 和 Value 都使用 StringRedisSerializer
+    │  - 存储内容可读（推荐用于大多数场景）
+    │
+    ▼
+你也可以自定义 RedisTemplate<String, Object>（存储对象）
+```
+
+### 源码定义
+
+```java
+// RedisAccessor - 最顶层抽象类
+public abstract class RedisAccessor implements InitializingBean {
+    private RedisConnectionFactory connectionFactory;
+    // 管理 Redis 连接
+}
+
+// RedisTemplate - 核心模板类
+public class RedisTemplate<K, V> extends RedisAccessor 
+        implements RedisOperations<K, V>, BeanClassLoaderAware {
+    
+    // 序列化器
+    private RedisSerializer<?> keySerializer;
+    private RedisSerializer<?> valueSerializer;
+    private RedisSerializer<?> hashKeySerializer;
+    private RedisSerializer<?> hashValueSerializer;
+    
+    // 各数据类型操作
+    private ValueOperations<K, V> valueOps;
+    private HashOperations<K, ?, ?> hashOps;
+    private ListOperations<K, V> listOps;
+    private SetOperations<K, V> setOps;
+    private ZSetOperations<K, V> zSetOps;
+    
+    // 核心执行方法
+    public <T> T execute(RedisCallback<T> action) { ... }
+    public <T> T execute(SessionCallback<T> session) { ... }
+}
+
+// StringRedisTemplate - 字符串专用
+public class StringRedisTemplate extends RedisTemplate<String, String> {
+    
+    public StringRedisTemplate() {
+        // 默认使用 StringRedisSerializer
+        setKeySerializer(RedisSerializer.string());
+        setValueSerializer(RedisSerializer.string());
+        setHashKeySerializer(RedisSerializer.string());
+        setHashValueSerializer(RedisSerializer.string());
+    }
+}
+```
+
+### StringRedisTemplate vs RedisTemplate 对比
+
+| 特性 | StringRedisTemplate | RedisTemplate<K,V> |
+|------|---------------------|-------------------|
+| Key 类型 | String | 泛型 K |
+| Value 类型 | String | 泛型 V |
+| 默认序列化 | StringRedisSerializer | JdkSerializationRedisSerializer |
+| 存储可读性 | ✅ 可读（纯文本） | ❌ 不可读（字节码） |
+| 存储对象 | 需手动 JSON 转换 | 可直接存对象（需配置序列化） |
+| 使用场景 | 缓存字符串、JSON | 缓存复杂对象 |
+
+---
+
 ## 依赖配置
 
 ```xml
@@ -297,6 +384,204 @@ public class CommonService {
     }
 }
 ```
+
+---
+
+### 7. execute() - 底层执行方法
+
+`execute()` 是 RedisTemplate 的**核心方法**，所有 `opsForXxx()` 方法底层都调用它。当内置方法无法满足需求时，可以直接使用 `execute()` 执行底层 Redis 命令。
+
+#### 方法签名
+
+```java
+// 1. RedisCallback - 直接操作 RedisConnection（最底层）
+<T> T execute(RedisCallback<T> action);
+<T> T execute(RedisCallback<T> action, boolean exposeConnection);
+<T> T execute(RedisCallback<T> action, boolean exposeConnection, boolean pipeline);
+
+// 2. SessionCallback - 支持事务和 Pipeline
+<T> T execute(SessionCallback<T> session);
+
+// 3. RedisScript - 执行 Lua 脚本
+<T> T execute(RedisScript<T> script, List<K> keys, Object... args);
+<T> T execute(RedisScript<T> script, RedisSerializer<?> argsSerializer, 
+              RedisSerializer<T> resultSerializer, List<K> keys, Object... args);
+
+// 4. 在指定连接上执行多条命令
+List<Object> executePipelined(RedisCallback<?> action);
+List<Object> executePipelined(SessionCallback<?> session);
+```
+
+#### 7.1 RedisCallback - 执行底层命令
+
+```java
+// 执行原生 Redis 命令
+String result = stringRedisTemplate.execute((RedisCallback<String>) connection -> {
+    // connection 是 RedisConnection，可执行任何底层命令
+    byte[] value = connection.stringCommands().get("mykey".getBytes());
+    return value != null ? new String(value) : null;
+});
+
+// 获取 Redis 服务器信息
+Properties info = stringRedisTemplate.execute((RedisCallback<Properties>) connection -> {
+    return connection.serverCommands().info();
+});
+
+// 获取所有匹配的 key（KEYS 命令，生产慎用）
+Set<byte[]> keys = stringRedisTemplate.execute((RedisCallback<Set<byte[]>>) connection -> {
+    return connection.keyCommands().keys("user:*".getBytes());
+});
+
+// 执行 SETNX + EXPIRE 原子操作（分布式锁）
+Boolean locked = stringRedisTemplate.execute((RedisCallback<Boolean>) connection -> {
+    byte[] key = "lock:order:123".getBytes();
+    byte[] value = "1".getBytes();
+    
+    // SET key value NX PX 10000（原子操作）
+    Boolean result = connection.stringCommands().set(
+        key, value,
+        Expiration.milliseconds(10000),
+        RedisStringCommands.SetOption.SET_IF_ABSENT
+    );
+    return Boolean.TRUE.equals(result);
+});
+```
+
+#### 7.2 SessionCallback - 事务操作
+
+```java
+// 事务操作：MULTI ... EXEC
+List<Object> results = stringRedisTemplate.execute(new SessionCallback<List<Object>>() {
+    @Override
+    public List<Object> execute(RedisOperations operations) throws DataAccessException {
+        operations.multi();  // 开启事务
+        
+        operations.opsForValue().set("key1", "value1");
+        operations.opsForValue().set("key2", "value2");
+        operations.opsForValue().increment("counter");
+        
+        return operations.exec();  // 执行事务
+    }
+});
+// results = [true, true, 1]（每条命令的返回值）
+
+// Lambda 写法
+List<Object> results = stringRedisTemplate.execute(new SessionCallback<>() {
+    @Override
+    public List<Object> execute(RedisOperations ops) {
+        ops.multi();
+        ops.opsForValue().set("a", "1");
+        ops.opsForValue().set("b", "2");
+        return ops.exec();
+    }
+});
+
+// 带 WATCH 的乐观锁事务
+stringRedisTemplate.execute(new SessionCallback<>() {
+    @Override
+    public Object execute(RedisOperations ops) {
+        ops.watch("balance");  // 监视 key
+        
+        String balance = (String) ops.opsForValue().get("balance");
+        int newBalance = Integer.parseInt(balance) - 100;
+        
+        if (newBalance < 0) {
+            ops.unwatch();  // 取消监视
+            throw new RuntimeException("余额不足");
+        }
+        
+        ops.multi();
+        ops.opsForValue().set("balance", String.valueOf(newBalance));
+        List<Object> result = ops.exec();  // 如果 balance 被修改，返回 null
+        
+        if (result == null) {
+            throw new RuntimeException("并发冲突，请重试");
+        }
+        return result;
+    }
+});
+```
+
+#### 7.3 Pipeline - 批量命令
+
+```java
+// 批量执行命令（减少网络往返，提高性能）
+List<Object> results = stringRedisTemplate.executePipelined((RedisCallback<Object>) connection -> {
+    StringRedisConnection stringConn = (StringRedisConnection) connection;
+    
+    for (int i = 0; i < 1000; i++) {
+        stringConn.set("key:" + i, "value:" + i);
+    }
+    
+    return null;  // Pipeline 必须返回 null
+});
+
+// 使用 SessionCallback 的 Pipeline
+List<Object> results = stringRedisTemplate.executePipelined(new SessionCallback<>() {
+    @Override
+    public Object execute(RedisOperations ops) {
+        for (int i = 0; i < 100; i++) {
+            ops.opsForValue().set("batch:" + i, String.valueOf(i));
+        }
+        return null;  // 必须返回 null
+    }
+});
+```
+
+#### 7.4 Lua 脚本执行
+
+```java
+// 定义 Lua 脚本
+String luaScript = """
+    local current = redis.call('GET', KEYS[1])
+    if current == false then
+        current = 0
+    end
+    current = tonumber(current) + tonumber(ARGV[1])
+    redis.call('SET', KEYS[1], current)
+    return current
+    """;
+
+// 创建 RedisScript 对象
+RedisScript<Long> script = RedisScript.of(luaScript, Long.class);
+
+// 执行脚本
+Long result = stringRedisTemplate.execute(
+    script,
+    Arrays.asList("counter"),  // KEYS
+    "10"                        // ARGV
+);
+// 相当于：counter = counter + 10
+
+// 分布式锁释放（原子操作：只有持有锁的人才能释放）
+String unlockScript = """
+    if redis.call('GET', KEYS[1]) == ARGV[1] then
+        return redis.call('DEL', KEYS[1])
+    else
+        return 0
+    end
+    """;
+
+RedisScript<Long> unlockRedisScript = RedisScript.of(unlockScript, Long.class);
+
+Long unlocked = stringRedisTemplate.execute(
+    unlockRedisScript,
+    Arrays.asList("lock:order:123"),  // 锁的 key
+    "unique-request-id"               // 锁的持有者标识
+);
+// unlocked = 1 表示释放成功，0 表示不是锁的持有者
+```
+
+#### 7.5 execute 使用场景总结
+
+| 场景 | 使用方式 | 说明 |
+|------|----------|------|
+| 执行原生命令 | `execute(RedisCallback)` | 当内置方法不够用时 |
+| 事务操作 | `execute(SessionCallback)` + `multi()/exec()` | MULTI-EXEC 事务 |
+| 乐观锁 | `execute(SessionCallback)` + `watch()` | WATCH-MULTI-EXEC |
+| 批量操作 | `executePipelined()` | 减少网络往返 |
+| 原子操作 | `execute(RedisScript)` | Lua 脚本保证原子性 |
+| 分布式锁 | Lua 脚本 | 加锁/释放锁的原子操作 |
 
 ---
 
