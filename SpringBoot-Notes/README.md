@@ -16,7 +16,8 @@ SpringBoot-Notes/
 │   ├── README/
 │   │   ├── BeanUtils.md              # ✅ Spring 官方
 │   │   ├── StringRedisTemplate.md    # ✅ Spring Data Redis 官方
-│   │   └── BitFieldSubCommands.md    # ✅ Redis 位字段操作
+│   │   ├── BitFieldSubCommands.md    # ✅ Redis 位字段操作
+│   │   └── JSONUtil.md               # ✅ Hutool JSON 工具类
 │   └── 示例代码/
 │       └── BeanUtilsDemo.java
 │
@@ -67,6 +68,14 @@ SpringBoot-Notes/
 - **文档**: [BitFieldSubCommands.md](01-核心工具类/README/BitFieldSubCommands.md)
 - **功能**:
   - 位级整数读写（1-64位）
+
+#### ✅ JSONUtil - JSON 处理工具类
+- **来源**: `cn.hutool.json.JSONUtil` / `com.fasterxml.jackson.databind.ObjectMapper`
+- **文档**: [JSONUtil.md](01-核心工具类/README/JSONUtil.md)
+- **功能**:
+  - 对象与 JSON 字符串互转
+  - Redis 缓存对象序列化
+  - 前后端数据交互
   - 签到系统、多字段紧凑存储
   - 比传统方案节省 90%+ 空间
 ---
