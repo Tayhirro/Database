@@ -26,6 +26,7 @@ SpringBoot-Notes/
 │       ├── Redis-Complete-Guide.md   # Redis 完整操作指南
 │       ├── MyBatis-Plus-IService.md  # MyBatis-Plus IService CRUD 封装
 │       ├── MyBatis-Plus-Page.md      # MyBatis-Plus 分页对象
+│       └── Redis-Geo-Results.md    # Redis Geo 查询结果类
 │
 ├── 03-配置技巧/           # application.yml 配置技巧
 │   └── README/
@@ -106,6 +107,15 @@ SpringBoot-Notes/
   - 封装分页参数（current, size）
   - 接收分页结果（total, pages, records）
   - 泛型支持（Page<User>, Page<Order>）
+
+#### Redis Geo 查询结果类
+- **来源**: `org.springframework.data.redis.connection.RedisGeoCommands`
+- **文档**: [Redis-Geo-Results.md](02-数据访问/README/Redis-Geo-Results.md)
+- **功能**:
+  - GeoResults、GeoResult 结果封装
+  - GeoLocation 位置信息（嵌套类）
+  - Distance 距离、Point 坐标
+  - 附近商家查询结果解析
 #### Redis 配置详解
 - **文档**: [Redis-Configuration.md](03-配置技巧/README/Redis-Configuration.md)
 - **内容**:
