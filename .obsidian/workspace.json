@@ -39,10 +39,14 @@
             "id": "702cbb0e4aed3b0e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Redis-Cache-Problems"
             }
           },
           {
@@ -234,6 +238,13 @@
   },
   "active": "702cbb0e4aed3b0e",
   "lastOpenFiles": [
+    "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
+    "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
+    "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
+    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
+    "SpringBoot-Notes/01-核心工具类/README/BeanUtils.md",
+    "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
+    "SpringBoot-Notes/README.md",
     "SpringBoot-Notes/Redis",
     "agent/llm/evaluation/Perplexity.md",
     "agent/llm/evaluation/CrossEntropy.md",
@@ -255,21 +266,14 @@
     "数学",
     "math/概率论/distributions/README.md",
     "math/概率论/概念图.md",
-    "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "hmdp/src/integration-test/java/com/hmdp/service/impl/UserServiceImplIT.java",
     "hmdp/src/integration-test/java/com/hmdp/service/impl",
     "hmdp/src/integration-test/java/com/hmdp/service",
     "hmdp/src/integration-test/java/com/hmdp",
-    "hmdp/src/integration-test/java/com",
     "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
     "agent/llm/architecture/Transformer/layers/稀疏计算vs稀疏查找.md",
     "agent/llm/architecture/README.md",
     "agent/llm/architecture/Transformer/layers/README.md",
-    "agent/llm/architecture/Transformer/variants/MoE.md",
-    "agent/llm/architecture/Transformer/variants/MoE-性能挑战.md",
-    "agent/llm/architecture/Transformer/variants/稀疏计算vs稀疏查找.md",
-    "agent/llm/architecture/Transformer/mechanics/README.md",
-    "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",

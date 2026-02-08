@@ -15,7 +15,8 @@ SpringBoot-Notes/
 ├── 01-核心工具类/          # Spring 官方提供的工具类总结
 │   ├── README/
 │   │   ├── BeanUtils.md              # ✅ Spring 官方
-│   │   └── StringRedisTemplate.md    # ✅ Spring Data Redis 官方
+│   │   ├── StringRedisTemplate.md    # ✅ Spring Data Redis 官方
+│   │   └── BitFieldSubCommands.md    # ✅ Redis 位字段操作
 │   └── 示例代码/
 │       └── BeanUtilsDemo.java
 │
@@ -59,6 +60,13 @@ SpringBoot-Notes/
   - 过期时间设置
   - 分布式锁基础
 
+#### ✅ BitFieldSubCommands - Redis 位字段操作
+- **来源**: `org.springframework.data.redis.connection.BitFieldSubCommands`
+- **文档**: [BitFieldSubCommands.md](01-核心工具类/README/BitFieldSubCommands.md)
+- **功能**:
+  - 位级整数读写（1-64位）
+  - 签到系统、多字段紧凑存储
+  - 比传统方案节省 90%+ 空间
 ---
 
 ### 02-数据访问
