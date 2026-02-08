@@ -124,7 +124,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         // 4.1.截取 from ~ end的部分
         List<Long> ids = new ArrayList<>(list.size());
         Map<String, Distance> distanceMap = new HashMap<>(list.size());
-        list.stream().skip(from).forEach(result -> {
+        list.stream().skip(from).limit(SystemConstants.DEFAULT_PAGE_SIZE).forEach(result -> {
             // 4.2.获取店铺id
             String shopIdStr = result.getContent().getName();
             ids.add(Long.valueOf(shopIdStr));
