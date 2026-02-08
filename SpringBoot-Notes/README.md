@@ -22,7 +22,8 @@ SpringBoot-Notes/
 │
 ├── 02-数据访问/           # 数据库、缓存等数据访问技术
 │   └── README/
-│       └── Redis-Complete-Guide.md   # Redis 完整操作指南
+│       ├── Redis-Complete-Guide.md   # Redis 完整操作指南
+        └── MyBatis-Plus-IService.md  # MyBatis-Plus IService CRUD 封装
 │
 ├── 03-配置技巧/           # application.yml 配置技巧
 │   └── README/
@@ -75,6 +76,14 @@ SpringBoot-Notes/
 - **文档**: [Redis-Complete-Guide.md](02-数据访问/README/Redis-Complete-Guide.md)
 - **内容**: 从配置到操作的完整手册（1072行）
 
+
+#### MyBatis-Plus IService - CRUD 封装
+- **来源**: `com.baomidou.mybatisplus.extension.service.IService`
+- **文档**: [MyBatis-Plus-IService.md](02-数据访问/README/MyBatis-Plus-IService.md)
+- **内容**:
+  - Service 层 CRUD 方法（save/remove/get/list/page/update）
+  - 批量操作、链式调用
+  - 自定义 Mapper 方法扩展
 ---
 
 ### 03-配置技巧
