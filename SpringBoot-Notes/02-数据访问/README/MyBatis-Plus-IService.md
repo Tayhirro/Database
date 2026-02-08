@@ -490,6 +490,15 @@ default KtUpdateChainWrapper<T> ktUpdate();
 
 以下方法可在 `query()` / `lambdaQuery()` / `update()` / `lambdaUpdate()` 后链式调用：
 
+> **关于 `Object val` 参数**：虽然方法签名是 `Object`，但只能传入**数据库支持的类型**：
+> - **数值**：`Integer`、`Long`、`Double`、`Float`、`BigDecimal`、`Short`、`Byte`
+> - **字符串**：`String`
+> - **日期时间**：`Date`、`LocalDateTime`、`LocalDate`、`LocalTime`、`Timestamp`
+> - **布尔**：`Boolean`
+> - **枚举**：会自动转换为对应的数据库值（需配合 `@EnumValue` 注解）
+> 
+> ❌ **不能传自定义 POJO 类**（如 `User`、`Order` 等），数据库无法识别！
+
 **比较条件**：
 ```java
 // ========== 等于/不等于 ==========
@@ -509,6 +518,15 @@ notBetween(R column, Object val1, Object val2)   // NOT BETWEEN
 // ========== 空值判断 ==========
 isNull(R column)                   // IS NULL，如：isNull("email") → email IS NULL
 isNotNull(R column)                // IS NOT NULL，如：isNotNull("email") → email IS NOT NULL
+
+// ========== 常用类型示例 ==========
+.eq(User::getName, "张三")                        // String
+.eq(User::getAge, 20)                             // Integer
+.eq(User::getId, 1L)                              // Long
+.eq(User::getScore, new BigDecimal("99.5"))       // BigDecimal
+.eq(User::getCreateTime, LocalDateTime.now())    // LocalDateTime
+.eq(User::getStatus, StatusEnum.ACTIVE)          // 枚举（需配合 @EnumValue）
+.eq(User::getDeleted, false)                      // Boolean
 ```
 
 **模糊查询**：
