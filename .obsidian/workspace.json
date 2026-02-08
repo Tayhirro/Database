@@ -221,7 +221,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 201.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -238,6 +238,8 @@
   },
   "active": "702cbb0e4aed3b0e",
   "lastOpenFiles": [
+    "SpringBoot-Notes/README.md.backup2",
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
@@ -272,7 +274,6 @@
     "math/概率论/distributions/README.md",
     "math/概率论/概念图.md",
     "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
-    "agent/llm/architecture/Transformer/layers/稀疏计算vs稀疏查找.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",

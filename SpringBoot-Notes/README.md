@@ -23,7 +23,8 @@ SpringBoot-Notes/
 ├── 02-数据访问/           # 数据库、缓存等数据访问技术
 │   └── README/
 │       ├── Redis-Complete-Guide.md   # Redis 完整操作指南
-        └── MyBatis-Plus-IService.md  # MyBatis-Plus IService CRUD 封装
+│       ├── MyBatis-Plus-IService.md  # MyBatis-Plus IService CRUD 封装
+│       ├── MyBatis-Plus-Page.md      # MyBatis-Plus 分页对象
 │
 ├── 03-配置技巧/           # application.yml 配置技巧
 │   └── README/
@@ -88,6 +89,14 @@ SpringBoot-Notes/
 
 ### 03-配置技巧
 
+
+#### MyBatis-Plus Page - 分页对象
+- **来源**: `com.baomidou.mybatisplus.extension.plugins.pagination.Page<T>`
+- **文档**: [MyBatis-Plus-Page.md](02-数据访问/README/MyBatis-Plus-Page.md)
+- **功能**:
+  - 封装分页参数（current, size）
+  - 接收分页结果（total, pages, records）
+  - 泛型支持（Page<User>, Page<Order>）
 #### Redis 配置详解
 - **文档**: [Redis-Configuration.md](03-配置技巧/README/Redis-Configuration.md)
 - **内容**:
