@@ -25,6 +25,10 @@ Builder 将复杂对象的构建过程拆分为可组合的步骤，并通过分
 ## 关系：上级/下级/等价/特例/推广
 - 相关：Abstract Factory（见 [AbstractFactory.md](AbstractFactory.md)）、Template Method（见 [TemplateMethod.md](TemplateMethod.md)）。
 
+## 具体例子
+看不懂上面的抽象定义？看这个实际例子：
+- [Builder-Example.md](Builder-Example.md) - 用"组装电脑"的具体代码，对比不用Builder的痛苦 vs 用Builder的优雅
+
 ## 把新概念挂回框架（多级索引轨迹）
 springboot → modules → patterns → pattern → Builder → GoFDesignPatterns。
 
