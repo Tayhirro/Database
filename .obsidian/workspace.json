@@ -58,7 +58,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -232,8 +232,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "702cbb0e4aed3b0e",
   "lastOpenFiles": [
+    "SpringBoot-Notes/Redis",
     "agent/llm/evaluation/Perplexity.md",
     "agent/llm/evaluation/CrossEntropy.md",
     "英语/词汇/words/P.md",
@@ -269,7 +270,6 @@
     "agent/llm/architecture/Transformer/variants/稀疏计算vs稀疏查找.md",
     "agent/llm/architecture/Transformer/mechanics/README.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
-    "agent/llm/architecture/Transformer/mechanics/Norm对比总结.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
