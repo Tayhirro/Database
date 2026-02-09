@@ -65,18 +65,17 @@
             "id": "82dd090003bcd8db",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
-                "mode": "source",
-                "source": false
+                "file": "未命名 11.base",
+                "viewName": "表格"
               },
-              "icon": "lucide-file",
-              "title": "贺新郎·挽住风前柳"
+              "icon": "lucide-table",
+              "title": "未命名 11"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -250,8 +249,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "82dd090003bcd8db",
+  "active": "cc058387f69d78bc",
   "lastOpenFiles": [
+    "未命名 11.base",
+    "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
     "SWE-agent/assets/swe-agent-banner.svg",
     "SWE-agent/assets/swe-agent-hand.png",
     "SWE-agent/assets/swe-agent-hand.svg",
@@ -282,7 +283,6 @@
     "SWE-agent/sweagent/inspector/icons/swellama_grey.png",
     "SWE-agent/sweagent/inspector/icons/swellama_tan.png",
     "SWE-agent/sweagent/inspector/icons/swellama_brown.png",
-    "SWE-agent/sweagent/inspector/icons/swellama_blue.png",
     "SWE-agent/sweagent/inspector/README.md",
     "SWE-agent/docs/usage/whats_next.md",
     "SWE-agent/docs/usage/trajectories.md",
@@ -297,7 +297,6 @@
     "SWE-agent/docs/reference/tools_config.md",
     "SWE-agent/docs/usage/cli.md",
     "SWE-agent/docs/reference/template_config.md",
-    "SWE-agent/docs/usage/batch_mode.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
