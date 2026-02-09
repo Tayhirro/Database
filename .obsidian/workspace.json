@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/layers/MoE.md",
+                "file": "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MoE"
+              "title": "RoPE-Extensions"
             }
           },
           {
@@ -75,7 +75,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -249,8 +249,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "702cbb0e4aed3b0e",
+  "active": "ab8f895f235cf562",
   "lastOpenFiles": [
+    "agent/llm/context/LongContext-Attention.md",
+    "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
+    "agent/llm/architecture/Transformer/layers/MoE.md",
+    "agent/论文/Qwen3-report.pdf",
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/vue.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/footer.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/element.js",
@@ -260,8 +265,6 @@
     "hmdp/target/test-classes/com/hmdp/service/impl/UserServiceImplTest.class",
     "hmdp/target/test-classes/com/hmdp/utils/RegexUtilsTest.class",
     "hmdp/target/test-classes/com/hmdp/service/impl",
-    "hmdp/target/test-classes/com/hmdp/utils",
-    "hmdp/target/test-classes/com/hmdp/service",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/9/12/ac2ce2fb-0605-4f14-82cc-c962b8c86688.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
@@ -294,9 +297,6 @@
     "SWE-agent/docs/usage/leetcode_example.md",
     "SWE-agent/docs/usage/inspector.md",
     "SWE-agent/docs/usage/index.md",
-    "SWE-agent/docs/usage/hello_world.md",
-    "SWE-agent/docs/usage/competitive_runs.md",
-    "SWE-agent/docs/usage/cl_tutorial.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
