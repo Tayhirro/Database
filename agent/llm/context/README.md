@@ -8,9 +8,13 @@
 
 ## 条目列表
 
-- [ContextWindow](ContextWindow.md)：上下文窗口
+### 上下文扩展技术
+- [ContextWindow](ContextWindow.md)：上下文窗口基础概念
+- [LongContext-Attention](LongContext-Attention.md)：长上下文注意力优化（DCA、StreamingLLM等分块注意力方法）
 - [PositionInterpolation](PositionInterpolation.md)：位置插值
 - [StreamingLLM](StreamingLLM.md)：流式 LLM
+
+### 上下文利用技术
 - [RAG](RAG.md)：Retrieval-Augmented Generation
 
 ---

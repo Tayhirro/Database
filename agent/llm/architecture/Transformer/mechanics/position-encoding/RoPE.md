@@ -72,6 +72,11 @@ $$
 3. **矩阵乘法**：$R(-m\theta)R(n\theta) = R((n-m)\theta)$（和差角公式）
 4. **结果**：Score $= q^T R((n-m)\theta) k$，仅含相对距离 $(n-m)$
 
+## 相关文档
+
+- [RoPE长上下文扩展方法](./RoPE-Extensions.md) - ABF、YaRN等外推技术
+- [正弦位置编码](./正弦位置编码.md) - 加法位置编码对比
+
 ## 挂载路径
 
 [[深度学习]] → [[Transformer]] → [[位置编码]] → [[RoPE]]
