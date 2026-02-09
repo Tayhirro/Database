@@ -252,6 +252,7 @@
   "active": "cc058387f69d78bc",
   "lastOpenFiles": [
     "未命名 11.base",
+    "agent/论文/Qwen3-report.pdf",
     "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
     "SWE-agent/assets/swe-agent-banner.svg",
     "SWE-agent/assets/swe-agent-hand.png",
@@ -271,7 +272,6 @@
     "SWE-agent/trajectories/demonstrations/ctf/crypto/katy.traj",
     "SWE-agent/trajectories/demonstrations/ctf/crypto/BabyTimeCapsule.traj",
     "SWE-agent/trajectories/demonstrations/ctf/crypto/BabyEncryption.traj",
-    "SWE-agent/trajectories/demonstrations/ctf/misc/networking_1.traj",
     "SWE-agent/trajectories/README.md",
     "SWE-agent/tools/review_on_submit_m/README.md",
     "SWE-agent/config/README.md",
