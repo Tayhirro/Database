@@ -19,6 +19,59 @@ tags:
 
 ---
 
+## 架构演化背景：Spring MVC 的双模引擎
+
+> **核心认知**：Spring MVC 诞生于 JSP 时代（2004），但为了兼容 20 年技术演化，同时支持 **SSR（服务器端渲染）** 和 **API（前后端分离）** 两种模式。理解这个历史背景，才能理解为什么 `DispatcherServlet` 里同时存在 `ModelAndView` 和 `@ResponseBody` 两条链路。
+
+### 时代划分
+
+| 时期 | 主流架构 | 后端返回 | 前端职责 | Spring MVC 核心组件 |
+|------|----------|----------|----------|-------------------|
+| **2005-2015** | SSR（服务器端渲染） | 完整 HTML | 无（浏览器直接展示） | `ModelAndView` + `ViewResolver` + JSP/Thymeleaf |
+| **2015-至今** | CSR（前后端分离） | JSON 数据 | Vue/React 渲染 DOM | `@ResponseBody` + `HttpMessageConverter` |
+
+### SSR 时代：ModelAndView 是核心
+
+```java
+// 2008 年的典型写法
+@Controller
+public class UserController {
+    @GetMapping("/user/{id}")
+    public ModelAndView getUser(@PathVariable Long id) {
+        User user = service.findById(id);
+        ModelAndView mv = new ModelAndView("user/detail"); // 视图名 → user/detail.jsp
+        mv.addObject("user", user);                        // 模型数据 → ${user.name}
+        return mv; // 后端渲染完整 HTML 返回给浏览器
+    }
+}
+```
+
+**数据流**：`Controller` → `Model`（数据）+ `View`（模板名）→ `ViewResolver` 解析模板 → `View.render()` 填充数据 → 完整 HTML
+
+### API 时代：@ResponseBody 绕过 View 渲染
+
+```java
+// 2020 年的典型写法
+@RestController  // = @Controller + @ResponseBody
+public class ApiController {
+    @GetMapping("/api/user/{id}")
+    public UserDTO getUser(@PathVariable Long id) {
+        return service.findById(id); // 直接返回对象 → Jackson 序列化 → JSON
+    }
+}
+```
+
+**数据流**：`Controller` → 返回对象 → `HttpMessageConverter`（Jackson）→ JSON 写入 Response → **跳过 View 渲染**
+
+### 为什么保留两套机制？
+
+1. **存量系统**：银行/政务/国企 80% 系统基于 JSP/Thymeleaf 构建（2005-2015），Spring 必须向后兼容
+2. **SEO 需求**：搜索引擎爬虫执行 JS 能力有限，服务端直出 HTML 更利于收录
+3. **首屏性能**：弱网环境下，直接接收 HTML 比先下载 JS 再渲染更快（Next.js/Nuxt.js 的 SSR 本质上是回归）
+4. **特殊场景**：邮件模板、PDF 生成、管理后台页面等仍需服务端渲染
+
+---
+
 ## HTTP 请求完整数据流转（分层概览）
 
 ```
@@ -46,6 +99,83 @@ tags:
 │ → Interceptor.afterCompletion                                               │
 │ 数据变化：Request → Handler → Model填充 → 返回值处理 → 响应序列化          │
 └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### SSR vs API：第三层内部的分支判断
+
+> **关键理解**：Step 1-2 对两种模式完全相同，**分支点在 Step 3 的返回值处理阶段**。
+
+```
+                    DispatcherServlet.doDispatch()
+                              │
+                    ┌─────────┴─────────┐
+                    │  Step 1-2: 路由匹配   │  ← 两种模式完全相同
+                    │  HandlerMapping     │
+                    │  Interceptor.pre    │
+                    └─────────┬─────────┘
+                              │
+                    ┌─────────┴─────────┐
+                    │  Step 3: 执行 Handler │
+                    │  参数解析 + 业务逻辑   │
+                    └─────────┬─────────┘
+                              │
+              ┌───────────────┴───────────────┐
+              │         返回值类型判断          │  ← 分支点
+              └───────────────┬───────────────┘
+                              │
+         ┌────────────────────┼────────────────────┐
+         │                    │                    │
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│  SSR 分支        │  │  API 分支        │  │  void 分支      │
+│  返回 String/    │  │  @ResponseBody  │  │  直接操作       │
+│  ModelAndView   │  │  或 ResponseEntity│  │  Response      │
+└────────┬────────┘  └────────┬────────┘  └────────┬────────┘
+         │                    │                    │
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│ ViewResolver    │  │ HttpMessage-    │  │ 无后续处理      │
+│ 解析视图名       │  │ Converter       │  │ (已写入)        │
+│ → View.render() │  │ (Jackson)       │  │                 │
+│ → HTML 模板填充  │  │ → JSON 序列化    │  │                 │
+└────────┬────────┘  └────────┬────────┘  └────────┬────────┘
+         │                    │                    │
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│ mv != null      │  │ mv = null       │  │ mv = null       │
+│ 触发 render()   │  │ requestHandled  │  │ requestHandled  │
+│                 │  │ = true          │  │ = true          │
+└────────┬────────┘  └────────┬────────┘  └────────┬────────┘
+         │                    │                    │
+         └────────────────────┼────────────────────┘
+                              │
+                    ┌─────────┴─────────┐
+                    │  Step 4-6: 后处理   │  ← 两种模式相同
+                    │  postHandle        │
+                    │  afterCompletion   │
+                    └───────────────────┘
+```
+
+**判断逻辑源码位置**：`DispatcherServlet.processDispatchResult()`:
+
+```java
+private void processDispatchResult(HttpServletRequest request, 
+                                   HttpServletResponse response,
+                                   HandlerExecutionChain mappedHandler, 
+                                   ModelAndView mv,  // API 场景下为 null
+                                   Exception exception) throws Exception {
+    
+    if (mv != null && !mv.wasCleared()) {
+        // 【SSR 分支】渲染视图
+        render(mv, request, response);
+    }
+    // 【API 分支】mv == null，response 已被 HttpMessageConverter 写入，直接结束
+    
+    // 无论哪条分支，都会触发 afterCompletion
+    if (mappedHandler != null) {
+        mappedHandler.triggerAfterCompletion(request, response, null);
+    }
+}
 ```
 
 ---
@@ -238,7 +368,161 @@ RequestMappingHandlerAdapter.invokeHandlerMethod(request, response, handlerMetho
            Java Object → HttpMessageConverter → JSON → Response
 ```
 
-### 3.1 Model 生命周期详解
+---
+
+### 现代 RESTful API 完整流程（@RestController 专题）
+
+> **本节重点**：如果你使用的是 `@RestController` + JSON API（前后端分离架构），这里是你真正关心的流程。上面的 Model 生命周期、ViewResolver 等内容可以**直接跳过**。
+
+#### 典型 API 请求全链路
+
+```
+浏览器/App 发起请求：POST /api/users  Content-Type: application/json
+Body: {"name": "张三", "email": "zhangsan@example.com"}
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│  第一层：网络层（与 SSR 完全相同）                                          │
+│  TCP → Tomcat NioEndpoint → Http11Processor → CoyoteRequest             │
+│  → CoyoteAdapter → RequestFacade (HttpServletRequest)                   │
+└──────────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│  第二层：Filter 链（与 SSR 完全相同）                                       │
+│  CharacterEncodingFilter → CorsFilter → ... → DispatcherServlet         │
+└──────────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│  第三层：DispatcherServlet.doDispatch()                                   │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 1: HandlerMapping 路由匹配                                          │
+│    RequestMappingHandlerMapping.getHandler(request)                      │
+│    URL: /api/users + Method: POST → UserController.createUser()         │
+│    输出: HandlerExecutionChain {handler, interceptors}                   │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 2: Interceptor.preHandle()                                         │
+│    JwtAuthInterceptor: 验证 Token → ThreadLocal.set(currentUser)         │
+│    LogInterceptor: 记录请求开始                                           │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 3: HandlerAdapter.handle() 【API 模式核心差异在这里】                 │
+│  ┌────────────────────────────────────────────────────────────────────┐  │
+│  │  3.1 参数解析 (ArgumentResolver)                                    │  │
+│  │    @RequestBody UserDTO dto                                        │  │
+│  │    → RequestResponseBodyMethodProcessor.resolveArgument()          │  │
+│  │    → HttpMessageConverter (Jackson) 反序列化                        │  │
+│  │    → JSON String → UserDTO 对象                                    │  │
+│  │                                                                    │  │
+│  │  3.2 执行 Controller 方法                                           │  │
+│  │    UserController.createUser(dto) {                                │  │
+│  │        User user = userService.save(dto);                          │  │
+│  │        return Result.success(user);  // 返回包装对象                 │  │
+│  │    }                                                               │  │
+│  │                                                                    │  │
+│  │  3.3 返回值处理 (ReturnValueHandler) 【关键分支点】                   │  │
+│  │    检测到 @RestController/@ResponseBody                             │  │
+│  │    → RequestResponseBodyMethodProcessor.handleReturnValue()        │  │
+│  │    → mavContainer.setRequestHandled(true)  // 标记：跳过视图渲染    │  │
+│  │    → writeWithMessageConverters()                                  │  │
+│  │        → MappingJackson2HttpMessageConverter                       │  │
+│  │        → ObjectMapper.writeValue(response.getOutputStream(), obj)  │  │
+│  │        → JSON 直接写入 HttpServletResponse                          │  │
+│  │    → return null (不创建 ModelAndView)                              │  │
+│  └────────────────────────────────────────────────────────────────────┘  │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 4: Interceptor.postHandle()                                        │
+│    仍会调用，但 ModelAndView 参数为 null（无意义）                          │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 5: processDispatchResult()                                         │
+│    mv == null && requestHandled == true                                  │
+│    → 【跳过 ViewResolver 和 View.render()】                               │
+│    → 直接进入 afterCompletion                                            │
+├──────────────────────────────────────────────────────────────────────────┤
+│  Step 6: Interceptor.afterCompletion()                                   │
+│    ThreadLocal.remove()、记录响应时间、释放资源                            │
+└──────────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+浏览器/App 收到响应：HTTP 200 OK  Content-Type: application/json
+Body: {"code":0,"message":"success","data":{"id":1,"name":"张三"}}
+```
+
+#### API 模式下被跳过的组件
+
+| 组件 | SSR 模式 | API 模式 | 说明 |
+|------|----------|----------|------|
+| `ModelAndViewContainer.model` | 核心使用 | 存在但无意义 | API 模式下不需要向模板传递数据 |
+| `@ModelAttribute` 方法 | 自动执行 | **仍会执行但无用** | 建议 API Controller 不要使用 |
+| `@SessionAttributes` | 自动恢复 | **仍会执行但无用** | API 模式应使用 Token/Redis 管理状态 |
+| `ViewResolver` | 核心组件 | **完全跳过** | `requestHandled=true` 时不触发 |
+| `View.render()` | 核心组件 | **完全跳过** | 同上 |
+| `Model → Request.setAttribute()` | 必须 | **不发生** | JSON 直接写入 Response |
+
+#### @ResponseBody 如何触发跳过逻辑？
+
+```java
+// RequestResponseBodyMethodProcessor.handleReturnValue() 源码简化
+@Override
+public void handleReturnValue(Object returnValue, 
+                              MethodParameter returnType,
+                              ModelAndViewContainer mavContainer, 
+                              NativeWebRequest webRequest) throws Exception {
+    
+    // 【关键】标记请求已处理，告诉 DispatcherServlet 跳过视图渲染
+    mavContainer.setRequestHandled(true);
+    
+    // 获取 Request/Response
+    ServletServerHttpRequest inputMessage = createInputMessage(webRequest);
+    ServletServerHttpResponse outputMessage = createOutputMessage(webRequest);
+    
+    // 直接序列化并写入 Response（绕过 View 体系）
+    writeWithMessageConverters(returnValue, returnType, inputMessage, outputMessage);
+}
+```
+
+#### API 模式下的 Model 定位
+
+虽然 `ModelAndViewContainer` 在 API 模式下仍然会创建，但它的 `model` 字段实际上**不参与数据传输**：
+
+```
+SSR 模式数据流：
+Controller → model.addAttribute() → Model → View.render() → HTML ${} 替换
+
+API 模式数据流：
+Controller → return Object → HttpMessageConverter → JSON → Response
+                ↑
+             Model 被绕过，数据直接从返回值序列化
+```
+
+**最佳实践**：在 `@RestController` 中，**不要注入 `Model` 参数**，直接返回 POJO/DTO 即可。
+
+```java
+// ❌ 不推荐（SSR 风格混入 API）
+@RestController
+public class BadApiController {
+    @GetMapping("/api/user/{id}")
+    public void getUser(@PathVariable Long id, Model model, HttpServletResponse response) {
+        model.addAttribute("user", userService.findById(id)); // Model 在 API 模式无意义
+        // 然后手动写 response？很乱
+    }
+}
+
+// ✅ 推荐（纯 API 风格）
+@RestController
+public class GoodApiController {
+    @GetMapping("/api/user/{id}")
+    public Result<UserDTO> getUser(@PathVariable Long id) {
+        return Result.success(userService.findById(id)); // 直接返回，清晰简洁
+    }
+}
+```
+
+---
+
+### 3.1 Model 生命周期详解（SSR 场景）
+
+> **注意**：本节内容主要适用于 SSR（服务器端渲染）场景。如果你使用 `@RestController` + JSON API，可以跳过本节。
 
 ```
 Model 状态变化时间线：
@@ -257,7 +541,9 @@ Controller 返回后    同上                            复制到 ModelAndView
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Model 代码示例：**
+**Model 代码示例（SSR 场景）：**
+
+> **注意**：以下代码仅适用于 SSR（服务器端渲染）场景。如果你使用 `@RestController`，请跳过本示例。
 
 ```java
 @Controller
@@ -288,9 +574,11 @@ public class ProductController {
 
 ### 3.4 返回值处理与 HttpMessageConverter 详解
 
-这是 **REST API 最核心的转换机制**。
+这是 **REST API 最核心的转换机制**，同时支持 SSR 和 API 两种场景。
 
-#### 场景 A：模板引擎（返回视图名）
+#### 场景 A：模板引擎（返回视图名）—— SSR 场景
+
+> 适用于：`@Controller` + Thymeleaf/JSP
 
 ```java
 @Controller
@@ -313,7 +601,9 @@ public class PageController {
    - 生成 HTML 写入 response
 ```
 
-#### 场景 B：@ResponseBody（返回 JSON）
+#### 场景 B：@ResponseBody（返回 JSON）—— API 场景（现代主流）
+
+> 适用于：`@RestController` + 前后端分离
 
 ```java
 @RestController
@@ -542,6 +832,87 @@ TCP 发送
 | **序列化** | HttpMessageConverter | Java Bean | HTTP Body | JSON/XML 序列化 (Object→字节) |
 | **视图** | View (Thymeleaf/JSP) | Model | HTML | Model→Request Attributes→模板渲染 |
 | **清理** | afterCompletion | - | void | ThreadLocal.remove(), 资源释放 |
+
+---
+
+## SSR vs API 架构全景对比
+
+> **知识库定位指南**：根据你的项目架构，选择对应的学习路径。
+
+### 核心差异速查表
+
+| 维度 | SSR（服务器端渲染） | API（前后端分离） |
+|------|-------------------|------------------|
+| **Controller 注解** | `@Controller` | `@RestController` (= `@Controller` + `@ResponseBody`) |
+| **方法返回值** | `String`（视图名）/ `ModelAndView` | POJO / `ResponseEntity<T>` / `Result<T>` |
+| **数据传递方式** | `Model.addAttribute()` → 模板 `${}` | 返回值 → Jackson → JSON |
+| **核心处理器** | `ViewNameMethodReturnValueHandler` | `RequestResponseBodyMethodProcessor` |
+| **序列化组件** | `ViewResolver` + `View.render()` | `HttpMessageConverter`（Jackson） |
+| **响应 Content-Type** | `text/html` | `application/json` |
+| **前端技术栈** | JSP / Thymeleaf / Freemarker | Vue / React / Angular |
+| **SEO 友好度** | 天然友好（HTML 直出） | 需要 SSR 框架（Next.js/Nuxt.js） |
+| **首屏性能** | 快（直接返回完整 HTML） | 慢（需加载 JS 后渲染） |
+| **状态管理** | `@SessionAttributes` / HttpSession | Token + Redis（无状态） |
+| **典型年代** | 2005-2015 | 2015-至今 |
+
+### 组件参与度对比
+
+```
+                          SSR 模式                    API 模式
+                        ─────────────              ─────────────
+Step 1: HandlerMapping      ✅ 使用                   ✅ 使用
+Step 2: Interceptor.pre     ✅ 使用                   ✅ 使用
+        ┌───────────────────────────────────────────────────────────────┐
+Step 3: │ ModelAndViewContainer  ✅ 核心                 ⚪ 存在但无意义    │
+        │ @ModelAttribute        ✅ 自动执行              ⚪ 执行但无用     │
+        │ @SessionAttributes     ✅ 自动恢复              ⚪ 不推荐使用     │
+        │ ArgumentResolver       ✅ 使用                 ✅ 使用（@RequestBody 核心）│
+        │ ReturnValueHandler     ViewName → ModelAndView  @ResponseBody → JSON │
+        └───────────────────────────────────────────────────────────────┘
+Step 4: Interceptor.post    ✅ mv 有值                 ⚪ mv 为 null
+Step 5: ViewResolver        ✅ 解析视图名              ❌ 跳过
+        View.render()       ✅ 模板填充               ❌ 跳过
+Step 6: afterCompletion     ✅ 清理资源               ✅ 清理资源
+
+图例：✅ 核心使用  ⚪ 存在但无实际作用  ❌ 完全跳过
+```
+
+### 选择建议
+
+| 场景 | 推荐架构 | 理由 |
+|------|----------|------|
+| **新项目、前后端分离、移动端 API** | `@RestController` + JSON | 现代标准，生态成熟 |
+| **管理后台（简单 CRUD）** | `@RestController` + Vue Admin | 开发效率高 |
+| **需要 SEO 的官网/博客** | Thymeleaf SSR 或 Next.js/Nuxt.js | 爬虫友好 |
+| **邮件模板、PDF 生成** | Thymeleaf + `@Controller` | 服务端渲染 HTML |
+| **老旧系统维护** | 保持原有 JSP/Thymeleaf | 避免大规模重构 |
+| **微服务内部通信** | `@RestController` + JSON/Protobuf | 性能优先 |
+
+### 你的智能医疗项目应该用哪个？
+
+根据现代项目架构，**99% 的情况应该使用 `@RestController` + JSON API**：
+
+```java
+// ✅ 你的项目应该长这样
+@RestController
+@RequestMapping("/api/v1/patients")
+public class PatientController {
+    
+    @GetMapping("/{id}")
+    public Result<PatientDTO> getPatient(@PathVariable Long id) {
+        return Result.success(patientService.findById(id));
+    }
+    
+    @PostMapping
+    public Result<PatientDTO> createPatient(@RequestBody @Valid PatientCreateRequest request) {
+        return Result.success(patientService.create(request));
+    }
+}
+```
+
+**这意味着**：
+- 本文档中关于 `Model`、`@ModelAttribute`、`@SessionAttributes`、`ViewResolver`、`View.render()` 的内容，你可以作为**了解性知识**
+- 重点关注：`@RequestBody`/`@ResponseBody`、`HttpMessageConverter`、`ArgumentResolver`、`ReturnValueHandler`
 
 ---
 
