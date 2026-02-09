@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
+                "file": "springboot/modules/web/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RoPE-Extensions"
+              "title": "README"
             }
           },
           {
@@ -251,6 +251,8 @@
   },
   "active": "ab8f895f235cf562",
   "lastOpenFiles": [
+    "springboot/modules/core/context/索引.md",
+    "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
     "agent/llm/context/LongContext-Attention.md",
     "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
@@ -295,8 +297,6 @@
     "SWE-agent/docs/usage/trajectories.md",
     "SWE-agent/docs/usage/multimodal.md",
     "SWE-agent/docs/usage/leetcode_example.md",
-    "SWE-agent/docs/usage/inspector.md",
-    "SWE-agent/docs/usage/index.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
