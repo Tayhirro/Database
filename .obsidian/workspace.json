@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
+                "file": "springboot/modules/core/context/mechanism/ContextRefresh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "StringRedisTemplate"
+              "title": "ContextRefresh"
             }
           },
           {
@@ -236,8 +236,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "c0dd6c6168e19e8f",
+  "active": "702cbb0e4aed3b0e",
   "lastOpenFiles": [
+    "springboot/flows/启动流程.md",
+    "springboot/flows/运行全链路.md",
+    "springboot/flows/Bean注册与创建流程.md",
+    "springboot/flows/ServletWeb应用持续运行机制.md",
+    "springboot/modules/patterns/concept/LifecycleStateMachine.md",
+    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "hmdp/target/classes/com/hmdp/entity/Shop.class",
     "hmdp/target/classes/com/hmdp/entity/Blog.class",
     "hmdp/target/classes/com/hmdp/entity/Follow.class",
@@ -253,7 +259,6 @@
     "SpringBoot-Notes/01-核心工具类/README/JSONUtil.md",
     "SpringBoot-Notes/01-核心工具类/README/BeanUtils.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
-    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "springboot/modules/patterns/pattern/Builder.md",
     "springboot/modules/patterns/pattern/Builder-Example.md",
     "springboot/modules/patterns/GoFDesignPatterns.md",
@@ -262,7 +267,6 @@
     "算法/跳表.md",
     "agent/论文/Qwen3-report.pdf",
     "SpringBoot-Notes/README.md.backup2",
-    "SpringBoot-Notes/README.md.bak",
     "SpringBoot-Notes/04-最佳实践/README/SpringBoot-Testing-Interview-CheatSheet.md",
     "SpringBoot-Notes/04-最佳实践/README/Redis-Cache-Problems.md",
     "SpringBoot-Notes/README.md",
@@ -270,10 +274,6 @@
     "agent/llm/evaluation/CrossEntropy.md",
     "英语/词汇/words/P.md",
     "英语/词汇/words/D.md",
-    "agent/llm/architecture/Transformer/layers/MoE.md",
-    "英语/词汇/words/R.md",
-    "英语/词汇/words/E.md",
-    "英语/词汇/words/W.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/6/8/5593ee62-04e1-410a-b6a7-4c1d50d2aee2.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
