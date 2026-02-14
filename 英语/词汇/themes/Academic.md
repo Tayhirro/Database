@@ -44,6 +44,8 @@
 | analogous    | /əˈnæləɡəs/  | adj. | 类似的；相似的 | The neural network structure is analogous to the human brain. |
 | convex       | /ˈkɒnv eks/  | adj. | 凸的；凸面的 | The convex lens focuses light rays to a single point. |
 | concave      | /ˈkɒn keɪv/  | adj. | 凹的；凹面的 | The concave mirror creates a virtual image behind the mirror. |
+| surrogate    | /ˈsʌrəɡət/   | n./adj. | 替代物；代理的 | We use a surrogate loss function to approximate the true objective. |
+| resemble     | /rɪˈzembl/   | v.  | 像；类似 | The results resemble those obtained in previous studies. |
 
 ---
 
