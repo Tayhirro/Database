@@ -5,6 +5,8 @@
 | 单词 | 音标    | 词性 | 释义   | 例句                          |
 | ---- | ------- | ---- | ------ | ----------------------------- |
 | wise | /waɪz/  | adj. | 明智的；聪明的 | It's wise to save money for emergencies. |
+| entente | /ɒnˈtɑːnt/ | n. | 协定；协议 | The two countries signed a mutual defense entente. |
+| coalition | /ˌkəʊəˈlɪʃn/ | n. | 联盟；联合 | The political parties formed a coalition government. |
 
 
 ---

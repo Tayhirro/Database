@@ -3,6 +3,7 @@
 | 单词         | 音标            | 词性 | 释义       | 例句                                           |
 | ------------ | --------------- | ---- | ---------- | ---------------------------------------------- |
 | element-wise | /ˈel.ɪ.mənt waɪz/ | adj. | 逐元素的；按元素的 | Element-wise operations are performed on each element of the matrix. |
+| entente | /ɒnˈtɑːnt/ | n. | 协定；协议 | The two countries signed a mutual defense entente. |
 
 ---
 > 返回：[索引.md](../索引.md) | [../README.md](../README.md)

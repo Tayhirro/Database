@@ -41,6 +41,7 @@
 | shrinking    | /ˈʃrɪŋkɪŋ/    | adj. | 收缩的；缩小的 | The shrinking dataset poses challenges for model training. |
 | drastic      | /ˈdræstɪk/    | adj. | 激烈的；极端的 | Drastic measures are needed to address the performance degradation. |
 | Perplexity   | /pəˈpleksəti/ | n.  | 困惑度；混乱度 | Lower perplexity indicates better language model performance. |
+| analogous    | /əˈnæləɡəs/  | adj. | 类似的；相似的 | The neural network structure is analogous to the human brain. |
 
 ---
 
