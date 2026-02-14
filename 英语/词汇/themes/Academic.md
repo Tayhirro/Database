@@ -42,6 +42,8 @@
 | drastic      | /ˈdræstɪk/    | adj. | 激烈的；极端的 | Drastic measures are needed to address the performance degradation. |
 | Perplexity   | /pəˈpleksəti/ | n.  | 困惑度；混乱度 | Lower perplexity indicates better language model performance. |
 | analogous    | /əˈnæləɡəs/  | adj. | 类似的；相似的 | The neural network structure is analogous to the human brain. |
+| convex       | /ˈkɒnv eks/  | adj. | 凸的；凸面的 | The convex lens focuses light rays to a single point. |
+| concave      | /ˈkɒn keɪv/  | adj. | 凹的；凹面的 | The concave mirror creates a virtual image behind the mirror. |
 
 ---
 
