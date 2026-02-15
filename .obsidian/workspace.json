@@ -251,6 +251,7 @@
   },
   "active": "ab8f895f235cf562",
   "lastOpenFiles": [
+    "英语/词汇/words/F.md",
     "英语/词汇/words/C.md",
     "springboot/modules/core/context/索引.md",
     "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
@@ -296,7 +297,6 @@
     "SWE-agent/sweagent/inspector/README.md",
     "SWE-agent/docs/usage/whats_next.md",
     "SWE-agent/docs/usage/trajectories.md",
-    "SWE-agent/docs/usage/multimodal.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
