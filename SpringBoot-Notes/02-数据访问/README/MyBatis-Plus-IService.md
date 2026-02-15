@@ -867,7 +867,524 @@ System.out.println(clazz.getName());  // com.example.entity.User
 
 ---
 
-## 4. 自定义 Mapper 方法
+## 4. Query Wrapper 详解（核心概念）
+
+> **重要说明**：Query Wrapper **不是自定义查询**，而是 MyBatis-Plus 提供的**条件构造器**，用于**动态构建 SQL 的 WHERE 条件**。
+
+### 4.1 什么是 Query Wrapper？
+
+**Query Wrapper**（查询包装器）是 MyBatis-Plus 提供的条件构造器，它让你用 Java 代码的方式拼接 SQL 条件，**无需手写 SQL**。
+
+```
+传统方式：手写 SQL
+  SELECT * FROM user WHERE age > 18 AND status = 1
+
+Wrapper 方式：Java 代码拼接
+  wrapper.gt("age", 18).eq("status", 1)
+  ↓ 自动翻译成
+  WHERE age > 18 AND status = 1
+```
+
+**它不是自定义查询**：
+- ❌ 不需要写 XML 映射文件
+- ❌ 不需要写 `@Select` 注解
+- ❌ 不需要在 Mapper 中定义方法
+- ✅ 直接调用 IService / BaseMapper 的方法，传入 Wrapper 即可
+
+### 4.2 Wrapper 的三种创建方式
+
+#### 方式一：静态工厂方法（推荐，最常用）
+
+```java
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+
+// 普通 Wrapper（字段名用字符串）
+QueryWrapper<User> wrapper = Wrappers.<User>query()
+    .eq("status", 1)
+    .like("name", "张");
+
+// Lambda Wrapper（字段名用方法引用，类型安全，推荐）
+LambdaQueryWrapper<User> lambdaWrapper = Wrappers.<User>lambdaQuery()
+    .eq(User::getStatus, 1)
+    .like(User::getName, "张");
+```
+
+#### 方式二：直接 new（适合复杂场景）
+
+```java
+// 普通 Wrapper
+QueryWrapper<User> wrapper = new QueryWrapper<>();
+wrapper.eq("status", 1);
+wrapper.like("name", "张");
+
+// Lambda Wrapper
+LambdaQueryWrapper<User> lambdaWrapper = new LambdaQueryWrapper<>();
+lambdaWrapper.eq(User::getStatus, 1);
+lambdaWrapper.like(User::getName, "张");
+```
+
+#### 方式三：链式调用（最简洁）
+
+```java
+// 在 ServiceImpl 中直接使用（继承自 IService）
+// 无需 import Wrappers
+
+// 查询链
+List<User> list = lambdaQuery()
+    .eq(User::getStatus, 1)
+    .like(User::getName, "张")
+    .list();  // 终结方法，执行查询
+
+// 更新链
+boolean success = lambdaUpdate()
+    .set(User::getStatus, 2)
+    .eq(User::getStatus, 1)
+    .update();  // 终结方法，执行更新
+```
+
+**三种方式对比**：
+
+| 方式 | 代码示例 | 适用场景 | 推荐度 |
+|------|---------|---------|--------|
+| 静态工厂 | `Wrappers.lambdaQuery()` | 任何地方 | ⭐⭐⭐⭐⭐ |
+| 直接 new | `new LambdaQueryWrapper<>()` | 需要分步构建条件 | ⭐⭐⭐ |
+| 链式调用 | `lambdaQuery()` | Service 层快速开发 | ⭐⭐⭐⭐⭐ |
+
+### 4.3 Wrapper 使用流程
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  1. 创建 Wrapper（选择上面三种方式之一）                      │
+│     LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery()│
+├─────────────────────────────────────────────────────────────┤
+│  2. 拼接条件（链式调用）                                      │
+│     .eq(User::getStatus, 1)    // WHERE status = 1          │
+│     .like(User::getName, "张") // AND name LIKE '%张%'       │
+│     .gt(User::getAge, 18)      // AND age > 18              │
+├─────────────────────────────────────────────────────────────┤
+│  3. 传入 IService 方法执行                                    │
+│     userService.list(wrapper)     → 查询列表                │
+│     userService.getOne(wrapper)   → 查询单条                │
+│     userService.count(wrapper)    → 统计数量                │
+│     userService.page(page, wrapper) → 分页查询              │
+│     userService.remove(wrapper)   → 删除                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**完整示例**：
+
+```java
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    
+    // 查询年龄大于18且状态正常的用户
+    public List<User> getActiveAdultUsers() {
+        // 方式1：使用 Wrappers 静态工厂
+        LambdaQueryWrapper<User> wrapper = Wrappers.<User>lambdaQuery()
+            .eq(User::getStatus, 1)      // status = 1
+            .gt(User::getAge, 18)        // AND age > 18
+            .orderByDesc(User::getCreateTime);  // ORDER BY create_time DESC
+        
+        return list(wrapper);  // 传入 wrapper 执行查询
+    }
+    
+    // 方式2：更简洁的链式调用（推荐）
+    public List<User> getActiveAdultUsersV2() {
+        return lambdaQuery()           // 直接调用，无需 Wrappers
+            .eq(User::getStatus, 1)
+            .gt(User::getAge, 18)
+            .orderByDesc(User::getCreateTime)
+            .list();                   // 终结方法
+    }
+    
+    // 动态条件查询（根据参数判断）
+    public List<User> searchUsers(String name, Integer status, Integer minAge) {
+        return lambdaQuery()
+            .like(StringUtils.isNotBlank(name), User::getName, name)  // name不为空才拼接
+            .eq(status != null, User::getStatus, status)              // status不为空才拼接
+            .ge(minAge != null, User::getAge, minAge)                 // minAge不为空才拼接
+            .list();
+    }
+}
+```
+
+### 4.4 常见误区澄清
+
+#### 误区1：Wrapper 是自定义查询？
+
+**❌ 错误理解**：
+```java
+// 以为需要这样自定义
+@Select("SELECT * FROM user WHERE ...")
+List<User> selectByWrapper(@Param("wrapper") Wrapper<User> wrapper);
+```
+
+**✅ 正确用法**：
+```java
+// Wrapper 直接传入 IService 方法，无需任何注解或 XML
+List<User> list = userService.list(wrapper);
+```
+
+#### 误区2：Wrapper 只能在 Service 用？
+
+**❌ 错误理解**：Wrapper 只能在 Service 层使用
+
+**✅ 正确理解**：
+```java
+// 1. 在 Service 层使用（最常用）
+userService.list(wrapper);
+
+// 2. 在 Mapper 层也能用（BaseMapper 支持）
+userMapper.selectList(wrapper);
+userMapper.selectOne(wrapper);
+userMapper.delete(wrapper);
+userMapper.update(entity, wrapper);
+
+// 3. 在 Controller 层直接用（不推荐，业务逻辑应下沉）
+@Autowired
+private UserService userService;
+
+@GetMapping("/users")
+public List<User> getUsers() {
+    return userService.lambdaQuery()
+        .eq(User::getStatus, 1)
+        .list();
+}
+```
+
+#### 误区3：Wrapper 会替换所有查询？
+
+**❌ 错误理解**：有了 Wrapper 就不需要自定义 SQL 了
+
+**✅ 正确理解**：
+```java
+// Wrapper 适合：简单的 WHERE 条件拼接
+// 优势：类型安全、无需写 SQL、动态条件方便
+userService.lambdaQuery()
+    .eq(User::getStatus, 1)
+    .like(User::getName, "张")
+    .list();
+
+// 自定义 SQL 适合：复杂查询、多表关联、特殊函数
+// 优势：灵活度高，能写任意 SQL
+@Select("SELECT u.*, d.name as dept_name " +
+        "FROM user u " +
+        "LEFT JOIN department d ON u.dept_id = d.id " +
+        "WHERE u.status = #{status} " +
+        "GROUP BY u.dept_id " +
+        "HAVING COUNT(*) > 5")
+List<UserVO> selectComplex(@Param("status") Integer status);
+```
+
+### 4.5 Wrapper vs 自定义 SQL 选择指南
+
+| 场景 | 推荐方式 | 原因 |
+|------|---------|------|
+| 单表简单条件查询（=、>、<、like、in） | Wrapper | 代码简洁，类型安全 |
+| 动态条件（参数可能为空） | Wrapper | condition 参数控制，无需 if-else |
+| 分页查询 | Wrapper | 配合 Page 对象，一行代码 |
+| 多表关联查询 | 自定义 SQL | Wrapper 只擅长单表 |
+| 复杂函数（GROUP BY、HAVING、子查询） | 自定义 SQL | Wrapper 支持有限 |
+| 特殊语法（窗口函数、CTE） | 自定义 SQL | Wrapper 不支持 |
+
+---
+
+## 5. 自定义 Mapper 方法
 
 虽然 IService 提供了很多方法，但复杂业务往往需要自定义 SQL。
 
+### 5.1 注解方式（简单 SQL）
+
+适合简单的单表查询，直接写在 Mapper 接口上。
+
+```java
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+    
+    // 根据用户名查询（简单条件）
+    @Select("SELECT * FROM user WHERE name = #{name}")
+    User selectByName(@Param("name") String name);
+    
+    // 根据状态统计数量
+    @Select("SELECT COUNT(*) FROM user WHERE status = #{status}")
+    Long countByStatus(@Param("status") Integer status);
+    
+    // 关联查询（返回自定义 VO）
+    @Select("SELECT u.*, d.name as deptName " +
+            "FROM user u " +
+            "LEFT JOIN department d ON u.dept_id = d.id " +
+            "WHERE u.id = #{userId}")
+    UserVO selectUserWithDept(@Param("userId") Long userId);
+    
+    // 更新操作
+    @Update("UPDATE user SET status = #{status} WHERE id = #{id}")
+    int updateStatus(@Param("id") Long id, @Param("status") Integer status);
+    
+    // 删除操作
+    @Delete("DELETE FROM user WHERE create_time < #{date}")
+    int deleteByCreateTime(@Param("date") LocalDateTime date);
+}
+```
+
+### 5.2 XML 方式（推荐，复杂 SQL）
+
+适合复杂查询，SQL 和 Java 代码分离。
+
+**文件结构**：
+```
+src/main/resources/
+└── mapper/
+    └── UserMapper.xml
+```
+
+**XML 文件**：
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    
+    <!-- 结果映射（当字段名和属性名不一致时用） -->
+    <resultMap id="UserVOResultMap" type="com.example.vo.UserVO">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="deptName" column="dept_name"/>
+    </resultMap>
+    
+    <!-- 根据用户名查询 -->
+    <select id="selectByName" resultType="com.example.entity.User">
+        SELECT * FROM user WHERE name = #{name}
+    </select>
+    
+    <!-- 关联查询 -->
+    <select id="selectUserWithDept" resultMap="UserVOResultMap">
+        SELECT 
+            u.*,
+            d.name as dept_name
+        FROM user u
+        LEFT JOIN department d ON u.dept_id = d.id
+        WHERE u.id = #{userId}
+    </select>
+    
+    <!-- 复杂条件查询 -->
+    <select id="selectByCondition" resultType="com.example.entity.User">
+        SELECT * FROM user
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="startTime != null">
+                AND create_time >= #{startTime}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+    
+    <!-- 批量插入 -->
+    <insert id="batchInsert">
+        INSERT INTO user (name, age, email) VALUES
+        <foreach collection="list" item="user" separator=",">
+            (#{user.name}, #{user.age}, #{user.email})
+        </foreach>
+    </insert>
+</mapper>
+```
+
+**Mapper 接口**：
+```java
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+    User selectByName(@Param("name") String name);
+    UserVO selectUserWithDept(@Param("userId") Long userId);
+    List<User> selectByCondition(@Param("name") String name, 
+                                  @Param("status") Integer status,
+                                  @Param("startTime") LocalDateTime startTime);
+    int batchInsert(@Param("list") List<User> userList);
+}
+```
+
+### 5.3 两种方式对比
+
+| 方式 | 优点 | 缺点 | 适用场景 |
+|------|------|------|----------|
+| 注解 | 简单直观，和代码在一起 | SQL 复杂时代码臃肿 | 简单 SQL（单表、少量条件） |
+| XML | SQL 独立，支持动态 SQL | 需要维护额外文件 | 复杂 SQL（多表、动态条件） |
+
+### 5.4 常见问题
+
+#### 问题1：找不到 Mapper XML 文件
+
+**原因**：MyBatis-Plus 默认扫描 `classpath*:mapper/**/*.xml`
+
+**解决**：确保 XML 放在 `resources/mapper/` 目录下，或在配置中指定：
+```yaml
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+```
+
+#### 问题2：返回类型和实体类字段不匹配
+
+**解决**：使用 `resultMap` 映射字段：
+```xml
+<resultMap id="BaseResultMap" type="User">
+    <id column="user_id" property="id"/>
+    <result column="user_name" property="name"/>
+</resultMap>
+
+<select id="selectById" resultMap="BaseResultMap">
+    SELECT user_id, user_name FROM user WHERE id = #{id}
+</select>
+```
+
+#### 问题3：如何在 Service 中调用自定义 Mapper 方法
+
+```java
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    
+    // 方式1：通过 getBaseMapper() 获取
+    public User findByName(String name) {
+        return getBaseMapper().selectByName(name);
+    }
+    
+    // 方式2：自动注入 Mapper（推荐）
+    @Autowired
+    private UserMapper userMapper;
+    
+    public UserVO getUserDetail(Long userId) {
+        return userMapper.selectUserWithDept(userId);
+    }
+}
+```
+
+---
+
+## 6. 最佳实践总结
+
+### 6.1 开发流程推荐
+
+```
+1. 定义实体类 Entity（字段对应数据库表）
+   ↓
+2. 创建 Mapper 接口 extends BaseMapper<Entity>
+   ↓
+3. 创建 Service 接口 extends IService<Entity>
+   ↓
+4. 创建 ServiceImpl extends ServiceImpl<Mapper, Entity>
+   ↓
+5. 在 Service 中编写业务逻辑：
+   - 简单 CRUD → 直接用 IService 方法
+   - 简单条件查询 → 用 Wrapper
+   - 复杂查询 → 自定义 Mapper 方法
+```
+
+### 6.2 代码示例：完整开发流程
+
+**实体类**：
+```java
+@Data
+@TableName("sys_user")
+public class User {
+    @TableId(type = IdType.AUTO)
+    private Long id;
+    private String name;
+    private Integer age;
+    private String email;
+    private Integer status;
+    private LocalDateTime createTime;
+}
+```
+
+**Mapper**：
+```java
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
+    // 自定义方法（复杂查询时用）
+    UserVO selectUserDetail(@Param("userId") Long userId);
+}
+```
+
+**Service 接口**：
+```java
+public interface UserService extends IService<User> {
+    // 业务方法
+    List<User> searchUsers(String keyword, Integer status);
+    UserVO getUserDetail(Long userId);
+}
+```
+
+**Service 实现**：
+```java
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    
+    @Override
+    public List<User> searchUsers(String keyword, Integer status) {
+        // 使用 Wrapper 实现动态条件查询
+        return lambdaQuery()
+            .like(StringUtils.isNotBlank(keyword), User::getName, keyword)
+            .eq(status != null, User::getStatus, status)
+            .orderByDesc(User::getCreateTime)
+            .list();
+    }
+    
+    @Override
+    public UserVO getUserDetail(Long userId) {
+        // 调用自定义 Mapper 方法
+        return baseMapper.selectUserDetail(userId);
+    }
+}
+```
+
+**Controller**：
+```java
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    
+    @Autowired
+    private UserService userService;
+    
+    @GetMapping
+    public List<User> list(@RequestParam(required = false) String keyword,
+                          @RequestParam(required = false) Integer status) {
+        return userService.searchUsers(keyword, status);
+    }
+    
+    @GetMapping("/{id}")
+    public UserVO detail(@PathVariable Long id) {
+        return userService.getUserDetail(id);
+    }
+    
+    @PostMapping
+    public boolean save(@RequestBody User user) {
+        return userService.save(user);
+    }
+    
+    @PutMapping("/{id}")
+    public boolean update(@PathVariable Long id, @RequestBody User user) {
+        user.setId(id);
+        return userService.updateById(user);
+    }
+    
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable Long id) {
+        return userService.removeById(id);
+    }
+}
+```
+
+### 6.3 注意事项
+
+1. **Wrapper 不是万能的**：复杂查询还是用自定义 SQL
+2. **Lambda Wrapper 优先**：类型安全，重构友好
+3. **动态条件用好 condition 参数**：避免 if-else 嵌套
+4. **批量操作注意性能**：大数据量用 `saveBatch`、`updateBatchById`
+5. **分页查询记得配置插件**：需要配置 MybatisPlusConfig
+
+---
+
+**文档结束**
