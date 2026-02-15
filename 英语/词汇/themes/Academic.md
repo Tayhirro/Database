@@ -46,6 +46,7 @@
 | concave      | /ˈkɒn keɪv/  | adj. | 凹的；凹面的 | The concave mirror creates a virtual image behind the mirror. |
 | surrogate    | /ˈsʌrəɡət/   | n./adj. | 替代物；代理的 | We use a surrogate loss function to approximate the true objective. |
 | resemble     | /rɪˈzembl/   | v.  | 像；类似 | The results resemble those obtained in previous studies. |
+| propel       | /prəˈpel/    | v.  | 推动；推进 | The new findings will propel further research in this area. |
 
 ---
 
