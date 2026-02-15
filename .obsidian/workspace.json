@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
+                "file": "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MyBatis-Plus-Page"
+              "title": "MyBatis-Plus-IService"
             }
           },
           {
@@ -251,6 +251,7 @@
   },
   "active": "ab8f895f235cf562",
   "lastOpenFiles": [
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
     "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "springboot/modules/web/README.md",
@@ -296,7 +297,6 @@
     "SWE-agent/tests/test_data/data_sources/ctf/rev/rock/README.md",
     "SWE-agent/tests/test_data/data_sources/ctf/crypto/Katy/README.md",
     "SWE-agent/tests/test_data/data_sources/ctf/forensics/flash/README.md",
-    "SWE-agent/sweagent/inspector/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
