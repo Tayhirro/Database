@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "springboot/modules/web/README.md",
+                "file": "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "MyBatis-Plus-Page"
             }
           },
           {
@@ -251,6 +251,9 @@
   },
   "active": "ab8f895f235cf562",
   "lastOpenFiles": [
+    "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
+    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
+    "springboot/modules/web/README.md",
     "英语/词汇/words/F.md",
     "英语/词汇/words/C.md",
     "springboot/modules/core/context/索引.md",
@@ -281,7 +284,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/4/0/26a7cd7e-6320-432c-a0b4-1b7418f45ec7.jpg",
     "hmdp/target/classes/com/hmdp/service/docs/关于关注用户的一些注意点.md",
     "hmdp/src/main/java/com/hmdp/service/docs/关于关注用户的一些注意点.md",
-    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "SpringBoot-Notes/01-核心工具类/README/JSONUtil.md",
     "springboot/modules/core/context/mechanism/ContextRefresh.md",
     "文学/诗歌收藏/宋/卢祖皋/贺新郎·挽住风前柳.md",
@@ -295,8 +297,6 @@
     "SWE-agent/tests/test_data/data_sources/ctf/crypto/Katy/README.md",
     "SWE-agent/tests/test_data/data_sources/ctf/forensics/flash/README.md",
     "SWE-agent/sweagent/inspector/README.md",
-    "SWE-agent/docs/usage/whats_next.md",
-    "SWE-agent/docs/usage/trajectories.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
