@@ -48,6 +48,7 @@
 | resemble     | /rɪˈzembl/   | v.  | 像；类似 | The results resemble those obtained in previous studies. |
 | propel       | /prəˈpel/    | v.  | 推动；推进 | The new findings will propel further research in this area. |
 | finite       | /ˈfaɪnaɪt/   | adj. | 有限的；限定的 | The finite computational resources constrain model complexity. |
+| ameliorate   | /əˈmiːliəreɪt/ | v.  | 改善；改进 | The new technique ameliorates the model's performance significantly. |
 
 ---
 
