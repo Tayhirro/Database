@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "文学/modules/grammar/SubjectEllipsis.md",
+                "file": "神经网络/models/rnn/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SubjectEllipsis"
+              "title": "README"
             }
           }
         ],
@@ -240,8 +240,9 @@
   },
   "active": "cc058387f69d78bc",
   "lastOpenFiles": [
-    "agent/论文/Qwen3-report.pdf",
+    "神经网络/models/_TEMPLATE.md",
     "文学/modules/grammar/SubjectEllipsis.md",
+    "agent/论文/Qwen3-report.pdf",
     "文学/modules/grammar/ConstituentEllipsis.md",
     "文学/examples/古汉语省略分析.md",
     "文学/文学索引.md",
