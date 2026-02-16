@@ -65,17 +65,18 @@
             "id": "82dd090003bcd8db",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "未命名 11.base",
-                "viewName": "表格"
+                "file": "文学/modules/grammar/SubjectEllipsis.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "未命名 11"
+              "icon": "lucide-file",
+              "title": "SubjectEllipsis"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -249,8 +250,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "ab8f895f235cf562",
+  "active": "82dd090003bcd8db",
   "lastOpenFiles": [
+    "文学/modules/grammar/ConstituentEllipsis.md",
+    "文学/examples/古汉语省略分析.md",
+    "文学/文学索引.md",
+    "未命名 11.base",
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
+    "文学/modules/grammar/SubjectEllipsis.md",
+    "文学/modules/grammar",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
     "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
@@ -263,7 +271,6 @@
     "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
     "agent/论文/Qwen3-report.pdf",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/vue.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/footer.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/element.js",
@@ -271,8 +278,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/axios.min.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js",
     "hmdp/target/test-classes/com/hmdp/service/impl/UserServiceImplTest.class",
-    "hmdp/target/test-classes/com/hmdp/utils/RegexUtilsTest.class",
-    "hmdp/target/test-classes/com/hmdp/service/impl",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/9/12/ac2ce2fb-0605-4f14-82cc-c962b8c86688.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
@@ -293,10 +298,6 @@
     "SWE-agent/tools/review_on_submit_m/README.md",
     "SWE-agent/config/README.md",
     "SWE-agent/tests/test_data/data_sources/ctf/pwn/warmup/README.md",
-    "SWE-agent/tests/test_data/data_sources/ctf/misc/networking_1/README.md",
-    "SWE-agent/tests/test_data/data_sources/ctf/rev/rock/README.md",
-    "SWE-agent/tests/test_data/data_sources/ctf/crypto/Katy/README.md",
-    "SWE-agent/tests/test_data/data_sources/ctf/forensics/flash/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
