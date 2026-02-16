@@ -53,18 +53,6 @@
             "id": "cc058387f69d78bc",
             "type": "leaf",
             "state": {
-              "type": "pdf",
-              "state": {
-                "file": "agent/论文/Qwen3-report.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Qwen3-report"
-            }
-          },
-          {
-            "id": "82dd090003bcd8db",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
                 "file": "文学/modules/grammar/SubjectEllipsis.md",
@@ -76,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -250,14 +238,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "82dd090003bcd8db",
+  "active": "cc058387f69d78bc",
   "lastOpenFiles": [
+    "agent/论文/Qwen3-report.pdf",
+    "文学/modules/grammar/SubjectEllipsis.md",
     "文学/modules/grammar/ConstituentEllipsis.md",
     "文学/examples/古汉语省略分析.md",
     "文学/文学索引.md",
     "未命名 11.base",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
-    "文学/modules/grammar/SubjectEllipsis.md",
     "文学/modules/grammar",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
@@ -270,7 +259,6 @@
     "agent/llm/context/LongContext-Attention.md",
     "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
-    "agent/论文/Qwen3-report.pdf",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/vue.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/footer.js",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/js/element.js",
@@ -297,7 +285,6 @@
     "SWE-agent/trajectories/README.md",
     "SWE-agent/tools/review_on_submit_m/README.md",
     "SWE-agent/config/README.md",
-    "SWE-agent/tests/test_data/data_sources/ctf/pwn/warmup/README.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
