@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "神经网络/models/rnn/GRU.md",
+                "file": "神经网络/models/rnn/LSTM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GRU"
+              "title": "LSTM"
             }
           }
         ],
@@ -240,8 +240,8 @@
   },
   "active": "cc058387f69d78bc",
   "lastOpenFiles": [
-    "神经网络/models/rnn/LSTM.md",
     "神经网络/models/rnn/GRU.md",
+    "神经网络/models/rnn/LSTM.md",
     "神经网络/models/rnn/BiRNN.md",
     "神经网络/models/imgs/GRU.png",
     "神经网络/models/imgs/image.png",
