@@ -590,6 +590,57 @@ public class ZSetOps {
         return redisTemplate.opsForZSet().incrementScore(key, member, delta);
     }
     
+
+    // 获取成员分数（如查看用户积分）
+    public Double score(String key, String member) {
+        return redisTemplate.opsForZSet().score(key, member);
+    }
+    
+    // 统计分数范围内的元素数量
+    public Long count(String key, double min, double max) {
+        return redisTemplate.opsForZSet().count(key, min, max);
+    }
+    
+    // 获取集合大小（元素个数）
+    public Long size(String key) {
+        return redisTemplate.opsForZSet().size(key);
+    }
+    
+    // 移除指定元素
+    public Long remove(String key, String... members) {
+        return redisTemplate.opsForZSet().remove(key, members);
+    }
+    
+    // 按索引范围查询（正序）
+    public Set<String> range(String key, long start, long end) {
+        return redisTemplate.opsForZSet().range(key, start, end);
+    }
+    
+    // 获取倒序排名（第几名，0表示第一名）
+    public Long reverseRank(String key, String member) {
+        return redisTemplate.opsForZSet().reverseRank(key, member);
+    }
+    
+    // 按分数范围移除元素
+    public Long removeRangeByScore(String key, double min, double max) {
+        return redisTemplate.opsForZSet().removeRangeByScore(key, min, max);
+    }
+    
+    // 交集（两个ZSet的共同元素）
+    public Set<String> intersect(String key, String otherKey) {
+        return redisTemplate.opsForZSet().intersect(key, otherKey);
+    }
+    
+    // 并集（合并两个ZSet）
+    public Set<String> union(String key, String otherKey) {
+        return redisTemplate.opsForZSet().union(key, otherKey);
+    }
+    
+    // 差集（key有而otherKey没有的元素）
+    public Set<String> difference(String key, String otherKey) {
+        return redisTemplate.opsForZSet().difference(key, otherKey);
+    }
+
     // 应用场景：排行榜
     public void updateScore(String game, String player, int score) {
         redisTemplate.opsForZSet().add("rank:" + game, player, score);
