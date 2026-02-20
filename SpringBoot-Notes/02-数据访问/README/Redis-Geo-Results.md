@@ -49,9 +49,10 @@
 
 ## 2. 核心类详解
 
-### 2.1 GeoLocation<M> - 位置信息
 
+### 2.1 GeoLocation&lt;M&gt; - 位置信息
 
+---
 
 ```java
 // 定义在 RedisGeoCommands 接口内部
@@ -66,7 +67,6 @@ public interface RedisGeoCommands {
 }
 ```
 
-
 **为什么用 `RedisGeoCommands.GeoLocation<String>`？**
 - 因为 `GeoLocation` 是**嵌套类**（像 `Map.Entry`）
 - `<String>` 只指定 `name` 字段的类型
@@ -76,7 +76,7 @@ public interface RedisGeoCommands {
 ```java
 Point point = new Point(116.397, 39.916);
 RedisGeoCommands.GeoLocation<String> location = 
-    new RedisGeoCommands.GeoLocation<>("shop:10086", point);
+    new RedisGeoCommands.GeoLocation<M>("shop:10086", point);
 
 String shopId = location.getName();     // "shop:10086"
 Point p = location.getPoint();          // 坐标对象
@@ -86,7 +86,7 @@ double lat = p.getY();                  // 39.916 (纬度)
 
 ---
 
-### 2.2 GeoResults<T> 和 GeoResult<T>
+### 2.2 GeoResults&lt;T&gt; 和 GeoResult&lt;T&gt;
 
 ```java
 // 查询结果集合
@@ -169,10 +169,10 @@ Thread.State                  // State 在 Thread 里
 RedisGeoCommands.GeoLocation  // GeoLocation 在 RedisGeoCommands 里
 
 // 错误！编译器找不到
-GeoLocation<String> location;  // ❌
+GeoLocation<String> location;  // X
 
 // 正确！带完整路径
-RedisGeoCommands.GeoLocation<String> location;  // ✅
+RedisGeoCommands.GeoLocation<String> location;  // OK
 ```
 
 ### 4.2 泛型 `<String>` 的作用
@@ -197,7 +197,7 @@ Point p = loc.getPoint();      // 永远是 Point（与泛型无关）
 
 ```java
 Point point = new Point(116.397, 39.916);
-//        x=经度 ↑           y=纬度 ↑
+//        x=经度            y=纬度
 ```
 
 ---
@@ -221,16 +221,14 @@ Point point = new Point(116.397, 39.916);
 **类关系**：
 ```
 GeoResults (结果集合)
-    │
+    |
     └── GeoResult (单个结果)
-            │
+            |
             ├── content: GeoLocation (位置信息)
-            │       │
             │       ├── name: String (商家ID，泛型指定)
             │       └── point: Point (坐标，固定类型)
-            │
+            |
             └── distance: Distance (距离)
-                    │
                     ├── value: double (距离值)
                     └── metric: Metric (单位)
 ```
