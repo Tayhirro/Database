@@ -13,15 +13,32 @@
 ## 1. 类关系总览
 
 ```
-RedisGeoCommands (接口)
-    ├── GeoLocation<M> (静态嵌套类)
-    └── GeoRadiusCommandArgs (静态嵌套类)
+┌─────────────────────────────────────┐
+│     RedisGeoCommands (接口)          │
+├─────────────────────────────────────┤
+│  ┌───────────────────────────────┐  │
+│  │ GeoLocation<M> (静态嵌套类)   │  │
+│  │   - name: M (泛型)            │  │
+│  │   - point: Point             │  │
+│  └───────────────────────────────┘  │
+│  ┌───────────────────────────────┐  │
+│  │ GeoRadiusCommandArgs         │  │
+│  └───────────────────────────────┘  │
+└─────────────────────────────────────┘
 
-GeoResults<T> (结果包装类)
-    └── List<GeoResult<T>> (结果列表)
-        └── GeoResult<T> (单个结果)
-            ├── content: T (实际数据)
-            └── distance: Distance (距离)
+┌─────────────────────────────────────┐
+│    GeoResults<T> (结果包装类)       │
+├─────────────────────────────────────┤
+│  - content: List<GeoResult<T>>      │
+└─────────────────────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────┐
+│    GeoResult<T> (单个结果)           │
+├─────────────────────────────────────┤
+│  - content: T (实际数据)             │
+│  - distance: Distance (距离)         │
+└─────────────────────────────────────┘
 ```
 
 **关键点**：
@@ -33,6 +50,7 @@ GeoResults<T> (结果包装类)
 ## 2. 核心类详解
 
 ### 2.1 GeoLocation<M> - 位置信息
+
 
 
 ```java
@@ -161,10 +179,10 @@ RedisGeoCommands.GeoLocation<String> location;  // ✅
 
 **只影响 `name` 字段**：
 
-| 字段 | 类型 | 由泛型决定？ |
+| 字段 | 类型 | 由泛型决定? |
 |------|------|-------------|
-| `name` | `String` | ✅ 是的，由 `<String>` 指定 |
-| `point` | `Point` | ❌ 不是，固定类型 |
+| `name` | `String` | 是的，由 `<String>` 指定 |
+| `point` | `Point` | 不是，固定类型 |
 
 ```java
 RedisGeoCommands.GeoLocation<String> loc;
@@ -203,11 +221,18 @@ Point point = new Point(116.397, 39.916);
 **类关系**：
 ```
 GeoResults (结果集合)
+    │
     └── GeoResult (单个结果)
+            │
             ├── content: GeoLocation (位置信息)
+            │       │
             │       ├── name: String (商家ID，泛型指定)
             │       └── point: Point (坐标，固定类型)
+            │
             └── distance: Distance (距离)
+                    │
+                    ├── value: double (距离值)
+                    └── metric: Metric (单位)
 ```
 
 **核心要点**：
