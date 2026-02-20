@@ -34,6 +34,7 @@ GeoResults<T> (结果包装类)
 
 ### 2.1 GeoLocation<M> - 位置信息
 
+
 ```java
 // 定义在 RedisGeoCommands 接口内部
 public interface RedisGeoCommands {
@@ -46,6 +47,7 @@ public interface RedisGeoCommands {
     }
 }
 ```
+
 
 **为什么用 `RedisGeoCommands.GeoLocation<String>`？**
 - 因为 `GeoLocation` 是**嵌套类**（像 `Map.Entry`）
