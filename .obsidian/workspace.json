@@ -212,6 +212,7 @@
   },
   "active": "21f51eca1e158c22",
   "lastOpenFiles": [
+    "英语/词汇/words/I.md",
     "SpringBoot-Notes/02-数据访问/README/sedevWFdW",
     "SpringBoot-Notes/02-数据访问/README/sedH6kua2",
     "SpringBoot-Notes/02-数据访问/README/sedS0RoEj",
@@ -228,7 +229,6 @@
     "hmdp/frontend/run/node_modules",
     "hmdp/frontend/run",
     "hmdp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst",
-    "hmdp/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst",
     "神经网络/models/rnn/GRU.md",
     "神经网络/models/rnn/BiRNN.md",
     "神经网络/models/imgs/GRU.png",
