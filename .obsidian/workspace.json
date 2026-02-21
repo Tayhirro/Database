@@ -212,6 +212,7 @@
   },
   "active": "21f51eca1e158c22",
   "lastOpenFiles": [
+    "hmdp/target/test-classes",
     "hmdp/target/classes/com/hmdp/service/strategy/impl/HotByLikedStrategy.class",
     "hmdp/target/classes/com/hmdp/service/strategy/impl",
     "hmdp/target/classes/com/hmdp/service/strategy/BlogRankStrategy.class",
@@ -222,7 +223,6 @@
     "hmdp/target/classes/com/hmdp/service/impl/UserServiceImpl.class",
     "hmdp/target/classes/com/hmdp/service/impl/ShopTypeServiceImpl.class",
     "hmdp/target/classes/com/hmdp/service/impl/UserInfoServiceImpl.class",
-    "hmdp/target/classes/com/hmdp/service/impl/ShopServiceImpl.class",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/5/2/fdc6cbb0-ddc5-4525-884a-9e88f07cf2d8.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/4/0/26a7cd7e-6320-432c-a0b4-1b7418f45ec7.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/4/7/863cc302-d150-420d-a596-b16e9232a1a6.jpg",
