@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
+                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Redis-Geo-Results"
+              "title": "hmdp"
             }
           }
         ],
@@ -212,21 +212,22 @@
   },
   "active": "21f51eca1e158c22",
   "lastOpenFiles": [
-    "hmdp/target/classes/com/hmdp/service/strategy/BlogQueryContext.class",
-    "hmdp/src/main/java/com/hmdp/service/strategy/BlogQueryContext.java",
-    "hmdp/target/classes/com/hmdp/service/strategy/BlogRankStrategy.interface",
-    "hmdp/src/main/java/com/hmdp/service/strategy/BlogRankStrategy.interface",
-    "hmdp/src/main/java/com/hmdp/service/strategy/BlogRankStrategy.java",
-    "hmdp/target/classes/com/hmdp/service/impl/strategy",
-    "hmdp/src/main/java/com/hmdp/service/impl/strategy",
-    "hmdp/target/classes/com/hmdp/service/strategy",
-    "hmdp/src/main/java/com/hmdp/service/strategy",
-    "frontend",
+    "SpringBoot-Notes/README.md",
+    "SpringBoot-Notes/05-源码分析/hmdp.md",
+    "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
+    "hmdp/target/classes/com/hmdp/dto/Result.class",
+    "hmdp/target/classes/com/hmdp/entity/Shop.class",
+    "hmdp/target/classes/com/hmdp/service/IShopService.class",
+    "hmdp/target/classes/com/hmdp/config/ShopGeoDataInitializer.class",
+    "hmdp/target/classes/com/hmdp/entity/Follow.class",
+    "hmdp/target/classes/com/hmdp/mapper/FollowMapper.class",
+    "hmdp/target/classes/com/hmdp/dto/UserDTO.class",
+    "hmdp/target/classes/com/hmdp/auth/CompositeAuthResolver.class",
+    "hmdp/target/classes/com/hmdp/auth/RedisTokenAuthResolver.class",
+    "hmdp/target/classes/com/hmdp/utils/RedisConstants.class",
     "英语/词汇/words/I.md",
-    "SpringBoot-Notes/02-数据访问/README/sedevWFdW",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "math/概率论/distributions/正态分布.md",
-    "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "神经网络/models/rnn/LSTM.md",
@@ -250,7 +251,6 @@
     "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
     "agent/llm/context/LongContext-Attention.md",
     "agent/llm/architecture/Transformer/mechanics/components/Bias.md",
-    "agent/llm/architecture/Transformer/layers/MoE.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/9/12/ac2ce2fb-0605-4f14-82cc-c962b8c86688.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
