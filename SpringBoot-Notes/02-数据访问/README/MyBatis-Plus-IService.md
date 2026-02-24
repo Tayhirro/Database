@@ -440,7 +440,7 @@ userService.updateBatchById(userList, 500);
 long count();
 
 // 根据条件查询记录数
-long count(Wrapper<T> queryWrapper);
+long count(Wrapper<T> queryWrapper);  
 ```
 
 **使用示例**：
