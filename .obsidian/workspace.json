@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -224,8 +224,9 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4af6bcecd99ab1f2",
+  "active": "21f51eca1e158c22",
   "lastOpenFiles": [
+    "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "agent/论文/imgs/1.webp",
     "agent/论文/imgs",
     "agent/论文/新建文件夹",
@@ -248,7 +249,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/14/3/52b290eb-8b5d-403b-8373-ba0bb856d18e.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/14/13/31bc9613-3637-4a36-9082-e37ce0909cbd.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/14/13/2ec4622e-de82-4bb3-9acf-33b589850cd2.jpg",
-    "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/13/4/1bb3d189-a34a-4809-b062-323cda7d19a9.jpg",
     "SpringBoot-Notes/README.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
     "英语/词汇/words/I.md",
