@@ -240,6 +240,7 @@
   },
   "active": "e3d14da8f3783290",
   "lastOpenFiles": [
+    "hmdp/target/classes/com/hmdp/service/impl/strategy",
     "hmdp/target/classes/nginx-1.18.0/nginx.exe",
     "hmdp/target/classes/nginx-1.18.0/nginx-1.18.0.zip",
     "hmdp/target/classes/nginx-1.18.0/logs/nginx.pid",
@@ -250,7 +251,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-list.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-detail.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/other-info.html",
-    "hmdp/target/classes/nginx-1.18.0/html/hmdp/login2.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/1/6f4c2442-1d3b-436f-8d49-cc704f9f0bf8.jpg",
