@@ -62,9 +62,21 @@
               "icon": "lucide-file",
               "title": "CLIP"
             }
+          },
+          {
+            "id": "ffd113514d8667d4",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "agent/论文/deepseekv3.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "deepseekv3"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -238,8 +250,12 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21f51eca1e158c22",
+  "active": "ffd113514d8667d4",
   "lastOpenFiles": [
+    "SpringBoot-Notes/05-源码分析/hmdp.md",
+    "神经网络/sed5Gs6YO",
+    "神经网络/sedrzKU7v",
+    "神经网络/models/GAN.md",
     "hmdp/target/generated-test-sources/test-annotations",
     "hmdp/target/generated-test-sources",
     "hmdp/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
@@ -248,9 +264,6 @@
     "hmdp/target/classes/com/hmdp/interceptor/AuthContextInterceptor.class",
     "hmdp/target/classes/com/hmdp/interceptor",
     "hmdp/target/classes/com/hmdp/utils/RegexUtils.class",
-    "hmdp/target/classes/com/hmdp/controller/VoucherController.class",
-    "hmdp/target/classes/com/hmdp/service/impl/ShopServiceImpl.class",
-    "hmdp/target/classes/com/hmdp/service/impl/UserServiceImpl.class",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/spa.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/qzyl.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/ms.png",
@@ -269,7 +282,6 @@
     "神经网络/概念图.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
-    "SpringBoot-Notes/05-源码分析/hmdp.md",
     "英语/词汇/words/N.md",
     "SpringBoot-Notes/README.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
@@ -285,7 +297,6 @@
     "文学/examples/古汉语省略分析.md",
     "文学/文学索引.md",
     "SpringBoot-Notes/01-核心工具类/README/BitFieldSubCommands.md",
-    "SpringBoot-Notes/01-核心工具类/README/StringRedisTemplate.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
