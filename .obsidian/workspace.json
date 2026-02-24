@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
+                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MyBatis-Plus-IService"
+              "title": "hmdp"
             }
           },
           {
@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -238,8 +238,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "e3d14da8f3783290",
+  "active": "21f51eca1e158c22",
   "lastOpenFiles": [
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
+    "math/概率论/distributions/正态分布.md",
+    "神经网络/models/CLIP.md",
     "hmdp/target/classes/com/hmdp/service/impl/strategy",
     "hmdp/target/classes/nginx-1.18.0/nginx.exe",
     "hmdp/target/classes/nginx-1.18.0/nginx-1.18.0.zip",
@@ -250,7 +253,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/index.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-list.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/shop-detail.html",
-    "hmdp/target/classes/nginx-1.18.0/html/hmdp/other-info.html",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/14/4771fefb-1a87-4252-816c-9f7ec41ffa4a.jpg",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/blogs/7/1/6f4c2442-1d3b-436f-8d49-cc704f9f0bf8.jpg",
@@ -265,14 +267,12 @@
     "神经网络/modules/_TEMPLATE.md",
     "神经网络/概念图.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
     "英语/词汇/words/N.md",
     "SpringBoot-Notes/README.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
     "英语/词汇/words/I.md",
-    "math/概率论/distributions/正态分布.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "神经网络/models/rnn/LSTM.md",
     "神经网络/models/rnn/GRU.md",
