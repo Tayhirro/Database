@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "SwiGLU"
             }
+          },
+          {
+            "id": "e3d14da8f3783290",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "神经网络/models/CLIP.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLIP"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -224,11 +238,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21f51eca1e158c22",
+  "active": "e3d14da8f3783290",
   "lastOpenFiles": [
+    "神经网络/modules/_TEMPLATE.md",
+    "神经网络/概念图.md",
+    "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
-    "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "agent/论文/imgs/1.webp",
     "agent/论文/imgs",
     "agent/论文/新建文件夹",
@@ -254,7 +271,6 @@
     "SpringBoot-Notes/02-数据访问/README/Redis-Geo-Results.md",
     "英语/词汇/words/I.md",
     "math/概率论/distributions/正态分布.md",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-Page.md",
     "神经网络/models/rnn/LSTM.md",
     "神经网络/models/rnn/GRU.md",
@@ -270,8 +286,6 @@
     "springboot/modules/web/README.md",
     "英语/词汇/words/F.md",
     "英语/词汇/words/C.md",
-    "springboot/modules/core/context/索引.md",
-    "agent/llm/architecture/Transformer/mechanics/position-encoding/RoPE-Extensions.md",
     "未命名 1.canvas",
     "未命名 5.canvas",
     "未命名 4.canvas",
