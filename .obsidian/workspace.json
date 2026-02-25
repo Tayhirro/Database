@@ -39,14 +39,14 @@
             "id": "4af6bcecd99ab1f2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": false
+                "aFile": "conflict-files-obsidian-git.md",
+                "bFile": "conflict-files-obsidian-git.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
+              "icon": "diff",
+              "title": "Diff: conflict-files-obsidian-git  (Working Tree)"
             }
           }
         ],
@@ -226,9 +226,9 @@
   },
   "active": "4af6bcecd99ab1f2",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "未命名 12.base",
-    "conflict-files-obsidian-git.md",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
     "math/概率论/distributions/正态分布.md",
     "神经网络/models/CLIP.md",
