@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "正态分布"
             }
+          },
+          {
+            "id": "b1c8315e0025e1ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "神经网络/models/GAN.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "GAN"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -195,15 +210,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "78f0122b1e24e17f",
+  "active": "b1c8315e0025e1ce",
   "lastOpenFiles": [
+    "math/概率论/distributions/正态分布.md",
     "DeepSeek-R1.md",
     "OpenAI-o1.md",
     "conflict-files-obsidian-git.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "未命名 12.base",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
-    "math/概率论/distributions/正态分布.md",
     "神经网络/models/CLIP.md",
     "agent/论文/deepseekv3.pdf",
     "hmdp/target/classes/com/hmdp/sms/impl/LogSmsSender.class",
