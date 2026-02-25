@@ -1,11 +1,14 @@
 1：博客
-- 查询我关注的博客： 查询关注redis（inbox） --- blog转换 ---返回
-	- inbox截断
+- 查询我关注的博客： 
+	- 查询关注redis（inbox） --- blog转换 ---返回    普通用户
 	- 
-- 查询火的贴子 ： 
+- 查询火的贴子 ：
+	- 根据推荐系统有所排序
 - 查询这个blog的点赞的用户： 查询缓存 --- 查询db  --- 返回
 - saveblog
 	- 写tb_blog
+	- 写 tb_feed_inbox  写 redis    普通
+	- 直接返回 大v
 
 
 
