@@ -48,9 +48,19 @@
               "icon": "lucide-file",
               "title": "SwiGLU"
             }
+          },
+          {
+            "id": "72998cc364445122",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -209,7 +219,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 201.5
+    "width": 294.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -224,12 +234,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "4af6bcecd99ab1f2",
+  "active": "72998cc364445122",
   "lastOpenFiles": [
-    "神经网络/models/CLIP.md",
-    "agent/论文/deepseekv3.pdf",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
+    "math/概率论/distributions/正态分布.md",
+    "神经网络/models/CLIP.md",
+    "agent/论文/deepseekv3.pdf",
     "hmdp/target/classes/com/hmdp/sms/impl/LogSmsSender.class",
     "hmdp/target/classes/com/hmdp/mapper/BlogLikeMapper.class",
     "hmdp/target/classes/com/hmdp/entity/Blog.class",
@@ -251,7 +262,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/hpg.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/amzl.png",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
-    "math/概率论/distributions/正态分布.md",
     "hmdp/target/classes/com/hmdp/service/docs/关于关注用户的一些注意点.md",
     "神经网络/modules/_TEMPLATE.md",
     "神经网络/概念图.md",
