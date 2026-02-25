@@ -52,6 +52,7 @@
 | elaboration  | /ɪˌlæbəˈreɪʃn/ | n.  | 阐述；详述 | The paper provides detailed elaboration of the theoretical framework. |
 | impede       | /ɪmˈpiːd/    | v.  | 阻碍；妨碍 | Limited computational resources may impede the training process. |
 | notorious    | /nəʊˈtɔːriəs/ | adj. | 臭名昭著的；声名狼藉的 | The algorithm has a notorious reputation for overfitting. |
+| auxiliary    | /ɔːɡˈzɪljəri/ | adj. | 辅助的；附加的 | The model uses auxiliary information to improve predictions. |
 
 ---
 
