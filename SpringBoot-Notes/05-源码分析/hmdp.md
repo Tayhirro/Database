@@ -6,6 +6,8 @@
 - 查询这个blog的点赞的用户： 查询缓存 --- 查询db  --- 返回
 - saveblog
 	- 写tb_blog
+	- 写 tb_feed_inbox  写 redis
+	- 
 
 
 
