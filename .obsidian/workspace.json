@@ -76,7 +76,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -250,8 +250,11 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "21f51eca1e158c22",
+  "active": "ffd113514d8667d4",
   "lastOpenFiles": [
+    "神经网络/models/CLIP.md",
+    "agent/论文/deepseekv3.pdf",
+    "SpringBoot-Notes/05-源码分析/hmdp.md",
     "hmdp/target/classes/com/hmdp/sms/impl/LogSmsSender.class",
     "hmdp/target/classes/com/hmdp/mapper/BlogLikeMapper.class",
     "hmdp/target/classes/com/hmdp/entity/Blog.class",
@@ -261,9 +264,6 @@
     "hmdp/target/classes/com/hmdp/mapper/VoucherMapper.class",
     "hmdp/target/classes/com/hmdp/service/IVoucherService.class",
     "hmdp/target/classes/com/hmdp/service/impl/VoucherServiceImpl.class",
-    "hmdp/target/classes/com/hmdp/dto/LoginFormDTO.class",
-    "hmdp/target/classes/com/hmdp/service/IFollowService.class",
-    "SpringBoot-Notes/05-源码分析/hmdp.md",
     "神经网络/models/GAN.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/spa.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/qzyl.png",
@@ -277,7 +277,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/amzl.png",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "math/概率论/distributions/正态分布.md",
-    "神经网络/models/CLIP.md",
     "hmdp/target/classes/com/hmdp/service/docs/关于关注用户的一些注意点.md",
     "神经网络/modules/_TEMPLATE.md",
     "神经网络/概念图.md",
