@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "DeepSeek-R1"
             }
+          },
+          {
+            "id": "af86e54aeb74e393",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "agent/论文/deepseekv3.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "deepseekv3"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DeepSeek-R1.md",
+                "file": "agent/论文/deepseekv3.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "DeepSeek-R1 的大纲"
+              "title": "deepseekv3 的大纲"
             }
           },
           {
@@ -195,11 +208,15 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "1c6eb55f89b18bcc",
+  "active": "af86e54aeb74e393",
   "lastOpenFiles": [
+    "agent/论文/EverMemOS.pdf",
+    "agent/论文/SWE-agent.pdf",
+    "agent/论文/Qwen3-report.pdf",
+    "agent/论文/MOE.pdf",
+    "DeepSeek-R1.md",
     "未命名 10.base",
     "OpenAI-o1.md",
-    "DeepSeek-R1.md",
     "Pasted image 20260120163629.png",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
@@ -217,7 +234,6 @@
     "未命名 1.base",
     "未命名.base",
     "agent/llm/architecture/Transformer/layers/MoE.md",
-    "agent/论文/MOE.pdf",
     "音乐/works/_TEMPLATE.md",
     "音乐/works/索引.md",
     "音乐/概念图.md",
@@ -227,10 +243,8 @@
     "math/泛函/structures/spaces/HilbertSpace.md",
     "math/泛函/structures/spaces/InnerProductSpace.md",
     "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
-    "agent/论文/SWE-agent.pdf",
     "神经网络/models/GAN.md",
     "_git_dates.json",
-    "nul",
     "math/概率论/distributions/LaplaceDistribution.md",
     "math/概率论/distributions/README.md",
     "java/utils/ObjectMapper.md",
