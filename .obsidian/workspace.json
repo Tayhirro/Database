@@ -45,9 +45,37 @@
               "icon": "lucide-file",
               "title": "MoE"
             }
+          },
+          {
+            "id": "fd2bb3212376aa26",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "math/概率论/README.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "746c53e65571fd57",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "hmdp"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -182,13 +210,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "agent/llm/architecture/Transformer/layers/MoE.md",
+                "file": "agent/论文/deepseekv3.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "MoE 的大纲"
+              "title": "deepseekv3 的大纲"
             }
           },
           {
@@ -221,10 +249,13 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "d41ca3220c78066c",
+  "active": "af86e54aeb74e393",
   "lastOpenFiles": [
-    "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
+    "SpringBoot-Notes/05-源码分析/hmdp.md",
+    "math/概率论/README.md",
+    "math/概率论/索引.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
+    "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
     "agent/论文/deepseekv3.pdf",
     "agent/llm/models/DeepSeek-V3.md",
     "agent/llm/models/OpenAI-o1.md",
@@ -263,7 +294,6 @@
     "math/概率论/distributions/LaplaceDistribution.md",
     "math/概率论/distributions/README.md",
     "java/utils/ObjectMapper.md",
-    "SpringBoot-Notes/05-源码分析/hmdp.md",
     "conflict-files-obsidian-git.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
     "神经网络/models/CLIP.md",
@@ -273,7 +303,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/mjmj.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/lrmf.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/KTV.png",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
-    "hmdp/target/classes/com/hmdp/service/docs/关于关注用户的一些注意点.md"
+    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md"
   ]
 }
