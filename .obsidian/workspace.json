@@ -11,14 +11,13 @@
             "id": "1c6eb55f89b18bcc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "DeepSeek-R1.md",
-                "mode": "source",
-                "source": false
+                "file": "未命名 10.base",
+                "viewName": "表格"
               },
-              "icon": "lucide-file",
-              "title": "DeepSeek-R1"
+              "icon": "lucide-table",
+              "title": "未命名 10"
             }
           },
           {
@@ -210,6 +209,10 @@
   },
   "active": "af86e54aeb74e393",
   "lastOpenFiles": [
+    "agent/llm/models/DeepSeek-V3.md",
+    "agent/llm/models/OpenAI-o1.md",
+    "agent/llm/models/DeepSeek-R1.md",
+    "agent/llm/models",
     "agent/论文/EverMemOS.pdf",
     "agent/论文/SWE-agent.pdf",
     "agent/论文/Qwen3-report.pdf",
@@ -232,7 +235,6 @@
     "未命名 3.canvas",
     "未命名 2.canvas",
     "未命名 1.base",
-    "未命名.base",
     "agent/llm/architecture/Transformer/layers/MoE.md",
     "音乐/works/_TEMPLATE.md",
     "音乐/works/索引.md",
@@ -244,7 +246,6 @@
     "math/泛函/structures/spaces/InnerProductSpace.md",
     "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
     "神经网络/models/GAN.md",
-    "_git_dates.json",
     "math/概率论/distributions/LaplaceDistribution.md",
     "math/概率论/distributions/README.md",
     "java/utils/ObjectMapper.md",
@@ -260,8 +261,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/KTV.png",
     "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md",
     "hmdp/target/classes/com/hmdp/service/docs/关于关注用户的一些注意点.md",
-    "神经网络/modules/_TEMPLATE.md",
-    "神经网络/概念图.md",
-    "SpringBoot-Notes/02-数据访问/README/Redis-Complete-Guide.md"
+    "神经网络/modules/_TEMPLATE.md"
   ]
 }

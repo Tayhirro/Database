@@ -29,8 +29,8 @@ Reasoning Training：通过特定数据或强化学习训练模型进行多步�
 - [MCTS-RL](MCTS-RL.md)：蒙特卡洛树搜索 + RL
 
 ### 代表工作
-- [DeepSeek-R1](DeepSeek-R1.md)
-- [OpenAI-o1](OpenAI-o1.md)
+- [DeepSeek-R1](../models/DeepSeek-R1.md)
+- [OpenAI-o1](../models/OpenAI-o1.md)
 - [Qwen-QwQ](Qwen-QwQ.md)
 
 ---
