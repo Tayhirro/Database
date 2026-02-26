@@ -48,21 +48,9 @@
               "icon": "lucide-file",
               "title": "hmdp"
             }
-          },
-          {
-            "id": "81f9db5d3f71ebe8",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "agent/论文/deepseekv3.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "deepseekv3"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -236,10 +224,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "81f9db5d3f71ebe8",
+  "active": "7dd39150a9014750",
   "lastOpenFiles": [
-    "agent/论文/思维链的拓扑.pdf",
     "agent/论文/deepseekv3.pdf",
+    "agent/论文/思维链的拓扑.pdf",
     "agent/论文/Qwen3-report.pdf",
     "神经网络/models/GAN.md",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
