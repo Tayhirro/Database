@@ -1,3 +1,10 @@
+---
+title: "混合高斯（GMM, Gaussian Mixture Model）"
+date: "2026-01-13"
+categories:
+  - 神经网络
+description: "用一个离散隐变量 c 表示“来自哪个簇/类别”，每个簇对应一个高斯分布：p(x)=Σ_c p(c)p(x|c)。"
+---
 # 混合高斯（GMM, Gaussian Mixture Model）
 
 ## 1. 一句话

@@ -1,3 +1,10 @@
+---
+title: structures（音乐结构 / 类型定义）
+date: "2026-01-17"
+categories:
+  - 音乐
+description: 导航：音乐索引.md
+---
 # structures（音乐结构 / 类型定义）
 
 导航：[音乐索引.md](../音乐索引.md)

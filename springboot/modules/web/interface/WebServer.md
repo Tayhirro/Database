@@ -1,3 +1,10 @@
+---
+title: WebServer（嵌入式服务器抽象）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # WebServer（嵌入式服务器抽象）
 
 > **类型**：接口（Interface）

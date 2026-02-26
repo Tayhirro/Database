@@ -1,12 +1,16 @@
 ---
-type: class
+title: Http11NioProtocol（Tomcat HTTP/1.1 NIO 协议处理器）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - http
   - nio
+description: 类型：类（Class）
+type: class
 ---
-
 # Http11NioProtocol（Tomcat HTTP/1.1 NIO 协议处理器）
 
 > **类型**：类（Class）

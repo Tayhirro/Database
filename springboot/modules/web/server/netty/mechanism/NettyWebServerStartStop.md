@@ -1,10 +1,14 @@
 ---
-type: mechanism
+title: NettyWebServerStartStop（NettyWebServer 的 start/stop 触发链）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - netty
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # NettyWebServerStartStop（NettyWebServer 的 start/stop 触发链）
 
 > **类型**：机制（Mechanism）

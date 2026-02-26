@@ -1,10 +1,14 @@
 ---
-type: class
+title: Mapper（Tomcat 请求映射器）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # Mapper（Tomcat 请求映射器）
 
 > **类型**：类（Class）

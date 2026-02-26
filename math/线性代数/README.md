@@ -1,3 +1,10 @@
+---
+title: "线性代数（Linear Algebra）笔记组织说明（可扩展 & 速查）"
+date: "2026-01-13"
+categories:
+  - math
+description: 导航：math/README.md ｜math/索引.md ｜本分支：math/线性代数/索引.md ｜math/线性代数/概念图.md
+---
 # 线性代数（Linear Algebra）笔记组织说明（可扩展 & 速查）
 
 导航：[math/README.md](../README.md) ｜[math/索引.md](../索引.md) ｜本分支：[math/线性代数/索引.md](索引.md) ｜[math/线性代数/概念图.md](概念图.md)

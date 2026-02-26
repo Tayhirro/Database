@@ -1,10 +1,14 @@
 ---
-type: index
+title: math（总入口）
+date: "2026-01-13"
+categories:
+  - math
 tags:
   - math/index
   - moc
+description: 用法：把本页当作入口，在 Obsidian 打开“本地关系图（Local graph）”，深度设为 2～3，即可看到各分支与模块的连接。
+type: index
 ---
-
 # math（总入口）
 
 > 用法：把本页当作入口，在 Obsidian 打开“本地关系图（Local graph）”，深度设为 2～3，即可看到各分支与模块的连接。

@@ -1,3 +1,10 @@
+---
+title: 子对象：子群 / 正规子群 / 理想（Subobject）
+date: "2026-01-08"
+categories:
+  - math
+description: H ⊆ G 且对群运算封闭，并包含单位元与逆元。
+---
 # 子对象：子群 / 正规子群 / 理想（Subobject）
 
 ## 1. 子群（subgroup）

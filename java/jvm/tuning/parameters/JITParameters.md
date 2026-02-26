@@ -1,13 +1,17 @@
 ---
-type: concept
+title: JITParameters（JIT 参数）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - parameters
   - jit
+description: JIT 参数是 JVM 启动参数集合中用于控制即时编译（JIT）行为边界（编译策略、阈值、编译线程等）的参数子集。
+type: concept
 ---
-
 # JITParameters（JIT 参数）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: HandlerAdapter（MVC 处理器适配器接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerAdapter（MVC 处理器适配器接口）
 
 > **类型**：接口（Interface）

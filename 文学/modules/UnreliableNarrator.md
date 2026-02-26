@@ -1,3 +1,10 @@
+---
+title: 不可靠叙述（Unreliable Narrator）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 叙述者的话不能全信——由于认知局限、心理偏差或刻意欺骗，叙述与"真相"之间存在差距
+---
 # 不可靠叙述（Unreliable Narrator）
 
 ## 1. 一句话

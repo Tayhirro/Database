@@ -1,11 +1,15 @@
 ---
-type: interface
+title: Processor（Tomcat Coyote 处理器接口）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - coyote
+description: 类型：接口（Interface）
+type: interface
 ---
-
 # Processor（Tomcat Coyote 处理器接口）
 
 > **类型**：接口（Interface）

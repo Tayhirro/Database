@@ -1,3 +1,10 @@
+---
+title: 向量分析算子（Vector Operators）
+date: "2026-01-21"
+categories:
+  - math
+description: 标量场： 向量场：， 变量：
+---
 # 向量分析算子（Vector Operators）
 
 ## 1. 统一记号

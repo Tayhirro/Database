@@ -1,12 +1,16 @@
 ---
-type: concept
+title: Executor（Tomcat endpoint 的 worker 执行器）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
   - executor
+description: Executor 是 Tomcat endpoint 用于承载请求处理任务的执行器抽象：端点把任务投递到 Executor 所提供的 worker 线程中执行。
+type: concept
 ---
-
 # Executor（Tomcat endpoint 的 worker 执行器）
 
 ## 一句话

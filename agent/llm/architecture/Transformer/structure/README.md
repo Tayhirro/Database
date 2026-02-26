@@ -1,3 +1,10 @@
+---
+title: Transformer 学习笔记
+date: "2026-02-06"
+categories:
+  - agent
+description: "整体架构流程 核心模块详解（Self-Attention、Multi-Head、FFN、残差连接） 完整的 Encoder/Decoder 流程 维度变化详解 直观案例理解"
+---
 # Transformer 学习笔记
 
 ## 📚 文档目录

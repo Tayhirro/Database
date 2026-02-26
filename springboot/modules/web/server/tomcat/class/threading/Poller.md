@@ -1,12 +1,16 @@
 ---
-type: concept
+title: Poller（Tomcat NIO 轮询线程角色）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
   - nio
+description: Poller 是 Tomcat NIO 端点中负责驱动 I/O 多路复用（select/poll）并把就绪事件分发为可执行任务的运行态线程角色。
+type: concept
 ---
-
 # Poller（Tomcat NIO 轮询线程角色）
 
 ## 一句话

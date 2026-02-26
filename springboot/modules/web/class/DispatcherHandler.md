@@ -1,3 +1,10 @@
+---
+title: DispatcherHandler（WebFlux 前端控制器）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # DispatcherHandler（WebFlux 前端控制器）
 
 > **类型**：类（Class）

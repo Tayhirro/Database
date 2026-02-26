@@ -1,3 +1,10 @@
+---
+title: LifecycleStateMachine（显式生命周期与状态机）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：概念（Concept）
+---
 # LifecycleStateMachine（显式生命周期与状态机）
 
 > **类型**：概念（Concept）

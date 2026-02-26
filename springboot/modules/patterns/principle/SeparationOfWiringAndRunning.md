@@ -1,3 +1,10 @@
+---
+title: SeparationOfWiringAndRunning（装配与运行分离）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：原则（Principle）
+---
 # SeparationOfWiringAndRunning（装配与运行分离）
 
 > **类型**：原则（Principle）

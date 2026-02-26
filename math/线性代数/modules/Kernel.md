@@ -1,3 +1,10 @@
+---
+title: "核空间（Kernel, ker(A)）"
+date: "2026-01-22"
+categories:
+  - math
+description: 线性映射  的核空间（kernel）是所有被映射到零向量的输入所组成的集合。
+---
 # 核空间（Kernel, `ker(A)`）
 
 ## 一句话

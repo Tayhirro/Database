@@ -1,3 +1,10 @@
+---
+title: 期望（Expectation）
+date: "2026-01-17"
+categories:
+  - math
+description: 期望是随机变量的"加权平均"，权重由概率分布给出；是概率论中最核心的数值特征 下标表示概率分布，括号内表示求均内容
+---
 # 期望（Expectation）
 
 ## 1. 一句话

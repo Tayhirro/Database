@@ -1,3 +1,10 @@
+---
+title: HttpMessageConverter（HTTP 消息转换器）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HttpMessageConverter（HTTP 消息转换器）
 
 > **类型**：接口（Interface）

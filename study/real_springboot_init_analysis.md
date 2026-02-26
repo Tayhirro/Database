@@ -1,3 +1,10 @@
+---
+title: 真实Spring Boot 初始化过程源码分析
+date: "2026-01-07"
+categories:
+  - study
+description: 本文档基于真实的Spring Boot源码，深入分析了Spring Boot应用从启动入口（main方法）到完成整个应用上下文刷新的完整初始化流程。通过对源码的详细解读，我们将了解Spring Boot是如何从程序启动到Bean容器准备就绪的全过程。
+---
 # 真实Spring Boot 初始化过程源码分析
 
 ## 概述

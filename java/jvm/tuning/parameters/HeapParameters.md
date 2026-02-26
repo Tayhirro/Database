@@ -1,13 +1,17 @@
 ---
-type: concept
+title: HeapParameters（堆参数）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - parameters
   - heap
+description: 堆参数（Heap Parameters）是 JVM 启动参数中用于限定堆大小与相关布局边界（例如初始/最大堆）的参数子集。
+type: concept
 ---
-
 # HeapParameters（堆参数）
 
 ## 一句话

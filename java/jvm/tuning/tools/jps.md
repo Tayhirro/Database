@@ -1,12 +1,16 @@
 ---
-type: tool
+title: jps（JVM 进程查看工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: jps 是 JDK 提供的命令行工具，用于列出本机可见的 Java 进程及其主类/启动参数摘要（输出字段依实现与权限而定）。
+type: tool
 ---
-
 # jps（JVM 进程查看工具）
 
 ## 一句话

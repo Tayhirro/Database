@@ -1,3 +1,10 @@
+---
+title: ApplicationListenerRegistration（监听器注册与装配）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # ApplicationListenerRegistration（监听器注册与装配）
 
 > **类型**：机制（Mechanism）

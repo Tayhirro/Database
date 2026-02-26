@@ -1,12 +1,16 @@
 ---
-type: class
+title: CatalinaRequest（org.apache.catalina.connector.Request）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - catalina
   - servlet
+description: 类型：类（Class）
+type: class
 ---
-
 # CatalinaRequest（org.apache.catalina.connector.Request）
 
 > **类型**：类（Class）

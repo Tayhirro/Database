@@ -1,3 +1,10 @@
+---
+title: Spring Boot 介绍：启动、spring.factories、ApplicationContext
+date: "2026-01-20"
+categories:
+  - study
+description: 迁移提示：Spring Boot“出书式”整理已迁移到顶层目录 springboot/。本页保留为早期笔记；新入口见 springboot/README.md。
+---
 # Spring Boot 介绍：启动、`spring.factories`、`ApplicationContext`
 
 > 迁移提示：Spring Boot“出书式”整理已迁移到顶层目录 `springboot/`。本页保留为早期笔记；新入口见 `springboot/README.md`。

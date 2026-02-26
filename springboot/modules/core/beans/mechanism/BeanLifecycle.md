@@ -1,10 +1,14 @@
 ---
-type: mechanism
+title: Bean 生命周期（Bean Lifecycle）
+date: "2026-01-29"
+categories:
+  - springboot
 tags:
   - springboot/mechanism
   - beans
+description: Bean 生命周期描述了单个 Bean 实例从实例化到销毁的阶段化处理链路。
+type: mechanism
 ---
-
 # Bean 生命周期（Bean Lifecycle）
 
 ## 一句话

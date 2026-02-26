@@ -1,3 +1,10 @@
+---
+title: 长上下文注意力优化
+date: "2026-02-10"
+categories:
+  - agent
+description: "导航：context/README.md | SelfAttention"
+---
 # 长上下文注意力优化
 
 导航：[context/README.md](../../README.md) | [SelfAttention](../structure/SelfAttention.md)

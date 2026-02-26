@@ -1,3 +1,10 @@
+---
+title: Transformer 基础结构详解
+date: "2026-02-06"
+categories:
+  - agent
+description: "为什么要多头？ 不同的头可以学习不同的关系 Head 1: 学习语法关系（主谓宾） Head 2: 学习语义关系（同义词） Head 3: 学习位置关系（远近）"
+---
 # Transformer 基础结构详解
 
 ## 一、整体架构流程

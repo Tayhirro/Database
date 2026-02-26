@@ -1,3 +1,10 @@
+---
+title: "交叉熵损失（Cross-Entropy Loss）"
+date: "2026-02-08"
+categories:
+  - agent
+description: "导航：evaluation/README.md | Perplexity.md"
+---
 # 交叉熵损失（Cross-Entropy Loss）
 
 导航：[evaluation/README.md](../README.md) | [Perplexity.md](./Perplexity.md)

@@ -1,10 +1,14 @@
 ---
-type: interface
+title: ApplicationRunner（应用启动器接口）
+date: "2026-01-30"
+categories:
+  - springboot
 tags:
   - springboot/interface
   - bootstrap
+description: ApplicationRunner 定义了 Spring Boot 启动完成后、容器就绪但尚未对外服务前执行的回调契约，用于在 ApplicationRunner.run() 中封装应用启动后的初始化逻辑。
+type: interface
 ---
-
 # ApplicationRunner（应用启动器接口）
 
 ## 一句话

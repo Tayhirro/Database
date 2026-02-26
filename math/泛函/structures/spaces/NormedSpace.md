@@ -1,3 +1,10 @@
+---
+title: 赋范空间（Normed Space）
+date: "2026-01-09"
+categories:
+  - math
+description: "在线性空间上加“长度/大小”的概念，从而能谈连续、极限、收敛与算子范数。 -距离 的概念"
+---
 # 赋范空间（Normed Space）
 
 ## 1. 一句话

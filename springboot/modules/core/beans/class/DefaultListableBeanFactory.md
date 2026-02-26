@@ -1,3 +1,10 @@
+---
+title: DefaultListableBeanFactory（默认可枚举 BeanFactory）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # DefaultListableBeanFactory（默认可枚举 BeanFactory）
 
 > **类型**：类（Class）

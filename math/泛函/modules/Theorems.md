@@ -1,3 +1,10 @@
+---
+title: 工具定理（Theorems）
+date: "2026-01-09"
+categories:
+  - math
+description: 这页先做“速查入口”，后续每条可再拆分成独立页面。
+---
 # 工具定理（Theorems）
 
 > 这页先做“速查入口”，后续每条可再拆分成独立页面。

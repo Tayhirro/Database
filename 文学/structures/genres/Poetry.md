@@ -1,3 +1,10 @@
+---
+title: 诗歌（Poetry）
+date: "2026-01-17"
+categories:
+  - 文学
+description: 以韵律、节奏、意象为核心的文学形式，追求语言的音乐性与凝练表达
+---
 # 诗歌（Poetry）
 
 ## 1. 一句话

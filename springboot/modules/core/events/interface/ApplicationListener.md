@@ -1,3 +1,10 @@
+---
+title: ApplicationListener（事件监听器）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：标准接口（Standard Interface）
+---
 # ApplicationListener（事件监听器）
 
 > **类型**：标准接口（Standard Interface）

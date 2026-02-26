@@ -1,3 +1,10 @@
+---
+title: Environment（环境抽象）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：核心接口（Core Interface）
+---
 # Environment（环境抽象）
 
 > **类型**：核心接口（Core Interface）

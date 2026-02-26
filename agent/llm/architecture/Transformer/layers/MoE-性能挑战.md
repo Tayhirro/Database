@@ -1,3 +1,10 @@
+---
+title: MoE 性能挑战与解决方案
+date: "2026-02-06"
+categories:
+  - agent
+description: "导航：layers/README.md | MoE.md | Transformer.md"
+---
 # MoE 性能挑战与解决方案
 
 导航：[layers/README.md](./README.md) | [MoE.md](./MoE.md) | [Transformer.md](../Transformer.md)

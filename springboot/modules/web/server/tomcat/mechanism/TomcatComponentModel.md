@@ -1,10 +1,14 @@
 ---
-type: mechanism
+title: TomcatComponentModel（Tomcat 组件模型：Server/Service/Connector/Protocol/Endpoint）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # TomcatComponentModel（Tomcat 组件模型：Server/Service/Connector/Protocol/Endpoint）
 
 > **类型**：机制（Mechanism）

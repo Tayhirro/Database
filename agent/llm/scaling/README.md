@@ -1,3 +1,10 @@
+---
+title: 扩展规律（Scaling）
+date: "2026-01-31"
+categories:
+  - agent
+description: "导航：llm/README.md | 索引.md"
+---
 # 扩展规律（Scaling）
 
 导航：[llm/README.md](../README.md) | [索引.md](索引.md)

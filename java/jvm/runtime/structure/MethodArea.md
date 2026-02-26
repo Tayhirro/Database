@@ -1,13 +1,17 @@
 ---
-type: concept
+title: MethodArea（方法区）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
-  - method-area
+  - "method-area"
+description: 方法区（Method Area）是 JVM 运行时数据区中用于承载“类级元信息与相关运行时结构”的抽象区域。
+type: concept
 ---
-
 # MethodArea（方法区）
 
 ## 一句话

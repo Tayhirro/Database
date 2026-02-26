@@ -1,3 +1,10 @@
+---
+title: ContextRefresh（ApplicationContext.refresh 模板流程）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # ContextRefresh（ApplicationContext.refresh 模板流程）
 
 > **类型**：机制（Mechanism）

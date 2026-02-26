@@ -1,3 +1,10 @@
+---
+title: 意识流（Stream of Consciousness）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 模拟人物内心意识自然流动的叙事技巧，不加整理地呈现思想、感觉、记忆的混合
+---
 # 意识流（Stream of Consciousness）
 
 ## 1. 一句话

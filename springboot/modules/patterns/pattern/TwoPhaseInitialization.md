@@ -1,3 +1,10 @@
+---
+title: TwoPhaseInitialization（两阶段初始化）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # TwoPhaseInitialization（两阶段初始化）
 
 > **类型**：模式（Pattern）

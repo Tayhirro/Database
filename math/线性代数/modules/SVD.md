@@ -1,3 +1,10 @@
+---
+title: "奇异值分解（SVD, Singular Value Decomposition）"
+date: "2026-01-25"
+categories:
+  - math
+description: 奇异值分解把任意矩阵表示为两个正交/酉矩阵与一个非负对角矩阵的乘积，从而把矩阵的“方向变化”和“尺度变化”分离开。
+---
 # 奇异值分解（SVD, Singular Value Decomposition）
 
 ## 一句话

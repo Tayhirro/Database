@@ -1,3 +1,10 @@
+---
+title: 常见语法错误 (Common Errors)
+date: "2026-01-21"
+categories:
+  - 英语
+description: 本页收集中国学习者常犯的语法错误，帮助规避"中式英语"
+---
 # 常见语法错误 (Common Errors)
 
 > 本页收集中国学习者常犯的语法错误，帮助规避"中式英语"

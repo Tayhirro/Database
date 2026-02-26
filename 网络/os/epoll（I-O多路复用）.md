@@ -1,12 +1,16 @@
 ---
-type: concept
+title: epoll（I/O多路复用）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network
   - os
   - epoll
-  - io-multiplexing
+  - "io-multiplexing"
+description: epoll 是 Linux 的 I/O 多路复用接口：在一个等待点上监视多个文件描述符（FD）的就绪事件，并返回就绪集合。
+type: concept
 ---
-
 # epoll（I/O多路复用）
 
 ## 一句话

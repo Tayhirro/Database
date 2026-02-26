@@ -1,3 +1,10 @@
+---
+title: Redis 数据结构与 StringRedisTemplate（速查）
+date: "2026-02-03"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # Redis 数据结构与 StringRedisTemplate（速查）
 
 > **类型**：机制（Mechanism）

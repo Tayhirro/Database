@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: SafePoint（安全点）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - mechanism
+description: 安全点（Safepoint）是 JVM 能够在满足一致性条件下让线程暂停/切换到可枚举状态的位置集合，用于支持 GC、线程栈枚举等运行态操作。
+type: mechanism
 ---
-
 # SafePoint（安全点）
 
 ## 一句话

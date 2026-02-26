@@ -1,3 +1,10 @@
+---
+title: 本地接口（Native）
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：jvm/README.md | 索引.md"
+---
 # 本地接口（Native）
 
 导航：[jvm/README.md](../README.md) | [索引.md](索引.md)

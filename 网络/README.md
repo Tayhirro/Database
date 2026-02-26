@@ -1,10 +1,14 @@
 ---
-type: index
+title: 网络（总入口）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network/index
   - moc
+description: 索引（MOC）：索引.md 概念图：概念图.md
+type: index
 ---
-
 # 网络（总入口）
 
 ## 导航

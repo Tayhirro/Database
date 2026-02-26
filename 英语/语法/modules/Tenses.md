@@ -1,3 +1,10 @@
+---
+title: 时态系统 (Tense System)
+date: "2026-01-21"
+categories:
+  - 英语
+description: "英语时态 = 时间 (Time) × 体态 (Aspect)"
+---
 # 时态系统 (Tense System)
 
 > 英语时态 = 时间 (Time) × 体态 (Aspect)

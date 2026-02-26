@@ -1,3 +1,10 @@
+---
+title: Proxy（代理）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Proxy（代理）
 
 > **类型**：模式（Pattern）

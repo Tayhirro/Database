@@ -1,3 +1,10 @@
+---
+title: 常用词根 (Common Roots)
+date: "2026-01-21"
+categories:
+  - 英语
+description: 词根是单词的核心，掌握词根可以快速扩展词汇量
+---
 # 常用词根 (Common Roots)
 
 > 词根是单词的核心，掌握词根可以快速扩展词汇量

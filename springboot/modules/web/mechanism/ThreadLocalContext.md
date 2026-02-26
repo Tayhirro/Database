@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: ThreadLocalContext（线程绑定上下文）
+date: "2026-02-03"
+categories:
+  - springboot
 tags:
   - springboot/web
   - threadlocal
   - context
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # ThreadLocalContext（线程绑定上下文）
 
 > **类型**：机制（Mechanism）

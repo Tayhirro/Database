@@ -1,3 +1,10 @@
+---
+title: 域论（Field Theory）
+date: "2026-01-21"
+categories:
+  - math
+description: "域（定义/例子/速查）：见 math/离散/structures/two-op/Field.md 多项式环：F[x]，理想 (p(x))，商 F[x]/(p)（与 math/离散/modules/Quotient.md 呼应）"
+---
 # 域论（Field Theory）
 
 ## 1. 预备：域与多项式

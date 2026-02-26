@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: TomcatRequestObjectMapping（字节流→CoyoteRequest→ServletRequest）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - http
   - request
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # TomcatRequestObjectMapping（字节流→CoyoteRequest→ServletRequest）
 
 > **类型**：机制（Mechanism）

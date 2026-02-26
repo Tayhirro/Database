@@ -1,3 +1,10 @@
+---
+title: "单射（Injective / One-to-One）"
+date: "2026-01-22"
+categories:
+  - math
+description: 单射表示“不同输入不会映到同一输出”，在线性映射中等价于核空间为零。
+---
 # 单射（Injective / One-to-One）
 
 ## 一句话

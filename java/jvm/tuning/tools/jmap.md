@@ -1,12 +1,16 @@
 ---
-type: tool
+title: jmap（堆与内存相关诊断工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: jmap 是 JDK 提供的命令行工具，用于获取目标 JVM 进程的堆与内存相关信息，并可触发生成堆转储（heap dump）（可用功能依实现与权限而定）。
+type: tool
 ---
-
 # jmap（堆与内存相关诊断工具）
 
 ## 一句话

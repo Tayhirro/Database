@@ -1,3 +1,10 @@
+---
+title: "零空间（Null Space, Null(A)）"
+date: "2026-01-22"
+categories:
+  - math
+description: 矩阵  的零空间（null space）是齐次线性方程组  的解空间。
+---
 # 零空间（Null Space, `Null(A)`）
 
 ## 一句话

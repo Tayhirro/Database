@@ -1,12 +1,16 @@
 ---
-type: collector
+title: ParNew（收集器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: ParNew 是一种以多线程并行执行回收工作为特征的收集器实现（名称、代际定位与可用性依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # ParNew（收集器）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: Flyweight（享元）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Flyweight（享元）
 
 > **类型**：模式（Pattern）

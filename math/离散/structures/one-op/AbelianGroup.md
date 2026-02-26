@@ -1,3 +1,10 @@
+---
+title: 阿贝尔群（Abelian Group / 交换群）
+date: "2026-01-09"
+categories:
+  - math
+description: 运算可交换的群；很多场景会把运算写成 + 并称元素“可加”。
+---
 # 阿贝尔群（Abelian Group / 交换群）
 
 ## 1. 一句话

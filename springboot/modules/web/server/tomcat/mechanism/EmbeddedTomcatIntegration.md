@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: EmbeddedTomcatIntegration（Spring Boot 与 Embedded Tomcat 的接入）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - springboot/embedded
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # EmbeddedTomcatIntegration（Spring Boot 与 Embedded Tomcat 的接入）
 
 > **类型**：机制（Mechanism）

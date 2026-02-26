@@ -1,3 +1,10 @@
+---
+title: TomcatWebServer（Tomcat WebServer 封装）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # TomcatWebServer（Tomcat WebServer 封装）
 
 > **类型**：类（Class）

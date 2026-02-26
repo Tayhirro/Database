@@ -1,12 +1,16 @@
 ---
-type: class
+title: Http11Processor（Tomcat HTTP/1.1 协议解析处理器）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - http
   - coyote
+description: 类型：类（Class）
+type: class
 ---
-
 # Http11Processor（Tomcat HTTP/1.1 协议解析处理器）
 
 > **类型**：类（Class）

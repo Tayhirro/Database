@@ -1,13 +1,17 @@
 ---
-type: concept
+title: Metaspace（元空间）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
   - metaspace
+description: 元空间（Metaspace）是 HotSpot JDK 8+ 中承载主要类元数据的方法区实现形态。
+type: concept
 ---
-
 # Metaspace（元空间）
 
 ## 一句话

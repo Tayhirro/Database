@@ -1,3 +1,10 @@
+---
+title: modules（音乐模块 / 可复用工具箱）
+date: "2026-01-17"
+categories:
+  - 音乐
+description: 导航：音乐索引.md
+---
 # modules（音乐模块 / 可复用工具箱）
 
 导航：[音乐索引.md](../音乐索引.md)

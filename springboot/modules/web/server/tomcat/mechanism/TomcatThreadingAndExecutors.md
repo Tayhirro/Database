@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: TomcatThreadingAndExecutors（Tomcat 的线程与执行器模型）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # TomcatThreadingAndExecutors（Tomcat 的线程与执行器模型）
 
 > **类型**：机制（Mechanism）

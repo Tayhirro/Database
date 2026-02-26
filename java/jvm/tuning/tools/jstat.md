@@ -1,12 +1,16 @@
 ---
-type: tool
+title: jstat（JVM 统计监控工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: jstat 是 JDK 提供的命令行工具，用于按采样周期输出某个 JVM 进程的统计信息（包括类加载、GC、编译等维度），以便进行运行态观测。
+type: tool
 ---
-
 # jstat（JVM 统计监控工具）
 
 ## 一句话

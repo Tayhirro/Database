@@ -1,9 +1,13 @@
 ---
-type: index
+title: GoFDesignPatterns（GoF 设计模式目录：创建型/结构型/行为型）
+date: "2026-01-29"
+categories:
+  - springboot
 tags:
   - patterns/gof
+description: 类型：目录（Catalog）
+type: index
 ---
-
 # GoFDesignPatterns（GoF 设计模式目录：创建型/结构型/行为型）
 
 > **类型**：目录（Catalog）

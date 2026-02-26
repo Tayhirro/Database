@@ -1,3 +1,10 @@
+---
+title: GRU（Gated Recurrent Unit）
+date: "2026-02-17"
+categories:
+  - 神经网络
+description: LSTM 的轻量化门控 RNN：用 update/reset 两个门控制“保留旧记忆 vs 写入新信息”，通常更省参数与计算。
+---
 # GRU（Gated Recurrent Unit）
 
 ## 1. 一句话

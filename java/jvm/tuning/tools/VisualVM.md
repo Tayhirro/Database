@@ -1,12 +1,16 @@
 ---
-type: tool
+title: VisualVM（综合分析工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: VisualVM 是一类对 JVM 进程进行可视化监控与分析的工具，常用于查看线程、堆、GC 与性能采样等信息（具体能力依版本与插件而定）。
+type: tool
 ---
-
 # VisualVM（综合分析工具）
 
 ## 一句话

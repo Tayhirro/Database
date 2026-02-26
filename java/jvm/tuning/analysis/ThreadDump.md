@@ -1,13 +1,17 @@
 ---
-type: concept
+title: ThreadDump（线程转储）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - analysis
   - threading
+description: 线程转储（Thread Dump）是某一时刻 JVM 进程内线程集合及其栈帧状态的快照，用于分析阻塞、死锁与运行态调用路径。
+type: concept
 ---
-
 # ThreadDump（线程转储）
 
 ## 一句话

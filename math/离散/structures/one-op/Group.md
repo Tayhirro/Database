@@ -1,3 +1,10 @@
+---
+title: 群（Group）
+date: "2026-01-09"
+categories:
+  - math
+description: 能做“对称/可逆操作”的抽象模型；最重要的是“每步都可撤销”。
+---
 # 群（Group）
 
 ## 1. 一句话

@@ -1,10 +1,14 @@
 ---
-type: interface
+title: Session（Tomcat Session 接口）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：接口（Interface）
+type: interface
 ---
-
 # Session（Tomcat Session 接口）
 
 > **类型**：接口（Interface）

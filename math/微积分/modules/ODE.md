@@ -1,3 +1,10 @@
+---
+title: 常微分方程（ODE）
+date: "2026-01-21"
+categories:
+  - math
+description: "ODE 把“变化规律”写成方程：x'(t)=F(x,t)，连接轨迹/动力系统/数值解法。"
+---
 # 常微分方程（ODE）
 
 ## 1. 一句话

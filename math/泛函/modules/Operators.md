@@ -1,3 +1,10 @@
+---
+title: 算子（Operators）
+date: "2026-01-09"
+categories:
+  - math
+description: “箭头”是泛函分析的主角：线性算子把空间之间的结构联系起来。
+---
 # 算子（Operators）
 
 ## 1. 一句话

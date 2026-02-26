@@ -1,12 +1,16 @@
 ---
-type: index
+title: 端点线程角色（Tomcat / NIO）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
   - moc
+description: 本目录用于描述 Tomcat endpoint 在运行态的线程角色分工（概念级），以便与 AbstractEndpoint 的启动与执行器模型对齐。
+type: index
 ---
-
 # 端点线程角色（Tomcat / NIO）
 
 > 本目录用于描述 Tomcat endpoint 在运行态的线程角色分工（概念级），以便与 `AbstractEndpoint` 的启动与执行器模型对齐。

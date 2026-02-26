@@ -1,3 +1,10 @@
+---
+title: Prototype（原型）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Prototype（原型）
 
 > **类型**：模式（Pattern）

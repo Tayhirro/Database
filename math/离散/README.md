@@ -1,3 +1,10 @@
+---
+title: "离散（抽象代数/离散数学）笔记组织说明（可扩展 & 速查）"
+date: "2026-01-21"
+categories:
+  - math
+description: 导航：math/README.md ｜math/索引.md ｜本分支：math/离散/索引.md ｜math/离散/概念图.md
+---
 # 离散（抽象代数/离散数学）笔记组织说明（可扩展 & 速查）
 
 导航：[math/README.md](../README.md) ｜[math/索引.md](../索引.md) ｜本分支：[math/离散/索引.md](索引.md) ｜[math/离散/概念图.md](概念图.md)

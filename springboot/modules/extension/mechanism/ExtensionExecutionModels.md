@@ -1,3 +1,10 @@
+---
+title: ExtensionExecutionModels（Boot 启动扩展点的执行模型）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # ExtensionExecutionModels（Boot 启动扩展点的执行模型）
 
 > **类型**：机制（Mechanism）

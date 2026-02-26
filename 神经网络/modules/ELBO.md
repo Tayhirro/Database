@@ -1,3 +1,10 @@
+---
+title: ELBO（Evidence Lower Bound）
+date: "2026-01-15"
+categories:
+  - 神经网络
+description: 变分推断里用来“最大化可计算下界”的目标函数，常用于 VAE。
+---
 # ELBO（Evidence Lower Bound）
 
 ## 1. 一句话

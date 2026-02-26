@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: SignalDispatcherThread（Signal Dispatcher 线程）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - springboot/jvm
   - jvm
   - signal
   - threading
+description: Signal Dispatcher 线程是 JVM 在运行态用于接收与分发进程信号相关事件的内部服务线程（以 HotSpot/OpenJDK 为例）。
+type: mechanism
 ---
-
 # SignalDispatcherThread（Signal Dispatcher 线程）
 
 ## 一句话

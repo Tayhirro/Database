@@ -1,3 +1,10 @@
+---
+title: Visitor（访问者）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Visitor（访问者）
 
 > **类型**：模式（Pattern）

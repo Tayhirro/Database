@@ -1,3 +1,10 @@
+---
+title: Tokenization（分词与子词）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 把自然语言变成 token 序列，是 BERT/LLM 输入管线的第一步。
+---
 # Tokenization（分词与子词）
 
 ## 1. 一句话

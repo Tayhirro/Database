@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: GCRoots（GC Roots）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - mechanism
+description: GC Roots 是可达性分析的起点集合：从这些根对象出发可达的对象被判定为存活（在引用类型规则之外）。
+type: mechanism
 ---
-
 # GCRoots（GC Roots）
 
 ## 一句话

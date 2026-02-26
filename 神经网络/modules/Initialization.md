@@ -1,3 +1,10 @@
+---
+title: 参数初始化（Initialization / Weight Initialization）
+date: "2026-01-16"
+categories:
+  - 神经网络
+description: 用“合适尺度”的随机权重初始化，使前向信号与反向梯度在层间传播时不过度爆炸/消失，从而更容易训练。
+---
 # 参数初始化（Initialization / Weight Initialization）
 
 ## 1. 一句话

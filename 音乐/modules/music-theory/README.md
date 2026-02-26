@@ -1,10 +1,14 @@
 ---
-type: module
+title: 乐理（Music Theory）知识体系
+date: "2026-01-29"
+categories:
+  - 音乐
 tags:
   - music/module/theory
-  - music-theory
+  - "music-theory"
+description: 本目录系统化地组织音乐理论相关知识，从基础概念到进阶应用。
+type: module
 ---
-
 # 乐理（Music Theory）知识体系
 
 本目录系统化地组织音乐理论相关知识，从基础概念到进阶应用。

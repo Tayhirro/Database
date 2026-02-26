@@ -1,11 +1,15 @@
 ---
-type: concept
+title: Acceptor（Tomcat NIO 接入线程角色）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
+description: Acceptor 是 Tomcat NIO 端点中负责接收（accept）新 TCP 连接并将连接交给后续 I/O 管理机制的运行态线程角色。
+type: concept
 ---
-
 # Acceptor（Tomcat NIO 接入线程角色）
 
 ## 一句话

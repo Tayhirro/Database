@@ -1,3 +1,10 @@
+---
+title: BeanDefinitionRegistry（BeanDefinition 注册表）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # BeanDefinitionRegistry（BeanDefinition 注册表）
 
 > **类型**：接口（Interface）

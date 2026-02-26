@@ -1,3 +1,10 @@
+---
+title: 小说（Fiction）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 以叙事为核心的虚构散文作品，通过情节、人物、场景讲述故事
+---
 # 小说（Fiction）
 
 ## 1. 一句话

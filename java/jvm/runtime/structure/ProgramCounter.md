@@ -1,13 +1,17 @@
 ---
-type: concept
+title: ProgramCounter（程序计数器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
   - pc
+description: 程序计数器（Program Counter）是线程私有的执行位置指示：指向当前线程将要执行的字节码指令（或等价表示）。
+type: concept
 ---
-
 # ProgramCounter（程序计数器）
 
 ## 一句话

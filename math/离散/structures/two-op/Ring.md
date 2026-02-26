@@ -1,3 +1,10 @@
+---
+title: 环（Ring）
+date: "2026-01-09"
+categories:
+  - math
+description: 同时有加法与乘法的结构：加法像向量加法，乘法像组合；分配律把两者联动。
+---
 # 环（Ring）
 
 ## 1. 一句话

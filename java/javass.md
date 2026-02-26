@@ -1,3 +1,10 @@
+---
+title: JAVA基础
+date: "2026-01-30"
+categories:
+  - java
+description: "注解 @interface 接口  interface"
+---
 # JAVA基础
 
 ## 编译

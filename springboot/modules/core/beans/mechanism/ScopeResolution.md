@@ -1,3 +1,10 @@
+---
+title: ScopeResolution（Scope 注册与解析）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # ScopeResolution（Scope 注册与解析）
 
 > **类型**：机制（Mechanism）

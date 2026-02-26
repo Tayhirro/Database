@@ -1,8 +1,12 @@
 ---
-aliases: [Layer Normalization, 层归一化]
-tags: [normalization, transformer, mean-subtraction]
+title: LayerNorm
+date: "2026-02-05"
+categories:
+  - agent
+tags: "[normalization, transformer, mean-subtraction]"
+description: 沿特征维度减去均值、除以标准差，并通过可学习的  缩放与  平移进行变换的归一化方法。
+aliases: "[Layer Normalization, 层归一化]"
 ---
-
 # LayerNorm
 
 ## 一句话

@@ -1,10 +1,14 @@
 ---
-type: flow
+title: ServletWeb应用持续运行机制（AnnotationConfigServletWebServerApplicationContext）
+date: "2026-02-03"
+categories:
+  - springboot
 tags:
   - springboot/flow
   - web
+description: "在 Servlet Web 应用形态下，SpringApplication.run(...) 本身不会阻塞；应用在 context.refresh() 过程中启动 WebServer，由 WebServer 启动的非守护线程（non-daemon threads）保持 JVM 进程持续运行，直..."
+type: flow
 ---
-
 # ServletWeb应用持续运行机制（AnnotationConfigServletWebServerApplicationContext）
 
 ## 一句话

@@ -1,12 +1,16 @@
 ---
-type: class
+title: Runtime（java.lang.Runtime）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - class
+description: java.lang.Runtime 是 Java 进程运行时环境的 Java 层访问入口，其 getRuntime() 暴露一个进程内共享的 Runtime 实例。
+type: class
 ---
-
 # Runtime（java.lang.Runtime）
 
 ## 一句话

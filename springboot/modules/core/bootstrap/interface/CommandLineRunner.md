@@ -1,10 +1,14 @@
 ---
-type: interface
+title: CommandLineRunner（命令行启动器接口）
+date: "2026-01-30"
+categories:
+  - springboot
 tags:
   - springboot/interface
   - bootstrap
+description: CommandLineRunner 定义了 Spring Boot 启动完成后执行的回调契约，接收原始命令行参数数组，用于在应用就绪前执行初始化逻辑。
+type: interface
 ---
-
 # CommandLineRunner（命令行启动器接口）
 
 ## 一句话

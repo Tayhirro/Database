@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: ReferenceTypes（引用类型）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - mechanism
+description: 引用类型（Reference Types）是在可达性语义之外对“对象存活与回收时机”施加额外规则的一组引用分类：强/软/弱/虚。
+type: mechanism
 ---
-
 # ReferenceTypes（引用类型）
 
 ## 一句话

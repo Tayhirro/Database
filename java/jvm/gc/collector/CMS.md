@@ -1,12 +1,16 @@
 ---
-type: collector
+title: CMS（Concurrent Mark Sweep）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: CMS（Concurrent Mark Sweep）是一种以“并发标记/并发清理”为特征的收集器实现，其目标之一是减少某些回收阶段的停顿时间（名称与可用性依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # CMS（Concurrent Mark Sweep）
 
 ## 一句话

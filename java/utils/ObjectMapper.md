@@ -1,3 +1,10 @@
+---
+title: ObjectMapper（对象映射器）
+date: "2026-02-06"
+categories:
+  - java
+description: ObjectMapper 是 Jackson 库的核心类，用于 Java 对象 ↔ JSON 字符串 的互相转换（序列化/反序列化）。
+---
 # ObjectMapper（对象映射器）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: Singleton（单例）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Singleton（单例）
 
 > **类型**：模式（Pattern）

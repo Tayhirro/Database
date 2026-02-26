@@ -1,3 +1,10 @@
+---
+title: 外部化配置（Externalized Configuration）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 外部化配置（Externalized Configuration）
 
 > **类型**：机制（Mechanism）

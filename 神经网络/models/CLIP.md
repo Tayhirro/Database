@@ -1,3 +1,10 @@
+---
+title: CLIP（Contrastive Language–Image Pretraining）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 图像编码器 + 文本编码器的双塔模型，通过对比学习把图文表征对齐。
+---
 # CLIP（Contrastive Language–Image Pretraining）
 
 ## 1. 一句话

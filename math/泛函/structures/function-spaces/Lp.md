@@ -1,3 +1,10 @@
+---
+title: L^p 空间（Lebesgue Spaces）
+date: "2026-01-09"
+categories:
+  - math
+description: 用“可积性 + p 次平均大小”度量函数，是泛函分析与 PDE 的主力函数空间。
+---
 # `L^p` 空间（Lebesgue Spaces）
 
 ## 1. 一句话

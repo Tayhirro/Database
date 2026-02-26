@@ -1,3 +1,10 @@
+---
+title: 日常词汇 (Daily Vocabulary)
+date: "2026-02-14"
+categories:
+  - 英语
+description: 日常生活常用词汇，适用于日常交流、购物、出行等场景
+---
 # 日常词汇 (Daily Vocabulary)
 
 > 日常生活常用词汇，适用于日常交流、购物、出行等场景

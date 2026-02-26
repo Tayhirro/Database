@@ -1,3 +1,10 @@
+---
+title: 例子库（最小工作例子）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: "用一个小数据集（MNIST/CIFAR 子集）跑通 AE：重构能收敛、潜空间可视化（t-SNE/2D） 跑通 VAE：能看到 KL 项与重构项的 trade-off（可记录 β-VAE） VAE tensor 级 walkthrough（RGB 图片 H×W×3）：VAE_TensorLeve..."
+---
 # 例子库（最小工作例子）
 
 ## AE / VAE

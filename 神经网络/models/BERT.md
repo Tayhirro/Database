@@ -1,3 +1,10 @@
+---
+title: BERT（Bidirectional Encoder Representations from Transformers）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 用 Transformer Encoder 做双向上下文建模的预训练语言模型，经典目标是 MLM。
+---
 # BERT（Bidirectional Encoder Representations from Transformers）
 
 ## 1. 一句话

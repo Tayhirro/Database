@@ -1,10 +1,14 @@
 ---
-type: class
+title: Connector（Tomcat 连接器）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # Connector（Tomcat 连接器）
 
 > **类型**：类（Class）

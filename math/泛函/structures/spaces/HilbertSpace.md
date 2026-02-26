@@ -1,3 +1,10 @@
+---
+title: Hilbert 空间（Hilbert Space）
+date: "2026-02-26"
+categories:
+  - math
+description: 完备内积空间；“正交分解 + 极限”能稳定共存，是投影、最小二乘、谱理论的标准舞台。
+---
 # Hilbert 空间（Hilbert Space）
 
 ## 1. 一句话

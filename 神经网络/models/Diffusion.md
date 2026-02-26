@@ -1,3 +1,10 @@
+---
+title: Diffusion（Diffusion Models / DDPM）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 通过“前向逐步加噪 + 学习反向去噪”来建模数据分布的生成模型族。
+---
 # Diffusion（Diffusion Models / DDPM）
 
 ## 1. 一句话

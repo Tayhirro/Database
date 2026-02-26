@@ -1,3 +1,10 @@
+---
+title: WebServerFactory（WebServer 工厂标记接口）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # WebServerFactory（WebServer 工厂标记接口）
 
 > **类型**：接口（Interface）

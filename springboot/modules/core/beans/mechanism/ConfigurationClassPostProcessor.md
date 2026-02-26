@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: ConfigurationClassPostProcessor（配置类解析与派生注册）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/core
   - beans
   - annotation
+description: "ConfigurationClassPostProcessor 是 Spring Framework 在 refresh() 早期执行的 BeanDefinitionRegistryPostProcessor：解析配置类（含复合注解/@Import/@ComponentScan/@Bean 等..."
+type: mechanism
 ---
-
 # ConfigurationClassPostProcessor（配置类解析与派生注册）
 
 ## 一句话

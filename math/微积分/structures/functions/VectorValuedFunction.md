@@ -1,3 +1,10 @@
+---
+title: "向量值函数（Vector-Valued Function）"
+date: "2026-01-21"
+categories:
+  - math
+description: 向量值函数就是 。
+---
 # 向量值函数（Vector-Valued Function）
 
 ## 1. 一句话

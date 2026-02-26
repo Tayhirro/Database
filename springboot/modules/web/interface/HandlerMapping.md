@@ -1,3 +1,10 @@
+---
+title: HandlerMapping（MVC 处理器映射接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerMapping（MVC 处理器映射接口）
 
 > **类型**：接口（Interface）

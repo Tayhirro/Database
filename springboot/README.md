@@ -1,10 +1,14 @@
 ---
-type: index
+title: springboot（总入口）
+date: "2026-01-20"
+categories:
+  - springboot
 tags:
   - springboot/index
   - moc
+description: 用法：把本页当作入口，在 Obsidian 打开"本地关系图（Local graph）"，深度设为 2～3，用索引与概念图把整套内容串起来。
+type: index
 ---
-
 # springboot（总入口）
 
 > 用法：把本页当作入口，在 Obsidian 打开"本地关系图（Local graph）"，深度设为 2～3，用索引与概念图把整套内容串起来。

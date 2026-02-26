@@ -1,10 +1,14 @@
 ---
-type: interface
+title: ProtocolHandler（Tomcat 协议处理器接口）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：接口（Interface）
+type: interface
 ---
-
 # ProtocolHandler（Tomcat 协议处理器接口）
 
 > **类型**：接口（Interface）

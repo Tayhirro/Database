@@ -1,8 +1,12 @@
 ---
-aliases: [Root Mean Square Layer Normalization, RMS归一化]
-tags: [normalization, layer-norm, llama, training-stability]
+title: RMSNorm
+date: "2026-02-06"
+categories:
+  - agent
+tags: "[normalization, layer-norm, llama, training-stability]"
+description: 仅通过均方根（RMS）进行尺度缩放而不减去均值、不添加偏置的层归一化变体，以减少计算开销并维持训练稳定性。
+aliases: "[Root Mean Square Layer Normalization, RMS归一化]"
 ---
-
 # RMSNorm
 
 ## 一句话

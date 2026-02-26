@@ -1,13 +1,17 @@
 ---
-type: structure
-kind: class
+title: Region（内存区域）
+date: "2026-02-04"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - structure
+description: "Region（内存区域）是堆内存的逻辑或物理划分单元，是垃圾收集器（如 G1, Shenandoah, ZGC）进行资源管理和回收调度的基本粒度。"
+type: structure
+kind: class
 ---
-
 # Region（内存区域）
 
 ## 一句话

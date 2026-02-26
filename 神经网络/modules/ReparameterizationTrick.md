@@ -1,3 +1,10 @@
+---
+title: 重参数化技巧（Reparameterization Trick）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 把“对随机变量采样”改写成“对噪声采样 + 可导的确定性变换”，让梯度能反传。
+---
 # 重参数化技巧（Reparameterization Trick）
 
 ## 1. 一句话

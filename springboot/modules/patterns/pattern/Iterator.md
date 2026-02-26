@@ -1,3 +1,10 @@
+---
+title: Iterator（迭代器）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Iterator（迭代器）
 
 > **类型**：模式（Pattern）

@@ -1,3 +1,10 @@
+---
+title: "LSTM（Long Short-Term Memory）"
+date: "2026-02-17"
+categories:
+  - 神经网络
+description: 用 cell state c_t + 门控（忘记/写入/输出）让梯度更容易穿过长时间跨度，从而更稳地建模长期依赖。
+---
 # LSTM（Long Short-Term Memory）
 
 ## 1. 一句话

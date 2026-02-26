@@ -1,3 +1,10 @@
+---
+title: BeanFactoryPostProcessorExecution（BFPP/BDRPP 执行与断环）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # BeanFactoryPostProcessorExecution（BFPP/BDRPP 执行与断环）
 
 > **类型**：机制（Mechanism）

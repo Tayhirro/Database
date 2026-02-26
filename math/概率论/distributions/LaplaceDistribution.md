@@ -1,3 +1,10 @@
+---
+title: 拉普拉斯分布 / 双指数分布（Laplace / Double Exponential）
+date: "2026-01-16"
+categories:
+  - math
+description: 导航：math/概率论/distributions/README.md ｜math/概率论/索引.md
+---
 # 拉普拉斯分布 / 双指数分布（Laplace / Double Exponential）
 
 导航：[math/概率论/distributions/README.md](README.md) ｜[math/概率论/索引.md](../索引.md)

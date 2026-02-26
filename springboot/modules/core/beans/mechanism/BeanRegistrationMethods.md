@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: Bean 注册方式（Bean Registration Methods）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/mechanism
   - beans
   - annotation
+description: 'Spring 提供多种将类或对象注册为 Bean 的方式，按注册对象可分为\"类注册\"（Stereotype 注解）与\"实例注册\"（@Bean 方法），以及框架专用的扫描注册链路。'
+type: mechanism
 ---
-
 # Bean 注册方式（Bean Registration Methods）
 
 ## 一句话

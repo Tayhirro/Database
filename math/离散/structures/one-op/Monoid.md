@@ -1,3 +1,10 @@
+---
+title: 幺半群（Monoid）
+date: "2026-01-09"
+categories:
+  - math
+description: 半群 + 单位元；“可组合并有不做事的元素”。
+---
 # 幺半群（Monoid）
 
 ## 1. 一句话

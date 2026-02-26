@@ -1,3 +1,10 @@
+---
+title: "原型学习（Prototypical Networks / Prototype-based Few-shot）"
+date: "2026-01-12"
+categories:
+  - 神经网络
+description: "在表征空间里用 support（K-shot） 样本为每个类计算一个（或多个）“原型”向量，query 样本按“离哪个原型最近”来分类（或输出条件分布）。"
+---
 # 原型学习（Prototypical Networks / Prototype-based Few-shot）
 
 ## 1. 一句话

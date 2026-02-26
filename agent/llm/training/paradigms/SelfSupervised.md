@@ -1,3 +1,10 @@
+---
+title: "自监督学习（Self-Supervised Learning）"
+date: "2026-02-03"
+categories:
+  - agent
+description: 导航：paradigms/README.md
+---
 # 自监督学习（Self-Supervised Learning）
 
 导航：[paradigms/README.md](README.md)

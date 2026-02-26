@@ -1,3 +1,10 @@
+---
+title: 注意力（Attention）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 用相似度在一组向量上做加权汇聚，是 Transformer 的核心算子。
+---
 # 注意力（Attention）
 
 ## 1. 一句话

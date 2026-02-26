@@ -1,12 +1,16 @@
 ---
-type: collector
+title: ParallelScavenge（收集器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: Parallel Scavenge 是一类以并行回收阶段为特征、并以目标参数化其行为边界的收集器实现（名称与参数语义依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # ParallelScavenge（收集器）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: 科技词汇 (Technology Vocabulary)
+date: "2026-02-08"
+categories:
+  - 英语
+description: 科技英语常用词汇，适用于IT、编程、互联网领域
+---
 # 科技词汇 (Technology Vocabulary)
 
 > 科技英语常用词汇，适用于IT、编程、互联网领域

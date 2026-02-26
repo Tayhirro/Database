@@ -1,3 +1,10 @@
+---
+title: SpringApplicationRunListener（运行监听器机制）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：扩展接口（SPI Interface）与 组合机制（Composite Mechanism）
+---
 # SpringApplicationRunListener（运行监听器机制）
 
 > **类型**：扩展接口（SPI Interface）与 组合机制（Composite Mechanism）

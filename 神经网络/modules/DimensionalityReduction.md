@@ -1,3 +1,10 @@
+---
+title: 降维（Dimensionality Reduction）/ 潜变量视角（Latent Variables）
+date: "2026-01-13"
+categories:
+  - 神经网络
+description: 把高维观测 x 用更低维、更“可解释/可操作”的潜变量 z 表达；在概率模型里，这等价于假设“数据是由隐变量生成的”。
+---
 # 降维（Dimensionality Reduction）/ 潜变量视角（Latent Variables）
 
 ## 1. 一句话

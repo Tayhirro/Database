@@ -1,3 +1,10 @@
+---
+title: KL 散度（Kullback–Leibler Divergence）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: "衡量两个分布差异的量：KL(q||p)=E_q[log q - log p]，非对称、非距离。"
+---
 # KL 散度（Kullback–Leibler Divergence）
 
 ## 1. 一句话

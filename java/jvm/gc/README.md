@@ -1,3 +1,10 @@
+---
+title: 垃圾回收（Garbage Collection）
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：jvm/README.md | 索引.md | 概念图.md"
+---
 # 垃圾回收（Garbage Collection）
 
 导航：[jvm/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)

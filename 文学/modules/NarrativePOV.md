@@ -1,3 +1,10 @@
+---
+title: 叙事视角（Narrative Point of View）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 决定"谁在讲故事"以及"叙述者知道多少"的叙事策略
+---
 # 叙事视角（Narrative Point of View）
 
 ## 1. 一句话

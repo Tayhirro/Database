@@ -1,3 +1,10 @@
+---
+title: WebServerLifecycleAndThreads（WebServer 生命周期与线程保活）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # WebServerLifecycleAndThreads（WebServer 生命周期与线程保活）
 
 > **类型**：机制（Mechanism）

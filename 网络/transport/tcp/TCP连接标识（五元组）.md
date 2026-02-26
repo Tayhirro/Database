@@ -1,11 +1,15 @@
 ---
-type: concept
+title: TCP连接标识（五元组）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network
   - tcp
   - transport
+description: TCP 连接在网络栈中常以五元组  作为标识，从而在同一主机上区分不同连接。
+type: concept
 ---
-
 # TCP连接标识（五元组）
 
 ## 一句话

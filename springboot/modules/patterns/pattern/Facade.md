@@ -1,3 +1,10 @@
+---
+title: Facade（外观）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Facade（外观）
 
 > **类型**：模式（Pattern）

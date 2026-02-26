@@ -1,3 +1,10 @@
+---
+title: Transformer 核心机制 (Mechanics)
+date: "2026-02-06"
+categories:
+  - agent
+description: 本目录包含 Transformer 架构中的核心机制和组件。
+---
 # Transformer 核心机制 (Mechanics)
 
 本目录包含 Transformer 架构中的核心机制和组件。

@@ -1,3 +1,10 @@
+---
+title: "嵌套期望与全期望公式（Iterated Expectation & Law of Total Expectation）"
+date: "2026-01-17"
+categories:
+  - math
+description: 嵌套期望是"先对一部分变量求期望，再对剩余变量求期望"的操作；全期望公式说明这个过程等价于直接对所有变量求期望
+---
 # 嵌套期望与全期望公式（Iterated Expectation & Law of Total Expectation）
 
 ## 1. 一句话

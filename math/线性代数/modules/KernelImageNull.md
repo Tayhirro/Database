@@ -1,3 +1,10 @@
+---
+title: 核/像/零空间（入口别名）
+date: "2026-01-22"
+categories:
+  - math
+description: 此页用于将 ker / im / null 相关记号导航到已拆分的独立条目。
+---
 # 核/像/零空间（入口别名）
 
 ## 一句话

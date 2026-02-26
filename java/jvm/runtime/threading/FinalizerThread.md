@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: FinalizerThread（Finalizer 线程）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - springboot/jvm
   - jvm
   - finalization
   - threading
+description: Finalizer 线程是 JVM 在运行态用于执行终结（finalization）相关工作的内部服务线程（以 HotSpot/OpenJDK 为例）。
+type: mechanism
 ---
-
 # FinalizerThread（Finalizer 线程）
 
 ## 一句话

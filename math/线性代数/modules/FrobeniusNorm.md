@@ -1,3 +1,10 @@
+---
+title: 'Frobenius 范数（Frobenius norm, $_F$）'
+date: "2026-01-26"
+categories:
+  - math
+description: Frobenius 范数是矩阵空间上的范数，等于把矩阵当作一个长向量后取欧几里得范数（也称 Hilbert–Schmidt 范数）。
+---
 # Frobenius 范数（Frobenius norm, $\lVert\cdot\rVert_F$）
 
 ## 一句话

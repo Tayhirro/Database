@@ -1,3 +1,10 @@
+---
+title: "隐马尔可夫模型（HMM, Hidden Markov Model）"
+date: "2026-01-13"
+categories:
+  - 神经网络
+description: "用隐藏状态序列 s_{1:T} 解释观测序列 x_{1:T}：状态按马尔可夫链转移，观测由状态发射。"
+---
 # 隐马尔可夫模型（HMM, Hidden Markov Model）
 
 ## 1. 一句话

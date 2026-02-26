@@ -1,3 +1,10 @@
+---
+title: Transformer 常见问题解答
+date: "2026-02-06"
+categories:
+  - agent
+description: "Q (Query): 从输入 X 乘以权重矩阵 WQ 得到 K (Key): 从输入 X 乘以权重矩阵 WK 得到 V (Value): 从输入 X 乘以权重矩阵 WV 得到"
+---
 # Transformer 常见问题解答
 
 ## Q1: Q、K、V 到底是什么？怎么来的？

@@ -1,3 +1,10 @@
+---
+title: 人物塑造（Characterization）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 作者创造和呈现文学人物的全部技巧，包括外在描写和内在揭示
+---
 # 人物塑造（Characterization）
 
 ## 1. 一句话

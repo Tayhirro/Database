@@ -1,3 +1,10 @@
+---
+title: '直和（Direct Sum, $$）'
+date: "2026-01-22"
+categories:
+  - math
+description: 向量空间的直和描述“两个子空间只在零向量处相交且共同张成整个空间”，从而每个向量都有唯一的分解。
+---
 # 直和（Direct Sum, $\oplus$）
 
 ## 一句话

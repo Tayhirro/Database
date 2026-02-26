@@ -1,11 +1,15 @@
 ---
-type: example
+title: "VAE Tensor 级例子：RGB 图片（H, W, 3）"
+date: "2026-01-11"
+categories:
+  - 神经网络
 tags:
   - nn/vae
   - nn/example
   - nn/tensor
+description: "目标：给一个 batch 的图片张量（“图片 = H×W×3”），走一遍 VAE 的前向与 loss，把每一步 tensor 的 shape 对齐。"
+type: example
 ---
-
 # VAE Tensor 级例子：RGB 图片（H, W, 3）
 
 目标：给一个 batch 的图片张量（“图片 = H×W×3”），走一遍 VAE 的前向与 loss，把每一步 tensor 的 shape 对齐。

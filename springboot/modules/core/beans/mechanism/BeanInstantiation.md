@@ -1,10 +1,14 @@
 ---
-type: mechanism
+title: Bean 实例化策略（Bean Instantiation Strategy）
+date: "2026-01-30"
+categories:
+  - springboot
 tags:
   - springboot/mechanism
   - beans
+description: Bean 实例化策略定义了 Spring 根据 BeanDefinition 选择何种构造机制来创建 Bean 原始实例。
+type: mechanism
 ---
-
 # Bean 实例化策略（Bean Instantiation Strategy）
 
 ## 一句话

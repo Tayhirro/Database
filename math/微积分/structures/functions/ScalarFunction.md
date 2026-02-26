@@ -1,3 +1,10 @@
+---
+title: 标量函数（Scalar Function）
+date: "2026-01-21"
+categories:
+  - math
+description: 标量函数就是 。
+---
 # 标量函数（Scalar Function）
 
 ## 1. 一句话

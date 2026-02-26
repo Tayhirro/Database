@@ -1,3 +1,10 @@
+---
+title: 象征（Symbolism）
+date: "2026-01-15"
+categories:
+  - 文学
+description: 用具体的事物、形象或动作来承载和传达抽象的意义、情感或观念
+---
 # 象征（Symbolism）
 
 ## 1. 一句话

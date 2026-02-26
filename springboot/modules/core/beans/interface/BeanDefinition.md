@@ -1,3 +1,10 @@
+---
+title: BeanDefinition（Bean 定义）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # BeanDefinition（Bean 定义）
 
 > **类型**：接口（Interface）

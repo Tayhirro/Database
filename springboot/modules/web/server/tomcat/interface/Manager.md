@@ -1,10 +1,14 @@
 ---
-type: interface
+title: Manager（Tomcat 会话管理器接口）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：接口（Interface）
+type: interface
 ---
-
 # Manager（Tomcat 会话管理器接口）
 
 > **类型**：接口（Interface）

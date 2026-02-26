@@ -1,15 +1,19 @@
 ---
-type: paper-summary
+title: "2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction"
+date: "2026-01-15"
+categories:
+  - 轨迹预测
 tags:
-  - trajectory-prediction
-  - autonomous-driving
+  - "trajectory-prediction"
+  - "autonomous-driving"
   - survey
+description: 这是一篇面向自动驾驶多智能体轨迹预测的综述：给定历史轨迹 + HD Map + 场景上下文，系统梳理传统方法与深度学习方法（含 Transformer / 生成式 / Diffusion / LLM 相关进展），并总结 5 个核心挑战与未来方向。
+type: "paper-summary"
 year: 2025
 venue: Machines
 doi: 10.3390/machines13090818
-source_pdf: 轨迹预测/论文/machines-13-00818-v2.pdf
+source_pdf: "轨迹预测/论文/machines-13-00818-v2.pdf"
 ---
-
 # 2025 - Xu - A Survey of Autonomous Driving Trajectory Prediction
 
 ## 1. 一句话

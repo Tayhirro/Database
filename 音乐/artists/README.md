@@ -1,3 +1,10 @@
+---
+title: artists（艺人/创作者卡片）
+date: "2026-01-17"
+categories:
+  - 音乐
+description: 导航：音乐索引.md
+---
 # artists（艺人/创作者卡片）
 
 导航：[音乐索引.md](../音乐索引.md)

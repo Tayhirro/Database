@@ -1,3 +1,10 @@
+---
+title: Builder（建造者模式）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 一句话：把复杂对象的构建过程拆成多个步骤，Director按固定顺序指挥，ConcreteBuilder负责具体实现，创建出不同的Product。
+---
 # Builder（建造者模式）
 
 **一句话**：把复杂对象的构建过程拆成多个步骤，Director按固定顺序指挥，ConcreteBuilder负责具体实现，创建出不同的Product。

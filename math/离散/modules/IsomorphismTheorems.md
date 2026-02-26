@@ -1,3 +1,10 @@
+---
+title: 同构定理（Isomorphism Theorems）速查
+date: "2026-01-09"
+categories:
+  - math
+description: 目标：把“核/像/商”一口气联动起来。写法尽量统一，落地到群/环时只改“核是什么子对象”。
+---
 # 同构定理（Isomorphism Theorems）速查
 
 > 目标：把“核/像/商”一口气联动起来。写法尽量统一，落地到群/环时只改“核是什么子对象”。

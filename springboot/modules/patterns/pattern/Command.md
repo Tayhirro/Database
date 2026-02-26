@@ -1,3 +1,10 @@
+---
+title: Command（命令）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Command（命令）
 
 > **类型**：模式（Pattern）

@@ -1,3 +1,10 @@
+---
+title: "像空间（Image / Range, Im(A)）"
+date: "2026-01-22"
+categories:
+  - math
+description: 线性映射  的像空间（image/range）是所有可能输出向量所组成的集合。
+---
 # 像空间（Image / Range, `Im(A)`）
 
 ## 一句话

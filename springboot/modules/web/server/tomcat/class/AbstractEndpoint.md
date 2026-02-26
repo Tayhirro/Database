@@ -1,10 +1,14 @@
 ---
-type: class
+title: AbstractEndpoint（Tomcat 网络端点抽象）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # AbstractEndpoint（Tomcat 网络端点抽象）
 
 > **类型**：类（Class）

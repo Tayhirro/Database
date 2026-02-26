@@ -1,3 +1,10 @@
+---
+title: "Sobolev 空间（W^{k,p}）"
+date: "2026-01-09"
+categories:
+  - math
+description: 把“弱导数”纳入范数，允许用积分意义处理不可微函数；PDE/变分法的核心舞台。
+---
 # Sobolev 空间（`W^{k,p}`）
 
 ## 1. 一句话

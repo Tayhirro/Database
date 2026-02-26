@@ -1,12 +1,16 @@
 ---
-type: concept
+title: GarbageCollector（垃圾收集器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: 垃圾收集器（Garbage Collector）是 JVM 中实现 GC 的具体算法与执行策略组合，用于在运行态完成标记、回收、整理/搬迁以及与应用线程的同步/并发协作。
+type: concept
 ---
-
 # GarbageCollector（垃圾收集器）
 
 ## 一句话

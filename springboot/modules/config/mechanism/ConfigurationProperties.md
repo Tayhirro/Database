@@ -1,3 +1,10 @@
+---
+title: 配置属性绑定（Configuration Properties Binding）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 配置属性绑定（Configuration Properties Binding）
 
 > **类型**：机制（Mechanism）

@@ -1,3 +1,10 @@
+---
+title: 对齐（Alignment）
+date: "2026-02-03"
+categories:
+  - agent
+description: "导航：post-training/README.md | 索引.md"
+---
 # 对齐（Alignment）
 
 导航：[post-training/README.md](../README.md) | [索引.md](索引.md)

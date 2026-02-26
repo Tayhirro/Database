@@ -1,13 +1,17 @@
 ---
-type: concept
+title: Heap（堆）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
   - heap
+description: 堆（Heap）是 JVM 运行时数据区中用于分配对象实例的内存区域，也是垃圾回收（GC）的主要管理对象。
+type: concept
 ---
-
 # Heap（堆）
 
 ## 一句话

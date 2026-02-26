@@ -1,3 +1,10 @@
+---
+title: 推理训练（Reasoning）
+date: "2026-02-03"
+categories:
+  - agent
+description: "导航：post-training/README.md | 索引.md"
+---
 # 推理训练（Reasoning）
 
 导航：[post-training/README.md](../README.md) | [索引.md](索引.md)

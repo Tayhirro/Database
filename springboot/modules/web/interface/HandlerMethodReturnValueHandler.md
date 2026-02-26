@@ -1,3 +1,10 @@
+---
+title: HandlerMethodReturnValueHandler（MVC 方法返回值处理器接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerMethodReturnValueHandler（MVC 方法返回值处理器接口）
 
 > **类型**：接口（Interface）

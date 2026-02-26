@@ -1,3 +1,10 @@
+---
+title: CVAE（Conditional Variational Autoencoder）
+date: "2026-01-20"
+categories:
+  - 神经网络
+description: "给定条件/输入 x，用 VAE 建模带随机性的映射 p(y|x)（y 是下游任务的目标/GT），实现“可控生成”或“条件重构”。"
+---
 # CVAE（Conditional Variational Autoencoder）
 
 ## 1. 一句话

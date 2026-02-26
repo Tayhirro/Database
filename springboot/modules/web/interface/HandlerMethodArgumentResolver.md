@@ -1,3 +1,10 @@
+---
+title: HandlerMethodArgumentResolver（MVC 方法参数解析器接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerMethodArgumentResolver（MVC 方法参数解析器接口）
 
 > **类型**：接口（Interface）

@@ -1,3 +1,10 @@
+---
+title: ServletWebServerFactory（Servlet WebServer 工厂）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # ServletWebServerFactory（Servlet WebServer 工厂）
 
 > **类型**：接口（Interface）

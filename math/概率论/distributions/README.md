@@ -1,3 +1,10 @@
+---
+title: 分布（Distributions）索引
+date: "2026-01-16"
+categories:
+  - math
+description: 导航：math/概率论/README.md ｜math/概率论/索引.md ｜math/概率论/概念图.md
+---
 # 分布（Distributions）索引
 
 导航：[math/概率论/README.md](../README.md) ｜[math/概率论/索引.md](../索引.md) ｜[math/概率论/概念图.md](../概念图.md)

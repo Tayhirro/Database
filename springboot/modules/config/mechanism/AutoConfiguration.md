@@ -1,3 +1,10 @@
+---
+title: "自动配置（Auto-Configuration）"
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 自动配置（Auto-Configuration）
 
 > **类型**：机制（Mechanism）

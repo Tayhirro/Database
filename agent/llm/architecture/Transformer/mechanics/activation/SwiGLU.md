@@ -1,8 +1,12 @@
 ---
-aliases: [Swish Gated Linear Unit, SwiGLU激活]
-tags: [activation, glu, ffn, llama, efficiency]
+title: SwiGLU
+date: "2026-02-06"
+categories:
+  - agent
+tags: "[activation, glu, ffn, llama, efficiency]"
+description: 在 Feed Forward Network (FFN) 中使用 Swish 激活函数的门控线性单元 (GLU)，通过门控机制选择性激活信息，提高模型表达能力并减少参数。
+aliases: "[Swish Gated Linear Unit, SwiGLU激活]"
 ---
-
 # SwiGLU
 
 ## 一句话

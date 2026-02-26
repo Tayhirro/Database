@@ -1,3 +1,10 @@
+---
+title: RoPE长上下文扩展方法
+date: "2026-02-10"
+categories:
+  - agent
+description: "导航：RoPE.md | 位置编码"
+---
 # RoPE长上下文扩展方法
 
 导航：[RoPE.md](./RoPE.md) | [位置编码](../README.md)

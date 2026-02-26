@@ -1,3 +1,10 @@
+---
+title: 常用后缀 (Common Suffixes)
+date: "2026-01-21"
+categories:
+  - 英语
+description: 后缀通常改变单词的词性，有时也会影响词义
+---
 # 常用后缀 (Common Suffixes)
 
 > 后缀通常改变单词的词性，有时也会影响词义

@@ -1,10 +1,14 @@
 ---
-type: class
+title: Service（Tomcat Catalina Service 组件）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # Service（Tomcat Catalina Service 组件）
 
 > **类型**：类（Class）

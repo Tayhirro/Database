@@ -1,3 +1,10 @@
+---
+title: 安全与对齐（Safety）
+date: "2026-02-02"
+categories:
+  - agent
+description: "导航：agent/README.md | 索引.md"
+---
 # 安全与对齐（Safety）
 
 导航：[agent/README.md](../README.md) | [索引.md](索引.md)

@@ -1,3 +1,10 @@
+---
+title: "极限与连续（Limits & Continuity）"
+date: "2026-01-21"
+categories:
+  - math
+description: 极限与连续是微积分的语义底座：先保证“趋近”的概念成立，再谈导数/积分。
+---
 # 极限与连续（Limits & Continuity）
 
 ## 1. 一句话

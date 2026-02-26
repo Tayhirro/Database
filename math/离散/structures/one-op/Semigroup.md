@@ -1,3 +1,10 @@
+---
+title: 半群（Semigroup）
+date: "2026-01-09"
+categories:
+  - math
+description: “只有结合律”的乘法结构；是很多代数结构的最小起点。
+---
 # 半群（Semigroup）
 
 ## 1. 一句话

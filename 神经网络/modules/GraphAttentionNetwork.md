@@ -1,3 +1,10 @@
+---
+title: "图注意力网络（Graph Attention Network, GAT）"
+date: "2026-01-26"
+categories:
+  - 神经网络
+description: GAT 是把 attention 引入 图神经网络（GNN）消息传递 的一层：对每个节点，从邻居里“注意力加权”汇聚信息，从而在不固定邻居权重的情况下学习图上的表示。
+---
 # 图注意力网络（Graph Attention Network, GAT）
 
 ## 1. 一句话

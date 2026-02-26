@@ -1,3 +1,10 @@
+---
+title: 双向 RNN（BiRNN / BiLSTM / BiGRU）
+date: "2026-01-26"
+categories:
+  - 神经网络
+description: 同时用“正向 + 反向”两条递推链编码序列，把未来上下文也纳入每个时间步的表征里（适合离线场景）。
+---
 # 双向 RNN（BiRNN / BiLSTM / BiGRU）
 
 ## 1. 一句话

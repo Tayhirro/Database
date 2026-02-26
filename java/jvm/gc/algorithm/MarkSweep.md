@@ -1,12 +1,16 @@
 ---
-type: algorithm
+title: "MarkSweep（标记-清除）"
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - algorithm
+description: "标记-清除（Mark-Sweep）是一类 GC 算法：先标记存活对象，再回收未标记对象占用的空间。"
+type: algorithm
 ---
-
 # MarkSweep（标记-清除）
 
 ## 一句话

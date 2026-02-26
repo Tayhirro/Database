@@ -1,3 +1,10 @@
+---
+title: 导数与微分（Differentiation）
+date: "2026-01-21"
+categories:
+  - math
+description: 导数/微分把“局部变化”变成可计算对象：一元是斜率，多元是最好的线性近似。
+---
 # 导数与微分（Differentiation）
 
 ## 1. 一句话

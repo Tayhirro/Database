@@ -1,3 +1,10 @@
+---
+title: 从句类型 (Clause Types)
+date: "2026-01-21"
+categories:
+  - 英语
+description: "从句 = 在复合句中充当某一成分的句子"
+---
 # 从句类型 (Clause Types)
 
 > 从句 = 在复合句中充当某一成分的句子

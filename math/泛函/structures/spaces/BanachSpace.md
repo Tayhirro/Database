@@ -1,3 +1,10 @@
+---
+title: Banach 空间（Banach Space）
+date: "2026-01-09"
+categories:
+  - math
+description: “完备”的赋范空间：所有柯西列都收敛，这让极限操作不会跑出空间。
+---
 # Banach 空间（Banach Space）
 
 ## 1. 一句话

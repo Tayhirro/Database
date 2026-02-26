@@ -1,3 +1,10 @@
+---
+title: 生命周期事件（Application Lifecycle Events）
+date: "2026-01-30"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 生命周期事件（Application Lifecycle Events）
 
 > **类型**：机制（Mechanism）

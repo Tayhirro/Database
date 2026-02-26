@@ -1,3 +1,10 @@
+---
+title: 执行引擎（Execution Engine）
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：jvm/README.md | 索引.md"
+---
 # 执行引擎（Execution Engine）
 
 导航：[jvm/README.md](../README.md) | [索引.md](索引.md)

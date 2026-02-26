@@ -1,12 +1,16 @@
 ---
-type: concept
+title: Selector（Java NIO 多路复用）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network
   - java
   - nio
   - selector
+description: Selector 是 Java NIO 的多路复用抽象：在单线程中等待多个 channel 的 I/O 就绪事件，并以 SelectionKey 集合形式返回就绪结果。
+type: concept
 ---
-
 # Selector（Java NIO 多路复用）
 
 ## 一句话

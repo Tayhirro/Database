@@ -1,3 +1,10 @@
+---
+title: ConfigurableListableBeanFactory（可配置可枚举 BeanFactory）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # ConfigurableListableBeanFactory（可配置可枚举 BeanFactory）
 
 > **类型**：接口（Interface）

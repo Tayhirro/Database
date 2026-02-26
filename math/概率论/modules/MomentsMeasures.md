@@ -1,3 +1,10 @@
+---
+title: 矩与数值特征（Moments and Numerical Measures）
+date: "2026-01-17"
+categories:
+  - math
+description: 期望、方差、协方差等数值特征用于量化随机变量的"中心位置"、"离散程度"和"相关性"
+---
 # 矩与数值特征（Moments and Numerical Measures）
 
 ## 1. 一句话

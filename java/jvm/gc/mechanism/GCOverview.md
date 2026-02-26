@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: GCOverview（GC 概述）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
+description: 垃圾回收（GC）是 JVM 在运行态自动管理堆内存的一组机制：识别不可达对象并回收其占用的内存，并在必要时整理/搬迁存活对象以维持分配与访问效率。
+type: mechanism
 ---
-
 # GCOverview（GC 概述）
 
 ## 一句话

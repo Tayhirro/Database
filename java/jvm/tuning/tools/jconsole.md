@@ -1,13 +1,17 @@
 ---
-type: tool
+title: jconsole（JMX 监控工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
   - jmx
+description: jconsole 是 JDK 提供的可视化监控工具，通过 JMX 连接目标 JVM 进程以查看运行态指标与管理信息（可见项依 MBean 与权限而定）。
+type: tool
 ---
-
 # jconsole（JMX 监控工具）
 
 ## 一句话

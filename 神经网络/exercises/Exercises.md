@@ -1,3 +1,10 @@
+---
+title: 练习（按模块/模型）
+date: "2026-01-21"
+categories:
+  - 神经网络
+description: "推导：log p(x) = ELBO(x) + KL(q(z|x)||p(z|x)) 证明：KL(q||p) >= 0"
+---
 # 练习（按模块/模型）
 
 ## 1. ELBO / KL

@@ -1,3 +1,10 @@
+---
+title: 例子库（最小工作例子）
+date: "2026-01-09"
+categories:
+  - math
+description: "R^n：赋范/Banach/Hilbert（按范数/内积选择） C([0,1])：一致范数下 Banach L^2：Hilbert"
+---
 # 例子库（最小工作例子）
 
 ## 空间

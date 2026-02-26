@@ -1,12 +1,16 @@
 ---
-type: concept
+title: accept（监听socket与已连接socket）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network
   - os
   - socket
   - accept
+description: accept() 在监听 socket 上接入一个新连接，并返回一个新的“已连接 socket”（对应新的文件描述符 FD）。
+type: concept
 ---
-
 # accept（监听socket与已连接socket）
 
 ## 一句话

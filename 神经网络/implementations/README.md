@@ -1,3 +1,10 @@
+---
+title: implementations（代码阅读 / 复现记录）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 目标：把“我看过/跑过/改过什么”记录清楚，方便以后回忆与复用。
+---
 # implementations（代码阅读 / 复现记录）
 
 目标：把“我看过/跑过/改过什么”记录清楚，方便以后回忆与复用。

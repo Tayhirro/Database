@@ -1,3 +1,10 @@
+---
+title: EventPublishingRunListener（启动事件广播器）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：核心实现类（Core Implementation）
+---
 # EventPublishingRunListener（启动事件广播器）
 
 > **类型**：核心实现类（Core Implementation）

@@ -1,3 +1,10 @@
+---
+title: RNN 变体（LSTM / GRU / BiRNN）
+date: "2026-01-26"
+categories:
+  - 神经网络
+description: modules/ 里放“序列建模的共用理论”；这里放可复用的 RNN 家族变体（更像模型卡片/结构说明）。
+---
 # RNN 变体（LSTM / GRU / BiRNN）
 
 > `modules/` 里放“序列建模的共用理论”；这里放可复用的 **RNN 家族变体**（更像模型卡片/结构说明）。

@@ -1,13 +1,17 @@
 ---
-type: concept
+title: GCParameters（GC 参数）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - parameters
   - gc
+description: GC 参数是 JVM 启动参数集合中用于选择垃圾收集器与控制其行为边界（堆大小、并发/并行度、停顿目标、日志输出等）的参数子集。
+type: concept
 ---
-
 # GCParameters（GC 参数）
 
 ## 一句话

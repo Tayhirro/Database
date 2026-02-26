@@ -1,3 +1,10 @@
+---
+title: 成分省略 (Constituent Ellipsis)
+date: "2026-02-16"
+categories:
+  - 文学
+description: 成分省略是古汉语的重要语法特征，指在语境明确的前提下，省略句子中的主语、宾语、谓语等成分，以达到语言简洁、含蓄、凝练的表达效果。
+---
 # 成分省略 (Constituent Ellipsis)
 
 ## 一句话

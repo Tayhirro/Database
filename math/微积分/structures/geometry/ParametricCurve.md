@@ -1,3 +1,10 @@
+---
+title: 参数曲线（Parametric Curve）
+date: "2026-01-21"
+categories:
+  - math
+description: 参数曲线是 ，用一个参数 t 描述轨迹/路径。
+---
 # 参数曲线（Parametric Curve）
 
 ## 1. 一句话

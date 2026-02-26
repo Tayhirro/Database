@@ -1,8 +1,12 @@
 ---
-aliases: [Bias, 偏置, 截距, Intercept]
-tags: [affine, linear-map, linear-layer, transformer, attention]
+title: Bias（偏置/截距）
+date: "2026-02-05"
+categories:
+  - agent
+tags: "[affine, linear-map, linear-layer, transformer, attention]"
+description: Bias（偏置/截距）是仿射映射  中的加性参数，用于在共享权重  的前提下对输出进行平移（translation）。
+aliases: "[Bias, 偏置, 截距, Intercept]"
 ---
-
 # Bias（偏置/截距）
 
 ## 一句话

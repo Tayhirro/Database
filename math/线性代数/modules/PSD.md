@@ -1,3 +1,10 @@
+---
+title: "半正定矩阵（PSD, Positive Semidefinite）"
+date: "2026-01-09"
+categories:
+  - math
+description: PSD（半正定）刻画“二次型永不为负”，是投影/最小二乘/协方差/核方法（Gram 矩阵）的底座。
+---
 # 半正定矩阵（PSD, Positive Semidefinite）
 
 ## 1. 一句话

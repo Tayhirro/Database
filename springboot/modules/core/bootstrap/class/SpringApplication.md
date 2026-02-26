@@ -1,3 +1,10 @@
+---
+title: SpringApplication（Spring Boot 启动编排入口）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # SpringApplication（Spring Boot 启动编排入口）
 
 > **类型**：类（Class）

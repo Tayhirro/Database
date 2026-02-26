@@ -1,3 +1,10 @@
+---
+title: AbstractFactory（抽象工厂）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # AbstractFactory（抽象工厂）
 
 > **类型**：模式（Pattern）

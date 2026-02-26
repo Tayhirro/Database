@@ -1,12 +1,16 @@
 ---
-type: collector
+title: Serial（收集器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: Serial 是一种以单线程执行回收阶段为特征的垃圾收集器实现（收集器名称与可用性依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # Serial（收集器）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: "低秩近似（Low-Rank Approximation）与截断 SVD"
+date: "2026-01-25"
+categories:
+  - math
+description: 低秩近似是在“秩不超过 ”的约束下用一个矩阵  去逼近原矩阵 ，而截断 SVD 给出在常见范数下的最优解。
+---
 # 低秩近似（Low-Rank Approximation）与截断 SVD
 
 ## 一句话

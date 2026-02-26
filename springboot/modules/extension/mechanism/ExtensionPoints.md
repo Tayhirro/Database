@@ -1,3 +1,10 @@
+---
+title: 扩展点体系（Startup Extension Points）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）/ 参考（Reference）
+---
 # 扩展点体系（Startup Extension Points）
 
 > **类型**：机制（Mechanism）/ 参考（Reference）

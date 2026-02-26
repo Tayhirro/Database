@@ -1,3 +1,10 @@
+---
+title: "困惑度（Perplexity, PPL）"
+date: "2026-02-08"
+categories:
+  - agent
+description: "导航：evaluation/README.md | CrossEntropy.md"
+---
 # 困惑度（Perplexity, PPL）
 
 导航：[evaluation/README.md](../README.md) | [CrossEntropy.md](./CrossEntropy.md)

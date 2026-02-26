@@ -1,3 +1,10 @@
+---
+title: WebScopes（Web 作用域：request/session 等）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # WebScopes（Web 作用域：request/session 等）
 
 > **类型**：机制（Mechanism）

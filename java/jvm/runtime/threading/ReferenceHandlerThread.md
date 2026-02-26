@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: ReferenceHandlerThread（Reference Handler 线程）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - reference
   - threading
+description: Reference Handler 线程是 JVM 在运行态用于处理待处理引用（reference processing）并将其入队到 ReferenceQueue 的内部服务线程（以 HotSpot/OpenJDK 为例）。
+type: mechanism
 ---
-
 # ReferenceHandlerThread（Reference Handler 线程）
 
 ## 一句话

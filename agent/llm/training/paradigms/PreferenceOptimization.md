@@ -1,3 +1,10 @@
+---
+title: 偏好优化（Preference Optimization）
+date: "2026-02-03"
+categories:
+  - agent
+description: 导航：paradigms/README.md
+---
 # 偏好优化（Preference Optimization）
 
 导航：[paradigms/README.md](README.md)

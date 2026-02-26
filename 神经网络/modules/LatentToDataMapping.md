@@ -1,3 +1,10 @@
+---
+title: "潜变量→数据映射（Latent-to-Data Mapping）/ 推前分布（Pushforward）"
+date: "2026-01-13"
+categories:
+  - 神经网络
+description: 你问的“低维 z 经过（通常非线性）变换变成高维 x，但 x 仍落在低维结构附近”，在不同语境里常见名字是： VAE/生成模型里：decoder mapping / generator（解码器/生成器映射）g_θ 概率/测度论里：pushforward（推前）/ induced distrib...
+---
 # 潜变量→数据映射（Latent-to-Data Mapping）/ 推前分布（Pushforward）
 
 ## 1. 这件事“叫什么”

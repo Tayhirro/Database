@@ -1,12 +1,16 @@
 ---
-type: tool
+title: jcmd（JVM 命令行诊断工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: jcmd 是 JDK 提供的命令行诊断工具，用于向目标 JVM 进程发送诊断命令以获取运行态信息或触发某些诊断动作（命令集合依 JVM 实现而定）。
+type: tool
 ---
-
 # jcmd（JVM 命令行诊断工具）
 
 ## 一句话

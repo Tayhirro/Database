@@ -1,3 +1,10 @@
+---
+title: TemplateMethod（模板方法）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # TemplateMethod（模板方法）
 
 > **类型**：模式（Pattern）

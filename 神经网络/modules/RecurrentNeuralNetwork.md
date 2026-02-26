@@ -1,3 +1,10 @@
+---
+title: RNN（Recurrent Neural Network）
+date: "2026-01-26"
+categories:
+  - 神经网络
+description: "处理序列 x_{1:T} 的神经网络：用共享参数在时间上递推隐藏状态 h_t，把“历史信息”压进一个可更新的记忆里。"
+---
 # RNN（Recurrent Neural Network）
 
 ## 1. 一句话

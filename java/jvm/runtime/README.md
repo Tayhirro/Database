@@ -1,3 +1,10 @@
+---
+title: 运行时（Runtime）
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：jvm/README.md | 索引.md"
+---
 # 运行时（Runtime）
 
 导航：[jvm/README.md](../README.md) | [索引.md](索引.md)

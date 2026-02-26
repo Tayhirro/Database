@@ -1,3 +1,10 @@
+---
+title: Observer Pattern（观察者模式）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：模式（Pattern）/ 机制（Mechanism）
+---
 # Observer Pattern（观察者模式）
 
 > **类型**：模式（Pattern）/ 机制（Mechanism）

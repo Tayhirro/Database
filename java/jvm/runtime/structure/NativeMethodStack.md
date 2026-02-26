@@ -1,5 +1,8 @@
 ---
-type: concept
+title: NativeMethodStack（本地方法栈）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
@@ -7,8 +10,9 @@ tags:
   - structure
   - native
   - stack
+description: 本地方法栈（Native Method Stack）是 JVM 为执行本地方法（native）所使用的线程栈/调用栈抽象。
+type: concept
 ---
-
 # NativeMethodStack（本地方法栈）
 
 ## 一句话

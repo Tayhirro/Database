@@ -1,3 +1,10 @@
+---
+title: "词汇（Vocabulary）笔记组织说明（可扩展 & 速查）"
+date: "2026-01-21"
+categories:
+  - 英语
+description: 导航：english/README.md ｜english/英语索引.md ｜本分支：english/词汇/索引.md ｜english/词汇/概念图.md
+---
 # 词汇（Vocabulary）笔记组织说明（可扩展 & 速查）
 
 导航：[english/README.md](../README.md) ｜[english/英语索引.md](../英语索引.md) ｜本分支：[english/词汇/索引.md](索引.md) ｜[english/词汇/概念图.md](概念图.md)

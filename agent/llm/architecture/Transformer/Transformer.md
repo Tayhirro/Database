@@ -1,3 +1,10 @@
+---
+title: Transformer
+date: "2026-01-31"
+categories:
+  - agent
+description: 基于自注意力机制的序列到序列建模架构。
+---
 # Transformer
 
 基于自注意力机制的序列到序列建模架构。

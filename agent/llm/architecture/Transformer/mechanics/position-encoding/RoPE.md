@@ -1,8 +1,12 @@
 ---
-aliases: [旋转位置编码, Rotary Position Embedding]
-tags: [transformer, position-encoding, relative-position, orthogonal-transformation]
+title: RoPE
+date: "2026-02-10"
+categories:
+  - agent
+tags: "[transformer, position-encoding, relative-position, orthogonal-transformation]"
+description: 通过正交旋转矩阵对词向量进行位置相关的旋转变换，使得 Query 与 Key 的点积结果仅依赖于相对位置距离  的乘性位置编码方法。
+aliases: "[旋转位置编码, Rotary Position Embedding]"
 ---
-
 # RoPE
 
 ## 一句话

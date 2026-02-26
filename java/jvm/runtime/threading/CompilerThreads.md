@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: CompilerThreads（编译器线程 / CompilerThread (C1/C2)）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - jit
   - threading
+description: 编译器线程是 JVM 运行态用于执行 JIT 编译的线程集合：把热点方法从字节码编译为机器码并进行优化（分层编译时可区分 C1/C2）。
+type: mechanism
 ---
-
 # CompilerThreads（编译器线程 / CompilerThread (C1/C2)）
 
 ## 一句话

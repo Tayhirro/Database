@@ -1,13 +1,17 @@
 ---
-type: concept
+title: JVMStack（虚拟机栈）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
   - stack
+description: 虚拟机栈（JVM Stack）是每个线程私有的运行时数据区，用于存放该线程的栈帧（局部变量表、操作数栈、返回地址等）。
+type: concept
 ---
-
 # JVMStack（虚拟机栈）
 
 ## 一句话

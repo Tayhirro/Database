@@ -1,3 +1,10 @@
+---
+title: "因子分析（FA, Factor Analysis）"
+date: "2026-01-13"
+categories:
+  - 神经网络
+description: 假设高维观测 x 由少数连续因子 z 线性生成（再加噪声），是一种经典的“概率化降维”模型。
+---
 # 因子分析（FA, Factor Analysis）
 
 ## 1. 一句话

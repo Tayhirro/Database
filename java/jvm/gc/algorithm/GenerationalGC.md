@@ -1,12 +1,16 @@
 ---
-type: algorithm
+title: GenerationalGC（分代收集）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - algorithm
+description: 分代收集（Generational GC）是基于对象“短命更常见”的经验假设，将堆划分为不同代并对各代采用不同回收策略的 GC 组织方式。
+type: algorithm
 ---
-
 # GenerationalGC（分代收集）
 
 ## 一句话

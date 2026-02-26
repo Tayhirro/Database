@@ -1,10 +1,14 @@
 ---
-type: class
+title: AbstractProtocol（Tomcat 协议处理器抽象基类）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # AbstractProtocol（Tomcat 协议处理器抽象基类）
 
 > **类型**：类（Class）

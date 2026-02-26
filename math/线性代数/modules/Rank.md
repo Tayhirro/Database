@@ -1,3 +1,10 @@
+---
+title: 矩阵的秩（Rank）
+date: "2026-01-22"
+categories:
+  - math
+description: 矩阵的秩（rank）是其列空间（或行空间）的维数，刻画线性变换能“保留”的独立方向数量。
+---
 # 矩阵的秩（Rank）
 
 ## 一句话

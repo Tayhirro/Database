@@ -1,3 +1,10 @@
+---
+title: ConfigurableApplicationContext（可配置应用上下文）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # ConfigurableApplicationContext（可配置应用上下文）
 
 > **类型**：接口（Interface）

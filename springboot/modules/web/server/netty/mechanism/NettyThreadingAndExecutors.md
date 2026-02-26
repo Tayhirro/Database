@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: NettyThreadingAndExecutors（Netty/Reactor Netty 的线程与 event loop 模型）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/web
   - netty
   - threading
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # NettyThreadingAndExecutors（Netty/Reactor Netty 的线程与 event loop 模型）
 
 > **类型**：机制（Mechanism）

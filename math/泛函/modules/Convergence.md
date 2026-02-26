@@ -1,3 +1,10 @@
+---
+title: 收敛与拓扑（Convergence）
+date: "2026-01-09"
+categories:
+  - math
+description: "泛函分析里“收敛”不止一种：范数收敛太强，弱/弱* 收敛更适合紧性与极限过程。"
+---
 # 收敛与拓扑（Convergence）
 
 ## 1. 一句话

@@ -1,3 +1,10 @@
+---
+title: 固定搭配 (Collocations)
+date: "2026-01-21"
+categories:
+  - 英语
+description: 固定搭配是指经常一起出现的词语组合，掌握搭配能让表达更地道
+---
 # 固定搭配 (Collocations)
 
 > 固定搭配是指经常一起出现的词语组合，掌握搭配能让表达更地道

@@ -1,3 +1,10 @@
+---
+title: 内积空间（Inner Product Space）
+date: "2026-01-09"
+categories:
+  - math
+description: "在线性空间上加入“角度/投影”结构；内积诱导范数与度量，使几何直觉（正交、投影、最小二乘）可计算。 角度/相似度 正交：||x+y||^2 = <x+y, x+y> = <x+y, x+y> = <x,x> + <x,y> + <y,x> + <y,y> = <x,x> + <y,y> = |..."
+---
 # 内积空间（Inner Product Space）
 
 ## 1. 一句话

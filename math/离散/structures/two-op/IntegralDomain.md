@@ -1,3 +1,10 @@
+---
+title: 整环（Integral Domain）
+date: "2026-01-09"
+categories:
+  - math
+description: “没有零因子”的交换环；因此能做更像整数的消去与分式化。
+---
 # 整环（Integral Domain）
 
 ## 1. 一句话

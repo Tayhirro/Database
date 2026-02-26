@@ -1,3 +1,10 @@
+---
+title: ApplicationContextFactory（上下文创建工厂）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）/ 扩展点（SPI）
+---
 # ApplicationContextFactory（上下文创建工厂）
 
 > **类型**：接口（Interface）/ 扩展点（SPI）

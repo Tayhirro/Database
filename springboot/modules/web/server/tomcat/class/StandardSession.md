@@ -1,10 +1,14 @@
 ---
-type: class
+title: StandardSession（Tomcat 默认 Session 实现）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # StandardSession（Tomcat 默认 Session 实现）
 
 > **类型**：类（Class）

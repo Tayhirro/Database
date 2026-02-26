@@ -1,3 +1,10 @@
+---
+title: 对象模型（Object Model）
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：jvm/README.md | 索引.md"
+---
 # 对象模型（Object Model）
 
 导航：[jvm/README.md](../README.md) | [索引.md](索引.md)

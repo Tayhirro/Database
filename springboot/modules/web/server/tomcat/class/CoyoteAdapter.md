@@ -1,12 +1,16 @@
 ---
-type: class
+title: CoyoteAdapter（Coyote→Catalina 适配器）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - catalina
   - coyote
+description: 类型：类（Class）
+type: class
 ---
-
 # CoyoteAdapter（Coyote→Catalina 适配器）
 
 > **类型**：类（Class）

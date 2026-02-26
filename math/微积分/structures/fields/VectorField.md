@@ -1,3 +1,10 @@
+---
+title: 向量场（Vector Field）
+date: "2026-01-21"
+categories:
+  - math
+description: 向量场就是 （把定义域解释成空间位置的向量值函数）。
+---
 # 向量场（Vector Field）
 
 ## 1. 一句话

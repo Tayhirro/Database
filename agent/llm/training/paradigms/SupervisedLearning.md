@@ -1,3 +1,10 @@
+---
+title: 监督学习（Supervised Learning）
+date: "2026-02-03"
+categories:
+  - agent
+description: 导航：paradigms/README.md
+---
 # 监督学习（Supervised Learning）
 
 导航：[paradigms/README.md](README.md)

@@ -1,3 +1,10 @@
+---
+title: 对比学习（Contrastive Learning / InfoNCE）
+date: "2026-01-12"
+categories:
+  - 神经网络
+description: 通过“拉近正样本、推远负样本”来学习表征，CLIP 训练的核心目标之一。
+---
 # 对比学习（Contrastive Learning / InfoNCE）
 
 ## 1. 一句话

@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: AnnotationProcessing（注解处理机制）
+date: "2026-02-03"
+categories:
+  - springboot
 tags:
   - springboot/beans
   - annotation
   - mechanism
+description: 类型：机制（Mechanism）
+type: mechanism
 ---
-
 # AnnotationProcessing（注解处理机制）
 
 > **类型**：机制（Mechanism）

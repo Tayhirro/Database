@@ -1,10 +1,14 @@
 ---
-type: class
+title: ApplicationArguments（应用参数封装）
+date: "2026-01-30"
+categories:
+  - springboot
 tags:
   - springboot/class
   - bootstrap
+description: "ApplicationArguments 是 Spring Boot 对命令行参数的结构化封装，将 String[] args 解析为 option arguments（--key=value）和 non-option arguments（positional args）两类。"
+type: class
 ---
-
 # ApplicationArguments（应用参数封装）
 
 ## 一句话

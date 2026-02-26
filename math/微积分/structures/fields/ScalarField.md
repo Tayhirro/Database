@@ -1,3 +1,10 @@
+---
+title: 标量场（Scalar Field）
+date: "2026-01-21"
+categories:
+  - math
+description: 标量场就是 （把定义域解释成空间位置的标量函数）。
+---
 # 标量场（Scalar Field）
 
 ## 1. 一句话

@@ -1,12 +1,16 @@
 ---
-type: tool
+title: jstack（线程转储工具）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - tools
+description: jstack 是 JDK 提供的命令行工具，用于获取目标 JVM 进程的线程转储（thread dump），以便分析线程状态与栈帧调用链。
+type: tool
 ---
-
 # jstack（线程转储工具）
 
 ## 一句话

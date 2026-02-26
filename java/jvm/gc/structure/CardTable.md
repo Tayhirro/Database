@@ -1,13 +1,17 @@
 ---
-type: structure
-kind: class
+title: CardTable（卡表）
+date: "2026-02-04"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - structure
+description: 卡表（Card Table）是记忆集（Remembered Set）的一种具体实现，采用字节数组将堆内存映射为固定大小的逻辑块（Card），并通过标记“脏卡”来记录跨区引用。
+type: structure
+kind: class
 ---
-
 # CardTable（卡表）
 
 ## 一句话

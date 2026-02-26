@@ -1,3 +1,10 @@
+---
+title: 线性映射的基本子空间（Fundamental Subspaces）
+date: "2026-01-22"
+categories:
+  - math
+description: 线性映射（或矩阵）对应的一组典型子空间可用于统一描述“可达输出”“不可区分输入”等结构。
+---
 # 线性映射的基本子空间（Fundamental Subspaces）
 
 ## 一句话

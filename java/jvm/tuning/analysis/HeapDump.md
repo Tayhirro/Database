@@ -1,13 +1,17 @@
 ---
-type: concept
+title: HeapDump（堆转储）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - analysis
   - heap
+description: 堆转储（Heap Dump）是对某一时刻 JVM 堆（Heap）对象图与相关元数据的快照，用于离线分析对象占用与引用关系。
+type: concept
 ---
-
 # HeapDump（堆转储）
 
 ## 一句话

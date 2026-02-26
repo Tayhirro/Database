@@ -1,3 +1,10 @@
+---
+title: LayerNorm vs RMSNorm 核心对比
+date: "2026-02-06"
+categories:
+  - agent
+description: "LayerNorm: 减均值 + 除标准差 + 缩放 + 平移（改变方向） RMSNorm: 只除以 RMS + 缩放（保持方向，只调整模长）"
+---
 # LayerNorm vs RMSNorm 核心对比
 
 ## 一句话总结

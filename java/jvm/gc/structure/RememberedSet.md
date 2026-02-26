@@ -1,13 +1,17 @@
 ---
-type: structure
-kind: interface
+title: RememberedSet（记忆集）
+date: "2026-02-04"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - structure
+description: "记忆集（Remembered Set, RSet）是一种用于记录从非收集区域指向收集区域的指针集合的抽象数据结构，旨在避免在部分收集（Partial GC）时扫描整个堆。"
+type: structure
+kind: interface
 ---
-
 # RememberedSet（记忆集）
 
 ## 一句话

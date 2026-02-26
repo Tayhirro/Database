@@ -1,3 +1,10 @@
+---
+title: 练习（按模块）
+date: "2026-01-09"
+categories:
+  - math
+description: '证明：A 0 当且仅当存在 B 使 A=B^T B。 证明：若 A 0 且 M 任意，则 M^T A M 0。'
+---
 # 练习（按模块）
 
 ## 1. PSD 与二次型

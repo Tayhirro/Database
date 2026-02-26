@@ -1,12 +1,16 @@
 ---
-type: collector
+title: ZGC（Z Garbage Collector）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: ZGC 是一种以“尽量缩短停顿窗口”为目标并将主要回收工作并发化的收集器实现（语义与可用性依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # ZGC（Z Garbage Collector）
 
 ## 一句话

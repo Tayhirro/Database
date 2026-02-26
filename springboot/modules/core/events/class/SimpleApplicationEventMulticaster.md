@@ -1,3 +1,10 @@
+---
+title: SimpleApplicationEventMulticaster（默认事件多播器实现）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # SimpleApplicationEventMulticaster（默认事件多播器实现）
 
 > **类型**：类（Class）

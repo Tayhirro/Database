@@ -1,12 +1,16 @@
 ---
-type: class
+title: CoyoteRequest（org.apache.coyote.Request）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - coyote
   - http
+description: 类型：类（Class）
+type: class
 ---
-
 # CoyoteRequest（org.apache.coyote.Request）
 
 > **类型**：类（Class）

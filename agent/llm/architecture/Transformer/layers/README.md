@@ -1,3 +1,10 @@
+---
+title: Layers（层级架构）
+date: "2026-02-06"
+categories:
+  - agent
+description: "导航：architecture/README.md | Transformer.md"
+---
 # Layers（层级架构）
 
 导航：[architecture/README.md](../../README.md) | [Transformer.md](../Transformer.md)

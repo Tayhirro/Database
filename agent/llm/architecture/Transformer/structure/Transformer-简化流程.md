@@ -1,3 +1,10 @@
+---
+title: Transformer 核心流程（超简化版）
+date: "2026-02-06"
+categories:
+  - agent
+description: 为什么要加回原始输入？ 防止信息丢失 让梯度更容易传播 训练更稳定
+---
 # Transformer 核心流程（超简化版）
 
 ## 一、Self-Attention 完整流程（5步）

@@ -1,3 +1,10 @@
+---
+title: FactoryBean（工厂 Bean）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # FactoryBean（工厂 Bean）
 
 > **类型**：接口（Interface）

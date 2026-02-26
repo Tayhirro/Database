@@ -1,3 +1,10 @@
+---
+title: "后训练（Post-training）"
+date: "2026-02-03"
+categories:
+  - agent
+description: 导航：training/README.md
+---
 # 后训练（Post-training）
 
 导航：[training/README.md](../README.md)

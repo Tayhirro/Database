@@ -1,3 +1,10 @@
+---
+title: JVM 知识库
+date: "2026-02-01"
+categories:
+  - java
+description: "导航：java/README.md | 索引.md | 概念图.md"
+---
 # JVM 知识库
 
 导航：[java/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)

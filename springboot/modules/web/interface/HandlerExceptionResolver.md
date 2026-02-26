@@ -1,3 +1,10 @@
+---
+title: HandlerExceptionResolver（MVC 异常解析器接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerExceptionResolver（MVC 异常解析器接口）
 
 > **类型**：接口（Interface）

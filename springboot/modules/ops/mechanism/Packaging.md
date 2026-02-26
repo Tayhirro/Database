@@ -1,3 +1,10 @@
+---
+title: 可执行打包（Executable Packaging）
+date: "2026-01-24"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 可执行打包（Executable Packaging）
 
 > **类型**：机制（Mechanism）

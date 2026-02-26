@@ -1,3 +1,10 @@
+---
+title: 学术词汇 (Academic Vocabulary)
+date: "2026-02-25"
+categories:
+  - 英语
+description: 学术英语常用词汇，适用于论文写作、学术交流
+---
 # 学术词汇 (Academic Vocabulary)
 
 > 学术英语常用词汇，适用于论文写作、学术交流

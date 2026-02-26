@@ -1,3 +1,10 @@
+---
+title: 嵌入式 WebServer（Embedded Web Server）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：机制（Mechanism）
+---
 # 嵌入式 WebServer（Embedded Web Server）
 
 > **类型**：机制（Mechanism）

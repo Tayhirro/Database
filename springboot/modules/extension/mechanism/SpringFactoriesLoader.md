@@ -1,3 +1,10 @@
+---
+title: SpringFactoriesLoader（SPI 加载工具）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：工具类（Utility）/ 机制（Mechanism）
+---
 # SpringFactoriesLoader（SPI 加载工具）
 
 > **类型**：工具类（Utility）/ 机制（Mechanism）

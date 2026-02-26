@@ -1,3 +1,10 @@
+---
+title: 查找
+date: "2026-02-04"
+categories:
+  - 算法
+description: 使用ll和rr界定左右窗口范围
+---
 ## 滑动窗口
 
 - 使用ll和rr界定左右窗口范围

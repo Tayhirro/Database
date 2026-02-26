@@ -1,3 +1,10 @@
+---
+title: AE（Autoencoder）
+date: "2026-01-11"
+categories:
+  - 神经网络
+description: 用编码器把输入压缩成潜表示 z，再用解码器重构回 x̂，通过重构误差学习表示。
+---
 # AE（Autoencoder）
 
 ## 1. 一句话

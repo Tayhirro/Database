@@ -1,3 +1,10 @@
+---
+title: 条件期望（Conditional Expectation）
+date: "2026-01-17"
+categories:
+  - math
+description: 条件期望  是"已知  的信息后，对  的最优预测"，本质是关于  的函数（随机变量）
+---
 # 条件期望（Conditional Expectation）
 
 ## 1. 一句话

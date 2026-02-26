@@ -1,10 +1,14 @@
 ---
-type: class
+title: StandardManager（Tomcat 默认内存会话管理器）
+date: "2026-02-02"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
+description: 类型：类（Class）
+type: class
 ---
-
 # StandardManager（Tomcat 默认内存会话管理器）
 
 > **类型**：类（Class）

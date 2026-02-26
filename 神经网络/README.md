@@ -1,3 +1,10 @@
+---
+title: "神经网络（Neural Networks）知识库组织说明（可扩展 & 速查）"
+date: "2026-01-26"
+categories:
+  - 神经网络
+description: 这部分建议按两层来组织： 1) 模型族（models）：AE / VAE / CVAE / Diffusion / BERT / CLIP …… 2) 横切模块（modules）：概率视角（KL/ELBO）、Attention、对比学习、训练技巧……
+---
 # 神经网络（Neural Networks）知识库组织说明（可扩展 & 速查）
 
 这部分建议按两层来组织：  

@@ -1,3 +1,10 @@
+---
+title: LLM 知识库
+date: "2026-01-31"
+categories:
+  - agent
+description: "导航：agent/README.md | 索引.md | 概念图.md"
+---
 # LLM 知识库
 
 导航：[agent/README.md](../README.md) | [索引.md](索引.md) | [概念图.md](概念图.md)

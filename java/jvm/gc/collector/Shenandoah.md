@@ -1,12 +1,16 @@
 ---
-type: collector
+title: Shenandoah（收集器）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - collector
+description: Shenandoah 是一种以“并发回收与并发压缩/搬迁”为特征、并以缩短停顿窗口为目标之一的收集器实现（语义与可用性依 JVM 版本与实现而定）。
+type: collector
 ---
-
 # Shenandoah（收集器）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: 常用前缀 (Common Prefixes)
+date: "2026-01-21"
+categories:
+  - 英语
+description: 前缀通常改变单词的意思或方向，不改变词性
+---
 # 常用前缀 (Common Prefixes)
 
 > 前缀通常改变单词的意思或方向，不改变词性

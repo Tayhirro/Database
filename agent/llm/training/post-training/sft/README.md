@@ -1,3 +1,10 @@
+---
+title: 监督微调（SFT）
+date: "2026-02-03"
+categories:
+  - agent
+description: "导航：post-training/README.md | 索引.md"
+---
 # 监督微调（SFT）
 
 导航：[post-training/README.md](../README.md) | [索引.md](索引.md)

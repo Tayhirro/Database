@@ -1,3 +1,10 @@
+---
+title: Starter 依赖（Spring Boot Starters）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：依赖组织（Dependency）
+---
 # Starter 依赖（Spring Boot Starters）
 
 > **类型**：依赖组织（Dependency）

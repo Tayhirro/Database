@@ -1,3 +1,10 @@
+---
+title: Decorator（装饰）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Decorator（装饰）
 
 > **类型**：模式（Pattern）

@@ -1,3 +1,10 @@
+---
+title: 例子库（最小工作例子）
+date: "2026-01-09"
+categories:
+  - math
+description: "给定向量 v_1,...,v_n，验证 Gram 矩阵 G_{ij}=<v_i,v_j> 一定是 PSD（直接算 c^T G c）。"
+---
 # 例子库（最小工作例子）
 
 ## PSD / Gram

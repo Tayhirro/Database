@@ -1,3 +1,10 @@
+---
+title: 配置体系总览（Configuration Overview）
+date: "2026-01-31"
+categories:
+  - springboot
+description: 类型：总述 / 指南（Guide）
+---
 # 配置体系总览（Configuration Overview）
 
 > **类型**：总述 / 指南（Guide）

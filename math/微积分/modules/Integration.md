@@ -1,3 +1,10 @@
+---
+title: 积分（Integration）
+date: "2026-01-21"
+categories:
+  - math
+description: 积分把“累加”严谨化：面积/体积/总量/期望的共同语言。
+---
 # 积分（Integration）
 
 ## 1. 一句话

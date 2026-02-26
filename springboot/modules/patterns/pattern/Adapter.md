@@ -1,3 +1,10 @@
+---
+title: Adapter（适配器）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Adapter（适配器）
 
 > **类型**：模式（Pattern）

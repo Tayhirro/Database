@@ -1,3 +1,10 @@
+---
+title: 感知（Perception）
+date: "2026-02-02"
+categories:
+  - agent
+description: "导航：agent/README.md | 索引.md"
+---
 # 感知（Perception）
 
 导航：[agent/README.md](../README.md) | [索引.md](索引.md)

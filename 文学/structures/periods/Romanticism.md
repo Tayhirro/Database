@@ -1,3 +1,10 @@
+---
+title: 浪漫主义（Romanticism）
+date: "2026-01-15"
+categories:
+  - 文学
+description: "18世纪末-19世纪中叶的文学运动，强调情感、个性、自然与想象力，反对古典主义的理性与规则"
+---
 # 浪漫主义（Romanticism）
 
 ## 1. 一句话

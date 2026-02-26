@@ -1,3 +1,10 @@
+---
+title: 语法（Grammar）笔记组织说明
+date: "2026-01-21"
+categories:
+  - 英语
+description: 导航：english/README.md ｜english/英语索引.md ｜本分支：english/语法/索引.md ｜english/语法/概念图.md
+---
 # 语法（Grammar）笔记组织说明
 
 导航：[english/README.md](../README.md) ｜[english/英语索引.md](../英语索引.md) ｜本分支：[english/语法/索引.md](索引.md) ｜[english/语法/概念图.md](概念图.md)

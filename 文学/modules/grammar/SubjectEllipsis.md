@@ -1,3 +1,10 @@
+---
+title: 古汉语主语省略 (Subject Ellipsis in Classical Chinese)
+date: "2026-02-16"
+categories:
+  - 文学
+description: 古汉语中，当主语在语境中已明确（前文出现、后文将现、对话已知或泛指）时，常省略不说，以避免冗余并增强表达凝练性。
+---
 # 古汉语主语省略 (Subject Ellipsis in Classical Chinese)
 
 ## 一句话

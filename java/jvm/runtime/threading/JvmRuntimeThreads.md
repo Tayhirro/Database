@@ -1,11 +1,15 @@
 ---
-type: mechanism
+title: JvmRuntimeThreads（JVM 运行态线程）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - threading
+description: JVM 运行态线程描述的是：一个 Java 进程在运行期间除了应用代码创建的线程外，还会存在一组由 JVM 管理的内部服务线程，它们承担 GC、JIT、引用处理与信号分发等职责。
+type: mechanism
 ---
-
 # JvmRuntimeThreads（JVM 运行态线程）
 
 ## 一句话

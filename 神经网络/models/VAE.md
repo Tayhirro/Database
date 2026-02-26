@@ -1,3 +1,10 @@
+---
+title: VAE（Variational Autoencoder）
+date: "2026-01-20"
+categories:
+  - 神经网络
+description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)，通过最大化 ELBO 做生成与表征学习。"
+---
 # VAE（Variational Autoencoder）
 
 ## 1. 一句话

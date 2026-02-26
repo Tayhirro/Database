@@ -1,3 +1,10 @@
+---
+title: "商向量空间（Quotient Vector Space, $V/U$）"
+date: "2026-01-22"
+categories:
+  - math
+description: 商向量空间把子空间  中的向量视为“零方向”并进行等价类折叠，从而把  按  的方向进行压缩。
+---
 # 商向量空间（Quotient Vector Space, $V/U$）
 
 ## 一句话

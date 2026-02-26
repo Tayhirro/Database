@@ -1,3 +1,10 @@
+---
+title: Mixture of Experts (MoE)
+date: "2026-02-08"
+categories:
+  - agent
+description: "导航：layers/README.md | Transformer.md"
+---
 # Mixture of Experts (MoE)
 
 导航：[layers/README.md](./README.md) | [Transformer.md](../Transformer.md)

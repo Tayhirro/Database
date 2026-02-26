@@ -1,3 +1,10 @@
+---
+title: "条件概率与链式法则（Conditional Probability & Chain Rule）"
+date: "2026-01-17"
+categories:
+  - math
+description: 条件概率描述在已知某事件发生的前提下，另一事件发生的概率；链式法则（乘法法则）是分解联合概率的核心工具
+---
 # 条件概率与链式法则（Conditional Probability & Chain Rule）
 
 ## 1. 一句话

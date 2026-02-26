@@ -1,3 +1,10 @@
+---
+title: AbstractApplicationEventMulticaster（多播器抽象基类）
+date: "2026-01-28"
+categories:
+  - springboot
+description: 类型：类（Class）
+---
 # AbstractApplicationEventMulticaster（多播器抽象基类）
 
 > **类型**：类（Class）

@@ -1,3 +1,10 @@
+---
+title: 短语动词 (Phrasal Verbs)
+date: "2026-01-21"
+categories:
+  - 英语
+description: "短语动词 = 动词 + 介词/副词，意义往往不能从字面推断"
+---
 # 短语动词 (Phrasal Verbs)
 
 > 短语动词 = 动词 + 介词/副词，意义往往不能从字面推断

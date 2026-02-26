@@ -1,3 +1,10 @@
+---
+title: 例子库（最小工作例子）
+date: "2026-01-20"
+categories:
+  - math
+description: '题目：已知 p_(z|x) ∝ const·p(z)，且比例系数对 z 是常数（只允许依赖 x），说明为什么必有 p_(z|x)=p(z)。'
+---
 # 例子库（最小工作例子）
 
 ## 归一化：`p_\theta(z|x) ∝ const·p(z) => p_\theta(z|x)=p(z)`

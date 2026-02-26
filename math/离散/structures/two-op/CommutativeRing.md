@@ -1,3 +1,10 @@
+---
+title: 交换环（Commutative Ring）
+date: "2026-01-09"
+categories:
+  - math
+description: 乘法可交换的环；代数几何与数论的基础语言。
+---
 # 交换环（Commutative Ring）
 
 ## 1. 一句话

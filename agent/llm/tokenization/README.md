@@ -1,3 +1,10 @@
+---
+title: 分词（Tokenization）
+date: "2026-01-31"
+categories:
+  - agent
+description: "导航：llm/README.md | 索引.md"
+---
 # 分词（Tokenization）
 
 导航：[llm/README.md](../README.md) | [索引.md](索引.md)

@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: GCThreads（GC 线程）
+date: "2026-02-01"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - threading
+description: GC 线程是垃圾回收器在 JVM 运行态用于执行内存回收相关工作的线程集合，其线程数量、命名与执行阶段依赖所选 GC 算法与配置。
+type: mechanism
 ---
-
 # GCThreads（GC 线程）
 
 ## 一句话

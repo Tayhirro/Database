@@ -1,13 +1,17 @@
 ---
-type: concept
+title: GCLog（GC 日志）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - tuning
   - analysis
   - gc
+description: GC 日志是 JVM 在运行态输出的 GC 事件记录流，用于描述回收触发原因、阶段耗时、停顿时间与堆使用量变化等可观测信息。
+type: concept
 ---
-
 # GCLog（GC 日志）
 
 ## 一句话

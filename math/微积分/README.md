@@ -1,3 +1,10 @@
+---
+title: "微积分（Calculus）笔记组织说明（面向对象 & 框架）"
+date: "2026-01-21"
+categories:
+  - math
+description: 导航：math/README.md ｜math/索引.md ｜本分支：math/微积分/索引.md ｜math/微积分/概念图.md
+---
 # 微积分（Calculus）笔记组织说明（面向对象 & 框架）
 
 导航：[math/README.md](../README.md) ｜[math/索引.md](../索引.md) ｜本分支：[math/微积分/索引.md](索引.md) ｜[math/微积分/概念图.md](概念图.md)

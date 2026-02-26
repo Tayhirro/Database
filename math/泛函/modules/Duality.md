@@ -1,3 +1,10 @@
+---
+title: 对偶与表示（Duality）
+date: "2026-01-09"
+categories:
+  - math
+description: 对偶空间把“点的几何”转成“线性测试函数”的语言，是弱拓扑与表示定理的入口。
+---
 # 对偶与表示（Duality）
 
 ## 1. 一句话

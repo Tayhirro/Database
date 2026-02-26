@@ -1,14 +1,18 @@
 ---
-type: concept
+title: DirectMemory（直接内存 / 堆外内存）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - runtime
   - structure
-  - direct-memory
-  - off-heap
+  - "direct-memory"
+  - "off-heap"
+description: 直接内存（Direct Memory）是 Java 进程可使用的堆外内存形态之一，不受 Java GC 直接管理，常用于 NIO、大对象缓存等场景。
+type: concept
 ---
-
 # DirectMemory（直接内存 / 堆外内存）
 
 ## 一句话

@@ -1,3 +1,10 @@
+---
+title: 域（Field）
+date: "2026-01-09"
+categories:
+  - math
+description: 既能加减乘除（除 0 外）的代数系统；线性代数、代数方程的底层标配。
+---
 # 域（Field）
 
 ## 1. 一句话

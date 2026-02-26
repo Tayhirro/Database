@@ -1,12 +1,16 @@
 ---
-type: algorithm
+title: Copying（复制算法）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - algorithm
+description: 复制算法（Copying）是一类 GC 算法：将存活对象从一个空间复制/搬迁到另一个空间，并在复制完成后整体回收原空间。
+type: algorithm
 ---
-
 # Copying（复制算法）
 
 ## 一句话

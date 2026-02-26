@@ -1,3 +1,10 @@
+---
+title: HandlerInterceptor（MVC 拦截器接口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：接口（Interface）
+---
 # HandlerInterceptor（MVC 拦截器接口）
 
 > **类型**：接口（Interface）

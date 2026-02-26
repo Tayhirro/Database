@@ -1,11 +1,15 @@
 ---
-type: concept
+title: 文件描述符（FD）
+date: "2026-02-01"
+categories:
+  - 网络
 tags:
   - network
   - os
   - fd
+description: 文件描述符（FD）是进程内用于引用内核对象（文件、socket 等）的整数句柄。
+type: concept
 ---
-
 # 文件描述符（FD）
 
 ## 一句话

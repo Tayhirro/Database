@@ -1,12 +1,16 @@
 ---
-type: concept
+title: NIO Channels（ServerSocketChannel / SocketChannel）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - tomcat
   - threading
   - nio
+description: ServerSocketChannel 表达“监听端口并接入新连接”，SocketChannel 表达“单条已建立连接的读写通道”，两者在端点线程模型中分别对应 accept 阶段与后续 I/O 处理阶段的数据载体。
+type: concept
 ---
-
 # NIO Channels（ServerSocketChannel / SocketChannel）
 
 ## 一句话

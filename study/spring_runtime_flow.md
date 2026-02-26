@@ -1,3 +1,10 @@
+---
+title: Spring / Spring Boot 运行流程
+date: "2026-01-20"
+categories:
+  - study
+description: 迁移提示：更完整的“从运行到结束”全链路主线已迁移到 springboot/flows/运行全链路.md，本页保留为草稿。
+---
 # Spring / Spring Boot 运行流程
 
 > 迁移提示：更完整的“从运行到结束”全链路主线已迁移到 `springboot/flows/运行全链路.md`，本页保留为草稿。

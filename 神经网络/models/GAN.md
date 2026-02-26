@@ -1,3 +1,10 @@
+---
+title: GAN（Generative Adversarial Network）
+date: "2026-02-26"
+categories:
+  - 神经网络
+description: 用两个网络对抗训练：生成器 G 造假样本，判别器 D 区分真假；纳什均衡时 G 学到数据分布。
+---
 # GAN（Generative Adversarial Network）
 
 ## 1. 一句话

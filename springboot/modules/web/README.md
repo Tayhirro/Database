@@ -1,10 +1,14 @@
 ---
-type: index
+title: web（模块总览）
+date: "2026-02-01"
+categories:
+  - springboot
 tags:
   - springboot/web
   - moc
+description: 本页用于汇总 modules/web/ 下的机制与入口，并用关系边表达"启动/运行态"的对象连接方式。
+type: index
 ---
-
 # web（模块总览）
 
 > 本页用于汇总 `modules/web/` 下的机制与入口，并用关系边表达"启动/运行态"的对象连接方式。

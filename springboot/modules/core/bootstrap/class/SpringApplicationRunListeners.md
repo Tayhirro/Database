@@ -1,3 +1,10 @@
+---
+title: SpringApplicationRunListeners（RunListener 组合与分发器）
+date: "2026-01-30"
+categories:
+  - springboot
+description: 类型：类（Class）/ 组合机制（Composite Mechanism）
+---
 # SpringApplicationRunListeners（RunListener 组合与分发器）
 
 > **类型**：类（Class）/ 组合机制（Composite Mechanism）

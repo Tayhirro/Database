@@ -1,3 +1,10 @@
+---
+title: Mediator（中介者）
+date: "2026-01-29"
+categories:
+  - springboot
+description: 类型：模式（Pattern）
+---
 # Mediator（中介者）
 
 > **类型**：模式（Pattern）

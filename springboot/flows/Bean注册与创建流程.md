@@ -1,10 +1,14 @@
 ---
-type: flow
+title: Bean 注册与创建流程（从 BeanDefinition 到可用实例）
+date: "2026-01-31"
+categories:
+  - springboot
 tags:
   - springboot/flow
   - beans
+description: Bean 注册与创建流程描述了 ApplicationContext.refresh() 期间的准备阶段、运行时的创建阶段（Bean 生命周期），以及实例存取策略（Scope 解析）的完整链路。
+type: flow
 ---
-
 # Bean 注册与创建流程（从 BeanDefinition 到可用实例）
 
 ## 一句话

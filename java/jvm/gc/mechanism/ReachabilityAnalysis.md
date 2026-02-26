@@ -1,12 +1,16 @@
 ---
-type: mechanism
+title: ReachabilityAnalysis（可达性分析）
+date: "2026-02-02"
+categories:
+  - java
 tags:
   - java/jvm
   - jvm
   - gc
   - mechanism
+description: 可达性分析（Reachability Analysis）是在对象引用图上以 GC Roots 为起点判定对象存活性的过程与判定规则。
+type: mechanism
 ---
-
 # ReachabilityAnalysis（可达性分析）
 
 ## 一句话

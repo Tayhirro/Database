@@ -1,3 +1,10 @@
+---
+title: Actuator（运行态端点与可观测性入口）
+date: "2026-02-02"
+categories:
+  - springboot
+description: 类型：模块（Module）
+---
 # Actuator（运行态端点与可观测性入口）
 
 > **类型**：模块（Module）
