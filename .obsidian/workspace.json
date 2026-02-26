@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenAI-o1.md",
+                "file": "DeepSeek-R1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenAI-o1"
+              "title": "DeepSeek-R1"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OpenAI-o1.md",
+                "file": "DeepSeek-R1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "OpenAI-o1 的大纲"
+              "title": "DeepSeek-R1 的大纲"
             }
           },
           {
@@ -197,16 +197,16 @@
   },
   "active": "1c6eb55f89b18bcc",
   "lastOpenFiles": [
+    "未命名 10.base",
+    "OpenAI-o1.md",
     "DeepSeek-R1.md",
     "Pasted image 20260120163629.png",
-    "OpenAI-o1.md",
     "屏幕截图 2026-01-20 193843.png",
     "Pasted image 20260120193857.png",
     "Pasted image 20260120192530.png",
     "未命名 7.base",
     "未命名 11.base",
     "未命名 12.base",
-    "未命名 10.base",
     "math/概率论/distributions/正态分布.md",
     "未命名 4.canvas",
     "未命名 6.canvas",
