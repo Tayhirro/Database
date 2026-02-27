@@ -75,7 +75,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -210,13 +210,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "agent/论文/deepseekv3.pdf",
+                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "deepseekv3 的大纲"
+              "title": "hmdp 的大纲"
             }
           },
           {
@@ -249,14 +249,14 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "af86e54aeb74e393",
+  "active": "746c53e65571fd57",
   "lastOpenFiles": [
+    "agent/论文/deepseekv3.pdf",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
     "math/概率论/README.md",
     "math/概率论/索引.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
     "agent/llm/architecture/Transformer/layers/MoE-性能挑战.md",
-    "agent/论文/deepseekv3.pdf",
     "agent/llm/models/DeepSeek-V3.md",
     "agent/llm/models/OpenAI-o1.md",
     "agent/llm/models/DeepSeek-R1.md",
@@ -302,7 +302,6 @@
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/ms.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/mjmj.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/lrmf.png",
-    "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/KTV.png",
-    "SpringBoot-Notes/02-数据访问/README/MyBatis-Plus-IService.md"
+    "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/KTV.png"
   ]
 }
