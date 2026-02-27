@@ -1,0 +1,19 @@
+name: Trigger Blog Build
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger tayhirro.github.io build
+        run: |
+          curl -X POST https://api.github.com/repos/Tayhirro/tayhirro.github.io/dispatches \
+          -H 'Accept: application/vnd.github.v3+json' \
+          -H 'Authorization: token ${{ secrets.BLOG_DEPLOY_TOKEN }}' \
+          -d '{"event_type": "database_updated"}'
