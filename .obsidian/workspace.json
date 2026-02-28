@@ -64,14 +64,12 @@
             "id": "746c53e65571fd57",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
-                "mode": "source",
-                "source": false
+                "file": "agent/论文/deepseekv3.pdf"
               },
-              "icon": "lucide-file",
-              "title": "hmdp"
+              "icon": "lucide-file-text",
+              "title": "deepseekv3"
             }
           }
         ],
@@ -210,13 +208,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SpringBoot-Notes/05-源码分析/hmdp.md",
+                "file": "agent/论文/deepseekv3.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "hmdp 的大纲"
+              "title": "deepseekv3 的大纲"
             }
           },
           {
@@ -251,8 +249,8 @@
   },
   "active": "746c53e65571fd57",
   "lastOpenFiles": [
-    "agent/论文/deepseekv3.pdf",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
+    "agent/论文/deepseekv3.pdf",
     "math/概率论/README.md",
     "math/概率论/索引.md",
     "agent/llm/architecture/Transformer/layers/MoE.md",
