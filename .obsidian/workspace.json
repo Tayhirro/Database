@@ -71,9 +71,21 @@
               "icon": "lucide-file-text",
               "title": "deepseekv3"
             }
+          },
+          {
+            "id": "8e087e10cff5e5a3",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.12.4"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -208,13 +220,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "agent/论文/deepseekv3.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "deepseekv3 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -247,7 +258,7 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "746c53e65571fd57",
+  "active": "8e087e10cff5e5a3",
   "lastOpenFiles": [
     "SpringBoot-Notes/05-源码分析/hmdp.md",
     "agent/论文/deepseekv3.pdf",
