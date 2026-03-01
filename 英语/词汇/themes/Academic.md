@@ -62,6 +62,7 @@ description: 学术英语常用词汇，适用于论文写作、学术交流
 | auxiliary    | /ɔːɡˈzɪljəri/ | adj. |辅助的；附加的 | The model uses auxiliary information to improve predictions. |
 | rant         | /rænt/       | n./v. |大论；咆哮 | The professor's rant about outdated methodologies was quite passionate. |
 | metastable   | /ˌmetəˈsteɪbl/ | adj. |亚稳态的；准稳定的 | The system remains in a metastable state before transitioning to the ground state. |
+| disruption   | /dɪsˈrʌpʃn/  | n.  |扰；破坏 | The new technology caused significant disruption to traditional business models. |
 
 ---
 
