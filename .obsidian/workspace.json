@@ -249,8 +249,10 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "746c53e65571fd57",
+  "active": "c0dd6c6168e19e8f",
   "lastOpenFiles": [
+    "obsidian-skills-overview.md",
+    "英语/词汇/words/M.md",
     "agent/论文/deepseekv3.pdf",
     "SpringBoot-Notes/05-源码分析/hmdp.md",
     "math/概率论/README.md",
@@ -296,7 +298,6 @@
     "java/utils/ObjectMapper.md",
     "conflict-files-obsidian-git.md",
     "agent/llm/architecture/Transformer/mechanics/activation/SwiGLU.md",
-    "神经网络/models/CLIP.md",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/spa.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/qzyl.png",
     "hmdp/target/classes/nginx-1.18.0/html/hmdp/imgs/types/ms.png",

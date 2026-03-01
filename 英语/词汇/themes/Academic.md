@@ -59,7 +59,9 @@ description: 学术英语常用词汇，适用于论文写作、学术交流
 | elaboration  | /ɪˌlæbəˈreɪʃn/ | n.  | 阐述；详述 | The paper provides detailed elaboration of the theoretical framework. |
 | impede       | /ɪmˈpiːd/    | v.  | 阻碍；妨碍 | Limited computational resources may impede the training process. |
 | notorious    | /nəʊˈtɔːriəs/ | adj. | 臭名昭著的；声名狼藉的 | The algorithm has a notorious reputation for overfitting. |
-| auxiliary    | /ɔːɡˈzɪljəri/ | adj. | 辅助的；附加的 | The model uses auxiliary information to improve predictions. |
+| auxiliary    | /ɔːɡˈzɪljəri/ | adj. |辅助的；附加的 | The model uses auxiliary information to improve predictions. |
+| rant         | /rænt/       | n./v. |大论；咆哮 | The professor's rant about outdated methodologies was quite passionate. |
+| metastable   | /ˌmetəˈsteɪbl/ | adj. |亚稳态的；准稳定的 | The system remains in a metastable state before transitioning to the ground state. |
 
 ---
 
