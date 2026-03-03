@@ -586,87 +586,94 @@ L2L 攻击:
 
 ## L2L 最新进展（2024–2025）
 
-这两年 L2L / 元学习的发展可以沿着四条主线来看。
+上面列的三个缺点——==meta-generalization 难、unroll 稳定性差、梯度遮蔽风险==——不是小问题，它们直接决定了 L2L 能不能从"论文里好看"变成"实际能用"。2024-2025 这两年的进展，本质上就是在从不同角度攻克这些瓶颈。
 
-### 主线 1：Learned Optimizer——从"能跑"到"能泛化、能长时 unroll"
-
-#### μLO：Compute-Efficient Meta-Generalization of Learned Optimizers
-
-> 2024，[arXiv:2406.00153](https://arxiv.org/abs/2406.00153)
-
-**核心问题**：learned optimizer 换到更宽的网络或新任务上就崩了。
-
-**怎么解决**：引入 μP（maximal update parameterization），让更新规则对网络宽度不敏感。
-
-**优点**：解决宽度泛化，小网络训练的优化器可以迁移到大网络。
-**缺点**：μP 有适用范围限制，任务泛化仍然有限。
+可以分成三类动作来看：**修补现有范式**、**换一个范式**、**补理论基础**。
 
 ---
 
-#### LoLO / ELO：Towards Robust Unroll Generalization in Learned Optimizers
+### 修补现有范式：让 Learned Optimizer 真正能部署
 
-> 2025，[OPT-ML Workshop](https://opt-ml.org/papers/2025/paper139.pdf)
+第一类工作最直接——不改 L2L 的基本框架（RNN/MLP 当优化器，双层优化训练），而是针对具体的部署痛点打补丁。
 
-**核心问题**：unroll $K$ 步训练，实际用 $K' \gg K$ 步就发散。
+**痛点 A：宽度泛化。** Learned optimizer 在小网络上训练好了，换到更宽的网络上就崩。说白了就是更新规则对网络维度敏感——小网络学到的"每个参数该怎么更新"的策略，到大网络上比例就不对了。
 
-**怎么解决**：replay buffer + imitation learning 稳定化。
+**μLO**（2024，[arXiv:2406.00153](https://arxiv.org/abs/2406.00153)）的解法是引入 μP（maximal update parameterization）——这个技巧最早是用来让超参数跨宽度迁移的，μLO 把它用到 learned optimizer 上，==让更新规则对网络宽度不敏感==。效果是：在窄网络上元训练的优化器，可以直接迁移到宽网络，不需要重新训练。
 
-**优点**：直接解决 unroll 泛化的部署痛点。
-**缺点**：额外训练复杂度，理论保证不充分。
+> [!tip] 对对抗攻击的意义
+> 如果你想用 L2L 加速对抗训练，目标模型的宽度经常变（调架构、做 scaling experiment）。μLO 意味着你不需要每换一个宽度就重新元训练一遍攻击器。
 
----
+不过 μP 有适用范围——它主要解决宽度维度的泛化，==任务泛化（换数据集、换任务类型）仍然是 open 的==。
 
-### 主线 2：Transformer 作为"Learn-to-Optimize / 算法执行器"
+**痛点 B：Unroll 泛化。** 元训练时 unroll $K$ 步计算 meta-loss，但部署时可能需要跑 $K' \gg K$ 步。步数一超出训练范围，learned optimizer 就容易发散——因为它从来没"见过"第 $K+1$ 步之后的状态。
 
-#### On the Learn-to-Optimize Capabilities of Transformers in ICL
+**LoLO / ELO**（2025，[OPT-ML Workshop](https://opt-ml.org/papers/2025/paper139.pdf)）用 replay buffer + imitation learning 来解决：把训练过程中见到的长轨迹存起来，让 learned optimizer 学习模仿"如果继续跑下去应该怎么做"。==直接解决了"训练 $K$ 步、部署 $K'$ 步"的稳定性问题==。
 
-> 2024 arXiv / 2025 ICLR，[arXiv:2410.13981](https://arxiv.org/pdf/2410.13981)
+代价是额外的训练复杂度，而且理论保证还不充分——你知道它经验上稳定了，但不知道在什么条件下一定稳定。
 
-**看点**：Transformer 在 ICL 中可能在"执行/逼近梯度下降类算法"，分析其能力边界。
-
-**优点**：把 L2L 和大模型范式（ICL）打通。
-**缺点**：主要是理论/小规模实验，离对抗攻击应用还有距离。
-
-> [!note] 和对抗攻击的关系
-> 如果 Transformer 能"学会优化"，理论上可以用来做对抗攻击的内层优化——给它梯度信息，让它直接输出最优扰动。表达能力比 RNN 强，但计算成本也更高。
+%% 痛点 C：任务泛化。目前还没有一个干净的解法。μLO 只解决了宽度维度，任务维度的泛化可能需要更根本的架构变化（见下面的"换范式"部分）。如果后续出现相关工作，在这里补充。 %%
 
 ---
 
-### 主线 3：把元学习改写成 In-Context Learning
+### 换一个范式：从 RNN 到 Transformer，从双层优化到 ICL
 
-#### Unsupervised Meta-Learning via In-Context Learning
+第二类工作更激进——既然现有范式（RNN + 双层优化）的瓶颈这么多，干脆换一个。2024-2025 出现了两个方向性的转变。
 
-> 2024 arXiv / 2025 ICLR，[arXiv:2405.16124](https://arxiv.org/abs/2405.16124)
+#### Transformer 作为 Learned Optimizer
 
-**做法**：把元学习任务构造成序列建模，让模型用 ICL 方式"读 support、解 query"。
+传统 L2L 用 RNN 当优化器，因为优化过程天然是序列（一步一步迭代）。但 RNN 的表达能力有限，而且长序列上有梯度消失问题——这可能是 unroll 泛化差的根本原因之一。
 
-**优点**：不需要人工设计 task distribution。
-**缺点**：context window 限制，任务质量不可控。
+**On the Learn-to-Optimize Capabilities of Transformers in ICL**（2024 arXiv / 2025 ICLR，[arXiv:2410.13981](https://arxiv.org/pdf/2410.13981)）从理论上分析了 Transformer 在 in-context learning 中"执行优化算法"的能力。核心发现是：==Transformer 的 attention 机制可以隐式地逼近梯度下降类算法==——你把优化轨迹喂给它，它能学会"下一步该怎么更新"。
+
+> [!note] 这对对抗攻击意味着什么
+> 如果用 Transformer 替换 RNN 做 learned optimizer：
+> - **表达能力更强**——attention 可以直接看到所有历史梯度，不需要压缩成隐状态
+> - **unroll 泛化可能更好**——Transformer 对序列长度的泛化比 RNN 好（这正是 LoLO 试图用 imitation learning 解决的问题）
+> - **代价**——计算成本更高，而且目前主要是理论分析 + 小规模实验，离对抗攻击的实际应用还有距离
+
+#### 把元学习重新表述为 In-Context Learning
+
+更彻底的一步：干脆不要双层优化了。
+
+**Unsupervised Meta-Learning via In-Context Learning**（2024 arXiv / 2025 ICLR，[arXiv:2405.16124](https://arxiv.org/abs/2405.16124)）把元学习任务直接构造成序列建模问题——support set 是 context，query 是要预测的 token。模型用 ICL 的方式"读 support、解 query"，==不需要人工设计 task distribution，也不需要显式的双层优化==。
+
+这个方向如果成熟，对 L2L 攻击的影响是根本性的：
+
+- **不需要 unroll**——没有内层优化循环，自然没有 unroll 稳定性问题
+- **不需要人工设计元训练任务分布**——这一直是 L2L 攻击的痛点（你的攻击器只能在见过的任务分布上泛化）
+- **受限于 context window**——你能放多少 support example 取决于上下文长度，目前还不能处理大规模任务
+
+%% 这两个方向（Transformer L2O 和 Meta-Learning as ICL）可能最终会合流：用 Transformer 既作为优化器架构，又用 ICL 范式训练，彻底取代 RNN + 双层优化。但目前还没有看到这样的工作。留意后续发展。 %%
 
 ---
 
-### 主线 4：元学习理论——泛化 / 稳定性（2024-2025 在补课）
+### 补理论基础：泛化界与稳定性分析
 
-#### On the Stability and Generalization of Meta-Learning（Uniform Meta-Stability）
+第三类工作是理论层面的。前面说的所有工程改进都是"经验上有效"，但缺乏理论保证。2024-2025 终于开始有人系统地研究元学习的泛化和稳定性。
 
-> 2024，NeurIPS，[论文链接](https://proceedings.neurips.cc/paper_files/paper/2024/file/984fa4634385c48ab3722d825c57ede0-Paper-Conference.pdf)
+两篇有代表性的工作：
 
-**贡献**：提出 meta-stability 概念，给出泛化界。
+**Uniform Meta-Stability**（2024，NeurIPS，[论文](https://proceedings.neurips.cc/paper_files/paper/2024/file/984fa4634385c48ab3722d825c57ede0-Paper-Conference.pdf)）提出了 **meta-stability** 的概念——不是问"学到的模型在新数据上能不能泛化"（这是普通泛化），而是问"学到的==学习算法==在新任务上能不能泛化"。给出了基于 uniform stability 的 meta-generalization bound。
 
-#### On the Stability and Generalization of Meta-Learning（GDF/PDF 框架）
+**GDF/PDF 框架**（2025，[OpenReview](https://openreview.net/forum?id=l1L0Yhh6x6)）更细致地区分了两类元学习算法：基于梯度下降的（GDF）和基于 proximal 算子的（PDF），分别推导了泛化界。==这意味着不同架构的 learned optimizer 可能需要不同的理论工具来分析==。
 
-> 2025，[OpenReview](https://openreview.net/forum?id=l1L0Yhh6x6)
+> [!warning] 理论与实践的差距
+> 这些泛化界都依赖强假设（Lipschitz 连续、凸性等），实际的神经网络基本不满足。所以目前的理论更多是"方向性的指引"（告诉你哪些因素影响泛化），而不是"定量的保证"（告诉你泛化误差具体是多少）。
 
-**贡献**：区分 GDF（梯度下降框架）和 PDF（proximal 框架），分别给出泛化界。
+%% 理论方面还有一个重要的 open 问题：learned optimizer 的收敛性。目前没有任何工作证明"用 learned optimizer 做优化一定收敛"。对于对抗攻击来说，这意味着你不知道 L2L 攻击跑完之后是不是真的找到了（近似）最优的扰动。如果后续有收敛性相关的理论工作，在这里补充。 %%
 
 ---
 
 ### 近期综述
 
+如果想系统了解元学习的全貌，这两篇综述值得一读：
+
 | 综述 | 发表 | 看点 |
 |------|------|------|
-| [Advances and Challenges in Meta-Learning: A Technical Review](https://dl.acm.org/doi/abs/10.1109/TPAMI.2024.3357847) | 2024，IEEE TPAMI | 最全的元学习技术综述 |
-| [Domain Generalization through Meta-Learning: A Survey](https://link.springer.com/article/10.1007/s10462-024-10922-z) | 2024，Springer | 元学习 + 领域泛化 |
+| [Advances and Challenges in Meta-Learning: A Technical Review](https://dl.acm.org/doi/abs/10.1109/TPAMI.2024.3357847) | 2024，IEEE TPAMI | 截至 2024 最全的元学习技术综述，覆盖 metric-based、optimization-based、model-based 三大范式 |
+| [Domain Generalization through Meta-Learning: A Survey](https://link.springer.com/article/10.1007/s10462-024-10922-z) | 2024，Springer | 专注于元学习在领域泛化中的应用——这和 L2L 攻击的 meta-generalization 问题直接相关 |
+
+%% 如果后续出现专门针对 L2L / learned optimizer 的综述，在表格中补充。 %%
 
 ---
 
