@@ -9,6 +9,8 @@ description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)�
 
 ## 1. 一句话
 - 把 AE 的潜空间改成概率模型：学习 `q(z|x)` 与 `p(x|z)`，通过最大化 `ELBO` 做生成与表征学习。
+- 引入z分布 表示对应样本潜空间 --- 方便采样 
+-   
 
 ## 2. 本质（概率化降维 + 生成建模）
 - 把高维数据 `x` 看成由低维潜变量 `z` 生成：`p(x)=∫ p(z)p(x|z)dz`（潜变量模型的“降维”视角）。
@@ -18,7 +20,7 @@ description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)�
 - 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/DimensionalityReduction.md](../modules/DimensionalityReduction.md)
 - `z -> x` 这步在不同语境的名字（decoder mapping / pushforward / 参数化）见：[modules/LatentToDataMapping.md](../modules/LatentToDataMapping.md)
 
-
+-如果直接不引入已知分布z，对其求解
 -p(x)=∫ p(z)p(x|z)dz 
 -最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
 -logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
