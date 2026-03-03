@@ -25,11 +25,9 @@ description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)�
 -p(x)=∫ p(z)p(x|z)dz 
 -最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
 - 且这里p(z)和真实后验 pθ(z∣x) 相差过大 导致 过松
--logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
--Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
-
-
-
+	- p(x) = logp(z)+logpθ​(x∣z)−logpθ​(z∣x)  取期望 
+	- logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
+	- Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
 -且本身为负（维度越高，负的越多）
 -p(x|z)的 μ 则直接学成E(x)     
 ### 推导证明：高斯似然下 $\mathbb{E}_{p(z)}[\log p(x|z)]$ 为何常为负
@@ -72,8 +70,6 @@ $$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
 
 $$\log p_\theta(x) = \log p(z) + \log p_\theta(x|z) - \log p_\theta(z|x)$$
 - pθ​(z∣x)难算，直接qϕ​(z∣x)拟合
-**重构项（Reconstruction Term）**：
-$$\mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)]$$
 
 ### 1) 引入 $q_\phi(z|x)$：不是为了改目标，而是为了"能对 z 做期望"
 
