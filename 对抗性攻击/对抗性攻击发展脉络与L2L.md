@@ -33,7 +33,7 @@ $$
 x_{\text{adv}} = x + \epsilon \cdot \text{sign}(\nabla_x \mathcal{L}(\theta, x, y))
 $$
 
-**做了什么**：算一次梯度，取符号（每个维度 $\pm\epsilon$），一步到位。
+**做了什么**：算一次梯度，取符号（每个维度 $\pm\epsilon$），一步到位
 
 **优点**：
 - 极快——只需要一次前向 + 一次反向传播
