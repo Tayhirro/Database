@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Trigger tayhirro.github.io build
         run: |
-          curl -X POST https://api.github.com/repos/Tayhirro/tayhirro.github.io/dispatches \
+          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}" -X POST https://api.github.com/repos/Tayhirro/tayhirro.github.io/dispatches \
           -H 'Accept: application/vnd.github.v3+json' \
           -H 'Authorization: token ${{ secrets.BLOG_DEPLOY_TOKEN }}' \
-          -d '{"event_type": "database_updated"}'
+          -d '{"event_type": "database_updated"}')
+          
+          if [ "$HTTP_STATUS" -ne 204 ]; then
+            echo "::error::触发失败！HTTP状态码: $HTTP_STATUS。请检查 BLOG_DEPLOY_TOKEN 权限。"
+            exit 1
+          else
+            echo "成功触发博客仓库的重新构建！"
+          fi
