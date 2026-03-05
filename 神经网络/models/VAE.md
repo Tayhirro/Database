@@ -97,8 +97,9 @@ $$= \mathbb{E}_q[\log p(z) + \log p_\theta(x|z)] - \left( \text{KL}(q \| p_\thet
 $$\log p_\theta(x) = \underbrace{\mathbb{E}_q[\log p_\theta(x|z)] + \mathbb{E}_q[\log p(z)] - \mathbb{E}_q[\log q_\phi(z|x)]}_{\text{ELBO}} + \underbrace{\text{KL}(q_\phi(z|x) \| p_\theta(z|x))}_{\geq 0} \tag{4}$$
 
 - Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
-- KL推导
- - 最大化ELBO： 1：KL最小化 2：最大化px
+	- KL推导
+	 - 最大化ELBO： 1：KL最小化 2：最大化px
+	 - 增加了一个KL 的下界约束
 
 
 -------------------------------------------------------------
