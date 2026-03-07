@@ -45,6 +45,7 @@ description: 这部分建议按两层来组织： 1) 模型族（models）：AE 
 - 图神经网络：`modules/GraphAttentionNetwork.md`
 - CLIP：`modules/ContrastiveLearning.md`
 - few-shot / 度量学习：`modules/PrototypicalLearning.md`
+- 训练优化：`modules/Initialization.md`、`modules/Loss.md`、`modules/Optimizer.md`
 
 ---
 

@@ -33,3 +33,6 @@ description: 导航：math/README.md ｜math/索引.md ｜本分支：math/微�
 例子与练习：
 - [math/微积分/examples/Examples.md](examples/Examples.md)
 - [math/微积分/exercises/Exercises.md](exercises/Exercises.md)
+
+基础补充：
+- [math/微积分/basics/导数基础.md](basics/导数基础.md)：一阶导/二阶导/偏导/梯度/Hessian 的最小口径
