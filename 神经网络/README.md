@@ -21,6 +21,7 @@ description: 这部分建议按两层来组织： 1) 模型族（models）：AE 
 核心内容：
 - `神经网络/modules/`：共用概念与工具箱（ELBO/KL/Attention/InfoNCE/Tokenization…）
 - `神经网络/models/`：模型卡片（目标、结构、损失、训练流程、坑点、扩展）
+- `神经网络/models/rl/`：强化学习算法卡片（PPO / GRPO）
 
 资料与落地：
 - `神经网络/papers/`：论文笔记（建议命名：`YYYY - FirstAuthor - Title.md`）
@@ -46,6 +47,8 @@ description: 这部分建议按两层来组织： 1) 模型族（models）：AE 
 - CLIP：`modules/ContrastiveLearning.md`
 - few-shot / 度量学习：`modules/PrototypicalLearning.md`
 - 训练优化：`modules/Initialization.md`、`modules/Loss.md`、`modules/Optimizer.md`
+- 强化学习底座：`modules/MarkovDecisionProcess.md`、`modules/ValueFunction.md`、`modules/PolicyGradient.md`、`modules/ActorCritic.md`、`modules/GeneralizedAdvantageEstimation.md`
+- 强化学习算法：`models/rl/PPO.md`、`models/rl/GRPO.md`
 
 ---
 
