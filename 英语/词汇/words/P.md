@@ -9,6 +9,7 @@ description: "| 单词       | 音标        | 词性 | 释义     | 例句     
 
 | 单词       | 音标        | 词性 | 释义     | 例句                                           |
 | ---------- | ----------- | ---- | -------- | ---------------------------------------------- |
+| percentile | /pəˈsentaɪl/ | n.  | 百分位数；百分等级 | The student scored in the 95th percentile on the standardized test. |
 | Perplexity | /pəˈpleksəti/ | n.  | 困惑度；混乱度 | Lower perplexity indicates better language model performance. |
 | propel     | /prəˈpel/    | v.  | 推动；推进 | The new findings will propel further research in this area. |
 
