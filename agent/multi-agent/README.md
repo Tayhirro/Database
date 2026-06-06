@@ -26,6 +26,8 @@ Multi-Agent System：多个自主 Agent 通过通信与协调机制共同完成�
 | [communication/](communication/) | 通信机制 |
 | [coordination/](coordination/) | 协调策略 |
 | [frameworks/](frameworks/) | 多智能体框架 |
+| [orchestration/](orchestration/) | 编排与工作流 |
+| [surveys/](surveys/) | 综述与阅读笔记 |
 
 ---
 
@@ -47,6 +49,12 @@ Multi-Agent System：多个自主 Agent 通过通信与协调机制共同完成�
 - [AutoGen](frameworks/AutoGen.md)
 - [CAMEL](frameworks/CAMEL.md)
 - [ChatDev](frameworks/ChatDev.md)
+
+### 编排
+- [MAS-Orchestration-Framework](orchestration/MAS-Orchestration-Framework.md)
+
+### 综述
+- [Trustworthy-LLM-Agents-Survey](surveys/Trustworthy-LLM-Agents-Survey.md)
 
 ---
 

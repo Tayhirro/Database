@@ -11,8 +11,8 @@ description: 用 Transformer Encoder 做双向上下文建模的预训练语言�
 - 用 Transformer Encoder 做双向上下文建模的预训练语言模型，经典目标是 MLM。
 
 ## 2. 输入与结构
-- Tokenization：`modules/Tokenization.md`
-- Encoder 堆叠：Multi-Head Self-Attention + FFN + 残差 + LayerNorm（注意力见 `modules/Attention.md`）
+- Tokenization：`modules/transformer/Tokenization.md`
+- Encoder 堆叠：Multi-Head Self-Attention + FFN + 残差 + LayerNorm（注意力见 `modules/transformer/Attention.md`）
 
 ## 3. 预训练目标（经典版）
 - MLM（Masked Language Modeling）：随机 mask 一部分 token，让模型预测

@@ -25,6 +25,7 @@ description: 导航：math/README.md ｜math/索引.md ｜本分支：math/微�
 
 模块（对对象做的操作/定理接口）：
 - [math/微积分/modules/Limits.md](modules/Limits.md)：极限/连续（ε-δ）
+- [math/微积分/modules/LipschitzContinuity.md](modules/LipschitzContinuity.md)：Lipschitz 连续性（连续的更强口径）
 - [math/微积分/modules/Differentiation.md](modules/Differentiation.md)：导数/偏导/梯度/Jacobian
 - [math/微积分/modules/Integration.md](modules/Integration.md)：积分（从一元到多元的接口）
 - [math/微积分/modules/Series.md](modules/Series.md)：级数/Taylor（近似接口）

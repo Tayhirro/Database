@@ -7,8 +7,8 @@ description: "| 单词      | 音标         | 词性 | 释义           | 例�
 ---
 # N 开头的单词
 
-| 单词      | 音标         | 词性 | 释义           | 例句                                           |
-| --------- | ------------ | ---- | -------------- | ---------------------------------------------- |
+| namely | /ˈneɪmli/ | adv. | 即；也就是；具体来说 | The study focuses on two factors, namely age and income. |
+| notion | /ˈnəʊʃn/ | n. | 概念；观念；想法 | The notion of artificial intelligence has evolved significantly over the decades. |
 | notorious | /nəʊˈtɔːriəs/ | adj. | 臭名昭著的；声名狼藉的 | The algorithm has a notorious reputation for overfitting. |
 
 ---

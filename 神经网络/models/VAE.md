@@ -18,18 +18,18 @@ description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)�
 - VAE 的核心是同时学两条路：  
   1) 生成路（decoder）：`p_θ(x|z)` 能从 `z` 采样生成 `x`  
   2) 推断路（encoder）：`q_φ(z|x)` 近似难算的真实后验 `p(z|x)`（用 ELBO 把它们绑在一起训练）
-- 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/DimensionalityReduction.md](../modules/DimensionalityReduction.md)
-- `z -> x` 这步在不同语境的名字（decoder mapping / pushforward / 参数化）见：[modules/LatentToDataMapping.md](../modules/LatentToDataMapping.md)
+- 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/probabilistic/DimensionalityReduction.md](../modules/probabilistic/DimensionalityReduction.md)
+- `z -> x` 这步在不同语境的名字（decoder mapping / pushforward / 参数化）见：[modules/probabilistic/LatentToDataMapping.md](../modules/probabilistic/LatentToDataMapping.md)
 
 -如果直接不引入已知分布z，对其求解
 -p(x)=∫ p(z)p(x|z)dz 
 -最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
-- 且这里p(z)和真实后验 pθ(z∣x) 相差过大 导致 过松
-	- p(x) = logp(z)+logpθ​(x∣z)−logpθ​(z∣x)  取期望 
+- 且这里p(z)和真实后验 pθ(z∣x) 相差过大 **导致 过松**
+	- logp(x) = logp(z)+logpθ​(x∣z)−logpθ​(z∣x)  取期望 
 	- logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
 	- Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
 -且本身为负（维度越高，负的越多）
--p(x|z)的 μ 则直接学成E(x)     
+-p(x|z)的 μ 则直接学成E(x)      ---》  N(μθ​(z),σ2) ---》导致直接学成E（x） 
 ### 推导证明：高斯似然下 $\mathbb{E}_{p(z)}[\log p(x|z)]$ 为何常为负
 
 **前提假设**：
@@ -109,8 +109,8 @@ $$\log p_\theta(x) = \underbrace{\mathbb{E}_q[\log p_\theta(x|z)] + \mathbb{E}_q
 - 解码器/生成网络：`p_θ(x|z)`
 
 ## 4. 训练目标（ELBO）
-- 入口：`modules/ELBO.md`
-- ERM 视角：VAE 在做“无监督的 ERM”，把 `u` 取为 `x`，把 `loss` 取为 `-ELBO(x)`（见：[modules/Loss.md](../modules/Loss.md)）
+- 入口：`modules/probabilistic/ELBO.md`
+- ERM 视角：VAE 在做“无监督的 ERM”，把 `u` 取为 `x`，把 `loss` 取为 `-ELBO(x)`（见：[modules/training/Loss.md](../modules/training/Loss.md)）
 - 常写成：重构项 `E_q[log p(x|z)]` + 正则项 `-KL(q(z|x)||p(z))`
 
 ### 4.1 数字级例子：为什么 KL 会“整理潜空间”（但不改变真实结构）
@@ -135,7 +135,7 @@ KL 会强烈惩罚“`μ` 太离谱”。对高斯有闭式：
 - 生成：`z ~ N(0, I) -> Decoder -> x_hat`
 
 ## 6. 关键技巧
-- 重参数化：`modules/ReparameterizationTrick.md`
+- 重参数化：`modules/probabilistic/ReparameterizationTrick.md`
 
 ## 7. Tensor 级例子（图片 H×W×3）
 - RGB 图片的 shape 对齐与 loss 计算：[VAE_TensorLevelExample.md](../examples/VAE_TensorLevelExample.md)

@@ -79,7 +79,7 @@ source_pdf: "轨迹预测/论文/machines-13-00818-v2.pdf"
   - 局限：密集场景图大 → message passing 开销大；时间建模常需外接 RNN/Transformer
 - Transformer
   - 优点：自注意力擅长全局依赖建模（长程时空依赖/意图）
-  - 局限：归纳偏置弱、需要更大更杂的数据；OOD/长尾泛化仍是问题
+  - 局限：[[InductiveBias|归纳偏置]]弱、需要更大更杂的数据；OOD/长尾泛化仍是问题
 
 ### 3.3 生成式轨迹预测（GAN / CVAE / Diffusion）
 目标：学习未来轨迹的**概率分布**而不是单一路径，从而支持多模态预测。

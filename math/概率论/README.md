@@ -28,6 +28,8 @@ description: 导航：math/README.md ｜math/索引.md ｜本分支：math/概�
 
 结构页（“类/接口”风格：对象/公理/性质/例子）：
 - `math/概率论/structures/`（待逐步补全，模板见 `structures/_TEMPLATE.md`）
+- [math/概率论/structures/ProbabilitySpace.md](structures/ProbabilitySpace.md)：概率空间 `(Ω, F, P)` 的定义
+- [math/概率论/structures/RandomVariable.md](structures/RandomVariable.md)：随机变量、原像与可测性
 
 分布页（单个分布的定义/性质/关系，按需扩展子目录）：
 - `math/概率论/distributions/`（入口见 [math/概率论/distributions/README.md](distributions/README.md)）

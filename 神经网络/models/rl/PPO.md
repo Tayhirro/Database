@@ -57,7 +57,7 @@ $$
 - value 函数学不稳，导致 policy 被错误优势信号带偏。
 
 ## 8. 关联模块
-- [../../modules/MarkovDecisionProcess.md](../../modules/MarkovDecisionProcess.md)
-- [../../modules/PolicyGradient.md](../../modules/PolicyGradient.md)
-- [../../modules/ActorCritic.md](../../modules/ActorCritic.md)
-- [../../modules/GeneralizedAdvantageEstimation.md](../../modules/GeneralizedAdvantageEstimation.md)
+- [../../modules/rl/MarkovDecisionProcess.md](../../modules/rl/MarkovDecisionProcess.md)
+- [../../modules/rl/PolicyGradient.md](../../modules/rl/PolicyGradient.md)
+- [../../modules/rl/ActorCritic.md](../../modules/rl/ActorCritic.md)
+- [../../modules/rl/GeneralizedAdvantageEstimation.md](../../modules/rl/GeneralizedAdvantageEstimation.md)

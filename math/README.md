@@ -23,4 +23,5 @@ type: index
 - 线性代数：README [math/线性代数/README.md](线性代数/README.md) ｜索引 [math/线性代数/索引.md](线性代数/索引.md) ｜概念图 [math/线性代数/概念图.md](线性代数/概念图.md)
 - 泛函分析：README [math/泛函/README.md](泛函/README.md) ｜索引 [math/泛函/索引.md](泛函/索引.md) ｜概念图 [math/泛函/概念图.md](泛函/概念图.md)
 - 概率论：README [math/概率论/README.md](概率论/README.md) ｜索引 [math/概率论/索引.md](概率论/索引.md) ｜概念图 [math/概率论/概念图.md](概率论/概念图.md)
+- 数理统计：README [math/数理统计/README.md](数理统计/README.md) ｜索引 [math/数理统计/索引.md](数理统计/索引.md) ｜概念图 [math/数理统计/概念图.md](数理统计/概念图.md)
 - 拓扑（单页草稿）：[math/拓扑.md](拓扑.md)

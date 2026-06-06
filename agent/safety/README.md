@@ -27,6 +27,7 @@ Agent Safety：确保 Agent 行为安全、可控、符合人类意图的机制�
 - [HumanInTheLoop](HumanInTheLoop.md)
 - [PermissionSystem](PermissionSystem.md)
 - [ActionValidation](ActionValidation.md)
+- [OutputContractBoundary](OutputContractBoundary.md)
 
 ---
 

@@ -20,3 +20,10 @@ description: 极限与连续是微积分的语义底座：先保证“趋近”�
 ## 4. 连续
 - `f` 在 `a` 处连续：`lim_{x->a} f(x) = f(a)`
 
+## 5. 连续性的强弱层级
+- 常见强弱关系：`Lipschitz 连续 => 一致连续 => 连续`
+- Lipschitz 连续比“只要求极限接上函数值”更强，因为它直接给了一个统一的线性变化上界：
+  - `||f(x)-f(y)|| <= L ||x-y||`
+- 这类更强的正则性常在 ODE 唯一性、优化收敛分析和神经网络稳定性里出现。
+- 进一步见 [math/微积分/modules/LipschitzContinuity.md](LipschitzContinuity.md)
+

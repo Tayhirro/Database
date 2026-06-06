@@ -42,6 +42,10 @@ description: 导航：english/README.md ｜english/英语索引.md ｜本分支�
 - `english/词汇/words/`：具体单词笔记
   - [A.md](words/A.md)、[B.md](words/B.md)...（按首字母分类）
 
+短语页（按首字母组织）：
+- `english/词汇/phrases/`：常用短语/成语/习语集
+  - [A.md](phrases/A.md)、[B.md](phrases/B.md)...（按首字母分类）
+
 主题词汇（按场景/领域分类）：
 - `english/词汇/themes/`：主题词汇集
   - [Academic.md](themes/Academic.md)：学术词汇

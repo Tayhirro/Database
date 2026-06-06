@@ -16,7 +16,7 @@ description: 图像编码器 + 文本编码器的双塔模型，通过对比学�
 - 相似度：通常是归一化后的 dot-product / cosine
 
 ## 3. 训练目标（对比学习）
-- 入口：`modules/ContrastiveLearning.md`
+- 入口：`modules/representation/ContrastiveLearning.md`
 - batch 内构造 `N×N` 相似度矩阵，正例在对角线，做双向交叉熵
 
 ## 4. 推理（zero-shot）

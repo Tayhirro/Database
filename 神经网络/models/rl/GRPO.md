@@ -39,6 +39,6 @@ description: 基于同题多样本组内相对优势的策略优化方法，常�
 - 你在做 LLM 后训练（SFT 之后的 RL 阶段），且 reward 噪声较大、任务以生成质量比较为主时。
 
 ## 8. 关联模块
-- [../../modules/PolicyGradient.md](../../modules/PolicyGradient.md)
-- [../../modules/ValueFunction.md](../../modules/ValueFunction.md)
+- [../../modules/rl/PolicyGradient.md](../../modules/rl/PolicyGradient.md)
+- [../../modules/rl/ValueFunction.md](../../modules/rl/ValueFunction.md)
 - [PPO.md](PPO.md)

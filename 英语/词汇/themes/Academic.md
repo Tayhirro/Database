@@ -63,6 +63,7 @@ description: 学术英语常用词汇，适用于论文写作、学术交流
 | rant         | /rænt/       | n./v. |大论；咆哮 | The professor's rant about outdated methodologies was quite passionate. |
 | metastable   | /ˌmetəˈsteɪbl/ | adj. |亚稳态的；准稳定的 | The system remains in a metastable state before transitioning to the ground state. |
 | disruption   | /dɪsˈrʌpʃn/  | n.  |扰；破坏 | The new technology caused significant disruption to traditional business models. |
+| nuanced     | /ˈnjuːɑːnst/ | adj. | 微妙的；有细微差别的；细致入微的 | A nuanced interpretation is often more convincing than an oversimplified conclusion. |
 
 ---
 

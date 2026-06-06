@@ -68,7 +68,7 @@ $$= -\log 4 + 2 \cdot JSD(p_{data} \| p_G)$$
 $$JSD(p \| q) = \frac{1}{2}KL(p \| m) + \frac{1}{2}KL(q \| m), \quad m = \frac{p + q}{2}$$
 
 - G 的最优解：$p_G = p_{data}$，此时 $JSD = 0$，$V = -\log 4$
-- 对照 VAE 最小化 KL（[modules/KLDivergence.md](../modules/KLDivergence.md)），GAN 最小化的是 JSD——对称且有界（$JSD \in [0, \log 2]$）
+- 对照 VAE 最小化 KL（[modules/probabilistic/KLDivergence.md](../modules/probabilistic/KLDivergence.md)），GAN 最小化的是 JSD——对称且有界（$JSD \in [0, \log 2]$）
 
 ### 4.4 实践中 G 的损失：非饱和版本
 

@@ -18,7 +18,7 @@ description: "给定条件/输入 x，用 VAE 建模带随机性的映射 p(y|x)
 - 文献里也常见把“要生成的变量”写作 `x`、把条件写作 `y`；只要对应到 `q(z|cond,target)` 和 `p(target|cond,z)` 即可。
 
 ## 4. 训练目标
-- 本质还是条件版 ELBO：在重构项/KL 项里把条件 `x` 带进去（参考 `modules/ELBO.md`）
+- 本质还是条件版 ELBO：在重构项/KL 项里把条件 `x` 带进去（参考 `modules/probabilistic/ELBO.md`）
 
 ## 5. 实现要点
 - 条件 `x` 怎么注入：拼接、FiLM、条件归一化、cross-attention（看模型规模）

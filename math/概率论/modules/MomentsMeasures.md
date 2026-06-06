@@ -118,6 +118,40 @@ $$\Sigma_{ij} = \text{Cov}(X_i, X_j)$$
 
 ---
 
+### 矩阵/向量的整体方差与元素方差
+
+**问题**：若随机矩阵 $W$ 有 $N$ 个元素，每个元素 $W_{ji}$ 独立同分布，$E[W_{ji}] = 0$，$Var(W_{ji}) = \sigma^2$，则把所有元素看作一个整体，其方差怎么求？
+
+**推导**：
+
+样本均值：
+$$\bar{W} = \frac{1}{N} \sum_{j,i} W_{ji}$$
+
+样本方差：
+$$S^2 = \frac{1}{N-1} \sum_{j,i} (W_{ji} - \bar{W})^2$$
+
+展开平方和：
+$$\sum_{j,i} (W_{ji} - \bar{W})^2 = \sum_{j,i} W_{ji}^2 - N \bar{W}^2$$
+
+取期望：
+
+1. $\sum_{j,i} W_{ji}^2 = N\sigma^2$（因为 $E[W_{ji}^2] = Var(W_{ji}) + (E[W_{ji}])^2 = \sigma^2$）
+
+2. 求 $E[\bar{W}^2]$：
+   - $E[\bar{W}] = 0$，故 $Var(\bar{W}) = E[\bar{W}^2]$
+   - $Var(\bar{W}) = Var\left(\frac{1}{N}\sum W_{ji}\right) = \frac{1}{N^2} \sum Var(W_{ji}) = \frac{N\sigma^2}{N^2} = \frac{\sigma^2}{N}$
+   - 所以 $E[\bar{W}^2] = \frac{\sigma^2}{N}$
+
+3. 因此：
+$$E\left[\sum(W_{ji} - \bar{W})^2\right] = N\sigma^2 - \sigma^2 = (N-1)\sigma^2$$
+
+最终：
+$$E[S^2] = \frac{(N-1)\sigma^2}{N-1} = \sigma^2$$
+
+**结论**：整体方差的期望值等于单个元素的方差 $\sigma^2$。
+
+---
+
 ## 5. 相关系数（Correlation Coefficient）
 
 ### 定义（Pearson 相关系数）
