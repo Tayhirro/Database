@@ -11,6 +11,7 @@ description: "to which extent, through the lens of"
 |------|------|------|------|
 | to which extent | /tuː wɪtʃ ɪkˈstent/ | 在多大程度上；到什么程度 | The study aims to determine to which extent social media affects teenagers' mental health. |
 | through the lens of | /θruː ðə lenz ɒv/ | 通过…的视角；从…的角度 | We can analyze social problems through the lens of sociology. |
+| tease apart | /tiːz əˈpɑːt/ | 把纠缠在一起的东西厘清；区分开；梳理出（tease 原义"梳理/挑逗"，apart 分开） | The ablation study teases apart the contribution of each component by removing them one at a time. |
 
 ---
 > 返回：[../索引.md](../索引.md) | [../README.md](../README.md)

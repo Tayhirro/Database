@@ -60,12 +60,27 @@ RL 的根本目标是最大化期望累积回报。但具体优化哪个对象�
 | softmax | 按Q值概率选择 | 离散动作空间 | SARSA |
 | 确定性策略 | 直接输出动作 | 连续动作空间 | DDPG、TD3 |
 
-### 第5层：On-policy vs Off-policy（数据能否复用）
+### 第5层：On-policy vs Off-policy（行为策略与目标策略的关系）
 
 | | On-policy | Off-policy |
 |--|----------|-----------|
-| 数据来源 | 当前策略采样，用完即弃 | 任意策略采样，存 replay buffer |
+| 策略关系 | behavior policy = target policy | behavior policy 可以不同于 target policy |
 | 代表算法 | REINFORCE、A2C、PPO | Q-learning、DQN、DDPG、TD3、SAC |
+
+详见 [[OnPolicyVsOffPolicy]]。
+
+### 第6层：Online vs Offline（能否继续向环境取数据）
+
+| | Online RL | Offline RL |
+|---|---|---|
+| 训练数据 | 可以持续与环境交互并纠正错误 | 固定数据集 $\mathcal D$，训练时不能再交互 |
+| 核心风险 | 探索成本、训练稳定性 | 分布偏移、OOD action、价值外推误差 |
+| 代表方法 | PPO、DQN、SAC | CQL、IQL、Cal-QL |
+
+> [!important] 两组概念不能混用
+> `on-policy / off-policy` 描述行为策略与目标策略的关系；`online / offline` 描述训练时能否继续获得环境反馈。Offline RL 通常采用 off-policy 学习，但普通 off-policy 算法并不自动具备处理固定数据分布偏移的能力。
+
+详见 [[OnlineVsOffline]] 与 [[OfflineRL|离线强化学习总览]]。
 
 ## 推导流程：从目标到实现
 
@@ -74,7 +89,7 @@ RL 的根本目标是最大化期望累积回报。但具体优化哪个对象�
 **目标**：最大化期望回报
 $$J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta}[G(\tau)]$$
 
-**策略梯度定理**（推导详见 [PolicyGradient.md](优化方法/策略优化/PolicyGradient.md)）：
+**策略梯度定理**（推导详见 [[PolicyGradient]]）：
 $$\nabla_\theta J(\theta) = \mathbb{E}\left[\sum_t G_t \nabla_\theta \log \pi_\theta(a_t|s_t)\right]$$
 
 需要估计 G_t（Q 的采样估计）来加权梯度 → 维度1 的方法上场：
@@ -95,10 +110,30 @@ $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma \max_{a'} Q(s',a') - Q(s,a
 
 **不需要策略梯度，策略是 Q 的副产品。**
 
+### 数据范式叠加层：固定数据上的 Offline RL
+
+Offline RL 不是路线 A / B 之外的第三种优化对象，而是在策略优化、值优化或 Actor-Critic 上叠加“训练数据固定”这一约束。
+
+**额外约束**：数据集只覆盖有限的状态—动作区域，标准 Q-learning 的 $\max Q$ 或 actor 可能查询数据外动作：
+
+$$
+a_{\mathrm{OOD}}\notin
+\operatorname{support}\bigl(\mathcal D(\cdot\mid s)\bigr).
+$$
+
+因此在原有 Bellman / TD 学习之外，还需要控制分布偏移：
+
+- CQL：压低数据外动作的 Q。
+- IQL：critic 训练时避免查询数据外动作。
+- Cal-QL：在 CQL 的保守性上校准 Q-value 尺度。
+
+详见 [[OfflineRL|离线强化学习]]、[[ActionOODAndExtrapolationError|Action OOD 与价值外推误差]]；完整 OOD 维度见 [[OODTaxonomy|OOD 分类总览]]。
+
 ## 文件结构
 
 ```
 rl/
+├── README.md                              # 总览：六个组织维度
 ├── 基础/
 │   └── MarkovDecisionProcess.md          # MDP定义
 ├── 价值函数/
@@ -109,19 +144,34 @@ rl/
 │   ├── TemporalDifference.md             # TD方法
 │   └── GeneralizedAdvantageEstimation.md # GAE
 └── 优化方法/
-    ├── README.md                         # 总览：argmax不可导 + 两条路线对比 + 迭代方式统一
-    ├── 策略优化/
-    │   ├── PolicyGradient.md             # 策略梯度定理
-    │   ├── ActorCritic.md                # AC 框架 + 在线更新偏差
-    │   ├── A2C.md                        # 同步多 worker AC
-    │   ├── PPO.md                        # PPO（待补充）
-    │   └── GRPO.md                       # GRPO（待补充）
-    └── 值优化/
-        ├── Q-learning.md                 # Q-learning
-        ├── DQN.md                        # Deep Q-Network
-        ├── SAC.md                        # SAC（待补充）
-        └── TD3.md                        # TD3（待补充）
+    ├── README.md                         # 三轴分类矩阵
+    ├── 算法/                             # 每个算法只保存一份
+    │   ├── PolicyGradient.md
+    │   ├── ActorCritic.md
+    │   ├── A2C.md
+    │   ├── Q-learning DQN.md
+    │   ├── CQL.md
+    │   ├── IQL.md
+    │   └── Cal-QL.md
+    ├── 训练范式/
+    │   ├── OnlineVsOffline.md
+    │   ├── OnPolicyVsOffPolicy.md
+    │   └── OfflineRL.md
+    └── 问题与约束/
+        └── OOD/
+            ├── OODTaxonomy.md
+            ├── 按偏移位置/
+            │   ├── ObservationOOD.md
+            │   ├── StateVisitationOOD.md
+            │   ├── ActionOODAndExtrapolationError.md
+            │   ├── LanguageGoalTaskOOD.md
+            │   └── TransitionRewardOOD.md
+            └── 按变化来源/
+                ├── EnvironmentShift.md
+                └── EmbodimentShift.md
 ```
+
+PPO、GRPO、SAC、DDPG、TD3 等算法目前只在总览或 TD 笔记中作为对照出现，尚无独立文件。
 
 ## 组合示例
 
@@ -134,3 +184,8 @@ rl/
 - Q-learning = TD + 值优化（单步更新 Q）
 - DQN = TD + 值优化 + 神经网络 + replay buffer
 - SAC = TD + 值优化 + 策略梯度（同时学 Q* 和 π，双路线混合）
+
+### 离线数据范式下的附加机制
+- CQL = TD / actor-critic + conservative Q regularization
+- IQL = expectile $V$ + dataset-action Q backup + advantage-weighted BC
+- Cal-QL = CQL + reference-policy value calibration

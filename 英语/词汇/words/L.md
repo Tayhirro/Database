@@ -9,6 +9,7 @@ description: latter
 
 | 单词 | 音标 | 词性 | 释义 | 例句 |
 |------|------|------|------|------|
+| laborious | /ləˈbɔːriəs/ | adj. | 费力的；艰苦的；辛苦的 | The task of manually labeling thousands of images is laborious and time-consuming. |
 | latter | /ˈlætər/ | adj. | 后者的；后面的；最近的 | The latter part of the book is more interesting than the former. |
 
 ---

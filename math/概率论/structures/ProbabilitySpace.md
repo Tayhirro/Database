@@ -120,5 +120,6 @@ $$
 ## 相关页
 
 - 随机变量：见 [RandomVariable.md](RandomVariable.md)
+- 分布：见 [Distribution.md](Distribution.md)
 - 期望：见 [../modules/Expectation.md](../modules/Expectation.md)
 - 独立性：见 [../modules/Independence.md](../modules/Independence.md)

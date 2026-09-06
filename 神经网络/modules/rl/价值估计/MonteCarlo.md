@@ -48,4 +48,4 @@ $$Q(s,a) = \mathbb{E}[r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + \cdots | s_t
 ## 5. 相关模块
 
 - [ValueFunction.md](../价值函数/ValueFunction.md)：价值函数定义
-- [PolicyGradient.md](../优化方法/策略优化/PolicyGradient.md)：策略梯度方法
+- [[PolicyGradient]]：策略梯度方法

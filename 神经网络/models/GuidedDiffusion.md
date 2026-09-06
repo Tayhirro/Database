@@ -11,7 +11,7 @@ description: 在扩散采样过程中注入额外引导信号，让生成结果�
 - Guided Diffusion 的核心不是改掉 diffusion 本身，而是在“每一步反向去噪”时额外加一个引导信号，让采样朝你想要的方向偏。
 
 ## 2. 目标（解决什么问题）
-- 普通 [Diffusion.md](Diffusion.md) 擅长学“数据分布长什么样”，但它默认只会采样“像数据”的样本，不一定会采到“最符合条件 / 最高奖励 / 最高 Q 值”的样本。
+- 普通 [Diffusion.md](生成模型.md) 擅长学“数据分布长什么样”，但它默认只会采样“像数据”的样本，不一定会采到“最符合条件 / 最高奖励 / 最高 Q 值”的样本。
 - guided diffusion 就是在保留这个生成先验的前提下，再加一个“控制力”：
   - 图像里：更符合类别、文本 prompt、参考图、风格约束
   - 决策 / 强化学习里：更符合奖励函数、约束条件、价值函数 `Q(s,a)`
@@ -204,7 +204,7 @@ x_T ~ N(0, I)
 | RL 里的角色 | 生成 policy / 轨迹先验 | 可控 policy / planner | critic / value-based policy |
 
 ## 10. 关联笔记
-- 扩散基础：[Diffusion.md](Diffusion.md)
+- 扩散基础：[Diffusion.md](生成模型.md)
 - 价值函数：[../modules/rl/ValueFunction.md](../modules/rl/ValueFunction.md)
 - MDP：[../modules/rl/MarkovDecisionProcess.md](../modules/rl/MarkovDecisionProcess.md)
 - DQN：[rl/DQN.md](rl/DQN.md)

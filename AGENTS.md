@@ -7,6 +7,7 @@ Database-related backend projects in this workspace.
 | Project | Path | Stack | Description |
 |---|---|---|---|
 | hmdp | `Database/hmdp` | Java 8, Spring Boot 2.7, Redis | 黑马点评 — 秒杀、Feed 流、优惠券 |
+| hmdp-complete | `Database/hmdp-complete` | Java 8, Spring Boot 2.7, Redis | hmdp 增强副本 — 完整秒杀、推荐系统、店铺评价（独立库 `hmdp_complete`，禁止指向共享库） |
 | hmdp-plus | `Database/hmdp-plus` | Java 8, Spring Boot | hmdp 模块化重构版（多模块 Maven） |
 | HMDP-Redis | `Database/HMDP-Redis` | Java, Redis | Redis 独立实现 |
 | deer-flow | `Database/deer-flow` | — | 工作流项目 |

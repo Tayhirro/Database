@@ -11,6 +11,7 @@ description: "| 单词   | 音标     | 词性 | 释义     | 例句            
 | ----------- | ---------------- | --- | --------- | ----------------------------------------------------------------------- |
 | vasopressor | /ˌveɪzoʊˈpresər/ | n.  | 升压药；血管加压药 | Vasopressors are used to treat hypotension in critically ill patients.  |
 | ventilation | /ˌventɪˈleɪʃn/   | n.  | 通风；通气     | Mechanical ventilation was required to support the patient's breathing. |
+| versatility | /ˌvɜːsəˈtɪləti/ | n.  | 多功能性；多才多艺；通用性 | The versatility of the framework allows it to be applied across various domains. |
 |             |                  |     |           |                                                                         |
 |             |                  |     |           |                                                                         |
 

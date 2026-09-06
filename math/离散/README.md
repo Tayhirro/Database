@@ -7,7 +7,7 @@ description: 导航：math/README.md ｜math/索引.md ｜本分支：math/离�
 ---
 # 离散（抽象代数/离散数学）笔记组织说明（可扩展 & 速查）
 
-导航：[math/README.md](../README.md) ｜[math/索引.md](../索引.md) ｜本分支：[math/离散/索引.md](索引.md) ｜[math/离散/概念图.md](概念图.md)
+导航：[math/README.md](../README.md) ｜[math/数学索引.md](../数学索引.md) ｜本分支：[math/离散/索引.md](索引.md) ｜[math/离散/概念图.md](概念图.md)
 
 这份目录打算按“面向对象/类型系统”的方式组织概念：  
 先把每个结构当作一个“类/接口”（底层集合 + 运算 + 公理），再用继承关系把它们串起来；同时把“同态/子对象/商对象/同构定理”做成跨结构可复用的模块。
@@ -32,12 +32,16 @@ description: 导航：math/README.md ｜math/索引.md ｜本分支：math/离�
   - [math/离散/structures/two-op/CommutativeRing.md](structures/two-op/CommutativeRing.md)
   - [math/离散/structures/two-op/IntegralDomain.md](structures/two-op/IntegralDomain.md)
   - [math/离散/structures/two-op/Field.md](structures/two-op/Field.md)
+  - [math/离散/structures/two-op/PolynomialRing.md](structures/two-op/PolynomialRing.md)
 
 横切模块（跨很多结构复用，避免重复写）：
 - [math/离散/modules/Morphism.md](modules/Morphism.md)：同态/同构/核/像/商的统一语言
-- [math/离散/modules/Subobject.md](modules/Subobject.md)：子结构（子群/子环/理想/正规子群）
+- [math/离散/modules/Subobject.md](modules/Subobject.md)：子结构（子群/正规子群/理想/极大理想/素理想）
 - [math/离散/modules/Quotient.md](modules/Quotient.md)：同余关系、陪集、商群/商环
-- [math/离散/modules/IsomorphismTheorems.md](modules/IsomorphismTheorems.md)：三大同构定理的“统一表述 + 群版 + 环版”
+- [math/离散/modules/IsomorphismTheorems.md](modules/IsomorphismTheorems.md)：三大同构定理的”统一表述 + 群版 + 环版”
+- [math/离散/modules/LagrangeAndCyclic.md](modules/LagrangeAndCyclic.md)：群的阶/元素的阶、Lagrange 定理、循环群分类
+- [math/离散/modules/PartialOrder.md](modules/PartialOrder.md)：偏序关系、Hasse 图、格（lattice）、布尔代数
+- [math/离散/modules/Factorization.md](modules/Factorization.md)：分解理论（UFD/PID/Euclidean Domain 层级链）
 - [math/离散/modules/FieldTheory.md](modules/FieldTheory.md)：域扩张/极小多项式/分裂域/Galois（域论主线）
 
 例子与练习（只放“最小工作例子”，用来对照定义）：

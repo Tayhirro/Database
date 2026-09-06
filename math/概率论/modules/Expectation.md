@@ -24,7 +24,6 @@ $$E[X] = \sum_{x} x \cdot P(X=x)$$
 $$E[X] = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \cdots + 6 \cdot \frac{1}{6} = 3.5$$
 
 ---
-
 ### 层次2：连续随机变量
 $$E[X] = \int_{-\infty}^{\infty} x \cdot p(x) \, dx$$
 
@@ -130,23 +129,6 @@ $$\int_{-\infty}^{\infty} |x| \cdot \frac{1}{\pi(1+x^2)} dx = \infty$$
 
 期望不存在。
 
----
-
-## 8. 在机器学习中的应用
-
-### 训练目标通常是期望
-$$\min_\theta \, E_{x \sim p_{data}(x)} [\ell(\theta; x)]$$
-
-**实际计算**：用样本平均近似
-$$E[\ell] \approx \frac{1}{n} \sum_{i=1}^n \ell(\theta; x_i)$$
-
-### VAE 的重建项
-$$E_{x \sim p_{data}} E_{z \sim q_\phi(z|x)} [\|x - f_\theta(z)\|^2]$$
-
-展开成联合期望：
-$$E_{(x,z) \sim q_\phi(x,z)} [\|x - f_\theta(z)\|^2]$$
-
-其中 $q_\phi(x,z) = p_{data}(x) \cdot q_\phi(z|x)$
 
 ---
 
@@ -168,7 +150,7 @@ $$E_{(x,z) \sim q_\phi(x,z)} [\|x - f_\theta(z)\|^2]$$
 
 - [条件期望](ConditionalExpectation.md)：$E[Y|X]$ 的严格定义
 - [嵌套期望](IteratedExpectation.md)：$E[E[Y|X]] = E[Y]$
-- [方差](Variance.md)：$\text{Var}(X) = E[X^2] - (E[X])^2$
+- [方差与协方差](MomentsMeasures.md)：$\text{Var}(X) = E[X^2] - (E[X])^2$
 
 ---
 

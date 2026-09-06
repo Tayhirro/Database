@@ -7,99 +7,242 @@ description: "把 AE 的潜空间改成概率模型：学习 q(z|x) 与 p(x|z)�
 ---
 # VAE（Variational Autoencoder）
 
+真实世界的数据背后存在一个低维原因z，于是生成对z采样期望生成图片（z=(年龄，生日，时间)，decoder训练为根据这些生成内容) 
+
 ## 1. 一句话
 - 把 AE 的潜空间改成概率模型：学习 `q(z|x)` 与 `p(x|z)`，通过最大化 `ELBO` 做生成与表征学习。
 - z和x关联  ---由输入输出一个变分分布 拟合 真实z分布 --- 方便采样 
 	-  通过积分边缘 推导
 	-  通过贝叶斯推导
 
-## 2. 本质（概率化降维 + 生成建模）
-- 把高维数据 `x` 看成由低维潜变量 `z` 生成：`p(x)=∫ p(z)p(x|z)dz`（潜变量模型的“降维”视角）。
-- VAE 的核心是同时学两条路：  
-  1) 生成路（decoder）：`p_θ(x|z)` 能从 `z` 采样生成 `x`  
-  2) 推断路（encoder）：`q_φ(z|x)` 近似难算的真实后验 `p(z|x)`（用 ELBO 把它们绑在一起训练）
-- 对照：GMM（隐类别）、HMM（隐状态）、因子分析（少数因子）也都是“隐变量解释观测”；VAE 只是把生成/推断用神经网络参数化了。入口：[modules/probabilistic/DimensionalityReduction.md](../modules/probabilistic/DimensionalityReduction.md)
-- `z -> x` 这步在不同语境的名字（decoder mapping / pushforward / 参数化）见：[modules/probabilistic/LatentToDataMapping.md](../modules/probabilistic/LatentToDataMapping.md)
+## 2. ELBO 推导（两条等价路径）
 
--如果直接不引入已知分布z，对其求解
--p(x)=∫ p(z)p(x|z)dz 
--最大化p(x) --->logp(x) = logEpz p(x|z) >= Epz logp(x|z)  
-- 且这里p(z)和真实后验 pθ(z∣x) 相差过大 **导致 过松**
-	- logp(x) = logp(z)+logpθ​(x∣z)−logpθ​(z∣x)  取期望 
-	- logp(x)−Ep(z)​[logp(x∣z)]=KL(p(z)∥p(z∣x))≥0
-	- Ep(z)​[logp(x∣z)] 负的多 --->KL大（pz和pz|x分布不同）--->Epz logp(x|z)  小 
--且本身为负（维度越高，负的越多）
--p(x|z)的 μ 则直接学成E(x)      ---》  N(μθ​(z),σ2) ---》导致直接学成E（x） 
-### 推导证明：高斯似然下 $\mathbb{E}_{p(z)}[\log p(x|z)]$ 为何常为负
+### 2.1 问题设定：为什么需要 ELBO
 
-**前提假设**：
-- 设 $x \in \mathbb{R}^D$（D 维数据）
-- decoder 采用各向同性高斯：$p(x|z) = \mathcal{N}(x; \mu_\theta(z), \sigma^2 I)$
+生成模型定义：
 
-**Step 1：写出 log-likelihood 闭式**
+$$
+z \sim p(z), \qquad x \sim p_\theta(x \mid z)
+$$
 
-由高斯分布的概率密度函数：
+训练目标是最大化对数似然：
 
-$$\log p(x|z) = -\frac{D}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\|x - \mu_\theta(z)\|^2$$
+$$
+\max_\theta \; \log p_\theta(x)
+$$
 
-- 第一项：维度线性项（常数）
-- 第二项：重建误差项（非负）
+但 $p_\theta(x)$ 要对所有 $z$ 积分：
 
-**Step 2：对 $p(z)$ 取期望**
+$$
+p_\theta(x) = \int p_\theta(x \mid z)\,p(z)\,dz
+$$
 
-$$\mathbb{E}_{p(z)}[\log p(x|z)] = -\frac{D}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\mathbb{E}_{p(z)}\|x - \mu_\theta(z)\|^2$$
+这个积分算不了（$z$ 的维度太高，穷举不可能）。同时，真实后验也算不了：
 
-**Step 3：推出严格上界**
+$$
+p_\theta(z \mid x) = \frac{p_\theta(x \mid z)\,p(z)}{p_\theta(x)}
+$$
 
-注意第二项 $\geq 0$（平方范数的期望非负），因此：
+分母正是那个难算的积分。因此两个困难本质上是同一个：
 
-$$\mathbb{E}_{p(z)}[\log p(x|z)] \leq -\frac{D}{2}\log(2\pi\sigma^2)$$
+$$
+p_\theta(x) \text{ 难算} \quad\Longleftrightarrow\quad p_\theta(z \mid x) \text{ 难算}
+$$
 
-**Step 4：分析为何为负**
+**解决思路**：引入一个可计算、可采样的近似后验 $q_\phi(z \mid x)$（encoder），用它来构造一个对数似然的下界（ELBO），最大化 ELBO 等价于间接最大化 $\log p_\theta(x)$。
+- 这种ELBO会在真实后验p(x|z)and pz 之间平衡，然后同时根据这个训练一个decoder
+	- 直接在z捞针会导致梯度根本无效，很难学习
+	- 通过引入ELBO 和条件先验，在周围采样使得梯度能流动
 
-- 只要 $2\pi\sigma^2 > 1$（常见 $\sigma$ 不太小），右边就是**负的**
-- 且随 $D$（维度）**线性变负**
-- 再加上重建误差那项（必为负），就会**更负**
 
-> **严谨来源**：即使你把重建误差做到 0，上面那个 $-\frac{D}{2}\log(2\pi\sigma^2)$ 也会随维度把它压得很低；而用先验采样时重建误差通常不可能接近 0，所以会更负。
+
+下面两条路径都能推出同一个 ELBO。
+
+
+### 2.2 路径一：贝叶斯分解（精确恒等式）
+
+**回答的问题**：ELBO 和真实对数似然之间**差多少**？
 
 ---
--引入变分思想
--`(logpθ(x)) L(x) = Eqϕ​(z∣x)​[logpθ​(x∣z)] - KL(qϕ​(z∣x) ∥ pθ​(z∣x))`
-- 最大化elbo = 最小化负 elbo
 
-$$\log p_\theta(x) = \log p(z) + \log p_\theta(x|z) - \log p_\theta(z|x)$$
-- pθ​(z∣x)难算，直接qϕ​(z∣x)拟合
+**Step 1：写出恒等式**
 
-### 1) 引入 $q_\phi(z|x)$：不是为了改目标，而是为了"能对 z 做期望"
+从联合分布出发：
 
-我们把式 (1) 对一个"我们能采样/评估"的分布 $q_\phi(z|x)$ 取期望：
+$$
+p_\theta(x) = \frac{p_\theta(x \mid z)\,p(z)}{p_\theta(z \mid x)}
+$$
 
-$$\log p_\theta(x) = \mathbb{E}_{q_\phi(z|x)} \left[ \log p(z) + \log p_\theta(x|z) - \log p_\theta(z|x) \right] \tag{2}$$
+取对数：
 
-这一步没做近似，因为 $\log p_\theta(x)$ 与 $z$ 无关，期望不会改变它。
+$$
+\log p_\theta(x) = \log p(z) + \log p_\theta(x \mid z) - \log p_\theta(z \mid x) \tag{1}
+$$
 
-### 2) 把"不可算的 $\log p_\theta(z|x)$"用 $q$ 的 KL 展开掉
+---
 
-现在关键一步：在 (2) 里出现了 $\mathbb{E}_q[-\log p_\theta(z|x)]$。我们把它写成 KL 的形式。
+**Step 2：对近似后验取期望**
 
-**KL 定义**：
-$$\text{KL}(q_\phi(z|x) \| p_\theta(z|x)) = \mathbb{E}_q \left[ \log q_\phi(z|x) - \log p_\theta(z|x) \right]$$
+式 (1) 对任意 $z$ 成立，因此对 $q_\phi(z \mid x)$ 取期望依然成立（$\log p_\theta(x)$ 与 $z$ 无关，期望不变）：
 
-**把它移项**：
-$$\mathbb{E}_q[-\log p_\theta(z|x)] = \text{KL}(q \| p_\theta(\cdot|x)) - \mathbb{E}_q[\log q_\phi(z|x)] \tag{3}$$
+$$
+\log p_\theta(x) = \mathbb{E}_{q_\phi(z \mid x)}\Bigl[\log p(z) + \log p_\theta(x \mid z) - \log p_\theta(z \mid x)\Bigr] \tag{2}
+$$
 
-**把 (3) 代回 (2)**：
-$$\log p_\theta(x) = \mathbb{E}_q[\log p(z) + \log p_\theta(x|z)] - \mathbb{E}_q[\log p_\theta(z|x)]$$
-$$= \mathbb{E}_q[\log p(z) + \log p_\theta(x|z)] - \left( \text{KL}(q \| p_\theta(\cdot|x)) - \mathbb{E}_q[\log q] \right)$$
+---
 
-**整理**：
-$$\log p_\theta(x) = \underbrace{\mathbb{E}_q[\log p_\theta(x|z)] + \mathbb{E}_q[\log p(z)] - \mathbb{E}_q[\log q_\phi(z|x)]}_{\text{ELBO}} + \underbrace{\text{KL}(q_\phi(z|x) \| p_\theta(z|x))}_{\geq 0} \tag{4}$$
+**Step 3：用 KL 消去不可算的 $\log p_\theta(z \mid x)$**
 
-- Eqϕ​(z∣x)​[logpθ​(x∣z)]∝−Eqϕ​(z∣x)​∥x−fθ​(z)∥^2 ---MSE推导（正比）
-	- KL推导
-	 - 最大化ELBO： 1：KL最小化 2：最大化px
-	 - 增加了一个KL 的下界约束
+KL 散度的定义：
+
+$$
+D_{\mathrm{KL}}\bigl(q_\phi(z \mid x) \,\|\, p_\theta(z \mid x)\bigr)
+= \mathbb{E}_{q}\bigl[\log q_\phi(z \mid x) - \log p_\theta(z \mid x)\bigr]
+$$
+
+移项，把 $\mathbb{E}_q[-\log p_\theta(z \mid x)]$ 解出来：
+
+$$
+\mathbb{E}_q[-\log p_\theta(z \mid x)] = D_{\mathrm{KL}}(q \,\|\, p_\theta(\cdot \mid x)) - \mathbb{E}_q[\log q_\phi(z \mid x)] \tag{3}
+$$
+
+---
+
+**Step 4：代回整理**
+
+把 (3) 代入 (2)：
+
+$$
+\begin{aligned}
+\log p_\theta(x)
+&= \mathbb{E}_q[\log p(z) + \log p_\theta(x \mid z)] + D_{\mathrm{KL}} - \mathbb{E}_q[\log q_\phi] \\[4pt]
+&= \mathbb{E}_q[\log p_\theta(x \mid z)] + \mathbb{E}_q[\log p(z) - \log q_\phi(z \mid x)] + D_{\mathrm{KL}}
+\end{aligned}
+$$
+
+后两项合并为 KL：
+
+$$
+\boxed{
+\log p_\theta(x)
+= \underbrace{\mathbb{E}_{q_\phi}[\log p_\theta(x \mid z)] \;-\; D_{\mathrm{KL}}\bigl(q_\phi(z \mid x) \,\|\, p(z)\bigr)}_{\text{ELBO}}
+\;+\; \underbrace{D_{\mathrm{KL}}\bigl(q_\phi(z \mid x) \,\|\, p_\theta(z \mid x)\bigr)}_{\geq 0}
+}
+$$
+
+---
+
+**Step 5：结论**
+
+因为 KL ≥ 0：
+
+$$
+\log p_\theta(x) \geq \mathrm{ELBO}(x)
+$$
+
+而且 gap 就是近似后验与真实后验之间的 KL：
+
+$$
+\log p_\theta(x) - \mathrm{ELBO} = D_{\mathrm{KL}}\bigl(q_\phi(z \mid x) \,\|\, p_\theta(z \mid x)\bigr)
+$$
+
+- 当 $q_\phi = p_\theta(z \mid x)$ 时 gap = 0，ELBO = 真实似然
+
+**这条 Eq. 4 里面其实藏着两个"力"**：
+
+把最终式子重新看一遍：
+
+$$
+\log p_\theta(x) = \underbrace{\mathbb{E}_q[\log p_\theta(x \mid z)]}_{\text{① 重建力}} \;-\; \underbrace{D_{\mathrm{KL}}(q_\phi \,\|\, p(z))}_{\text{② 正则力}} \;+\; \underbrace{D_{\mathrm{KL}}(q_\phi \,\|\, p_\theta(z \mid x))}_{\text{③ 变分间隙}}
+$$
+
+- **② 正则力**（ELBO 内部）：最大化 ELBO 会**显式**地把 $q_\phi$ 推向先验 $p(z)$。这是防止后验崩塌的约束，保证生成时从 $\mathcal{N}(0,I)$ 采样能命中有效区域。
+- **③ 变分间隙**（ELBO 之外）：最大化 ELBO 会**隐式**地把 $q_\phi$ 推向真实后验 $p_\theta(z \mid x)$。因为 $\log p_\theta$ 对给定的 $x$ 是定值，推高 ELBO 就等价于压缩 gap，也就是缩小 $q_\phi$ 和 $p_\theta(z \mid x)$ 的距离。
+
+> 训练时这两个力**同时起作用**：往后验 $p_\theta(z \mid x)$ 的方向保证 encoder 编码出对当前 $x$ 有信息量的 $z$；往先验 $p(z)$ 的方向保证 $z$ 空间整齐、生成时可采到。两者之间的平衡就是 VAE 的核心。
+
+
+### 2.3 路径二：Jensen 不等式（直接构造下界）
+
+**回答的问题**：ELBO 为什么是**下界**？
+
+---
+
+**Step 1：从边缘积分出发**
+
+$$
+\log p_\theta(x) = \log \int p_\theta(x, z)\,dz = \log \int p_\theta(x \mid z)\,p(z)\,dz
+$$
+
+> ⚠️ 这里积分的是联合分布 $p_\theta(x, z)$，不是后验 $p_\theta(z \mid x)$。积后验等于 1，得不到 $p_\theta(x)$。
+
+---
+
+**Step 2：引入 $q_\phi(z \mid x)$**
+
+在积分里乘除同一个分布：
+
+$$
+\log p_\theta(x)
+= \log \int q_\phi(z \mid x)\,\frac{p_\theta(x, z)}{q_\phi(z \mid x)}\,dz
+= \log \mathbb{E}_{q_\phi}\!\left[\frac{p_\theta(x, z)}{q_\phi(z \mid x)}\right]
+$$
+
+---
+
+**Step 3：扔 Jensen 不等式**
+
+$\log$ 是凹函数 → $\log\mathbb{E}[Y] \ge \mathbb{E}[\log Y]$：
+
+$$
+\log p_\theta(x)
+\ge \mathbb{E}_{q_\phi}\!\left[\log\frac{p_\theta(x, z)}{q_\phi(z \mid x)}\right]
+$$
+
+---
+
+**Step 4：展开联合分布**
+
+$p_\theta(x, z) = p_\theta(x \mid z)\,p(z)$：
+
+$$
+\begin{aligned}
+\log p_\theta(x)
+&\ge \mathbb{E}_{q_\phi}\Bigl[\log p_\theta(x \mid z) + \log p(z) - \log q_\phi(z \mid x)\Bigr] \\[4pt]
+&= \mathbb{E}_{q_\phi}[\log p_\theta(x \mid z)] \;-\; D_{\mathrm{KL}}\bigl(q_\phi(z \mid x) \,\|\, p(z)\bigr)
+\end{aligned}
+$$
+
+右边就是 ELBO，和路径一完全一致。
+
+
+### 2.4 两条路径的对比
+
+| | 路径一：贝叶斯分解 | 路径二：Jensen 不等式 |
+|---|---|---|
+| **出 发 点** | $\log p_\theta(x)$ 恒等变形 | 边缘积分 $\log \int p_\theta(x, z)\,dz$ |
+| **核心工具** | Bayes 公式 + KL 定义移项 | Jensen 不等式 $\log\mathbb{E} \ge \mathbb{E}\log$ |
+| **得到的形式** | $\log p_\theta = \mathrm{ELBO} + D_{\mathrm{KL}}$ | $\log p_\theta \ge \mathrm{ELBO}$ |
+| **精确度** | **精确恒等式**（gap 就是 KL） | **不等式**（未给出 gap 表达式） |
+| **回答的问题** | 差多少？ | 为什么是下界？ |
+| **终点** | 同一个 ELBO | 同一个 ELBO |
+
+```text
+                       p_θ(x) = ∫ p_θ(x|z) p(z) dz    ← 算不了
+                                     │
+                  ┌──────────────────┴──────────────────┐
+                  │                                     │
+          路径一：Bayes 移项                      路径二：Jensen 不等式
+          log p = ELBO + KL                      log p ≥ ELBO
+          回答：”差多少”                          回答：”为什么是下界”
+                  │                                     │
+                  └──────────────────┬──────────────────┘
+                                     │
+                              同一个 ELBO
+                  E_q[log p(x|z)] − KL(q || p(z))
+```
+
+> **一句话总结**：路径一给出精确的 gap 表达式，路径二给出下界的直觉来源。训练时最大化的是同一个 ELBO。重构项推样本质量，KL 项把后验拉向先验，保证生成时可从 $p(z)$ 采样。
 
 
 -------------------------------------------------------------

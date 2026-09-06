@@ -142,5 +142,6 @@ $$
 ## 相关页
 
 - 概率空间：见 [ProbabilitySpace.md](ProbabilitySpace.md)
+- 分布：见 [Distribution.md](Distribution.md)
 - 独立性：见 [../modules/Independence.md](../modules/Independence.md)
 - 期望：见 [../modules/Expectation.md](../modules/Expectation.md)

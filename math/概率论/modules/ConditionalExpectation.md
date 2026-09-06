@@ -235,7 +235,7 @@ $$p_\theta(x|c) \quad \text{（CVAE, conditional GAN）}$$
 - [期望](Expectation.md)：无条件期望的定义
 - [嵌套期望](IteratedExpectation.md)：全期望公式详解
 - [链式法则](ChainRule.md)：$p(x,y) = p(x)p(y|x)$
-- [Bayes公式](BayesTheorem.md)：$p(y|x) = \frac{p(x|y)p(y)}{p(x)}$
+- [Bayes公式](ChainRule.md)：$p(y|x) = \frac{p(x|y)p(y)}{p(x)}$
 
 ---
 

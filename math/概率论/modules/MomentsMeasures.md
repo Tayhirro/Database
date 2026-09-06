@@ -41,6 +41,47 @@ $$\sigma(X) = \sqrt{\text{Var}(X)}$$
 
 ---
 
+### 条件方差（Conditional Variance）
+
+已知 $X$ 后，$Y$ 还剩多少不确定性：
+
+$$\text{Var}(Y|X) = E[(Y - E[Y|X])^2 | X]$$
+
+等价计算公式：
+
+$$\text{Var}(Y|X) = E[Y^2|X] - (E[Y|X])^2$$
+
+给定具体取值 $X=x$ 时：
+
+$$\text{Var}(Y|X=x) = E[Y^2|X=x] - (E[Y|X=x])^2$$
+
+**类型区别**：
+- $\text{Var}(Y|X)$ 是随机变量，本质是 $X$ 的函数
+- $\text{Var}(Y|X=x)$ 是一个数
+
+**独立性简化**：
+若 $X, Y$ 独立，则：
+$$\text{Var}(Y|X) = \text{Var}(Y)$$
+
+---
+
+### 方差分解（全方差公式）
+
+$$\text{Var}(Y) = E[\text{Var}(Y|X)] + \text{Var}(E[Y|X])$$
+
+**记忆**：总方差 = 组内方差的平均 + 组间均值的方差
+
+**直觉**：
+- $E[\text{Var}(Y|X)]$：固定每个 $X$ 后，$Y$ 在组内还会波动多少
+- $\text{Var}(E[Y|X])$：不同 $X$ 对应的条件均值之间差多少
+
+**推导思路**：
+$$Y - E[Y] = (Y - E[Y|X]) + (E[Y|X] - E[Y])$$
+
+平方后取期望，交叉项为 0，因此得到全方差公式。
+
+---
+
 ### 性质
 
 **常数不影响方差**：
@@ -55,6 +96,31 @@ $$\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$$
 
 **一般情形**（不要求独立）：
 $$\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X, Y)$$
+
+**线性组合的方差**：
+$$\text{Var}(aX + bY + c) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\text{Cov}(X,Y)$$
+
+推广到多变量：
+$$\text{Var}\left(\sum_{i=1}^n a_iX_i\right)
+= \sum_{i=1}^n a_i^2\text{Var}(X_i)
++ 2\sum_{i<j} a_i a_j \text{Cov}(X_i,X_j)$$
+
+若 $X_1,\ldots,X_n$ 两两不相关，则协方差项为 0。
+
+---
+
+### 总体方差与样本方差
+
+**总体方差**是分布本身的数值特征：
+$$\text{Var}(X) = E[(X-\mu)^2]$$
+
+**样本内方差**（描述当前样本的离散程度）：
+$$S_n^2 = \frac{1}{n}\sum_{i=1}^n (X_i-\bar{X})^2$$
+
+**无偏样本方差**（估计总体方差）：
+$$S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X})^2$$
+
+**关键区别**：$\frac{1}{n-1}$ 是为了让 $E[S^2]=\text{Var}(X)$，不是总体方差定义的一部分。
 
 ---
 
@@ -244,10 +310,24 @@ $$|\rho(X,Y)| \leq 1$$
 
 ---
 
-### 方差分解（条件方差公式）
-$$\text{Var}(Y) = E[\text{Var}(Y|X)] + \text{Var}(E[Y|X])$$
+### Markov 不等式
 
-**记忆**：总方差 = 组内方差的平均 + 组间均值的方差
+若 $X \geq 0$，且 $a>0$，则：
+$$P(X \geq a) \leq \frac{E[X]}{a}$$
+
+**用途**：只知道均值时，粗略控制右尾概率。
+
+---
+
+### Chebyshev 不等式
+
+若 $E[X]=\mu$，$\text{Var}(X)=\sigma^2$，则：
+$$P(|X-\mu| \geq a) \leq \frac{\sigma^2}{a^2}$$
+
+等价地：
+$$P(|X-\mu| \geq k\sigma) \leq \frac{1}{k^2}$$
+
+**用途**：只知道均值和方差时，控制偏离均值的概率。
 
 ---
 
@@ -290,10 +370,13 @@ Decoder 输出均值和协方差。
 | 期望 | $E[X] = \int x p(x) dx$ | 中心位置 |
 | 方差 | $\text{Var}(X) = E[X^2] - (E[X])^2$ | 离散程度 |
 | 标准差 | $\sigma = \sqrt{\text{Var}(X)}$ | 与 $X$ 同单位 |
+| 条件方差 | $\text{Var}(Y\|X)=E[Y^2\|X]-(E[Y\|X])^2$ | 已知 $X$ 后的剩余离散程度 |
+| 全方差公式 | $\text{Var}(Y)=E[\text{Var}(Y\|X)]+\text{Var}(E[Y\|X])$ | 组内 + 组间 |
 | 协方差 | $\text{Cov}(X,Y) = E[XY] - E[X]E[Y]$ | 线性相关性 |
 | 相关系数 | $\rho = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}$ | 归一化协方差 |
 | 独立和方差 | $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$ | 仅独立时 |
 | 一般和方差 | $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$ | 总成立 |
+| 无偏样本方差 | $S^2=\frac{1}{n-1}\sum_i(X_i-\bar{X})^2$ | 估计总体方差 |
 
 ---
 
@@ -301,7 +384,7 @@ Decoder 输出均值和协方差。
 
 - [期望](Expectation.md)：期望的详细定义
 - [条件期望](ConditionalExpectation.md)：$E[Y|X]$
-- [不等式](Inequalities.md)：Cauchy-Schwarz、Jensen、Markov、Chebyshev
+- 本文第 7 节：Cauchy-Schwarz、Markov、Chebyshev 等常用不等式
 
 ---
 
@@ -312,3 +395,5 @@ Decoder 输出均值和协方差。
 - **误区3**：混淆协方差和相关系数（后者是归一化的）
 - **误区4**：认为 $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)$ 总成立（需要独立或不相关）
 - **误区5**：用 Pearson 相关系数衡量非线性关系（它只能捕获线性相关）
+- **误区6**：认为 $\text{Var}(Y|X)$ 是常数（它通常是关于 $X$ 的随机变量）
+- **误区7**：把全方差公式写成 $\text{Var}(Y)=\text{Var}(Y|X)+\text{Var}(E[Y|X])$（第一项外面还要取期望）

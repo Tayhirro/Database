@@ -12,7 +12,7 @@ description: modules 用来放会被多个模型复用的概念，但在 modules
 所以这几类都可以放在 `modules/`：
 - 训练目标与训练机制：`Loss`、`Optimizer`
 - 概率与变分推断底座：`ELBO`、`KL`、`Reparameterization Trick`
-- 表示学习范式：`Contrastive Learning`、`Metric Learning`
+- 表示学习范式：`Contrastive Learning`、`JEPA`、`Metric Learning`
 - 强化学习框架：`MDP`、`Policy Gradient`、`Actor-Critic`、`GAE`
 
 这些模块再按主题域分到二级目录里：
@@ -20,7 +20,7 @@ description: modules 用来放会被多个模型复用的概念，但在 modules
 - `training/`：训练目标、初始化、优化器
 - `probabilistic/`：潜变量、ELBO、KL、重参数化、GMM/HMM/FA
 - `transformer/`：Attention、Tokenization
-- `representation/`：对比学习、度量学习、原型学习
+- `representation/`：对比学习、JEPA、度量学习、原型学习
 - `sequence/`：RNN 概念入口
 - `graph/`：图神经网络基础
 - `rl/`：强化学习底座与框架

@@ -46,7 +46,7 @@ description: 这部分建议按两层来组织：1) models 按“具体模型/�
 - `modules/training/`：训练目标、初始化、优化器
 - `modules/probabilistic/`：潜变量、ELBO、KL、重参数化
 - `modules/transformer/`：Attention、Tokenization
-- `modules/representation/`：对比学习、度量学习、原型学习
+- `modules/representation/`：对比学习、JEPA、度量学习、原型学习
 - `modules/sequence/`：RNN 概念入口
 - `modules/graph/`：图神经网络基础
 - `modules/rl/`：MDP、价值函数、策略梯度、Actor-Critic、GAE
@@ -55,6 +55,7 @@ description: 这部分建议按两层来组织：1) models 按“具体模型/�
 - 序列建模：`modules/sequence/RecurrentNeuralNetwork.md`
 - 图神经网络：`modules/graph/GraphAttentionNetwork.md`
 - CLIP：`modules/representation/ContrastiveLearning.md`
+- JEPA：`modules/representation/JEPA.md`
 - few-shot / 度量学习：`modules/representation/MetricLearning.md`、`modules/representation/PrototypicalLearning.md`
 - 训练优化：`modules/training/Initialization.md`、`modules/training/Loss.md`、`modules/training/Optimizer.md`
 - 强化学习底座：`modules/rl/MarkovDecisionProcess.md`、`modules/rl/ValueFunction.md`、`modules/rl/PolicyGradient.md`、`modules/rl/ActorCritic.md`、`modules/rl/GeneralizedAdvantageEstimation.md`
@@ -68,6 +69,7 @@ description: 这部分建议按两层来组织：1) models 按“具体模型/�
 - AE → VAE（ELBO + KL + 重参数化）→ CVAE（条件变量怎么进模型）
 - Attention → Transformer Encoder → BERT（预训练目标与微调套路）
 - 对比学习（InfoNCE）→ CLIP（双塔 + 相似度矩阵 + 温度系数）
+- JEPA：从“重建像素/对比样本”转向“用上下文预测目标表征”，适合作为非对比预测式自监督路线
 - 度量学习：先补 `Metric Learning`，再看 Siamese / Triplet / 原型学习 / ArcFace 这些具体路线
 - Diffusion：先抓住“前向加噪 + 反向去噪 + 预测噪声/score”三件事，再补 guided diffusion / Q-guidance
 

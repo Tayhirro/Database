@@ -171,7 +171,7 @@ z ~ N(0, I)  →  x = G(z)
 | 潜空间 | 无结构 | 有结构（正则化） | 无显式潜空间 |
 
 - VAE 详细笔记：[models/VAE.md](VAE.md)
-- Diffusion 详细笔记：[models/Diffusion.md](Diffusion.md)
+- Diffusion 详细笔记：[models/Diffusion.md](生成模型.md)
 
 ## 9. 参考
 - Goodfellow et al., 2014. *Generative Adversarial Nets*
