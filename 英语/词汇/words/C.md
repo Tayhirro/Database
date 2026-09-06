@@ -17,6 +17,7 @@ description: "| 单词    | 音标        | 词性 | 释义     | 例句        
 | concave | /ˈkɒn keɪv/ | adj. | 凹的；凹面的 | The concave mirror creates a virtual image behind the mirror. |
 | corrupted | /kəˈrʌptɪd/ | adj. | 损坏的；腐败的；被破坏的 | The file was corrupted during transfer and could not be opened. |
 | codify | /ˈkɒdɪfaɪ/ | v. | 把…编成法典；将（规则、程序等）系统化、正式规范化表述 | The new policy codifies practices that were previously handled on an ad hoc basis. |
+| contrastive | /kənˈtrɑːstɪv/ | adj. | 对比的；对照的（contrast 的形容词，强调"通过差异来定义"） | Contrastive learning pulls embeddings of similar samples together while pushing dissimilar ones apart. |
 
 ---
 > 返回：[索引.md](../索引.md) | [../README.md](../README.md)

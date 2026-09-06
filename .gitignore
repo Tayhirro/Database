@@ -13,3 +13,8 @@ node_modules/
 
 # Obsidian 插件本机数据
 .obsidian/plugins/**/data.json
+
+# toolchains unpacked in workspace (large, re-downloadable)
+.tmp/maven/
+.tools/apache-maven-3.9.6/
+.tools/apache-maven-3.9.6-bin.zip
